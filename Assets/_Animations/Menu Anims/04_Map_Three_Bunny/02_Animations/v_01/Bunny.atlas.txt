@@ -1,0 +1,132 @@
+
+Bunny.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Characters/Bunny/Arm_Bent_Bunny_Map
+  rotate: false
+  xy: 341, 29
+  size: 102, 142
+  orig: 102, 142
+  offset: 0, 0
+  index: -1
+Characters/Bunny/Arm_Bunny_Map
+  rotate: true
+  xy: 470, 152
+  size: 94, 126
+  orig: 94, 126
+  offset: 0, 0
+  index: -1
+Characters/Bunny/Body_Bunny_Map
+  rotate: false
+  xy: 191, 23
+  size: 148, 148
+  orig: 148, 148
+  offset: 0, 0
+  index: -1
+Characters/Bunny/Button_Bunny_Map
+  rotate: false
+  xy: 157, 37
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+Characters/Bunny/Ear_Bunny_Map
+  rotate: true
+  xy: 2, 9
+  size: 48, 124
+  orig: 48, 124
+  offset: 0, 0
+  index: -1
+Characters/Bunny/Eye_Bunny_Map
+  rotate: false
+  xy: 598, 146
+  size: 59, 59
+  orig: 59, 59
+  offset: 0, 0
+  index: -1
+Characters/Bunny/Foot_Bunny_Map
+  rotate: true
+  xy: 445, 64
+  size: 36, 17
+  orig: 36, 17
+  offset: 0, 0
+  index: -1
+Characters/Bunny/Glasses_Bar_Bunny_Map
+  rotate: false
+  xy: 2, 2
+  size: 62, 5
+  orig: 62, 5
+  offset: 0, 0
+  index: -1
+Characters/Bunny/Hand_Bunny_Map
+  rotate: false
+  xy: 659, 178
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+Characters/Bunny/Head_Bunny_Map
+  rotate: false
+  xy: 2, 59
+  size: 187, 187
+  orig: 187, 187
+  offset: 0, 0
+  index: -1
+Characters/Bunny/Leg_Bunny_Map
+  rotate: false
+  xy: 445, 102
+  size: 20, 69
+  orig: 20, 69
+  offset: 0, 0
+  index: -1
+Characters/Bunny/Mouth_Bunny_Map
+  rotate: false
+  xy: 719, 232
+  size: 49, 14
+  orig: 49, 14
+  offset: 0, 0
+  index: -1
+Characters/Bunny/Mouth_bgsmile_Bunny_Map
+  rotate: false
+  xy: 598, 207
+  size: 119, 39
+  orig: 119, 39
+  offset: 0, 0
+  index: -1
+Characters/Bunny/Mouth_o_Bunny_Map
+  rotate: false
+  xy: 128, 19
+  size: 27, 38
+  orig: 27, 38
+  offset: 0, 0
+  index: -1
+Characters/Bunny/Nose_Bunny_Map
+  rotate: false
+  xy: 659, 158
+  size: 18, 18
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+Characters/Bunny/Pupil_Bunny_Map
+  rotate: false
+  xy: 770, 232
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+Characters/Bunny/Pupil_cls_Bunny_Map
+  rotate: false
+  xy: 719, 216
+  size: 24, 14
+  orig: 24, 14
+  offset: 0, 0
+  index: -1
+Characters/Bunny/Shadow_Bunny_Map
+  rotate: false
+  xy: 191, 173
+  size: 277, 73
+  orig: 277, 73
+  offset: 0, 0
+  index: -1

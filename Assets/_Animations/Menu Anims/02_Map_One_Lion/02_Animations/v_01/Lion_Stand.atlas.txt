@@ -1,0 +1,160 @@
+
+Lion_Stand.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Lion/Arm_Bent_Lion_Stand
+  rotate: true
+  xy: 754, 306
+  size: 90, 151
+  orig: 90, 151
+  offset: 0, 0
+  index: -1
+Lion/Arm_Stand_Lion
+  rotate: true
+  xy: 2, 53
+  size: 113, 275
+  orig: 113, 275
+  offset: 0, 0
+  index: -1
+Lion/Body_Stand_Lion
+  rotate: true
+  xy: 534, 349
+  size: 157, 218
+  orig: 157, 218
+  offset: 0, 0
+  index: -1
+Lion/Ear_Stand_Lion
+  rotate: false
+  xy: 907, 342
+  size: 46, 54
+  orig: 46, 54
+  offset: 0, 0
+  index: -1
+Lion/Eye_Stand_Lion
+  rotate: false
+  xy: 907, 316
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+Lion/Eye_cls_Stand_Lion
+  rotate: false
+  xy: 296, 148
+  size: 35, 18
+  orig: 35, 18
+  offset: 0, 0
+  index: -1
+Lion/Eyebrow_Stand_Lion
+  rotate: false
+  xy: 2, 2
+  size: 32, 10
+  orig: 32, 10
+  offset: 0, 0
+  index: -1
+Lion/Foot_Lion
+  rotate: false
+  xy: 678, 328
+  size: 41, 19
+  orig: 41, 19
+  offset: 0, 0
+  index: -1
+Lion/Hand_Stand_Lion
+  rotate: false
+  xy: 955, 378
+  size: 38, 38
+  orig: 38, 38
+  offset: 0, 0
+  index: -1
+Lion/Head_Stand_Lion
+  rotate: false
+  xy: 342, 318
+  size: 190, 188
+  orig: 190, 188
+  offset: 0, 0
+  index: -1
+Lion/Leg_Bent_Stand_Lion
+  rotate: false
+  xy: 955, 418
+  size: 59, 88
+  orig: 59, 88
+  offset: 0, 0
+  index: -1
+Lion/Leg_Lion
+  rotate: false
+  xy: 494, 238
+  size: 22, 78
+  orig: 22, 78
+  offset: 0, 0
+  index: -1
+Lion/Mane_Stand_Lion
+  rotate: false
+  xy: 2, 168
+  size: 338, 338
+  orig: 338, 338
+  offset: 0, 0
+  index: -1
+Lion/Mouth_bigSmile_Stand_Lion
+  rotate: false
+  xy: 534, 312
+  size: 142, 35
+  orig: 142, 35
+  offset: 0, 0
+  index: -1
+Lion/Mouth_frown_Stand_Lion
+  rotate: true
+  xy: 279, 59
+  size: 107, 15
+  orig: 107, 15
+  offset: 0, 0
+  index: -1
+Lion/Mouth_o_Stand_Lion
+  rotate: false
+  xy: 494, 215
+  size: 21, 21
+  orig: 21, 21
+  offset: 0, 0
+  index: -1
+Lion/Nose_Stand_Lion
+  rotate: true
+  xy: 342, 150
+  size: 61, 137
+  orig: 61, 137
+  offset: 0, 0
+  index: -1
+Lion/Pupil_Stand_Lion
+  rotate: false
+  xy: 955, 358
+  size: 18, 18
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+Lion/Shadow_Stand_Lion
+  rotate: false
+  xy: 2, 14
+  size: 242, 37
+  orig: 242, 37
+  offset: 0, 0
+  index: -1
+Lion/Smile_Stand_Lion
+  rotate: false
+  xy: 342, 213
+  size: 150, 103
+  orig: 150, 103
+  offset: 0, 0
+  index: -1
+Lion/Tail_End_Lion
+  rotate: false
+  xy: 246, 23
+  size: 28, 28
+  orig: 28, 28
+  offset: 0, 0
+  index: -1
+Lion/Tail_Lion
+  rotate: false
+  xy: 754, 398
+  size: 199, 108
+  orig: 199, 108
+  offset: 0, 0
+  index: -1

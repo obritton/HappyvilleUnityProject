@@ -1,0 +1,97 @@
+
+Bird.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Bird/Beak-btm-brd
+  rotate: true
+  xy: 235, 110
+  size: 70, 19
+  orig: 70, 19
+  offset: 0, 0
+  index: -1
+Bird/Beak-top-brd
+  rotate: false
+  xy: 2, 2
+  size: 70, 46
+  orig: 70, 46
+  offset: 0, 0
+  index: -1
+Bird/Body-brd
+  rotate: false
+  xy: 2, 182
+  size: 281, 328
+  orig: 281, 328
+  offset: 0, 0
+  index: -1
+Bird/Eye-brd
+  rotate: false
+  xy: 465, 387
+  size: 45, 45
+  orig: 45, 45
+  offset: 0, 0
+  index: -1
+Bird/EyeBar-brd
+  rotate: false
+  xy: 335, 427
+  size: 128, 5
+  orig: 128, 5
+  offset: 0, 0
+  index: -1
+Bird/Feathers-brd
+  rotate: false
+  xy: 2, 50
+  size: 242, 50
+  orig: 242, 50
+  offset: 0, 0
+  index: -1
+Bird/Foot-brd
+  rotate: false
+  xy: 74, 23
+  size: 55, 14
+  orig: 55, 14
+  offset: 0, 0
+  index: -1
+Bird/Leg-brd
+  rotate: true
+  xy: 74, 39
+  size: 9, 123
+  orig: 9, 123
+  offset: 0, 0
+  index: -1
+Bird/Pupil-brd
+  rotate: false
+  xy: 335, 409
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Bird/Pupil-cls-brd
+  rotate: false
+  xy: 285, 210
+  size: 28, 10
+  orig: 28, 10
+  offset: 0, 0
+  index: -1
+Bird/Shadow_brd
+  rotate: true
+  xy: 285, 222
+  size: 288, 48
+  orig: 288, 48
+  offset: 0, 0
+  index: -1
+Bird/Twirly-brd
+  rotate: true
+  xy: 335, 434
+  size: 76, 175
+  orig: 76, 175
+  offset: 0, 0
+  index: -1
+Bird/Wing-brd
+  rotate: false
+  xy: 2, 102
+  size: 231, 78
+  orig: 231, 78
+  offset: 0, 0
+  index: -1

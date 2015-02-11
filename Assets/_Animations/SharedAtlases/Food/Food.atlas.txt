@@ -1,0 +1,234 @@
+
+Food.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Burger-oval
+  rotate: false
+  xy: 319, 354
+  size: 433, 287
+  orig: 433, 287
+  offset: 0, 0
+  index: -1
+Candy-green-diamond
+  rotate: false
+  xy: 2, 343
+  size: 315, 318
+  orig: 315, 318
+  offset: 0, 0
+  index: -1
+Candy-pink-diamond
+  rotate: false
+  xy: 2, 23
+  size: 315, 318
+  orig: 315, 318
+  offset: 0, 0
+  index: -1
+Cookie-star
+  rotate: true
+  xy: 754, 2
+  size: 296, 259
+  orig: 296, 259
+  offset: 0, 0
+  index: -1
+Cracker-diamond
+  rotate: true
+  xy: 437, 643
+  size: 347, 346
+  orig: 347, 346
+  offset: 0, 0
+  index: -1
+Pumpkin-oval
+  rotate: false
+  xy: 2, 663
+  size: 433, 327
+  orig: 433, 327
+  offset: 0, 0
+  index: -1
+Strawberry-triangle
+  rotate: true
+  xy: 754, 300
+  size: 341, 259
+  orig: 341, 259
+  offset: 0, 0
+  index: -1
+Watermelon-oval
+  rotate: false
+  xy: 319, 65
+  size: 433, 287
+  orig: 433, 287
+  offset: 0, 0
+  index: -1
+
+Food2.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Apple-half-circle
+  rotate: false
+  xy: 319, 483
+  size: 384, 192
+  orig: 384, 192
+  offset: 0, 0
+  index: -1
+Bread-oval
+  rotate: false
+  xy: 2, 722
+  size: 433, 270
+  orig: 433, 270
+  offset: 0, 0
+  index: -1
+Canteloupe-half-circle
+  rotate: true
+  xy: 2, 19
+  size: 384, 192
+  orig: 384, 192
+  offset: 0, 0
+  index: -1
+Cheese-triangle
+  rotate: true
+  xy: 754, 707
+  size: 285, 250
+  orig: 285, 250
+  offset: 0, 0
+  index: -1
+Chocolate-diamond
+  rotate: false
+  xy: 437, 677
+  size: 315, 315
+  orig: 315, 315
+  offset: 0, 0
+  index: -1
+Donut-circle
+  rotate: false
+  xy: 2, 405
+  size: 315, 315
+  orig: 315, 315
+  offset: 0, 0
+  index: -1
+Orange-circle
+  rotate: false
+  xy: 705, 367
+  size: 308, 308
+  orig: 308, 308
+  offset: 0, 0
+  index: -1
+Orange-half-circle
+  rotate: false
+  xy: 622, 2
+  size: 352, 169
+  orig: 352, 169
+  offset: 0, 0
+  index: -1
+Pizza-triangle
+  rotate: false
+  xy: 319, 143
+  size: 301, 338
+  orig: 301, 338
+  offset: 0, 0
+  index: -1
+Watermelon-half-circle
+  rotate: false
+  xy: 622, 173
+  size: 384, 192
+  orig: 384, 192
+  offset: 0, 0
+  index: -1
+
+Food3.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Chocolate-rectangle
+  rotate: false
+  xy: 2, 794
+  size: 354, 202
+  orig: 354, 202
+  offset: 0, 0
+  index: -1
+Chocolate-square
+  rotate: false
+  xy: 2, 2
+  size: 288, 288
+  orig: 288, 288
+  offset: 0, 0
+  index: -1
+Cookie-circle
+  rotate: true
+  xy: 714, 706
+  size: 290, 304
+  orig: 290, 304
+  offset: 0, 0
+  index: -1
+Cracker-square
+  rotate: false
+  xy: 2, 292
+  size: 296, 296
+  orig: 296, 296
+  offset: 0, 0
+  index: -1
+GreenApple-circle
+  rotate: true
+  xy: 358, 504
+  size: 288, 321
+  orig: 288, 321
+  offset: 0, 0
+  index: -1
+Ice-cream-rectangle
+  rotate: false
+  xy: 358, 794
+  size: 354, 202
+  orig: 354, 202
+  offset: 0, 0
+  index: -1
+Pastry-rectangle
+  rotate: false
+  xy: 2, 590
+  size: 354, 202
+  orig: 354, 202
+  offset: 0, 0
+  index: -1
+Pizza-square
+  rotate: false
+  xy: 573, 150
+  size: 277, 276
+  orig: 277, 276
+  offset: 0, 0
+  index: -1
+Sandwhich-square
+  rotate: false
+  xy: 292, 7
+  size: 279, 283
+  orig: 279, 283
+  offset: 0, 0
+  index: -1
+Watermelon-triangle
+  rotate: true
+  xy: 681, 428
+  size: 276, 298
+  orig: 276, 298
+  offset: 0, 0
+  index: -1
+
+Food4.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Candy-blue-star
+  rotate: false
+  xy: 262, 7
+  size: 257, 245
+  orig: 257, 245
+  offset: 0, 0
+  index: -1
+Candy-pink-star
+  rotate: false
+  xy: 2, 2
+  size: 258, 250
+  orig: 258, 250
+  offset: 0, 0
+  index: -1

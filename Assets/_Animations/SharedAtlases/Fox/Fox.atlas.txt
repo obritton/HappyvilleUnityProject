@@ -1,0 +1,111 @@
+
+Fox.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Fox/Arm-bend
+  rotate: false
+  xy: 447, 153
+  size: 134, 101
+  orig: 134, 101
+  offset: 0, 0
+  index: -1
+Fox/Arm-curve
+  rotate: true
+  xy: 447, 2
+  size: 149, 76
+  orig: 149, 76
+  offset: 0, 0
+  index: -1
+Fox/Arm-straight
+  rotate: false
+  xy: 583, 225
+  size: 179, 29
+  orig: 179, 29
+  offset: 0, 0
+  index: -1
+Fox/Body-fox
+  rotate: false
+  xy: 260, 70
+  size: 185, 184
+  orig: 185, 184
+  offset: 0, 0
+  index: -1
+Fox/Ear-fox
+  rotate: true
+  xy: 2, 14
+  size: 43, 97
+  orig: 43, 97
+  offset: 0, 0
+  index: -1
+Fox/Eye-cls-fox
+  rotate: false
+  xy: 101, 37
+  size: 40, 20
+  orig: 40, 20
+  offset: 0, 0
+  index: -1
+Fox/Eye-fox
+  rotate: false
+  xy: 764, 232
+  size: 53, 22
+  orig: 53, 22
+  offset: 0, 0
+  index: -1
+Fox/Hand
+  rotate: false
+  xy: 583, 184
+  size: 39, 39
+  orig: 39, 39
+  offset: 0, 0
+  index: -1
+Fox/Head-fox
+  rotate: false
+  xy: 2, 59
+  size: 256, 195
+  orig: 256, 195
+  offset: 0, 0
+  index: -1
+Fox/Mouth-fox
+  rotate: true
+  xy: 525, 41
+  size: 40, 14
+  orig: 40, 14
+  offset: 0, 0
+  index: -1
+Fox/Mouth-o-fox
+  rotate: false
+  xy: 624, 203
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+Fox/Mouth-open-fox
+  rotate: true
+  xy: 525, 2
+  size: 37, 11
+  orig: 37, 11
+  offset: 0, 0
+  index: -1
+Fox/Nose-fox
+  rotate: false
+  xy: 583, 156
+  size: 26, 26
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
+Fox/Pupil-fox
+  rotate: false
+  xy: 559, 130
+  size: 21, 21
+  orig: 21, 21
+  offset: 0, 0
+  index: -1
+Fox/Whisker-fox
+  rotate: true
+  xy: 525, 83
+  size: 68, 32
+  orig: 68, 32
+  offset: 0, 0
+  index: -1

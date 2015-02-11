@@ -1,0 +1,111 @@
+
+Bunny.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Bunny/Arm-bend
+  rotate: false
+  xy: 404, 153
+  size: 134, 101
+  orig: 134, 101
+  offset: 0, 0
+  index: -1
+Bunny/Arm-curve
+  rotate: true
+  xy: 404, 2
+  size: 149, 76
+  orig: 149, 76
+  offset: 0, 0
+  index: -1
+Bunny/Arm-straight
+  rotate: false
+  xy: 540, 225
+  size: 179, 29
+  orig: 179, 29
+  offset: 0, 0
+  index: -1
+Bunny/Body-bunny
+  rotate: false
+  xy: 226, 78
+  size: 176, 176
+  orig: 176, 176
+  offset: 0, 0
+  index: -1
+Bunny/Ear-bunny
+  rotate: true
+  xy: 540, 166
+  size: 57, 147
+  orig: 57, 147
+  offset: 0, 0
+  index: -1
+Bunny/Eye-bunny
+  rotate: false
+  xy: 482, 81
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Bunny/Eye-cls-bunny
+  rotate: true
+  xy: 689, 188
+  size: 35, 13
+  orig: 35, 13
+  offset: 0, 0
+  index: -1
+Bunny/EyeBar-bunny
+  rotate: false
+  xy: 721, 249
+  size: 73, 5
+  orig: 73, 5
+  offset: 0, 0
+  index: -1
+Bunny/Hand
+  rotate: false
+  xy: 519, 40
+  size: 39, 39
+  orig: 39, 39
+  offset: 0, 0
+  index: -1
+Bunny/Head-bunny
+  rotate: false
+  xy: 2, 32
+  size: 222, 222
+  orig: 222, 222
+  offset: 0, 0
+  index: -1
+Bunny/Mouth-bunny
+  rotate: false
+  xy: 2, 13
+  size: 59, 17
+  orig: 59, 17
+  offset: 0, 0
+  index: -1
+Bunny/Mouth-o-bunny
+  rotate: false
+  xy: 482, 30
+  size: 35, 49
+  orig: 35, 49
+  offset: 0, 0
+  index: -1
+Bunny/Mouth-open-bunny
+  rotate: false
+  xy: 226, 26
+  size: 152, 50
+  orig: 152, 50
+  offset: 0, 0
+  index: -1
+Bunny/Nose-bunny
+  rotate: false
+  xy: 380, 54
+  size: 22, 22
+  orig: 22, 22
+  offset: 0, 0
+  index: -1
+Bunny/Pupil-bunny
+  rotate: false
+  xy: 482, 11
+  size: 17, 17
+  orig: 17, 17
+  offset: 0, 0
+  index: -1

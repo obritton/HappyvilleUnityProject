@@ -1,0 +1,125 @@
+
+Fox_Stand.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Fox/Arm_Fox_Map
+  rotate: false
+  xy: 426, 56
+  size: 94, 127
+  orig: 94, 127
+  offset: 0, 0
+  index: -1
+Fox/Arm_bend_Fox_Map
+  rotate: false
+  xy: 522, 112
+  size: 102, 142
+  orig: 102, 142
+  offset: 0, 0
+  index: -1
+Fox/Body_Fox_Map
+  rotate: true
+  xy: 257, 64
+  size: 119, 167
+  orig: 119, 167
+  offset: 0, 0
+  index: -1
+Fox/Ear_Fox_Map
+  rotate: true
+  xy: 2, 16
+  size: 43, 96
+  orig: 43, 96
+  offset: 0, 0
+  index: -1
+Fox/Eye_Fox_Map
+  rotate: false
+  xy: 100, 37
+  size: 52, 22
+  orig: 52, 22
+  offset: 0, 0
+  index: -1
+Fox/Eye_cls_Fox_Map
+  rotate: false
+  xy: 522, 58
+  size: 38, 19
+  orig: 38, 19
+  offset: 0, 0
+  index: -1
+Fox/Foot_Fox_Map
+  rotate: true
+  xy: 626, 147
+  size: 36, 17
+  orig: 36, 17
+  offset: 0, 0
+  index: -1
+Fox/Hand_Fox_Map
+  rotate: false
+  xy: 591, 83
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+Fox/Head_Fox_Map
+  rotate: false
+  xy: 2, 61
+  size: 253, 193
+  orig: 253, 193
+  offset: 0, 0
+  index: -1
+Fox/Leg_Fox_Map
+  rotate: false
+  xy: 626, 185
+  size: 20, 69
+  orig: 20, 69
+  offset: 0, 0
+  index: -1
+Fox/Mouth_Smile_Fox_Map
+  rotate: false
+  xy: 648, 241
+  size: 38, 13
+  orig: 38, 13
+  offset: 0, 0
+  index: -1
+Fox/Mouth_o_Fox_Map
+  rotate: false
+  xy: 648, 192
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+Fox/Mouth_open_Fox_Map
+  rotate: false
+  xy: 2, 2
+  size: 38, 12
+  orig: 38, 12
+  offset: 0, 0
+  index: -1
+Fox/Nose_Fox_Map
+  rotate: false
+  xy: 648, 214
+  size: 25, 25
+  orig: 25, 25
+  offset: 0, 0
+  index: -1
+Fox/Pupil_Fox_Map
+  rotate: false
+  xy: 154, 38
+  size: 21, 21
+  orig: 21, 21
+  offset: 0, 0
+  index: -1
+Fox/Shadow_Fox_Map
+  rotate: false
+  xy: 257, 185
+  size: 263, 69
+  orig: 263, 69
+  offset: 0, 0
+  index: -1
+Fox/Whisker_Fox_Map
+  rotate: false
+  xy: 522, 79
+  size: 67, 31
+  orig: 67, 31
+  offset: 0, 0
+  index: -1

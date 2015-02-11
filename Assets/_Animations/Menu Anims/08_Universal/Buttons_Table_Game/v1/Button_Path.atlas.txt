@@ -1,0 +1,69 @@
+
+Button_Path.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Menu_Screens/Button_Locked_Active
+  rotate: false
+  xy: 2, 212
+  size: 265, 229
+  orig: 265, 229
+  offset: 0, 0
+  index: -1
+Menu_Screens/Button_Locked_InActive
+  rotate: false
+  xy: 2, 2
+  size: 265, 208
+  orig: 265, 208
+  offset: 0, 0
+  index: -1
+Menu_Screens/Button_Shape_Active
+  rotate: false
+  xy: 600, 734
+  size: 265, 229
+  orig: 265, 229
+  offset: 0, 0
+  index: -1
+Menu_Screens/Button_Shape_Press
+  rotate: false
+  xy: 269, 233
+  size: 265, 208
+  orig: 265, 208
+  offset: 0, 0
+  index: -1
+Menu_Screens/Button_Top_Letter
+  rotate: false
+  xy: 867, 827
+  size: 130, 136
+  orig: 130, 136
+  offset: 0, 0
+  index: -1
+Menu_Screens/Button_Top_Number
+  rotate: false
+  xy: 269, 103
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Menu_Screens/Button_Top_Shape
+  rotate: false
+  xy: 867, 695
+  size: 122, 130
+  orig: 122, 130
+  offset: 0, 0
+  index: -1
+Menu_Screens/Ray_Button
+  rotate: false
+  xy: 2, 443
+  size: 596, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Menu_Screens/Shadow_Button_Games
+  rotate: false
+  xy: 600, 524
+  size: 265, 208
+  orig: 265, 208
+  offset: 0, 0
+  index: -1

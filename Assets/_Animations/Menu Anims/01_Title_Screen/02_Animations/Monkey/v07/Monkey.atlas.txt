@@ -1,0 +1,118 @@
+
+Monkey.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Frog/Tongue-top-frg
+  rotate: false
+  xy: 570, 799
+  size: 96, 92
+  orig: 96, 92
+  offset: 0, 0
+  index: -1
+Monkey/Arm-bend
+  rotate: false
+  xy: 309, 594
+  size: 223, 168
+  orig: 223, 168
+  offset: 0, 0
+  index: -1
+Monkey/Arm-curve
+  rotate: false
+  xy: 570, 893
+  size: 248, 126
+  orig: 248, 126
+  offset: 0, 0
+  index: -1
+Monkey/Arm-straight
+  rotate: true
+  xy: 337, 140
+  size: 299, 48
+  orig: 299, 48
+  offset: 0, 0
+  index: -1
+Monkey/Body-monk
+  rotate: false
+  xy: 2, 399
+  size: 305, 620
+  orig: 305, 620
+  offset: 0, 0
+  index: -1
+Monkey/Ear-monk
+  rotate: false
+  xy: 309, 441
+  size: 151, 151
+  orig: 151, 151
+  offset: 0, 0
+  index: -1
+Monkey/Eye-monk
+  rotate: false
+  xy: 668, 808
+  size: 83, 83
+  orig: 83, 83
+  offset: 0, 0
+  index: -1
+Monkey/Hand
+  rotate: false
+  xy: 462, 527
+  size: 65, 65
+  orig: 65, 65
+  offset: 0, 0
+  index: -1
+Monkey/Head-monk
+  rotate: false
+  xy: 309, 764
+  size: 259, 255
+  orig: 259, 255
+  offset: 0, 0
+  index: -1
+Monkey/Mouth-monk
+  rotate: true
+  xy: 307, 92
+  size: 305, 28
+  orig: 305, 28
+  offset: 0, 0
+  index: -1
+Monkey/Mouth-o-monk
+  rotate: false
+  xy: 820, 931
+  size: 83, 88
+  orig: 83, 88
+  offset: 0, 0
+  index: -1
+Monkey/Mouth-opn-monk
+  rotate: true
+  xy: 2, 25
+  size: 372, 175
+  orig: 372, 175
+  offset: 0, 0
+  index: -1
+Monkey/Mouth-shape-monk
+  rotate: true
+  xy: 179, 25
+  size: 372, 126
+  orig: 372, 126
+  offset: 0, 0
+  index: -1
+Monkey/Nostril-monk
+  rotate: true
+  xy: 534, 711
+  size: 51, 15
+  orig: 51, 15
+  offset: 0, 0
+  index: -1
+Monkey/Pupil-cls-monk
+  rotate: false
+  xy: 2, 2
+  size: 59, 21
+  orig: 59, 21
+  offset: 0, 0
+  index: -1
+Monkey/Pupil-monk
+  rotate: false
+  xy: 337, 98
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1

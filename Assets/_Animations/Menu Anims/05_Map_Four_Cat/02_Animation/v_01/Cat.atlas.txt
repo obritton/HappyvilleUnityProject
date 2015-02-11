@@ -1,0 +1,118 @@
+
+Cat.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Characters/Cat/Arm_bent_Cat_Map
+  rotate: true
+  xy: 201, 3
+  size: 62, 82
+  orig: 62, 82
+  offset: 0, 0
+  index: -1
+Characters/Cat/Arm_straight_Cat_Map
+  rotate: false
+  xy: 203, 67
+  size: 110, 63
+  orig: 110, 63
+  offset: 0, 0
+  index: -1
+Characters/Cat/Body_Cat_Map
+  rotate: false
+  xy: 374, 90
+  size: 110, 163
+  orig: 110, 163
+  offset: 0, 0
+  index: -1
+Characters/Cat/Ear_Cat_Map
+  rotate: true
+  xy: 366, 8
+  size: 80, 95
+  orig: 80, 95
+  offset: 0, 0
+  index: -1
+Characters/Cat/Eye_Cat_Map
+  rotate: false
+  xy: 315, 100
+  size: 54, 30
+  orig: 54, 30
+  offset: 0, 0
+  index: -1
+Characters/Cat/Eye_cls_Cat_Map
+  rotate: true
+  xy: 486, 196
+  size: 57, 24
+  orig: 57, 24
+  offset: 0, 0
+  index: -1
+Characters/Cat/Hand_Cat_Map
+  rotate: false
+  xy: 285, 39
+  size: 26, 26
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
+Characters/Cat/Head_Cat_Map
+  rotate: false
+  xy: 2, 102
+  size: 199, 151
+  orig: 199, 151
+  offset: 0, 0
+  index: -1
+Characters/Cat/Leg_Cat_Map
+  rotate: false
+  xy: 486, 106
+  size: 13, 88
+  orig: 13, 88
+  offset: 0, 0
+  index: -1
+Characters/Cat/Mouth_Cat_Map
+  rotate: false
+  xy: 129, 26
+  size: 70, 20
+  orig: 70, 20
+  offset: 0, 0
+  index: -1
+Characters/Cat/Mouth_Smile_Cat_Map
+  rotate: false
+  xy: 2, 2
+  size: 125, 44
+  orig: 125, 44
+  offset: 0, 0
+  index: -1
+Characters/Cat/Mouth_o_Cat_Map
+  rotate: true
+  xy: 315, 66
+  size: 32, 49
+  orig: 32, 49
+  offset: 0, 0
+  index: -1
+Characters/Cat/Nose_Cat_Map
+  rotate: false
+  xy: 463, 74
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+Characters/Cat/Pupil_Cat_Map
+  rotate: true
+  xy: 129, 11
+  size: 13, 27
+  orig: 13, 27
+  offset: 0, 0
+  index: -1
+Characters/Cat/Shadow_Cat_Map
+  rotate: false
+  xy: 2, 48
+  size: 197, 52
+  orig: 197, 52
+  offset: 0, 0
+  index: -1
+Characters/Cat/Tail_Cat_Map
+  rotate: false
+  xy: 203, 132
+  size: 169, 121
+  orig: 169, 121
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,41 @@
+
+Go_Sign.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Title_Screen/Go_Sign
+  rotate: false
+  xy: 586, 345
+  size: 284, 127
+  orig: 284, 127
+  offset: 0, 0
+  index: -1
+Title_Screen/Post_Sign
+  rotate: false
+  xy: 536, 66
+  size: 48, 406
+  orig: 48, 406
+  offset: 0, 0
+  index: -1
+Title_Screen/Shadow_Sign
+  rotate: false
+  xy: 586, 280
+  size: 137, 63
+  orig: 137, 63
+  offset: 0, 0
+  index: -1
+Title_Screen/Wood_Click_Sign
+  rotate: false
+  xy: 2, 238
+  size: 532, 234
+  orig: 532, 234
+  offset: 0, 0
+  index: -1
+Title_Screen/Wood_Sign
+  rotate: false
+  xy: 2, 2
+  size: 532, 234
+  orig: 532, 234
+  offset: 0, 0
+  index: -1

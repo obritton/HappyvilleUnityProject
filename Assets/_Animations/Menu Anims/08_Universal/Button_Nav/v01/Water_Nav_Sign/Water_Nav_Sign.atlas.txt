@@ -1,0 +1,34 @@
+
+Water_Nav_Sign.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Menu_Screens/Arrow_Click_Nav
+  rotate: false
+  xy: 2, 2
+  size: 96, 102
+  orig: 96, 102
+  offset: 0, 0
+  index: -1
+Menu_Screens/Arrow_Nav
+  rotate: false
+  xy: 100, 2
+  size: 96, 102
+  orig: 96, 102
+  offset: 0, 0
+  index: -1
+Menu_Screens/Raft_Nav
+  rotate: false
+  xy: 198, 57
+  size: 114, 47
+  orig: 114, 47
+  offset: 0, 0
+  index: -1
+Menu_Screens/Shadow_Raft
+  rotate: false
+  xy: 198, 20
+  size: 114, 35
+  orig: 114, 35
+  offset: 0, 0
+  index: -1

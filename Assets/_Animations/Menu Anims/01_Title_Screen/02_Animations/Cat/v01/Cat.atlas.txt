@@ -1,0 +1,118 @@
+
+Cat.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Cat/Arm-bend
+  rotate: false
+  xy: 391, 226
+  size: 223, 168
+  orig: 223, 168
+  offset: 0, 0
+  index: -1
+Cat/Arm-curve
+  rotate: false
+  xy: 719, 384
+  size: 248, 126
+  orig: 248, 126
+  offset: 0, 0
+  index: -1
+Cat/Arm-straight
+  rotate: true
+  xy: 864, 83
+  size: 299, 48
+  orig: 299, 48
+  offset: 0, 0
+  index: -1
+Cat/Body-cat
+  rotate: true
+  xy: 2, 2
+  size: 213, 317
+  orig: 213, 317
+  offset: 0, 0
+  index: -1
+Cat/Ear-cat
+  rotate: false
+  xy: 707, 197
+  size: 155, 185
+  orig: 155, 185
+  offset: 0, 0
+  index: -1
+Cat/Eye-cat
+  rotate: false
+  xy: 707, 136
+  size: 105, 59
+  orig: 105, 59
+  offset: 0, 0
+  index: -1
+Cat/Eye-cls-cat
+  rotate: true
+  xy: 969, 413
+  size: 97, 42
+  orig: 97, 42
+  offset: 0, 0
+  index: -1
+Cat/Hand
+  rotate: false
+  xy: 914, 226
+  size: 65, 65
+  orig: 65, 65
+  offset: 0, 0
+  index: -1
+Cat/Head-cat
+  rotate: false
+  xy: 2, 217
+  size: 387, 293
+  orig: 387, 293
+  offset: 0, 0
+  index: -1
+Cat/Mouth-cat
+  rotate: true
+  xy: 321, 80
+  size: 135, 38
+  orig: 135, 38
+  offset: 0, 0
+  index: -1
+Cat/Mouth-o-cat
+  rotate: false
+  xy: 914, 293
+  size: 58, 89
+  orig: 58, 89
+  offset: 0, 0
+  index: -1
+Cat/Mouth-opn-cat
+  rotate: true
+  xy: 616, 140
+  size: 254, 89
+  orig: 254, 89
+  offset: 0, 0
+  index: -1
+Cat/Nose-cat
+  rotate: false
+  xy: 814, 167
+  size: 28, 28
+  orig: 28, 28
+  offset: 0, 0
+  index: -1
+Cat/Pupil-cat
+  rotate: true
+  xy: 321, 2
+  size: 28, 44
+  orig: 28, 44
+  offset: 0, 0
+  index: -1
+Cat/Tail-cat
+  rotate: true
+  xy: 391, 396
+  size: 114, 326
+  orig: 114, 326
+  offset: 0, 0
+  index: -1
+Cat/Tongue-cat
+  rotate: false
+  xy: 321, 32
+  size: 38, 46
+  orig: 38, 46
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,34 @@
+
+Nav_Sign.png
+size: 256,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Menu_Screens/Arrow_Click_Nav
+  rotate: false
+  xy: 2, 22
+  size: 96, 102
+  orig: 96, 102
+  offset: 0, 0
+  index: -1
+Menu_Screens/Arrow_Nav
+  rotate: false
+  xy: 100, 22
+  size: 96, 102
+  orig: 96, 102
+  offset: 0, 0
+  index: -1
+Menu_Screens/Pole_Nav
+  rotate: true
+  xy: 2, 2
+  size: 18, 148
+  orig: 18, 148
+  offset: 0, 0
+  index: -1
+Menu_Screens/Shadow_Nav
+  rotate: true
+  xy: 198, 31
+  size: 93, 28
+  orig: 93, 28
+  offset: 0, 0
+  index: -1
