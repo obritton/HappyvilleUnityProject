@@ -14,6 +14,7 @@ public class Table : MonoBehaviour {
 	void Start(){
 		foodStartPos = food.transform.localPosition;
 		foodStartSize = food.transform.localScale;
+		shadowStartSize = foodShadow.transform.localScale;
 		StartCoroutine (checkAndPlayRandomTapAnim ());
 	}
 
@@ -30,6 +31,7 @@ public class Table : MonoBehaviour {
 	}
 
 	Vector3 foodStartPos;
+	Vector3 shadowStartSize;
 	Vector3 foodStartSize;
 	bool isFoodDragging = false;
 	Vector3 lastMousePos;
@@ -60,6 +62,24 @@ public class Table : MonoBehaviour {
 				case "Character3":
 					playTouchForCharacter(2);
 					break;
+				case "Plate1Btn":
+					playTouchForPlate(0);
+					break;
+				case "Plate2Btn":
+					playTouchForPlate(1);
+					break;
+				case "Plate3Btn":
+					playTouchForPlate(2);
+					break;
+				case "Thought1Btn":
+					playTouchForThought(0);
+					break;
+				case "Thought2Btn":
+					playTouchForThought(1);
+					break;
+				case "Thought3Btn":
+					playTouchForThought(2);
+					break;
 				}
 			}
 		}
@@ -69,10 +89,6 @@ public class Table : MonoBehaviour {
 				Vector3 foodPos = food.transform.localPosition;
 				Vector3 dragDelta = Camera.main.ScreenToWorldPoint(Input.mousePosition) - lastMousePos;
 				lastMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-//				dragDelta.x *= 0.002f * 0.5f;
-//				dragDelta.y *= 0.003f * 0.5f;
-//				foodPos += dragDelta;
-//				Vector3 v = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				foodPos.x += dragDelta.x;
 				foodPos.y += dragDelta.y;
 				food.transform.localPosition = foodPos;
@@ -158,6 +174,16 @@ public class Table : MonoBehaviour {
 		((SkeletonAnimation)tableSpotArr[characterIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle", true, 0);
 	}
 
+	public SkeletonAnimation[] plateArr;
+	void playTouchForPlate( int p ){
+		plateArr [p].state.SetAnimation (0, "Bounce", false);
+	}
+
+	public SkeletonAnimation[] thoughtShapeArr;
+	void playTouchForThought( int t ){
+		thoughtShapeArr[t].state.SetAnimation (0, "Correct-shape", false);
+	}
+
 	GameObject mousePick(){
 		RaycastHit hit;
 		if(Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 300))
@@ -166,7 +192,6 @@ public class Table : MonoBehaviour {
 				return hit.collider.gameObject;
 			}
 		}
-		
 		return null;
 	}
 	
@@ -175,7 +200,8 @@ public class Table : MonoBehaviour {
 		EyeFollow.unregisterFollowTransform ();
 		iTween.MoveTo (food.gameObject, iTween.Hash ("position", foodStartPos, "time", 1, "easetype", iTween.EaseType.easeOutElastic, "islocal", true));
 		iTween.ScaleTo( food.gameObject, iTween.Hash( "time", 0.5f, "scale",  foodStartSize, "easetype", iTween.EaseType.easeOutElastic));
-		iTween.FadeTo( foodShadow, 1, 0.25f );
+		foodShadow.transform.localPosition = foodStartPos;
+		iTween.FadeTo( foodShadow.gameObject, 1, 0.25f );
 	}
 	
 	void moveFoodToPlate( int plateIndex )
@@ -185,6 +211,10 @@ public class Table : MonoBehaviour {
 		pos.y -= 175f;
 		iTween.MoveTo (food.gameObject, pos, 0.5f);
 		iTween.ScaleTo( food.gameObject, iTween.Hash( "time", 0.5f, "scale", 0.85f * foodStartSize, "easetype", iTween.EaseType.easeOutElastic));
+		pos.z += 0.1f;
+		foodShadow.transform.localPosition = pos;
+		foodShadow.transform.localScale = shadowStartSize * 0.8f;
+		iTween.FadeTo (foodShadow.gameObject, 1, 0.25f);
 		StartCoroutine( performResponseForPosition( plateIndex, 0.5f ));
 	}
 
@@ -211,6 +241,8 @@ public class Table : MonoBehaviour {
 			}
 		}
 		yield return new WaitForSeconds (te.animation.duration);
+		foodShadow.transform.localPosition = foodStartPos;
+		iTween.FadeTo( foodShadow.gameObject, 0, 0.25f );
 		((SkeletonAnimation)food.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Eat", false);
 		EyeFollow.unregisterFollowTransform ();
 		te = ((SkeletonAnimation)tableSpotArr[plateIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Eat", false);
@@ -277,6 +309,7 @@ public class Table : MonoBehaviour {
 		TrackEntry te = ((SkeletonAnimation)tableSpotArr[plateIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Wrong", false);
 		((SkeletonAnimation)tableSpotArr[plateIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle", true, 0);
 		yield return new WaitForSeconds (te.animation.duration);
+		iTween.FadeTo (foodShadow.gameObject, 0, 0.2f);
 		snapFoodBack ();
 	}
 
@@ -464,8 +497,8 @@ public class Table : MonoBehaviour {
 		iTween.MoveTo (foodShadow, iTween.Hash ("time", 1, "position", shadowPos, "islocal", false, "easetype", iTween.EaseType.easeOutElastic));
 		food.renderer.enabled = true;
 		iTween.FadeTo( foodShadow, 1, 0.25f );
+		iTween.PunchScale( foodShadow.gameObject, iTween.Hash( "time", 2, "amount", 0.5f * shadowStartSize, "easetype", iTween.EaseType.easeOutElastic, "delay", 5, "looptype", iTween.LoopType.loop, "name", "shadowpunch" ));
 		iTween.PunchScale( food.gameObject, iTween.Hash( "time", 2, "amount", 0.5f * foodStartSize, "easetype", iTween.EaseType.easeOutElastic, "delay", 5, "looptype", iTween.LoopType.loop, "name", "idlepunch" ));
-		iTween.PunchScale( foodShadow.gameObject, iTween.Hash( "time", 2, "amount", 0.5f * foodStartSize, "easetype", iTween.EaseType.easeOutElastic, "delay", 5, "looptype", iTween.LoopType.loop, "name", "shadowpunch" ));
 	}
 
 	GameObject createCharacterForType( CharacterNode.CharacterType characterType ){
