@@ -1,90 +1,90 @@
 
 Bird.png
-size: 256,256
+size: 512,512
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 Bird/Beak-btm-brd
-  rotate: true
-  xy: 180, 64
-  size: 42, 11
-  orig: 42, 11
+  rotate: false
+  xy: 2, 19
+  size: 70, 18
+  orig: 70, 19
   offset: 0, 0
   index: -1
 Bird/Beak-top-brd
   rotate: true
-  xy: 143, 12
-  size: 42, 28
-  orig: 42, 28
-  offset: 0, 0
+  xy: 235, 52
+  size: 70, 45
+  orig: 70, 46
+  offset: 0, 1
   index: -1
 Bird/Body-brd
   rotate: false
-  xy: 2, 56
-  size: 169, 197
-  orig: 169, 197
+  xy: 2, 124
+  size: 281, 328
+  orig: 281, 328
   offset: 0, 0
   index: -1
 Bird/Eye-brd
   rotate: false
-  xy: 205, 119
-  size: 27, 27
-  orig: 27, 27
+  xy: 285, 164
+  size: 45, 44
+  orig: 45, 45
   offset: 0, 0
   index: -1
 Bird/EyeBar-brd
   rotate: false
-  xy: 2, 2
-  size: 77, 3
-  orig: 77, 3
-  offset: 0, 0
+  xy: 2, 39
+  size: 128, 4
+  orig: 128, 5
+  offset: 0, 1
   index: -1
 Bird/Feathers-brd
   rotate: true
-  xy: 173, 108
-  size: 145, 30
-  orig: 145, 30
-  offset: 0, 0
+  xy: 285, 210
+  size: 242, 49
+  orig: 242, 50
+  offset: 0, 1
   index: -1
 Bird/Foot-brd
-  rotate: true
-  xy: 193, 74
-  size: 32, 8
-  orig: 33, 8
+  rotate: false
+  xy: 347, 360
+  size: 53, 14
+  orig: 55, 14
   offset: 0, 0
   index: -1
 Bird/Leg-brd
   rotate: false
-  xy: 173, 34
-  size: 5, 72
-  orig: 5, 74
-  offset: 0, 1
+  xy: 336, 256
+  size: 9, 118
+  orig: 9, 123
+  offset: 0, 3
   index: -1
 Bird/Pupil-brd
   rotate: false
-  xy: 234, 136
-  size: 10, 10
-  orig: 10, 10
-  offset: 0, 0
+  xy: 2, 2
+  size: 16, 15
+  orig: 16, 16
+  offset: 0, 1
   index: -1
 Bird/Pupil-cls-brd
   rotate: false
-  xy: 205, 111
-  size: 17, 6
-  orig: 17, 6
+  xy: 285, 152
+  size: 28, 10
+  orig: 28, 10
   offset: 0, 0
   index: -1
 Bird/Twirly-brd
-  rotate: false
-  xy: 205, 148
-  size: 46, 105
-  orig: 46, 105
-  offset: 0, 0
+  rotate: true
+  xy: 336, 376
+  size: 76, 174
+  orig: 76, 175
+  offset: 0, 1
   index: -1
 Bird/Wing-brd
   rotate: false
-  xy: 2, 7
-  size: 139, 47
-  orig: 139, 47
-  offset: 0, 0
+  xy: 2, 45
+  size: 231, 77
+  orig: 231, 78
+  offset: 0, 1
   index: -1

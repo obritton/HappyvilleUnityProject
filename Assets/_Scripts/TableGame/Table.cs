@@ -10,19 +10,21 @@ public class Table : MonoBehaviour {
 	public TableSpot[] tableSpotArr;
 	public GameObject[] characterPrefabArr;
 	public ScoreBoard scoreBoard;
+	public FlySession flySession;
 
 	void Start(){
 		foodStartPos = food.transform.localPosition;
 		foodStartSize = food.transform.localScale;
-		shadowStartSize = foodShadow.transform.localScale;
+//		shadowStartSize = foodShadow.transform.localScale;
 		StartCoroutine (checkAndPlayRandomTapAnim ());
 	}
 
 	bool playing = true;
+	bool isFlyOut = false;
 	IEnumerator checkAndPlayRandomTapAnim(){
 		while (playing) {
 			yield return new WaitForSeconds(Random.Range (5,10));
-			if( !touchedRecently && !isFoodDragging )
+			if( !touchedRecently && !isFoodDragging && !isFlyOut )
 			{
 				playTouchForCharacter(Random.Range(0,3));
 			}
@@ -31,10 +33,13 @@ public class Table : MonoBehaviour {
 	}
 
 	Vector3 foodStartPos;
-	Vector3 shadowStartSize;
+//	Vector3 shadowStartSize;
 	Vector3 foodStartSize;
 	bool isFoodDragging = false;
 	Vector3 lastMousePos;
+	public GameObject crumbsPrefab;
+
+	bool canTouchAnim = false;
 
 	bool touchedRecently = false;
 	void Update(){
@@ -42,15 +47,17 @@ public class Table : MonoBehaviour {
 			GameObject hitGO = mousePick();
 
 			if( hitGO ){
+				print ("hitGO.tag: " + hitGO.tag);
 				switch( hitGO.tag ){
 				case "food":
 					isFoodDragging = true;
+					foodTouched = true;
 					EyeFollow.registerFollowTransform (food.transform);
 					iTween.Stop();
 					lastMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-					iTween.StopByName("idlepunch");
-					iTween.StopByName("shadowpunch");
-					iTween.FadeTo( foodShadow, 0, 0.25f );
+//					iTween.StopByName("idlepunch");
+//					iTween.StopByName("shadowpunch");
+//					iTween.FadeTo( foodShadow, 0, 0.25f );
 					iTween.ScaleTo( food.gameObject, iTween.Hash( "time", 0.5f, "scale", 1.2f * foodStartSize, "easetype", iTween.EaseType.easeOutElastic));
 					break;
 				case "Character1":
@@ -79,6 +86,10 @@ public class Table : MonoBehaviour {
 					break;
 				case "Thought3Btn":
 					playTouchForThought(2);
+					break;
+				case "Fly":
+					if( !touchedFly )
+					StartCoroutine(endFlySession());
 					break;
 				}
 			}
@@ -164,6 +175,9 @@ public class Table : MonoBehaviour {
 	}
 
 	void playTouchForCharacter( int characterIndex ){
+		if (!canTouchAnim)
+						return;
+
 		string touchAnimStr = "TouchOne";
 		if( Random.value < 0.3f )
 			touchAnimStr = "TouchTwo";
@@ -176,11 +190,13 @@ public class Table : MonoBehaviour {
 
 	public SkeletonAnimation[] plateArr;
 	void playTouchForPlate( int p ){
+		if( canTouchAnim )
 		plateArr [p].state.SetAnimation (0, "Bounce", false);
 	}
 
 	public SkeletonAnimation[] thoughtShapeArr;
 	void playTouchForThought( int t ){
+		if( canTouchAnim )
 		thoughtShapeArr[t].state.SetAnimation (0, "Correct-shape", false);
 	}
 
@@ -197,11 +213,10 @@ public class Table : MonoBehaviour {
 	
 	void snapFoodBack()
 	{
-		EyeFollow.unregisterFollowTransform ();
 		iTween.MoveTo (food.gameObject, iTween.Hash ("position", foodStartPos, "time", 1, "easetype", iTween.EaseType.easeOutElastic, "islocal", true));
 		iTween.ScaleTo( food.gameObject, iTween.Hash( "time", 0.5f, "scale",  foodStartSize, "easetype", iTween.EaseType.easeOutElastic));
-		foodShadow.transform.localPosition = foodStartPos;
-		iTween.FadeTo( foodShadow.gameObject, 1, 0.25f );
+//		foodShadow.transform.localPosition = foodStartPos;
+//		iTween.FadeTo( foodShadow.gameObject, 1, 0.25f );
 	}
 	
 	void moveFoodToPlate( int plateIndex )
@@ -212,9 +227,9 @@ public class Table : MonoBehaviour {
 		iTween.MoveTo (food.gameObject, pos, 0.5f);
 		iTween.ScaleTo( food.gameObject, iTween.Hash( "time", 0.5f, "scale", 0.85f * foodStartSize, "easetype", iTween.EaseType.easeOutElastic));
 		pos.z += 0.1f;
-		foodShadow.transform.localPosition = pos;
-		foodShadow.transform.localScale = shadowStartSize * 0.8f;
-		iTween.FadeTo (foodShadow.gameObject, 1, 0.25f);
+//		foodShadow.transform.localPosition = pos;
+//		foodShadow.transform.localScale = shadowStartSize * 0.8f;
+//		iTween.FadeTo (foodShadow.gameObject, 1, 0.25f);
 		StartCoroutine( performResponseForPosition( plateIndex, 0.5f ));
 	}
 
@@ -224,11 +239,14 @@ public class Table : MonoBehaviour {
 			StartCoroutine(animateFoodMatch(plateIndex));
 		} else {
 			StartCoroutine(animateFoodMisMatch(plateIndex));
+			EyeFollow.unregisterFollowTransform ();
 		}
 	}
 
 	int totalCorrects = 0;
 	IEnumerator animateFoodMatch( int plateIndex ){
+		canTouchAnim = false;
+		StartCoroutine (delayedReactivateTouchAnims (20));
 		totalCorrects++;
 		TrackEntry te = ((SkeletonAnimation)tableSpotArr[plateIndex].thoughtBubble.thoughtShape.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Correct-shape", false);
 		((SkeletonAnimation)food.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Grab", false);
@@ -241,13 +259,15 @@ public class Table : MonoBehaviour {
 			}
 		}
 		yield return new WaitForSeconds (te.animation.duration);
-		foodShadow.transform.localPosition = foodStartPos;
-		iTween.FadeTo( foodShadow.gameObject, 0, 0.25f );
+//		foodShadow.transform.localPosition = foodStartPos;
+//		iTween.FadeTo( foodShadow.gameObject, 0, 0.25f );
 		((SkeletonAnimation)food.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Eat", false);
-		EyeFollow.unregisterFollowTransform ();
 		te = ((SkeletonAnimation)tableSpotArr[plateIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Eat", false);
+		canTouchAnim = false;
+		StartCoroutine (delayedReactivateTouchAnims (te.animation.duration));
 		((SkeletonAnimation)tableSpotArr[plateIndex].plate.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Bounce", false);
 		float duration = te.animation.duration;
+		StartCoroutine (delayedEyeUnregister (duration));
 		te = ((SkeletonAnimation)tableSpotArr [plateIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "ThankYou", false, 0);
 		scoreBoard.addStar ();
 		if (totalCorrects < 12) {
@@ -261,12 +281,37 @@ public class Table : MonoBehaviour {
 				}
 	}
 
+	IEnumerator delayedReactivateTouchAnims( float delay ){
+		yield return new WaitForSeconds (delay);
+		canTouchAnim = true;
+	}
+
+	IEnumerator delayedEyeUnregister( float delay )
+	{
+		yield return new WaitForSeconds (delay);
+		EyeFollow.unregisterFollowTransform ();
+	}
+
 	IEnumerator doGameWin(float delay){
 		yield return new WaitForSeconds (delay);
 		playing = false;
 		delay = makeEveryoneDance ();
-		food.transform.Translate (10, 0, 0);
+		food.transform.Translate (1000, 0, 0);
 		StartCoroutine (scoreBoard.makeStarsDance ());
+		StartCoroutine (delayedGameExit (delay));
+	}
+
+	IEnumerator delayedGameExit( float delay ){
+		yield return new WaitForSeconds (delay);
+		GameObject doors = GameObject.Find ("Doors");
+		if (doors) {
+			DoorManager doorManager = (DoorManager)doors.GetComponent<DoorManager>();
+			if( doorManager ){
+				StartCoroutine(doorManager.closeDoors());
+			}
+		}
+		yield return new WaitForSeconds (1.5f);
+		Application.LoadLevel("MainMenu Map");
 	}
 
 	float makeEveryoneDance()
@@ -282,7 +327,7 @@ public class Table : MonoBehaviour {
 		return setAnimForAll ("TapTable");
 	}
 
-	float jumpAllPlates(){
+	public float jumpAllPlates(){
 		TrackEntry te = null;
 		for (int i = 0; i < 3; i++) {
 			te = ((SkeletonAnimation)tableSpotArr[i].plate.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Bounce", false);
@@ -292,24 +337,99 @@ public class Table : MonoBehaviour {
 	}
 
 	IEnumerator resetTurnWithEmptyIndex( int plateIndex ){
-		food.transform.position = foodAnimOnStartPos.position;
-		food.renderer.enabled = false;
-		yield return new WaitForSeconds (0.5f);
-		float delay = addNewCharacterAtSpot (plateIndex);
+				food.transform.position = foodAnimOnStartPos.position;
+				food.renderer.enabled = false;
+				yield return new WaitForSeconds (0.5f);
+				float delay = addNewCharacterAtSpot (plateIndex);
+
+				if (scoreBoard.getTotalStars() > 0 && Random.value -1 < 0.2f ){
+					StartCoroutine(startFlySession (delay));
+				} else {
+						yield return new WaitForSeconds (delay);
+						delay = makeAllTap ();
+						addIdelForAll ();
+						jumpAllPlates ();
+						yield return new WaitForSeconds (delay);
+						isFoodDragging = false;
+						animateMatchingFoodOn ();
+				}
+	}
+
+	IEnumerator startFlySession(float delay){
+		isFlyOut = true;
+		touchedFly = false;
+		flySession.transform.localPosition = new Vector3( -170, 700, -11 );
 		yield return new WaitForSeconds (delay);
-		delay = makeAllTap ();
-		addIdelForAll ();
-		jumpAllPlates ();
-		yield return new WaitForSeconds (delay);
-		isFoodDragging = false;
+		Transform fly = flySession.getFly ();
+		fly.renderer.enabled = true;
+		((SkeletonAnimation)fly.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Fly", true, 0);
+		iTween.MoveTo( flySession.gameObject, iTween.Hash( "position", new Vector3( 850, 700, -11 ), "time", 10, "islocal", true, "easetype", iTween.EaseType.linear, "name", "flypass", "oncomplete", "turnFlyAround", "oncompletetarget", gameObject));
+		StartCoroutine (collapseThoughts ());
+		EyeFollow.registerFollowTransform (fly);
+		setAnimForAll ("Duck");
+	}
+
+	void turnFlyAround(){
+		print ("turnFlyAround");
+
+		Vector3 position = new Vector3 (820, 700, -11);
+		Vector3 scale = Vector3.one * 0.9f;
+
+		if (flySession.transform.localPosition.x > 0) {
+			scale.x *= -1;
+			position = new Vector3( -170, 700, -11 );
+		}
+
+		flySession.getFly ().localScale = scale;
+
+		iTween.MoveTo( flySession.gameObject, iTween.Hash( "position", position, "time", 10, "islocal", true, "easetype", iTween.EaseType.linear, "name", "flypass", "oncomplete", "turnFlyAround", "oncompletetarget", gameObject));
+	}
+
+	IEnumerator collapseThoughts()
+	{
+		yield return new WaitForSeconds (1);
+		foreach( SkeletonAnimation anim in thoughtShapeArr ){
+			anim.state.SetAnimation(0, "Leave-shape", false);
+		}
+		foreach( TableSpot spot in tableSpotArr ){
+			((SkeletonAnimation)spot.thoughtBubble.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Leave-thought", false);
+		}
+	}
+
+	bool touchedFly = false;
+	IEnumerator endFlySession(){
+		print ("endFlySession");
+		touchedFly = true;
+		TrackEntry te1 = ((SkeletonAnimation)flySession.getFly().GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Touch", false);
+		TrackEntry te2 = ((SkeletonAnimation)flySession.getFly().GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Leave", false, 0);
+		EyeFollow.unregisterFollowTransform ();
+		iTween.StopByName ("flypass");
+
+		yield return new WaitForSeconds (te1.animation.duration + te2.animation.duration);
+		flySession.getFly ().renderer.enabled = false;
+		setAnimForAll ("unDuck");
+		setAnimForAll ("Idle", false);
+		StartCoroutine(reopenThoughts ());
 		animateMatchingFoodOn ();
+	}
+
+	IEnumerator reopenThoughts()
+	{
+		yield return new WaitForSeconds (1);
+		foreach( SkeletonAnimation anim in thoughtShapeArr ){
+			anim.state.SetAnimation(0, "Popup-shape", false);
+		}
+		foreach( TableSpot spot in tableSpotArr ){
+			((SkeletonAnimation)spot.thoughtBubble.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "PopUp-thought", false);
+			((SkeletonAnimation)spot.thoughtBubble.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "IdleOne-thought", false, 0);
+		}
 	}
 
 	IEnumerator animateFoodMisMatch( int plateIndex ){
 		TrackEntry te = ((SkeletonAnimation)tableSpotArr[plateIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Wrong", false);
 		((SkeletonAnimation)tableSpotArr[plateIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle", true, 0);
 		yield return new WaitForSeconds (te.animation.duration);
-		iTween.FadeTo (foodShadow.gameObject, 0, 0.2f);
+//		iTween.FadeTo (foodShadow.gameObject, 0, 0.2f);
 		snapFoodBack ();
 	}
 
@@ -319,15 +439,17 @@ public class Table : MonoBehaviour {
 
 		GameObject newCharacter = createCharacterForType ( newCharacterType );
 		float time = tableSpotArr [spotIndex].addNewCharacterOfType (newCharacterType, newThoughtshape, newCharacter);
+		canTouchAnim = false;
+		StartCoroutine (delayedReactivateTouchAnims (time));
 		return time;
 	}
-
+	
 	public GameObject foodPrefab;
-	public GameObject foodShadow;
+//	public GameObject foodShadow;
 	public void animateMatchingFoodOn(){
 		Destroy (food.gameObject);
 		GameObject foodFromPrefab = Instantiate (foodPrefab, foodAnimOnStartPos.position, Quaternion.identity) as GameObject;
-		foodShadow.renderer.enabled = true;
+//		foodShadow.renderer.enabled = true;
 		foodFromPrefab.transform.parent = transform;
 		foodFromPrefab.transform.localScale = foodStartSize;
 		food = (Food)foodFromPrefab.GetComponent<Food>();
@@ -490,15 +612,24 @@ public class Table : MonoBehaviour {
 	IEnumerator animateFoodOn(){
 		yield return new WaitForSeconds (0);
 		food.transform.position = foodAnimOnStartPos.position;
-		foodShadow.transform.position = foodAnimOnStartPos.position;
-		Vector3 shadowPos = foodAnimOnTargetPos.position;
-		shadowPos.z = -5.22f;
+//		foodShadow.transform.position = foodAnimOnStartPos.position;
+//		Vector3 shadowPos = foodAnimOnTargetPos.position;
+//		shadowPos.z = -5.22f;
 		iTween.MoveTo (food.gameObject, iTween.Hash ("time", 1, "position", foodAnimOnTargetPos, "islocal", false, "easetype", iTween.EaseType.easeOutElastic));
-		iTween.MoveTo (foodShadow, iTween.Hash ("time", 1, "position", shadowPos, "islocal", false, "easetype", iTween.EaseType.easeOutElastic));
+//		iTween.MoveTo (foodShadow, iTween.Hash ("time", 1, "position", shadowPos, "islocal", false, "easetype", iTween.EaseType.easeOutElastic));
 		food.renderer.enabled = true;
-		iTween.FadeTo( foodShadow, 1, 0.25f );
-		iTween.PunchScale( foodShadow.gameObject, iTween.Hash( "time", 2, "amount", 0.5f * shadowStartSize, "easetype", iTween.EaseType.easeOutElastic, "delay", 5, "looptype", iTween.LoopType.loop, "name", "shadowpunch" ));
-		iTween.PunchScale( food.gameObject, iTween.Hash( "time", 2, "amount", 0.5f * foodStartSize, "easetype", iTween.EaseType.easeOutElastic, "delay", 5, "looptype", iTween.LoopType.loop, "name", "idlepunch" ));
+//		iTween.FadeTo( foodShadow, 1, 0.25f );
+//		iTween.PunchScale( foodShadow.gameObject, iTween.Hash( "time", 2, "amount", 0.5f * shadowStartSize, "easetype", iTween.EaseType.easeOutElastic, "delay", 5, "looptype", iTween.LoopType.loop, "name", "shadowpunch" ));
+		StartCoroutine (delayedConditionalFoodPunch ());
+	}
+
+	bool foodTouched = false;
+	IEnumerator delayedConditionalFoodPunch(){
+		foodTouched = false;
+		yield return new WaitForSeconds (5);
+		if (!foodTouched) {
+				iTween.PunchScale (food.gameObject, iTween.Hash ("time", 2, "amount", 0.5f * foodStartSize, "easetype", iTween.EaseType.easeOutElastic));
+		}
 	}
 
 	GameObject createCharacterForType( CharacterNode.CharacterType characterType ){

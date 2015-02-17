@@ -4,7 +4,6 @@ using System.Collections;
 public class TableGame : MonoBehaviour {
 	
 	public Table table;
-	public FlySession flySession;
 
 	void OnGUI(){
 		if( GUI.Button( new Rect( 0, 0, Screen.width * 0.1f, Screen.height * 0.05f), "Back")){
@@ -48,6 +47,7 @@ public class TableGame : MonoBehaviour {
 	{
 		yield return new WaitForSeconds(delay);
 		float time = table.makeAllTap ();
+		table.jumpAllPlates ();
 		table.addIdelForAll ();
 		yield return new WaitForSeconds (time);
 		table.animateMatchingFoodOn ();

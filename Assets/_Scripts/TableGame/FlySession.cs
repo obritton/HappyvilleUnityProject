@@ -3,7 +3,12 @@ using System.Collections;
 
 public class FlySession : MonoBehaviour {
 
-	Fly fly;
+	public Fly fly;
+
+	public Transform getFly(){
+		return fly.transform;
+	}
+
 	static bool isFlyInSession = false;
 
 	// Use this for initialization

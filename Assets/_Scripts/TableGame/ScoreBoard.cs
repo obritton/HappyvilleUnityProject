@@ -9,6 +9,10 @@ public class ScoreBoard : MonoBehaviour {
 	int totalStars = 0;
 	ArrayList stars;
 
+	public int getTotalStars(){
+		return totalStars;
+	}
+
 	void Start(){
 		stars = new ArrayList ();
 	}
@@ -18,7 +22,8 @@ public class ScoreBoard : MonoBehaviour {
 			GameObject star = Instantiate( starPrefab, Vector3.left*10, Quaternion.identity) as GameObject;
 			stars.Add (star);
 			star.transform.parent = transform;
-			Vector3 scale = star.transform.localScale;
+//			Vector3 scale = star.transform.localScale;
+			Vector3 scale = Vector3.one;
 			star.transform.localScale = Vector3.zero;
 			Vector3 pos = Vector3.zero;
 			pos.x = (float)(starStartX + (totalStars++ * starGapX));
