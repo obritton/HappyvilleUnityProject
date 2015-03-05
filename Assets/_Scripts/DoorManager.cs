@@ -1,22 +1,22 @@
 ﻿using UnityEngine;
+using Spine;
 using System.Collections;
 
 public class DoorManager : MonoBehaviour {
 
-	public GameObject leftHinge;
-	public GameObject rightHinge;
-	
-	public IEnumerator closeDoors( bool isImmediate = false )
-	{
-		yield return new WaitForSeconds (0.25f);
-		iTween.RotateTo (leftHinge, Vector3.zero, isImmediate ? 0 : 1);
-//		iTween.RotateTo (rightHinge, Vector3.zero, isImmediate ? 0 : 0.5f);
-	}
+	public SkeletonAnimation doorAnim;
 
-	public IEnumerator openDoors( bool isImmediate = false )
+	public IEnumerator closeDoors()
 	{
 		yield return new WaitForSeconds (0);
-		iTween.RotateTo (leftHinge, Vector3.up*90, isImmediate ? 0 : 1);
-//		iTween.RotateTo (rightHinge, Vector3.up*-90, isImmediate ? 0 : 0.5f);
+		doorAnim.state.SetAnimation (0, "Close", false);
+		doorAnim.renderer.enabled = true;
+	}
+
+	public IEnumerator openDoors()
+	{
+		TrackEntry te = doorAnim.state.SetAnimation (0, "Open", false);
+		yield return new WaitForSeconds (te.animation.duration);
+		doorAnim.renderer.enabled = false;
 	}
 }

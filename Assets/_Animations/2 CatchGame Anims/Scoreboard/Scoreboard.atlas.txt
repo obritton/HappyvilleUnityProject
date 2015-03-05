@@ -1,0 +1,41 @@
+
+Scoreboard.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+_assets/Sign/Burst
+  rotate: false
+  xy: 1193, 1199
+  size: 525, 525
+  orig: 525, 525
+  offset: 0, 0
+  index: -1
+_assets/Sign/Candy
+  rotate: false
+  xy: 2, 2
+  size: 207, 179
+  orig: 207, 179
+  offset: 0, 0
+  index: -1
+_assets/Sign/Food
+  rotate: false
+  xy: 1193, 1036
+  size: 225, 161
+  orig: 225, 161
+  offset: 0, 0
+  index: -1
+_assets/Sign/Scoreboard
+  rotate: false
+  xy: 2, 183
+  size: 1189, 1541
+  orig: 1189, 1541
+  offset: 0, 0
+  index: -1
+_assets/Sign/Your_Score
+  rotate: true
+  xy: 1720, 1395
+  size: 329, 54
+  orig: 329, 84
+  offset: 0, 20
+  index: -1

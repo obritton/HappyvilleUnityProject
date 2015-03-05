@@ -1,34 +1,34 @@
 
 ThoughtBubble.png
-size: 512,256
+size: 512,512
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 Cloud/CircleOne-thought
   rotate: false
-  xy: 254, 183
-  size: 25, 25
-  orig: 25, 25
-  offset: 0, 0
+  xy: 2, 2
+  size: 42, 41
+  orig: 42, 42
+  offset: 0, 1
   index: -1
 Cloud/CircleThree-thought
   rotate: false
-  xy: 254, 210
-  size: 43, 43
-  orig: 43, 43
-  offset: 0, 0
+  xy: 2, 45
+  size: 72, 71
+  orig: 72, 72
+  offset: 0, 1
   index: -1
 Cloud/CircleTwo-thought
   rotate: false
-  xy: 2, 2
-  size: 37, 37
-  orig: 37, 37
+  xy: 420, 410
+  size: 61, 60
+  orig: 61, 61
   offset: 0, 0
   index: -1
 Cloud/ThoughtBubble
   rotate: false
-  xy: 2, 41
-  size: 250, 212
-  orig: 250, 212
-  offset: 0, 0
+  xy: 2, 118
+  size: 416, 352
+  orig: 416, 353
+  offset: 0, 1
   index: -1

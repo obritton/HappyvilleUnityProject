@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Spine;
 using System.Collections;
 
 public class TableGame : MonoBehaviour {
@@ -7,28 +8,40 @@ public class TableGame : MonoBehaviour {
 
 	void OnGUI(){
 		if( GUI.Button( new Rect( 0, 0, Screen.width * 0.1f, Screen.height * 0.05f), "Back")){
-			MapManager.openPageIndex = 1;
-			Application.LoadLevel("MainMenu Map");
+			MapManager.openPageIndex = (Table.level/3)+1;
+			iTween.Stop ();
+			StartCoroutine(closeDoors());
 		}
 	}
 
 	// Use this for initialization
 	void Start () {
+		Physics.gravity = Vector3.down * 9.81f;
 		StartCoroutine(openDoors ());
 	}
 
+	public DoorManager doorManager;
 	IEnumerator openDoors()
 	{
 		yield return new WaitForSeconds (0.5f);
-		GameObject doors = GameObject.Find ("Doors");
-		if (doors) {
-			DoorManager doorManager = (DoorManager)doors.GetComponent<DoorManager>();
-			if( doorManager ){
-				StartCoroutine(doorManager.openDoors());
-			}
+		if( doorManager ){
+			StartCoroutine(doorManager.openDoors());
+		}
+
+		yield return new WaitForSeconds (1 + 0.5f);
+		StartCoroutine (startNewGame ());
+	}
+
+	IEnumerator closeDoors()
+	{
+		yield return new WaitForSeconds (0.5f);
+		if( doorManager ){
+			StartCoroutine(doorManager.closeDoors());
 		}
 		
-		StartCoroutine (startNewGame ());
+		yield return new WaitForSeconds (1 + 0.5f);
+		iTween.Stop ();
+		Application.LoadLevel("MainMenu Map");
 	}
 
 	IEnumerator startNewGame(){

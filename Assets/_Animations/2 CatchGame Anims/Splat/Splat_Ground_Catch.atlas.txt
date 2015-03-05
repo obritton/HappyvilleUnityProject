@@ -1,0 +1,20 @@
+
+Splat_Ground_Catch.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Lion/Drop_One
+  rotate: false
+  xy: 2, 2
+  size: 23, 35
+  orig: 23, 36
+  offset: 0, 1
+  index: -1
+Lion/Splat_Ground_Catch
+  rotate: false
+  xy: 2, 39
+  size: 303, 149
+  orig: 303, 149
+  offset: 0, 0
+  index: -1

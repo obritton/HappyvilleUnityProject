@@ -40,6 +40,7 @@ public class GamePlayDemo : MonoBehaviour {
 	void OnGUI(){
 		if( GUI.Button( new Rect( 0, 0, Screen.width * 0.1f, Screen.height * 0.05f), "Back")){
 			MapManager.openPageIndex = 1;
+			iTween.Stop ();
 			Application.LoadLevel("MainMenuMap");
 		}
 	}

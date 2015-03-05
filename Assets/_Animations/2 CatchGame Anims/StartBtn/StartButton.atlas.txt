@@ -1,0 +1,20 @@
+
+StartButton.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+_assets/Start_btn
+  rotate: false
+  xy: 2, 216
+  size: 555, 212
+  orig: 555, 212
+  offset: 0, 0
+  index: -1
+_assets/Start_touch_btn
+  rotate: false
+  xy: 2, 2
+  size: 555, 212
+  orig: 555, 212
+  offset: 0, 0
+  index: -1

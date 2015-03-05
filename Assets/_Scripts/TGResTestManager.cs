@@ -12,6 +12,7 @@ public class TGResTestManager : MonoBehaviour {
 
 	void OnGUI(){
 		if (GUI.Button (new Rect (0, 0, Screen.width / 10, Screen.height / 10), "Back")) {
+			iTween.Stop ();
 			Application.LoadLevel("ResTestMenu");
 		}
 

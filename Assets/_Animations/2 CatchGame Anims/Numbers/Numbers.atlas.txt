@@ -1,0 +1,20 @@
+
+Numbers.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+_assets/Numbers/Plus_five
+  rotate: false
+  xy: 286, 4
+  size: 198, 152
+  orig: 198, 152
+  offset: 0, 0
+  index: -1
+_assets/Numbers/Plus_ten
+  rotate: false
+  xy: 2, 2
+  size: 282, 154
+  orig: 282, 154
+  offset: 0, 0
+  index: -1

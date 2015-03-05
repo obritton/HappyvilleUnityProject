@@ -5,8 +5,24 @@ public class NavManager : MonoBehaviour {
 
 	void OnGUI(){
 		if( GUI.Button( new Rect( 0, 0, Screen.width * 0.1f, Screen.height * 0.05f), "Back")){
-			MapManager.openPageIndex = 1;
-			Application.LoadLevel("MainMenu Map");
+			MapManager.openPageIndex = (Table.level/3) + 1;
+			print ("MapManager.openPageIndex: " + MapManager.openPageIndex);
+			iTween.Stop ();
+
+			GameObject doors = GameObject.Find ("Doors");
+			DoorManager doorManager = doors.GetComponent<DoorManager>();
+			if( doorManager )
+			{
+				StartCoroutine(doorManager.closeDoors());
+			}
+
+			StartCoroutine(delayedMenuLoad());
 		}
+	}
+
+	IEnumerator delayedMenuLoad()
+	{
+		yield return new WaitForSeconds (1);
+		Application.LoadLevel("MainMenu Map");
 	}
 }

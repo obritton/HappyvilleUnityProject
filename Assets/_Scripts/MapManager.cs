@@ -16,6 +16,11 @@ public class MapManager : MonoBehaviour {
 	public GameObject[] rightArrows;
 
 	void Start(){
+		if (openPageIndex > 0) {
+			doorManager.renderer.enabled = true;
+			StartCoroutine(doorManager.openDoors());
+		}
+
 		startHappyvilleSignedAnimsHandle ();
 
 		if (openPageIndex > 0) {
@@ -164,14 +169,17 @@ public class MapManager : MonoBehaviour {
 					break;
 				case "TableGameBtn":
 					int buttonIndex = int.Parse( hit.collider.gameObject.name);
+					Table.level = buttonIndex;
 					GameObject button = tableGameButtons[buttonIndex];
 					((SkeletonAnimation)button.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Active_press", false);
-					StartCoroutine(loadTableGame());
+					StartCoroutine(loadTableGame("Table Game"));
 					break;
 				case "CatchGameBtn":
-					Application.LoadLevel("CatchGame");
+					iTween.Stop ();
+					StartCoroutine(loadTableGame("CatchGame"));
 					break;
 				case "PuzzleGameBtn":
+					iTween.Stop ();
 					Application.LoadLevel("PuzzleProto");
 					break;
 				default:
@@ -181,41 +189,30 @@ public class MapManager : MonoBehaviour {
 		}
 	}
 
-	IEnumerator openDoors( bool isImmediate = false )
+	public DoorManager doorManager;
+	IEnumerator openDoors()
 	{
-		GameObject doors = GameObject.Find ("Doors");
-		if (doors) {
-			DoorManager doorManager = (DoorManager)doors.GetComponent<DoorManager>();
-			if( doorManager ){
-				StartCoroutine(doorManager.openDoors(isImmediate));
-			}
+		if( doorManager ){
+			StartCoroutine(doorManager.openDoors());
 		}
 		yield return new WaitForSeconds (0);
 	}
 
 	IEnumerator closeDoors( bool isImmediate = false )
 	{
-		GameObject doors = GameObject.Find ("Doors");
-		if (doors) {
-			DoorManager doorManager = (DoorManager)doors.GetComponent<DoorManager>();
-			if( doorManager ){
-				StartCoroutine(doorManager.closeDoors(isImmediate));
-			}
+		if( doorManager ){
+			StartCoroutine(doorManager.closeDoors());
 		}
 		yield return new WaitForSeconds (0);
 	}
 
-	IEnumerator loadTableGame(){
-		GameObject doors = GameObject.Find ("Doors");
-		if (doors) {
-			DoorManager doorManager = (DoorManager)doors.GetComponent<DoorManager>();
-			if( doorManager ){
-				StartCoroutine(doorManager.closeDoors());
-			}
-		}
+	IEnumerator loadTableGame( string gameName ){
+		if( doorManager )
+			StartCoroutine(doorManager.closeDoors());
 
 		yield return new WaitForSeconds (1);
-		Application.LoadLevel ("Table Game");
+		iTween.Stop ();
+		Application.LoadLevel (gameName);
 	}
 
 	IEnumerator fireBirdTouchAnim(){

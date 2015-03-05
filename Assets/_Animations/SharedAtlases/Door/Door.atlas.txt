@@ -1,0 +1,27 @@
+
+Door.png
+size: 2414,1544
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Menu_Screens/Door/Door
+  rotate: true
+  xy: 2, 2
+  size: 1540, 2280
+  orig: 1540, 2280
+  offset: 0, 0
+  index: -1
+Menu_Screens/Door/Door_Knob
+  rotate: false
+  xy: 2284, 1414
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Menu_Screens/Door/Door_Shadow
+  rotate: false
+  xy: 2284, 1291
+  size: 128, 121
+  orig: 128, 122
+  offset: 0, 1
+  index: -1

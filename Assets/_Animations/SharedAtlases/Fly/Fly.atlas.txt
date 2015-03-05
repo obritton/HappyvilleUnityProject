@@ -1,69 +1,69 @@
 
 Fly.png
-size: 256,128
+size: 388,142
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 Fly/Body-fly
   rotate: false
-  xy: 2, 35
-  size: 105, 83
-  orig: 105, 83
+  xy: 2, 2
+  size: 175, 138
+  orig: 175, 139
   offset: 0, 0
   index: -1
 Fly/Eye-cls-fly
-  rotate: false
-  xy: 129, 45
-  size: 18, 7
-  orig: 18, 7
+  rotate: true
+  xy: 210, 2
+  size: 30, 11
+  orig: 30, 11
   offset: 0, 0
   index: -1
 Fly/Eye-fly
   rotate: false
-  xy: 2, 2
-  size: 31, 31
-  orig: 31, 31
-  offset: 0, 0
+  xy: 334, 89
+  size: 52, 51
+  orig: 52, 52
+  offset: 0, 1
   index: -1
 Fly/Foot-fly
   rotate: false
-  xy: 35, 3
-  size: 7, 14
-  orig: 7, 15
-  offset: 0, 1
+  xy: 334, 39
+  size: 11, 23
+  orig: 11, 25
+  offset: 0, 2
   index: -1
 Fly/Leg-fly
-  rotate: false
-  xy: 203, 94
-  size: 4, 24
-  orig: 4, 24
+  rotate: true
+  xy: 223, 26
+  size: 6, 40
+  orig: 6, 40
   offset: 0, 0
   index: -1
 Fly/Mouth-fly
   rotate: false
-  xy: 209, 111
-  size: 16, 7
-  orig: 16, 7
+  xy: 360, 76
+  size: 26, 11
+  orig: 27, 11
   offset: 0, 0
   index: -1
 Fly/Mouth-opn-fly
-  rotate: false
-  xy: 109, 35
-  size: 18, 17
-  orig: 18, 17
+  rotate: true
+  xy: 179, 2
+  size: 30, 29
+  orig: 30, 29
   offset: 0, 0
   index: -1
 Fly/Pupil-fly
   rotate: false
-  xy: 35, 19
-  size: 14, 14
-  orig: 14, 14
-  offset: 0, 0
+  xy: 334, 64
+  size: 24, 23
+  orig: 24, 24
+  offset: 0, 1
   index: -1
 Fly/Wing-fly
   rotate: true
-  xy: 109, 54
-  size: 64, 92
-  orig: 64, 92
-  offset: 0, 0
+  xy: 179, 34
+  size: 106, 153
+  orig: 106, 154
+  offset: 0, 1
   index: -1

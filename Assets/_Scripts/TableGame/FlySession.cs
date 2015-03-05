@@ -8,8 +8,8 @@ public class FlySession : MonoBehaviour {
 	public Transform getFly(){
 		return fly.transform;
 	}
-
-	static bool isFlyInSession = false;
+//
+//	static bool isFlyInSession = false;
 
 	// Use this for initialization
 	void Start () {
