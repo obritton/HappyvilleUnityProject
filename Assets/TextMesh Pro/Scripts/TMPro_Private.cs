@@ -255,7 +255,7 @@ namespace TMPro
             max_LineWrapLength = 999;
 
             // Cache Reference to the Mesh Renderer.
-            m_renderer = renderer;
+            m_renderer = GetComponent<Renderer>();
             m_renderer.sortingLayerID = m_sortingLayerID;
             m_renderer.sortingOrder = m_sortingOrder; 
         
@@ -621,7 +621,7 @@ namespace TMPro
             // Check in case Object is disabled. If so, we don't have a valid reference to the Renderer.
             // This can occur when the Duplicate Material Context menu is used on an inactive object.
             if (m_renderer == null)
-                m_renderer = renderer;
+                m_renderer = GetComponent<Renderer>();
 
             m_renderer.material = mat;
             m_fontMaterial = m_renderer.material;
@@ -637,7 +637,7 @@ namespace TMPro
             // Check in case Object is disabled. If so, we don't have a valid reference to the Renderer.
             // This can occur when the Duplicate Material Context menu is used on an inactive object.
             if (m_renderer == null)
-                m_renderer = renderer;
+                m_renderer = GetComponent<Renderer>();
 
             m_renderer.sharedMaterial = mat;
             m_sharedMaterial = m_renderer.sharedMaterial;

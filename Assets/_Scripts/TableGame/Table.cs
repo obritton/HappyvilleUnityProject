@@ -35,8 +35,8 @@ public class Table : MonoBehaviour {
 		Texture2D bgSpriteFromRsc = Resources.Load (bgTxtStr) as Texture2D;
 		Texture2D tableSpriteFromRsc = Resources.Load (tableTxtStr) as Texture2D;
 
-		bgSprite.renderer.sharedMaterial.SetTexture ("_MainTex", bgSpriteFromRsc);
-		tableSprite.renderer.sharedMaterial.SetTexture ("_MainTex", tableSpriteFromRsc);
+		bgSprite.GetComponent<Renderer>().sharedMaterial.SetTexture ("_MainTex", bgSpriteFromRsc);
+		tableSprite.GetComponent<Renderer>().sharedMaterial.SetTexture ("_MainTex", tableSpriteFromRsc);
 	}
 
 	bool playing = true;
@@ -133,9 +133,9 @@ public class Table : MonoBehaviour {
 		
 		if( Input.GetMouseButtonUp(0)){
 			if( isFoodDragging ){
-				food.gameObject.collider.enabled = false;
+				food.gameObject.GetComponent<Collider>().enabled = false;
 				GameObject pickedGO = mousePick();
-				food.gameObject.collider.enabled = true;
+				food.gameObject.GetComponent<Collider>().enabled = true;
 
 
 
@@ -310,7 +310,7 @@ public class Table : MonoBehaviour {
 		Vector3 pos = new Vector3( -206 + i * 206, 0, -3 );
 		Quaternion rot = Quaternion.Euler (new Vector3 (270, 0, 0));
 		GameObject crumbs = Instantiate (crumbsPrefab, pos, rot) as GameObject;
-		crumbs.renderer.material.color = foodColor;
+		crumbs.GetComponent<Renderer>().material.color = foodColor;
 	}
 
 	IEnumerator delayedReactivateTouchAnims( float delay ){
@@ -373,7 +373,7 @@ public class Table : MonoBehaviour {
 
 	IEnumerator resetTurnWithEmptyIndex( int plateIndex ){
 				food.transform.position = foodAnimOnStartPos.position;
-				food.renderer.enabled = false;
+				food.GetComponent<Renderer>().enabled = false;
 				yield return new WaitForSeconds (0.5f);
 				float delay = addNewCharacterAtSpot (plateIndex);
 
@@ -407,7 +407,7 @@ public class Table : MonoBehaviour {
 		flySession.transform.localPosition = flyPosLeft;
 		yield return new WaitForSeconds (delay);
 		Transform fly = flySession.getFly ();
-		fly.renderer.enabled = true;
+		fly.GetComponent<Renderer>().enabled = true;
 		((SkeletonAnimation)fly.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Fly", true, 0);
 		iTween.MoveTo( flySession.gameObject, iTween.Hash( "position", flyPosRight, "time", 10, "islocal", true, "easetype", iTween.EaseType.linear, "name", "flypass", "oncomplete", "turnFlyAround", "oncompletetarget", gameObject));
 		StartCoroutine (collapseThoughts ());
@@ -504,7 +504,7 @@ public class Table : MonoBehaviour {
 		foodFromPrefab.transform.parent = transform;
 		foodFromPrefab.transform.localScale = foodStartSize;
 		food = (Food)foodFromPrefab.GetComponent<Food>();
-		food.renderer.enabled = false;
+		food.GetComponent<Renderer>().enabled = false;
 		int randSpotIndex = Random.Range (0, 3);
 		food.shape = tableSpotArr [randSpotIndex].thoughtShape;
 
@@ -650,7 +650,7 @@ public class Table : MonoBehaviour {
 		yield return new WaitForSeconds (0);
 		food.transform.position = foodAnimOnStartPos.position;
 		iTween.MoveTo (food.gameObject, iTween.Hash ("time", 1, "position", foodAnimOnTargetPos, "islocal", false, "easetype", iTween.EaseType.easeOutElastic));
-		food.renderer.enabled = true;
+		food.GetComponent<Renderer>().enabled = true;
 		StartCoroutine (delayedConditionalFoodPunch ());
 	}
 

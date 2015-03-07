@@ -17,7 +17,7 @@ public class MapManager : MonoBehaviour {
 
 	void Start(){
 		if (openPageIndex > 0) {
-			doorManager.renderer.enabled = true;
+			doorManager.GetComponent<Renderer>().enabled = true;
 			StartCoroutine(doorManager.openDoors());
 		}
 
@@ -43,11 +43,11 @@ public class MapManager : MonoBehaviour {
 		((SkeletonAnimation)monkey.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Popup-monk", false);
 		((SkeletonAnimation)frog.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Popup-frg", false);
 		yield return new WaitForSeconds(0.01f);
-		bird.renderer.enabled = true;
-		cat.renderer.enabled = true;
-		fox.renderer.enabled = true;
-		frog.renderer.enabled = true;
-		monkey.renderer.enabled = true;
+		bird.GetComponent<Renderer>().enabled = true;
+		cat.GetComponent<Renderer>().enabled = true;
+		fox.GetComponent<Renderer>().enabled = true;
+		frog.GetComponent<Renderer>().enabled = true;
+		monkey.GetComponent<Renderer>().enabled = true;
 		yield return new WaitForSeconds (2);
 		StartCoroutine( makeCharactersCheer ());
 	}
@@ -177,6 +177,11 @@ public class MapManager : MonoBehaviour {
 				case "CatchGameBtn":
 					iTween.Stop ();
 					StartCoroutine(loadTableGame("CatchGame"));
+					break;
+				case "WhackGame":
+					iTween.Stop ();
+					openPageIndex = 2;
+					StartCoroutine(loadTableGame("Whack Game"));
 					break;
 				case "PuzzleGameBtn":
 					iTween.Stop ();

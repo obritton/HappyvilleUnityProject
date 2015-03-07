@@ -23,11 +23,11 @@ public class TableSpot : MonoBehaviour {
 	{
 		yield return new WaitForSeconds (0.01f);
 		newCharacter.transform.localPosition = Vector3.zero;
-		newCharacter.renderer.enabled = true;
+		newCharacter.GetComponent<Renderer>().enabled = true;
 	}
 
 	float animateNewCharacterUpToTable( GameObject newCharacter){
-		newCharacter.renderer.enabled = false;
+		newCharacter.GetComponent<Renderer>().enabled = false;
 		if (characterNode.transform.childCount > 0) {
 			Destroy (characterNode.transform.GetChild (0).gameObject);
 		}
@@ -47,7 +47,7 @@ public class TableSpot : MonoBehaviour {
 		((SkeletonAnimation)thoughtBubble.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "PopUp-thought", false );
 		((SkeletonAnimation)thoughtBubble.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "IdleOne-thought", true, 0);
 		yield return new WaitForSeconds( 0.01f );
-		thoughtBubble.renderer.enabled = true;
+		thoughtBubble.GetComponent<Renderer>().enabled = true;
 		StartCoroutine (thoughtBubble.popupShape ());
 	}
 }

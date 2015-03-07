@@ -1,0 +1,27 @@
+
+Balloon.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Balloon/Balloon
+  rotate: false
+  xy: 2, 33
+  size: 280, 337
+  orig: 280, 337
+  offset: 0, 0
+  index: -1
+Balloon/Rope
+  rotate: true
+  xy: 284, 365
+  size: 5, 543
+  orig: 8, 543
+  offset: 2, 0
+  index: -1
+Balloon/Tie
+  rotate: false
+  xy: 2, 2
+  size: 32, 29
+  orig: 32, 29
+  offset: 0, 0
+  index: -1

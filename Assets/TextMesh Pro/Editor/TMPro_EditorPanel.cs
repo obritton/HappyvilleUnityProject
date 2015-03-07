@@ -158,7 +158,7 @@ namespace TMPro.EditorUtilities
 
             m_textMeshProScript = (TextMeshPro)target;
             m_transform = Selection.activeGameObject.transform;
-            m_renderer = Selection.activeGameObject.renderer;
+            m_renderer = Selection.activeGameObject.GetComponent<Renderer>();
 
             //m_updateManager = Camera.main.gameObject.GetComponent<TMPro_UpdateManager>();
         }

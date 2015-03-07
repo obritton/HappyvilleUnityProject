@@ -8,7 +8,7 @@ public class PieChartMeshController_NN : MonoBehaviour
 
     void Start()
     {
-        mPieChart = gameObject.AddComponent("PieChartMesh") as PieChartMesh;
+        mPieChart = gameObject.AddComponent<PieChartMesh>() as PieChartMesh;
         if (mPieChart != null)
         {
             mPieChart.Init(mData, 100, 0, 100, null);

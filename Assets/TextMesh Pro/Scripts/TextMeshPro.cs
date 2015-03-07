@@ -55,7 +55,7 @@ namespace TMPro
         /// </summary>
         public Material fontMaterial
         {
-            get { return renderer.material; }
+            get { return GetComponent<Renderer>().material; }
             set { if (m_fontMaterial != value) { SetFontMaterial(value); havePropertiesChanged = true; m_fontMaterial = value; /* ScheduleUpdate(); */ } }
         }
 
@@ -65,7 +65,7 @@ namespace TMPro
         /// </summary>
         public Material fontSharedMaterial
         {
-            get { return renderer.sharedMaterial; }
+            get { return GetComponent<Renderer>().sharedMaterial; }
             set { if (m_sharedMaterial != value) { SetSharedFontMaterial(value); havePropertiesChanged = true; m_sharedMaterial = value; /* ScheduleUpdate(); */ } }
         }
 

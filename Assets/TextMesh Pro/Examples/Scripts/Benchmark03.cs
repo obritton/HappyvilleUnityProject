@@ -58,7 +58,7 @@ public class Benchmark03 : MonoBehaviour
                 go.transform.position = new Vector3(0, 0, 0);
                 
                 TextMesh textMesh = go.AddComponent<TextMesh>();
-                textMesh.renderer.sharedMaterial = TheFont.material;
+                textMesh.GetComponent<Renderer>().sharedMaterial = TheFont.material;
                 textMesh.font = TheFont;
                 textMesh.anchor = TextAnchor.MiddleCenter;
                 textMesh.fontSize = 96;

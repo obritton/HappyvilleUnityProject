@@ -432,7 +432,7 @@ public class SkeletonDataAssetInspector : Editor {
 		if (this.m_previewUtility == null) {
 			this.m_lastTime = Time.realtimeSinceStartup;
 			this.m_previewUtility = new PreviewRenderUtility(true);
-			this.m_previewUtility.m_Camera.isOrthoGraphic = true;
+			this.m_previewUtility.m_Camera.orthographic = true;
 			this.m_previewUtility.m_Camera.orthographicSize = 1;
 			this.m_previewUtility.m_Camera.cullingMask = -2147483648;
 			this.CreatePreviewInstances();
@@ -456,7 +456,7 @@ public class SkeletonDataAssetInspector : Editor {
 
 				m_skeletonData = m_skeletonAnimation.skeletonDataAsset.GetSkeletonData(true);
 
-				m_previewInstance.renderer.enabled = false;
+				m_previewInstance.GetComponent<Renderer>().enabled = false;
 
 				m_initialized = true;
 				AdjustCameraGoals(true);
@@ -526,7 +526,7 @@ public class SkeletonDataAssetInspector : Editor {
 
 		GameObject go = this.m_previewInstance;
 
-		Bounds bounds = go.renderer.bounds;
+		Bounds bounds = go.GetComponent<Renderer>().bounds;
 		m_orthoGoal = bounds.size.y;
 
 		m_posGoal = bounds.center + new Vector3(0, 0, -10);
@@ -563,7 +563,7 @@ public class SkeletonDataAssetInspector : Editor {
 		GameObject go = this.m_previewInstance;
 
 		if (m_requireRefresh && go != null) {
-			go.renderer.enabled = true;
+			go.GetComponent<Renderer>().enabled = true;
 
 			if (EditorApplication.isPlaying) {
 				//do nothing
@@ -585,7 +585,7 @@ public class SkeletonDataAssetInspector : Editor {
 			}
 
 			this.m_previewUtility.m_Camera.Render();
-			go.renderer.enabled = false;
+			go.GetComponent<Renderer>().enabled = false;
 		}
 
 

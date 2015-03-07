@@ -24,12 +24,12 @@ public class CatchResults : MonoBehaviour {
 
 		yield return new WaitForSeconds (0.25f);
 		fruitsTMP.text = ""+totalFruits;
-		fruitsTMP.renderer.enabled = true;
+		fruitsTMP.GetComponent<Renderer>().enabled = true;
 		yield return new WaitForSeconds (0.25f);
 		candiesTMP.text = ""+totalCandies;
-		candiesTMP.renderer.enabled = true;
+		candiesTMP.GetComponent<Renderer>().enabled = true;
 		yield return new WaitForSeconds (0.25f);
 		scoreTMP.text = "" + totalScore;
-		scoreTMP.renderer.enabled = true;
+		scoreTMP.GetComponent<Renderer>().enabled = true;
 	}
 }

@@ -726,7 +726,7 @@ public class TMPro_SDFMaterialEditor : MaterialEditor
 
         if (GUI.Button(pos0, "X"))
         {
-            Renderer _renderer = Selection.activeGameObject.renderer;
+            Renderer _renderer = Selection.activeGameObject.GetComponent<Renderer>();
             if (_renderer != null)
             {
                 property.vectorValue = new Vector4(0, 0, Mathf.Round(_renderer.bounds.extents.x * 1000) / 1000, Mathf.Round(_renderer.bounds.extents.y * 1000) / 1000);

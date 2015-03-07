@@ -24,7 +24,7 @@ public class TimerAndMeter : MonoBehaviour {
 
 		if (!isFrenzyMode) {
 			if (totalDots < MeterDotsArr.Length) {
-				MeterDotsArr [totalDots].renderer.enabled = true;
+				MeterDotsArr [totalDots].GetComponent<Renderer>().enabled = true;
 				totalDots++;
 			}
 

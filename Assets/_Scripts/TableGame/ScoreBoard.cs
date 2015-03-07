@@ -49,14 +49,14 @@ public class ScoreBoard : MonoBehaviour {
 			setAllStarsAlpha(1);
 			for (int i = 0; i < stars.Count; i++) {
 				GameObject star = (GameObject)stars [i];
-				star.renderer.material.color = new Color (1, 1, 1, 0);
+				star.GetComponent<Renderer>().material.color = new Color (1, 1, 1, 0);
 				iTween.FadeTo (star, 1, 0.1f);
 				yield return new WaitForSeconds( 0.1f);
 			}
 
 			for (int i = stars.Count-1; i >= 0; i--) {
 				GameObject star = (GameObject)stars [i];
-				star.renderer.material.color = new Color (1, 1, 1, 0);
+				star.GetComponent<Renderer>().material.color = new Color (1, 1, 1, 0);
 				iTween.FadeTo (star, 1, 0.1f);
 				yield return new WaitForSeconds( 0.1f);
 			}
@@ -65,10 +65,10 @@ public class ScoreBoard : MonoBehaviour {
 			setAllStarsAlpha(0);
 			for( int i = 0; i < 24; i++ ){
 				GameObject star = (GameObject)stars [Random.Range (0,stars.Count)];
-				star.renderer.material.color = Color.white;
+				star.GetComponent<Renderer>().material.color = Color.white;
 				iTween.FadeTo (star, 0, 0.5f);
 				star = (GameObject)stars [Random.Range (0,stars.Count)];
-				star.renderer.material.color = Color.white;
+				star.GetComponent<Renderer>().material.color = Color.white;
 				iTween.FadeTo (star, 0, 0.5f);
 				yield return new WaitForSeconds( 0.1f);
 			}
@@ -78,7 +78,7 @@ public class ScoreBoard : MonoBehaviour {
 	void setAllStarsAlpha( float alpha ){
 		for (int i = 0; i < stars.Count; i++) {
 			GameObject star = (GameObject)stars [i];
-			star.renderer.material.color = new Color (1, 1, 1, alpha);
+			star.GetComponent<Renderer>().material.color = new Color (1, 1, 1, alpha);
 		}
 	}
 }

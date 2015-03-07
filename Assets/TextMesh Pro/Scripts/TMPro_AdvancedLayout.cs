@@ -46,7 +46,7 @@ namespace TMPro
         {
             Debug.Log("Advanced Layout Component was added.");
 
-            m_renderer = renderer;
+            m_renderer = GetComponent<Renderer>();
             //m_meshFilter = GetComponent<MeshFilter>();
             //m_mesh = m_meshFilter.sharedMesh;
             m_sharedMaterial = m_renderer.sharedMaterial;

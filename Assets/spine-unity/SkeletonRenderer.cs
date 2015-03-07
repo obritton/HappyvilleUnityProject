@@ -75,8 +75,8 @@ public class SkeletonRenderer : MonoBehaviour {
 	public virtual void Reset () {
 		if (meshFilter != null)
 			meshFilter.sharedMesh = null;
-		if (renderer != null)
-			renderer.sharedMaterial = null;
+		if (GetComponent<Renderer>() != null)
+			GetComponent<Renderer>().sharedMaterial = null;
 		mesh1 = null;
 		mesh2 = null;
 		lastVertexCount = 0;
@@ -190,7 +190,7 @@ public class SkeletonRenderer : MonoBehaviour {
 			submeshMaterials.CopyTo(sharedMaterials);
 		else
 			sharedMaterials = submeshMaterials.ToArray();
-		renderer.sharedMaterials = sharedMaterials;
+		GetComponent<Renderer>().sharedMaterials = sharedMaterials;
 		
 		// Ensure mesh data is the right size.
 		Vector3[] vertices = this.vertices;

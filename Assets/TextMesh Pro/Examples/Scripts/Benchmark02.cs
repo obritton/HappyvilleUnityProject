@@ -53,7 +53,7 @@ public class Benchmark02 : MonoBehaviour
                 
                 TextMesh textMesh = go.AddComponent<TextMesh>();
                 textMesh.font = Resources.Load("Fonts/ARIAL", typeof(Font)) as Font;        
-                textMesh.renderer.sharedMaterial = textMesh.font.material;
+                textMesh.GetComponent<Renderer>().sharedMaterial = textMesh.font.material;
                       
                 textMesh.anchor = TextAnchor.LowerCenter;
                 textMesh.fontSize = 96;

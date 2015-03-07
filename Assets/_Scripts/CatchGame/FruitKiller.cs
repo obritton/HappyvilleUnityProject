@@ -23,7 +23,7 @@ public class FruitKiller : CrumbColorer {
 		foreach (GameObject food in liveFoods) {
 			if( food != null ){
 				Vector3 dir =  food.transform.position - catchGame.lion.transform.position;
-				food.rigidbody.AddForce( dir * 150 );
+				food.GetComponent<Rigidbody>().AddForce( dir * 150 );
 				delayedGOKill( food, 4 );
 			}
 		}
@@ -66,12 +66,12 @@ public class FruitKiller : CrumbColorer {
 				StartCoroutine( delayedGOKill( splat, 3 ));
 			}
 			else{
-				food.collider.enabled = false;
-				food.rigidbody.velocity = Vector3.zero;
+				food.GetComponent<Collider>().enabled = false;
+				food.GetComponent<Rigidbody>().velocity = Vector3.zero;
 				int forceSign = food.transform.position.x <= 100 ? 1 : -1;
-				food.rigidbody.AddForce( Vector3.left * 10000 * forceSign );
-				food.rigidbody.AddForce( Vector3.up * 10000 );
-				food.rigidbody.AddRelativeTorque( Vector3.forward * 2000000 * forceSign );
+				food.GetComponent<Rigidbody>().AddForce( Vector3.left * 10000 * forceSign );
+				food.GetComponent<Rigidbody>().AddForce( Vector3.up * 10000 );
+				food.GetComponent<Rigidbody>().AddRelativeTorque( Vector3.forward * 2000000 * forceSign );
 				StartCoroutine( delayedGOKill( food, 5 ));
 			}
 		}

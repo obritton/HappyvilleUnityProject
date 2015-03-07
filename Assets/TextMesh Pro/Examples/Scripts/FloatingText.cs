@@ -59,7 +59,7 @@ public class FloatingText : MonoBehaviour
 
             m_textMesh = m_floatingText.AddComponent<TextMesh>();        
             m_textMesh.font = Resources.Load("Fonts/ARIAL", typeof(Font)) as Font; // User should only provide a string to the resource.     
-            m_textMesh.renderer.sharedMaterial = m_textMesh.font.material;    
+            m_textMesh.GetComponent<Renderer>().sharedMaterial = m_textMesh.font.material;    
             m_textMesh.color = new Color32((byte)Random.Range(0, 255), (byte)Random.Range(0, 255), (byte)Random.Range(0, 255), 255);
             m_textMesh.anchor = TextAnchor.LowerCenter;
             m_textMesh.fontSize = 16;

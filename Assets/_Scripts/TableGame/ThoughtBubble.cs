@@ -56,6 +56,6 @@ public class ThoughtBubble : MonoBehaviour {
 		yield return new WaitForSeconds(TGConsts.kThoughtShapeDelay);
 		((SkeletonAnimation)thoughtShape.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Popup-shape", false );
 		yield return new WaitForSeconds( 0.01f );
-		thoughtShape.renderer.enabled = true;
+		thoughtShape.GetComponent<Renderer>().enabled = true;
 	}
 }

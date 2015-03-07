@@ -31,7 +31,7 @@ public class PieChartMesh : MonoBehaviour
         mMeshRenderer = gameObject.GetComponent("MeshRenderer") as MeshRenderer;
         if (mMeshRenderer == null)
         {
-            gameObject.AddComponent("MeshRenderer");
+            gameObject.AddComponent<MeshRenderer>();
             mMeshRenderer = gameObject.GetComponent("MeshRenderer") as MeshRenderer;
         }
         

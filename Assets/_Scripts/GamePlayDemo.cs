@@ -16,19 +16,19 @@ public class GamePlayDemo : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		foreach (GameObject character in characters) {
-			character.renderer.enabled = false;
+			character.GetComponent<Renderer>().enabled = false;
 		}
 
 		foreach (GameObject thoughtBubble in thoughtBubbles) {
-			thoughtBubble.renderer.enabled = false;
+			thoughtBubble.GetComponent<Renderer>().enabled = false;
 		}
 
 		foreach (GameObject toughtShape in toughtShapes) {
-			toughtShape.renderer.enabled = false;
+			toughtShape.GetComponent<Renderer>().enabled = false;
 		}
 
 		foreach (GameObject food in foods) {
-			food.renderer.enabled = false;
+			food.GetComponent<Renderer>().enabled = false;
 		}
 
 		foodStartPos = (foods [0]).transform.localPosition;
@@ -97,9 +97,9 @@ public class GamePlayDemo : MonoBehaviour {
 			if( Input.GetMouseButtonUp(0)){
 				if( isFoodDragging ){
 					isFoodDragging = false;
-					((GameObject)foods[0]).collider.enabled = false;
+					((GameObject)foods[0]).GetComponent<Collider>().enabled = false;
 					GameObject pickedGO = mousePick();
-					((GameObject)foods[0]).collider.enabled = true;
+					((GameObject)foods[0]).GetComponent<Collider>().enabled = true;
 
 					if( pickedGO == null ){
 						snapFoodBack();
@@ -176,7 +176,7 @@ public class GamePlayDemo : MonoBehaviour {
 			((SkeletonAnimation)character.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, popupName, false );
 //			((SkeletonAnimation)character.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, idleName, true, 0 );
 			yield return new WaitForSeconds (0.01f);
-			character.renderer.enabled = true;
+			character.GetComponent<Renderer>().enabled = true;
 			yield return new WaitForSeconds (0.2f);
 		}
 
@@ -187,11 +187,11 @@ public class GamePlayDemo : MonoBehaviour {
 			((SkeletonAnimation)thoughtBubble.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "PopUp-thought", false);
 			((SkeletonAnimation)thoughtBubble.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "IdleOne-thought", true, 0);
 			yield return new WaitForSeconds (0.01f);
-			thoughtBubble.renderer.enabled = true;
+			thoughtBubble.GetComponent<Renderer>().enabled = true;
 			yield return new WaitForSeconds (0.15f);
 			((SkeletonAnimation)toughtShapes[i].GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Popup-shape", false);
 			yield return new WaitForSeconds (0.01f);
-			toughtShapes[i].renderer.enabled = true;
+			toughtShapes[i].GetComponent<Renderer>().enabled = true;
 		}
 
 		StartCoroutine (tapTableAll ());
@@ -199,7 +199,7 @@ public class GamePlayDemo : MonoBehaviour {
 		yield return new WaitForSeconds (1.8f);
 		((SkeletonAnimation)foods[0].GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Enter-food", false);
 		yield return new WaitForSeconds (0.01f);
-		foods[0].renderer.enabled = true;
+		foods[0].GetComponent<Renderer>().enabled = true;
 	}
 
 	IEnumerator tapTableAll()
