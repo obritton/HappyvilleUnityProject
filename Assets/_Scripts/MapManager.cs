@@ -37,6 +37,7 @@ public class MapManager : MonoBehaviour {
 
 	public static int openPageIndex = 0;
 	IEnumerator startPopupAnims(){
+		yield return new WaitForSeconds (3);
 		((SkeletonAnimation)bird.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Popup-brd", false);
 		((SkeletonAnimation)fox.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Popup-fox", false);
 		((SkeletonAnimation)cat.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Popup-cat", false);
@@ -64,7 +65,7 @@ public class MapManager : MonoBehaviour {
 		((SkeletonAnimation)monkey.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Cheer-monk", false);
 		((SkeletonAnimation)monkey.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle-monk", true, 0);
 		yield return new WaitForSeconds (trackEntry.animation.duration);
-		((SkeletonAnimation)goSign.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Sway_Sign", false);
+		((SkeletonAnimation)goSign.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Sway", false);
 		StartCoroutine (startTimedSignSway());
 		StartCoroutine (fireRandomTouchRoutines ());
 	}
@@ -74,7 +75,7 @@ public class MapManager : MonoBehaviour {
 		signSway = true;
 		while (signSway) {
 			yield return new WaitForSeconds(5);
-			((SkeletonAnimation)goSign.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Sway_Sign", false);
+			((SkeletonAnimation)goSign.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Sway", false);
 		}
 	}
 
@@ -114,6 +115,8 @@ public class MapManager : MonoBehaviour {
 	int totalMonkeyClicks = 0;
 
 	public GameObject[] tableGameButtons;
+	public SkeletonAnimation catchGameButtonAnim;
+	public SkeletonAnimation whackGameButtonAnim;
 
 	void Update () {
 		if (Input.GetMouseButtonDown (0)) {
@@ -175,10 +178,13 @@ public class MapManager : MonoBehaviour {
 					StartCoroutine(loadTableGame("Table Game"));
 					break;
 				case "CatchGameBtn":
+					catchGameButtonAnim.state.SetAnimation(0,"Active_press",false);
 					iTween.Stop ();
+					openPageIndex = 1;
 					StartCoroutine(loadTableGame("CatchGame"));
 					break;
 				case "WhackGame":
+					whackGameButtonAnim.state.SetAnimation(0,"Active_press",false);
 					iTween.Stop ();
 					openPageIndex = 2;
 					StartCoroutine(loadTableGame("Whack Game"));
@@ -212,6 +218,7 @@ public class MapManager : MonoBehaviour {
 	}
 
 	IEnumerator loadTableGame( string gameName ){
+		yield return new WaitForSeconds (1);
 		if( doorManager )
 			StartCoroutine(doorManager.closeDoors());
 
@@ -312,7 +319,7 @@ public class MapManager : MonoBehaviour {
 					if (i > 3 || (i == 3 && !isLeftNav)) {
 						animName = "Click_Right_Water_Nav_Sign";
 					}
-					//				print ("" + i + ": " + animName);
+
 					((SkeletonAnimation)arrow.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, animName, false);
 			}
 		}

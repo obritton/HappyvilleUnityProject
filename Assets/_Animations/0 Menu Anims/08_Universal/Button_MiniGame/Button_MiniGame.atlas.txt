@@ -1,0 +1,41 @@
+
+Button_MiniGame.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Menu_Screens/Button_MiniGame_Active
+  rotate: false
+  xy: 599, 722
+  size: 188, 135
+  orig: 188, 135
+  offset: 0, 0
+  index: -1
+Menu_Screens/Button_MiniGame_Locked
+  rotate: false
+  xy: 269, 212
+  size: 188, 123
+  orig: 188, 123
+  offset: 0, 0
+  index: -1
+Menu_Screens/Button_MiniGame_Press
+  rotate: false
+  xy: 2, 2
+  size: 188, 124
+  orig: 188, 124
+  offset: 0, 0
+  index: -1
+Menu_Screens/Ray_Button
+  rotate: false
+  xy: 2, 337
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Menu_Screens/Shadow_Button_Games
+  rotate: false
+  xy: 2, 128
+  size: 265, 207
+  orig: 265, 208
+  offset: 0, 1
+  index: -1

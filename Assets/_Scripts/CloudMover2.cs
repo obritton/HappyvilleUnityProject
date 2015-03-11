@@ -16,10 +16,10 @@ public class CloudMover2 : MonoBehaviour {
 //			cloud.Translate( cloudSpeed * Time.deltaTime * (cloud.localPosition.y-2), 0, 0 );
 			float cloudOffset = cloudSpeed * Time.deltaTime;
 			if( cloud.localPosition.y < 3.5 ){
-				cloudOffset *= .5f;
+				cloudOffset *= .75f;
 			}
 			else if( cloud.localPosition.y > 5 ){
-				cloudOffset *= 3;
+				cloudOffset *= 1.25f;
 			}
 			cloud.Translate( cloudOffset*100, 0, 0 );
 			if( cloud.localPosition.x < leftLimit ){

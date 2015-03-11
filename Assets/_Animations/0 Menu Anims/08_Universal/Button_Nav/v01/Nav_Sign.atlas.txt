@@ -7,16 +7,16 @@ repeat: none
 Menu_Screens/Arrow_Click_Nav
   rotate: false
   xy: 2, 22
-  size: 96, 102
+  size: 96, 101
   orig: 96, 102
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Menu_Screens/Arrow_Nav
   rotate: false
   xy: 100, 22
-  size: 96, 102
+  size: 96, 101
   orig: 96, 102
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Menu_Screens/Pole_Nav
   rotate: true
@@ -27,8 +27,8 @@ Menu_Screens/Pole_Nav
   index: -1
 Menu_Screens/Shadow_Nav
   rotate: true
-  xy: 198, 31
-  size: 93, 28
+  xy: 198, 30
+  size: 93, 27
   orig: 93, 28
-  offset: 0, 0
+  offset: 0, 1
   index: -1
