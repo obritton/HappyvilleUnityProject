@@ -17,6 +17,7 @@ public class MapManager : MonoBehaviour {
 
 	void Start(){
 		if (openPageIndex > 0) {
+			startMusic();
 			doorManager.GetComponent<Renderer>().enabled = true;
 			StartCoroutine(doorManager.openDoors());
 		}
@@ -53,7 +54,10 @@ public class MapManager : MonoBehaviour {
 		StartCoroutine( makeCharactersCheer ());
 	}
 
+	AudioSource music = null;
 	IEnumerator makeCharactersCheer(){
+		if( currentPage == 0 )
+			SoundManager.PlaySFX ("GameStartCheer");
 		TrackEntry trackEntry = ((SkeletonAnimation)bird.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Cheer-brd", false);
 		((SkeletonAnimation)bird.GetComponent<SkeletonAnimation> ()).state.AddAnimation(0, "Idle-brd", true, 0);
 		((SkeletonAnimation)cat.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Cheer-cat", false);
@@ -65,9 +69,16 @@ public class MapManager : MonoBehaviour {
 		((SkeletonAnimation)monkey.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Cheer-monk", false);
 		((SkeletonAnimation)monkey.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle-monk", true, 0);
 		yield return new WaitForSeconds (trackEntry.animation.duration);
+		startMusic ();
 		((SkeletonAnimation)goSign.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Sway", false);
 		StartCoroutine (startTimedSignSway());
 		StartCoroutine (fireRandomTouchRoutines ());
+	}
+
+	void startMusic()
+	{
+		if( music == null )
+			music = SoundManager.PlaySFX ("HappyMusic", true, 0, 100);
 	}
 
 	bool signSway = false;
@@ -219,6 +230,7 @@ public class MapManager : MonoBehaviour {
 
 	IEnumerator loadTableGame( string gameName ){
 		yield return new WaitForSeconds (1);
+		SoundManager.Stop();
 		if( doorManager )
 			StartCoroutine(doorManager.closeDoors());
 
@@ -296,7 +308,7 @@ public class MapManager : MonoBehaviour {
 					animName = "Idle_Right_Water_Nav_Sign";
 				}
 //				print ("" + i + ": " + animName);
-				((SkeletonAnimation)arrow.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, animName, false);
+				((SkeletonAnimation)arrow.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, animName, true);
 			}
 		}
 	}
@@ -305,22 +317,43 @@ public class MapManager : MonoBehaviour {
 	{
 		((SkeletonAnimation)goSign.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Click", false);
 		yield return new WaitForSeconds (0.5f);
+		StartCoroutine (startTimedSignSway());
 		StartCoroutine(navigateToPage(1));
 	}
-	
+
+	AudioSource snoreAS = null;
+	void toggleSnore( bool toggleOn ){
+		if (snoreAS != null) {
+						snoreAS.Stop ();
+						music.volume = 100;
+				}
+
+		if (toggleOn) {
+			if( music != null )
+			music.volume = 0.2f;
+			snoreAS = SoundManager.PlaySFX("Snoring", true, 0, 200, Random.Range(1.0f, 2.5f));
+
+			                              }
+	}
+
 	IEnumerator navigateToPage(int pageIndex, bool pressedNavButton = false, bool isLeftNav = false, bool isInstantaneous = false){
+
+		toggleSnore (pageIndex >= 2);
 
 		if (pressedNavButton) {
 			GameObject[] arrowArr = isLeftNav ? leftArrows : rightArrows;
 
 			for (int i = 0; i < arrowArr.Length; i++) {
 					GameObject arrow = arrowArr [i];
-					string animName = "Click_Right_Nav_Sign";
+					string setAnimName = "Click_Right_Nav_Sign";
+					string addAnimName = "Sway_Right_Nav_Sign";
 					if (i > 3 || (i == 3 && !isLeftNav)) {
-						animName = "Click_Right_Water_Nav_Sign";
+						setAnimName = "Click_Right_Water_Nav_Sign";
+						addAnimName = "Idle_Right_Water_Nav_Sign";
 					}
 
-					((SkeletonAnimation)arrow.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, animName, false);
+				((SkeletonAnimation)arrow.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, setAnimName, false);
+				((SkeletonAnimation)arrow.GetComponent<SkeletonAnimation> ()).state.AddAnimation( 0, addAnimName, true, 0 );
 			}
 		}
 

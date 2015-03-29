@@ -16,12 +16,13 @@ public class Table : MonoBehaviour {
 
 	public GameObject bgSprite;
 	public GameObject tableSprite;
-
+	
 	void Start(){
 
 		if (level > -1)
 			loadTableAndBG ();
 		CharacterNode.totalCharactersUnlocked = 4 + (Table.level / 3);
+		SoundManager.PlaySFX ("WierdMusic", true);
 
 		foodStartPos = food.transform.localPosition;
 		foodStartSize = food.transform.localScale;
@@ -203,6 +204,7 @@ public class Table : MonoBehaviour {
 		if (!canTouchAnim || isFlyOut)
 						return;
 
+		SoundManager.PlaySFX ("TableWrong" + Random.Range (0, 6));
 		string touchAnimStr = "TouchOne";
 		if( Random.value < 0.3f )
 			touchAnimStr = "TouchTwo";
@@ -290,6 +292,7 @@ public class Table : MonoBehaviour {
 		float duration = te.animation.duration;
 		StartCoroutine (delayedEyeUnregister (duration));
 		te = ((SkeletonAnimation)tableSpotArr [plateIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "ThankYou", false, 0);
+		SoundManager.PlaySFX ("TableRight" + Random.Range (0, 5),false,2,1,1+Random.Range (0.0f,0.5f));
 		scoreBoard.addStar ();
 		if (totalCorrects < 12) {
 			duration += te.animation.duration;
@@ -394,6 +397,8 @@ public class Table : MonoBehaviour {
 
 	public GameObject prefabFly;
 
+	AudioSource flyAS = null;
+
 	Vector3 flyPosLeft = new Vector3( -472, 242, -11 );
 	Vector3 flyPosRight = new Vector3( 489, 242, -11 );
 	IEnumerator startFlySession(float delay){
@@ -403,7 +408,7 @@ public class Table : MonoBehaviour {
 		GameObject flyS = Instantiate (prefabFly, Vector3.left * 1000, Quaternion.identity) as GameObject;
 		flySession = flyS.GetComponent<FlySession> ();
 		flySession.transform.parent = transform.parent;
-
+		flyAS = SoundManager.PlaySFX ("FlyBuzz", true);
 		flySession.transform.localPosition = flyPosLeft;
 		yield return new WaitForSeconds (delay);
 		Transform fly = flySession.getFly ();
@@ -417,8 +422,6 @@ public class Table : MonoBehaviour {
 	}
 
 	void turnFlyAround(){
-		print ("turnFlyAround");
-
 		Vector3 position = flyPosRight;
 		Vector3 scale = Vector3.one * 0.9f;
 
@@ -443,6 +446,7 @@ public class Table : MonoBehaviour {
 
 	bool touchedFly = false;
 	IEnumerator endFlySession(){
+		flyAS.Stop ();
 		touchedFly = true;
 		TrackEntry te1 = ((SkeletonAnimation)flySession.getFly().GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Touch", false);
 		TrackEntry te2 = ((SkeletonAnimation)flySession.getFly().GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Leave", false, 0);
@@ -479,7 +483,9 @@ public class Table : MonoBehaviour {
 	IEnumerator animateFoodMisMatch( int plateIndex ){
 		TrackEntry te = ((SkeletonAnimation)tableSpotArr[plateIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Wrong", false);
 		((SkeletonAnimation)tableSpotArr[plateIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle", true, 0);
-		yield return new WaitForSeconds (te.animation.duration);
+		yield return new WaitForSeconds (te.animation.duration/2.0f);
+		SoundManager.PlaySFX ("TableWrong" + Random.Range (0, 6),false,1.5f,1,1+Random.Range (0.0f,0.5f));
+		yield return new WaitForSeconds (te.animation.duration/2.0f);
 		snapFoodBack ();
 	}
 

@@ -29,11 +29,18 @@ public class FruitKiller : CrumbColorer {
 		}
 	}
 
+	public void playSplat(){
+		string sfxName = "splat" + (1 + Random.Range (0,2));
+		SoundManager.PlaySFX(sfxName);
+	}
+
+	public float currentPitch = 1;
 	public void killFruitFrom( GameObject food, string collisionTag ){
 
 		if (collisionTag == "CatchBasket") {
+			SoundManager.PlaySFX("BasketCorrect", false, 0, 100, currentPitch);
+			currentPitch += 0.1f;
 			catchGame.playCatch();
-
 			Vector3 numbersPos = lionAnimation.transform.position + new Vector3( 100, 350, 0 );
 			if( catchGame.gameMode == CatchGameManager.CatchGameMode.Frenzy )
 				numbersPos.y += 40;
@@ -53,6 +60,7 @@ public class FruitKiller : CrumbColorer {
 			Destroy (food);
 		} else {
 			if( food.tag == "food" ){
+				playSplat();
 				Vector3 pos = food.transform.position;
 				pos.z = 2;
 				if( liveFoods.Contains(food))
@@ -73,6 +81,7 @@ public class FruitKiller : CrumbColorer {
 				food.GetComponent<Rigidbody>().AddForce( Vector3.up * 10000 );
 				food.GetComponent<Rigidbody>().AddRelativeTorque( Vector3.forward * 2000000 * forceSign );
 				StartCoroutine( delayedGOKill( food, 5 ));
+				SoundManager.PlaySFX("GroundSplat", false, 0);
 			}
 		}
 	}

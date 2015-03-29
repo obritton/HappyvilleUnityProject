@@ -15,6 +15,7 @@ public class DoorManager : MonoBehaviour {
 
 	public IEnumerator openDoors()
 	{
+		SoundManager.PlaySFX("DoorOpen", false, 0);
 		TrackEntry te = doorAnim.state.SetAnimation (0, "Open", false);
 		yield return new WaitForSeconds (te.animation.duration);
 		doorAnim.GetComponent<Renderer>().enabled = false;

@@ -2,7 +2,7 @@
 using System.Collections;
 using Spine;
 
-public class CatchGameManager : MonoBehaviour {
+public class CatchGameManager : FrenziableGame {
 
 	public SkeletonAnimation startBtn;
 	public SkeletonAnimation lion;
@@ -19,8 +19,7 @@ public class CatchGameManager : MonoBehaviour {
 	public enum CatchGameMode{
 		WaitForStart, NormalGameplay, Frenzy, Results
 	};
-
-	public PieChartMeshController_NN pieChart;
+	
 	public CatchGameMode gameMode = CatchGameMode.WaitForStart;
 	// Use this for initialization
 	void Start () {
@@ -59,6 +58,7 @@ public class CatchGameManager : MonoBehaviour {
 		lion.state.AddAnimation (0, "Wait", true, 0);
 	}
 
+	AudioSource music = null;
 	void waitForStart_mouseButtonDown(){
 		GameObject touchedGO = mousePick ();
 
@@ -66,7 +66,6 @@ public class CatchGameManager : MonoBehaviour {
 			gameMode = CatchGameMode.NormalGameplay;
 			TrackEntry te = startBtn.state.SetAnimation (0, "Tap", false);
 			StartCoroutine (delayedButtonMove (te.animation.duration));
-
 			te = lion.state.SetAnimation (0, "Start", false);
 			lion.state.AddAnimation (0, "Walk", true, 0);
 			StartCoroutine (delayedGameStart (te.animation.duration));
@@ -82,18 +81,12 @@ public class CatchGameManager : MonoBehaviour {
 		startBtn.transform.Translate (10000, 0, 0);
 	}
 
-	IEnumerator delayedPieChartStart( float delay )
-	{
-		yield return new WaitForSeconds (delay);
-		pieChart.isActive = true;
-	}
-
 	//---------- ---------- ---------- ---------- --------- NORMAL GAMEPLAY ----------
 
 	IEnumerator returnToNormalMode(){
 		if (gameMode != CatchGameMode.Results) {
 			yield return new WaitForSeconds (15);
-
+			fruitKiller.currentPitch = 1;
 			timerAndMeter.zerototalDots();
 			foodDropper.startFruitDrops ();
 			StartCoroutine (animateReturnToNormal ());
@@ -102,10 +95,11 @@ public class CatchGameManager : MonoBehaviour {
 	}
 
 	IEnumerator animateReturnToNormal(){
+		SoundManager.PlaySFX("CatchSuperDone", false, 0);
 		float duration = 0;
 		canLionAnimate = false;
 		duration = lion.state.SetAnimation (0, "Change_From_Super", false).animation.duration;
-		animateBackground (false, duration);
+		animateBackground (false, duration-0.5f);
 		timerAndMeter.dropDown ();
 		fruitKiller.explodeAllLiveFoodAway ();
 		yield return new WaitForSeconds (duration);
@@ -130,9 +124,10 @@ public class CatchGameManager : MonoBehaviour {
 	IEnumerator delayedGameStart( float delay )
 	{
 		yield return new WaitForSeconds (delay);
+		music = SoundManager.PlaySFX("FastMusic", true);
 		timerAndMeter.dropDown ();
 		foodDropper.startFruitDrops ();
-		StartCoroutine (delayedPieChartStart (1));
+		StartCoroutine (timerAndMeter.delayedPieChartStart (1));
 		StartCoroutine (initiateResults ());
 	}
 
@@ -153,7 +148,7 @@ public class CatchGameManager : MonoBehaviour {
 	//---------- ---------- ---------- ---------- ---------- -- FRENZY MODE ----------
 	public GameObject vertCloudPrefab;
 
-	public void startFrenzy(){
+	public override void startFrenzy(){
 		gameMode = CatchGameMode.Frenzy;
 		StartCoroutine (animateFrenzyStart ());
 		foodDropper.startFrenzyMode ();
@@ -162,6 +157,7 @@ public class CatchGameManager : MonoBehaviour {
 
 	bool canLionAnimate = true;
 	IEnumerator animateFrenzyStart(){
+		SoundManager.PlaySFX("CatchBecomeSuperman", false, 0);
 		float duration = 0;
 		canLionAnimate = false;
 		duration = lion.state.SetAnimation (0, "Change_From_Lion", false).animation.duration;
@@ -169,6 +165,7 @@ public class CatchGameManager : MonoBehaviour {
 		basketCollision.transform.localPosition = new Vector3 (65, 65, 0);
 		duration = lion.state.AddAnimation (0, "Change_To_Super", false, 0).animation.duration;
 		lion.skeleton.SetSkin ("Lion_Super");
+		yield return new WaitForSeconds (0.2f);
 		animateBackground (true, duration);
 		timerAndMeter.moveUp ();
 		fruitKiller.explodeAllLiveFoodAway ();
@@ -231,11 +228,20 @@ public class CatchGameManager : MonoBehaviour {
 	//---------- ---------- ---------- ---------- ---------- ------ RESULTS ----------
 	IEnumerator initiateResults(){
 		yield return new WaitForSeconds(60);
+		music.Stop ();
+		SoundManager.PlaySFX("EndWin", false, 0);
 		foodDropper.dropperMode = FoodDropper.DropperMode.Inactive;
 		fruitKiller.explodeAllLiveFoodAway ();
 		catchResults.showResults ( totalFruits, totalCandies, timerAndMeter.getScore());
 		timerAndMeter.moveUp ();
 		canLionAnimate = false;
+		fireLionEnd ();
+	}
+
+	void fireLionEnd( )
+	{
+		lion.state.SetAnimation (0, "End", false);
+		lion.state.AddAnimation (0, "Wait", true, 0);
 	}
 
 	void results_mouseButtonDown(){

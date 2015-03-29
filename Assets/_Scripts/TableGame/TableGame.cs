@@ -10,6 +10,7 @@ public class TableGame : MonoBehaviour {
 		if( GUI.Button( new Rect( 0, 0, Screen.width * 0.1f, Screen.height * 0.05f), "Back")){
 			MapManager.openPageIndex = (Table.level/3)+1;
 			iTween.Stop ();
+			SoundManager.Stop();
 			StartCoroutine(closeDoors());
 		}
 	}

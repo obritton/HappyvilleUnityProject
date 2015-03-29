@@ -3,8 +3,15 @@ using System.Collections;
 
 public class NavManager : MonoBehaviour {
 
+	bool isBackingOut = false;
+
+	public GUIStyle backStyle;
+
+
 	void OnGUI(){
-		if( GUI.Button( new Rect( 0, 0, Screen.width * 0.1f, Screen.height * 0.05f), "Back")){
+		if( !isBackingOut && GUI.Button( new Rect( Screen.width/64, Screen.width/64, Screen.width /6.4f, Screen.width /6.4f), "", backStyle)){
+			isBackingOut = true;
+			SoundManager.Stop();
 			MapManager.openPageIndex = ((Application.loadedLevelName == "TableGame") ? (Table.level/3) + 1 : MapManager.openPageIndex);
 			iTween.Stop ();
 

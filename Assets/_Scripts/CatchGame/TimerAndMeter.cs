@@ -7,10 +7,17 @@ public class TimerAndMeter : MonoBehaviour {
 	public TextMeshPro TMPScore;
 	public Renderer[] MeterDotsArr;
 
-	public CatchGameManager catchGame;
+	public FrenziableGame frenziableGame;
+	public PieChartMeshController_NN pieChart;
 
 	int score = 0;
 	int totalDots = 0;
+
+	public IEnumerator delayedPieChartStart( float delay )
+	{
+		yield return new WaitForSeconds (delay);
+		pieChart.isActive = true;
+	}
 
 	public void zerototalDots(){
 		totalDots = 0;
@@ -29,7 +36,7 @@ public class TimerAndMeter : MonoBehaviour {
 			}
 
 			if (totalDots == 10) {
-				catchGame.startFrenzy ();
+				frenziableGame.startFrenzy ();
 			}
 		}
 	}
