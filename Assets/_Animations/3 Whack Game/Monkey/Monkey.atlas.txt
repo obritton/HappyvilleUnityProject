@@ -6,7 +6,7 @@ filter: Linear,Linear
 repeat: none
 Frog/Tongue-top-frg
   rotate: false
-  xy: 623, 158
+  xy: 1950, 415
   size: 96, 91
   orig: 96, 92
   offset: 0, 0
@@ -19,15 +19,15 @@ Monkey/Arm-bend
   offset: 0, 1
   index: -1
 Monkey/Arm-curve
-  rotate: false
-  xy: 884, 254
+  rotate: true
+  xy: 1823, 258
   size: 248, 125
   orig: 248, 126
   offset: 0, 1
   index: -1
 Monkey/Arm-straight
   rotate: false
-  xy: 1258, 459
+  xy: 623, 235
   size: 299, 47
   orig: 299, 48
   offset: 0, 1
@@ -41,42 +41,42 @@ Monkey/Body-monk
   index: -1
 Monkey/Ear-monk
   rotate: false
-  xy: 1134, 229
+  xy: 1188, 200
   size: 151, 150
   orig: 151, 151
   offset: 0, 0
   index: -1
 Monkey/Eye-monk
-  rotate: true
-  xy: 806, 166
+  rotate: false
+  xy: 1341, 268
   size: 83, 82
   orig: 83, 83
   offset: 0, 1
   index: -1
 Monkey/Hand
   rotate: false
-  xy: 1258, 393
+  xy: 1495, 315
   size: 65, 64
   orig: 65, 65
   offset: 0, 0
   index: -1
 Monkey/Head-monk
   rotate: false
-  xy: 623, 251
+  xy: 1562, 251
   size: 259, 255
   orig: 259, 255
   offset: 0, 0
   index: -1
 Monkey/Mouth-monk
   rotate: false
-  xy: 1559, 479
+  xy: 1188, 352
   size: 305, 27
   orig: 305, 28
   offset: 0, 1
   index: -1
 Monkey/Mouth-o-monk
   rotate: false
-  xy: 721, 162
+  xy: 1950, 326
   size: 83, 87
   orig: 83, 88
   offset: 0, 1
@@ -90,14 +90,14 @@ Monkey/Mouth-opn-monk
   index: -1
 Monkey/Mouth-shape-monk
   rotate: false
-  xy: 884, 381
+  xy: 1188, 381
   size: 372, 125
   orig: 372, 126
   offset: 0, 1
   index: -1
 Monkey/Nostril-monk
-  rotate: false
-  xy: 1559, 463
+  rotate: true
+  xy: 601, 148
   size: 51, 14
   orig: 51, 15
   offset: 0, 0
@@ -111,8 +111,15 @@ Monkey/Pupil-cls-monk
   index: -1
 Monkey/Pupil-monk
   rotate: false
-  xy: 1325, 419
+  xy: 924, 244
   size: 39, 38
   orig: 40, 40
   offset: 0, 1
+  index: -1
+Universal/Ray
+  rotate: false
+  xy: 623, 284
+  size: 563, 222
+  orig: 596, 277
+  offset: 18, 55
   index: -1

@@ -13,6 +13,7 @@ public class WhackGameManager : FrenziableGame {
 	public Transform[] centerNodes;
 	public Transform[] rightNodes;
 	ArrayList liveAnimalsIs;
+	public GameObject crumbsPrefab;
 
 	bool isGameStarted = false;
 	public TimerAndMeter timerAndMeter;
@@ -34,14 +35,29 @@ public class WhackGameManager : FrenziableGame {
 		}
 	}
 
+	public override void timerComplete ()
+	{
+		if (!gameEnded)
+			endGame ();
+	}
+
+	bool gameEnded = false;
+	void endGame()
+	{
+		gameEnded = true;
+		print ("endGame");
+	}
+
 	public override void startFrenzy(){
 		timerAndMeter.moveUp ();
 		this.isFrenzy = true;
+		timerAndMeter.pausePieChart ();
 		StartCoroutine (stopFrenzy ());
 	}
 
 	IEnumerator stopFrenzy(){
 		yield return new WaitForSeconds (12);
+		timerAndMeter.unpausePieChart ();
 		this.isFrenzy = false;
 		timerAndMeter.zerototalDots ();
 		timerAndMeter.dropDown ();
@@ -134,6 +150,7 @@ public class WhackGameManager : FrenziableGame {
 		}
 	}
 
+	public CrumbColorer crumbColorer;
 	void mashAtNode( Transform node ){
 		if (node.childCount > 0) {
 			WhackAnimal animal = node.GetChild(0).GetComponent<WhackAnimal>();
@@ -143,25 +160,79 @@ public class WhackGameManager : FrenziableGame {
 				((SkeletonAnimation)node.GetChild(0).GetComponent<SkeletonAnimation>()).state.SetAnimation(0, "Tap", false);
 
 				timerAndMeter.incrementScore( 5, isFrenzy );
+				Vector3 numbersPos = animal.transform.position + new Vector3( 100, 350, 0 );
+				showScore(numbersPos, 5 );
 			}
 			else{
 				SkeletonAnimation skelAnim = node.GetChild(0).GetComponent<SkeletonAnimation>();
-				if( skelAnim != null ){
+				if( skelAnim != null && skelAnim.gameObject.tag == "food"){
 					TrackEntry te = skelAnim.state.SetAnimation( 0, "Correct", false );
-					skelAnim.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-					skelAnim.gameObject.GetComponent<Rigidbody>().useGravity = false;
-					StartCoroutine(delayedDestroy(te.animation.duration, skelAnim.gameObject));
+//					skelAnim.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+//					skelAnim.gameObject.GetComponent<Rigidbody>().useGravity = false;
+//					StartCoroutine(delayedDestroy(te.animation.duration, skelAnim.gameObject));
 
+					Color crumbColor = crumbColorer.getColorForFood(skelAnim.gameObject.name);
+					Vector3 numbersPos = skelAnim.transform.position + new Vector3( 100, 100, 0 );
+					showScore(numbersPos, 10 );
 					timerAndMeter.incrementScore( 10, isFrenzy );
+					GameObject crumbs = Instantiate( crumbsPrefab, skelAnim.transform.position, Quaternion.identity ) as GameObject;
+					crumbs.GetComponent<Renderer>().material.color = crumbColor;
+					Destroy ( skelAnim.gameObject );
+					StartCoroutine(delayedDestroy( 5, crumbs ));
+
+				}
+				else if( skelAnim != null && skelAnim.gameObject.tag == "Balloon"){
+					StartCoroutine(popBalloon(skelAnim));
 				}
 			}
 		}
 	}
 
-	IEnumerator delayedDestroy( float delay, GameObject toDieGO ){
+	void showScore( Vector3 numbersPos, int amount ){
+		ScoreShower shower = GetComponent<ScoreShower>();
+		if( shower != null )
+			shower.showScoreAtPosition( numbersPos, amount );
+	}
+
+	void playAnimationOnAllAnimals( string animStr )
+	{
+		TrackEntry te = null;
+
+		foreach (Transform node in leftNodes) {
+			if( node.childCount > 0 && node.GetChild(0).tag == "WhackAnimal" ){
+				SkeletonAnimation skelAnim = node.GetChild(0).GetComponent<SkeletonAnimation>();
+				te = skelAnim.state.SetAnimation(0,animStr,false);
+				StartCoroutine(delayedDestroy( te.animation.duration, node.GetChild(0).gameObject, true ));
+				node.GetChild(0).GetComponent<WhackAnimal>().whacked = true;
+			}
+		}
+		foreach (Transform node in centerNodes) {
+			if( node.childCount > 0 && node.GetChild(0).tag == "WhackAnimal" ){
+				SkeletonAnimation skelAnim = node.GetChild(0).GetComponent<SkeletonAnimation>();
+				te = skelAnim.state.SetAnimation(0,animStr,false);
+				StartCoroutine(delayedDestroy( te.animation.duration, node.GetChild(0).gameObject, true ));
+				node.GetChild(0).GetComponent<WhackAnimal>().whacked = true;
+			}
+		}
+		foreach (Transform node in rightNodes) {
+			if( node.childCount > 0 && node.GetChild(0).tag == "WhackAnimal" ){
+				SkeletonAnimation skelAnim = node.GetChild(0).GetComponent<SkeletonAnimation>();
+				te = skelAnim.state.SetAnimation(0,animStr,false);
+				StartCoroutine(delayedDestroy( te.animation.duration, node.GetChild(0).gameObject, true ));
+				node.GetChild(0).GetComponent<WhackAnimal>().whacked = true;
+			}
+		}
+	}
+	
+	IEnumerator delayedDestroy( float delay, GameObject toDieGO, bool removeFromLiveList = false ){
 		yield return new WaitForSeconds (delay);
-		if (toDieGO != null) {
+		if (toDieGO != null) {;
 			Destroy(toDieGO);
+			if( removeFromLiveList ){
+				int index = toDieGO.GetComponent<WhackAnimal>().index;
+				if( liveAnimalsIs.Contains(index))
+					liveAnimalsIs.Remove(index);
+			}
 		}
 	}
 
@@ -176,7 +247,7 @@ public class WhackGameManager : FrenziableGame {
 	}
 
 	IEnumerator loopAnimalPopups(){
-		while (true) {
+		while (!gameEnded) {
 			yield return new WaitForSeconds( isFrenzy ? 2 : 1);
 			if( isFrenzy ){
 				popupFrenzyFruit();
@@ -197,55 +268,68 @@ public class WhackGameManager : FrenziableGame {
 		Transform node = null;
 
 		do {
-						switch (Random.Range (0, 3)) {
-						case 0:
-								{
-										int randomNodeI = Random.Range (0, 3);
-										node = leftNodes [randomNodeI];
-								}
-								break;
-						case 1:
-								{
-										int randomNodeI = Random.Range (0, 2);
-										node = centerNodes [randomNodeI];
-								}
-								break;
-						case 2:
-								{
-										int randomNodeI = Random.Range (0, 3);
-										node = rightNodes [randomNodeI];
-								}
-								break;
-						}
-				} while(node.childCount > 0);
+			switch (Random.Range (0, 3)) {
+			case 0:
+			{
+				int randomNodeI = Random.Range (0, 3);
+				node = leftNodes [randomNodeI];
+			}
+			break;
+			case 1:
+			{
+				int randomNodeI = Random.Range (0, 2);
+				node = centerNodes [randomNodeI];
+			}
+			break;
+			case 2:
+			{
+				int randomNodeI = Random.Range (0, 3);
+				node = rightNodes [randomNodeI];
+			}
+			break;
+			}
+		} while(node.childCount > 0);
 
-		if (Random.value <= 0.35f || forceFruit) {
-			StartCoroutine(popupRandomFruitAtNode(node));
+		if (forceFruit) {
+			StartCoroutine(popupRandomFruitAtNode (node));
 		} else {
-			StartCoroutine (popupRandomAnimalAtNode (node));
+			if (shouldSendBalloon()) {
+				StartCoroutine (popupBalloonAtNode (node));
+			} else {
+				popupRandomAnimalAtNode(node);
+			}
 		}
 	}
 
-	IEnumerator popupRandomAnimalAtNode( Transform node ){
+	void popupRandomAnimalAtNode( Transform node ){
+		if (isBalloonPopping) 
+						return;
 		int randomAnimalI = -1;
 		do {
 			randomAnimalI = Random.Range (0, 6);
 		} while(liveAnimalsIs.Contains(randomAnimalI));
 		GameObject animalPrefab = animalPrefabs [randomAnimalI];
 		GameObject animal = Instantiate (animalPrefab, node.position, Quaternion.identity) as GameObject;
-		liveAnimalsIs.Add (randomAnimalI);
+
+		StartCoroutine(popupAnimalAtNode (animal, randomAnimalI, node));
+	}
+
+	IEnumerator popupAnimalAtNode( GameObject animal, int index, Transform node ){
+
+		liveAnimalsIs.Add (index);
+		animal.GetComponent<WhackAnimal> ().index = index;
 		animal.transform.parent = node;
 		animal.transform.localPosition = Vector3.zero;
-		
-		TrackEntry te = animal.GetComponent<SkeletonAnimation> ().state.SetAnimation (0, randomAnimalI == 3 ? "PopUp" : "Popup", false);
-		yield return new WaitForSeconds(te.animation.duration);
-		liveAnimalsIs.Remove (randomAnimalI);
-		Destroy (animal);
+
+		TrackEntry te = animal.GetComponent<SkeletonAnimation> ().state.SetAnimation ( 0, "Popup", false);
+		yield return new WaitForSeconds (te.animation.duration+1);
+		liveAnimalsIs.Remove (index);
+		if (!isBalloonPopping)
+			Destroy (animal);
 	}
 
 	public int fruitForce = 15000;
 	IEnumerator popupRandomFruitAtNode( Transform node ){
-
 		int randomFruitIndex = Random.Range (0, foodNamesArr.Length);
 		string fruitName = foodNamesArr [randomFruitIndex];
 		GameObject fruit = Instantiate (foodPrefab, Vector3.down * 1000, Quaternion.identity) as GameObject;
@@ -255,6 +339,7 @@ public class WhackGameManager : FrenziableGame {
 		fruit.GetComponent<Collider> ().enabled = false;
 		SkeletonAnimation skelAnim = fruit.GetComponent<SkeletonAnimation> ();
 		skelAnim.skeleton.SetSkin(fruitName);
+		skelAnim.gameObject.name = fruitName;
 		fruit.transform.parent = node;
 		fruit.transform.localPosition = Vector3.zero;
 		fruit.GetComponent<Rigidbody> ().AddForce (Vector3.up * fruitForce);
@@ -264,5 +349,50 @@ public class WhackGameManager : FrenziableGame {
 		if (fruit != null) {
 			Destroy (fruit);
 		}
+	}
+
+	//-------------------------------------------------- BALLOON ----------
+	int animalsSinceLastBalloon = 0;
+	bool shouldSendBalloon(){
+		++animalsSinceLastBalloon;
+		if (animalsSinceLastBalloon >= 8) {
+			if( Random.value < 1.0/6.0 || animalsSinceLastBalloon >= 16)
+			{
+				animalsSinceLastBalloon = 0;
+				return true;
+			}
+		}
+		
+		return false;
+	}
+
+	IEnumerator popupBalloonAtNode( Transform node ){
+		GameObject balloon = Instantiate (balloonPrefab, Vector3.down * 1000, Quaternion.identity) as GameObject;
+		Vector3 localScale = balloon.transform.localScale;
+		balloon.transform.localScale = localScale;
+		
+		SkeletonAnimation skelAnim = balloon.GetComponent<SkeletonAnimation> ();
+		TrackEntry te = skelAnim.state.SetAnimation (0, "Popup", false);
+		balloon.transform.parent = node;
+		Vector3 pos = Vector3.zero;
+		pos.x += 30;
+		pos.x -= 50;
+		balloon.transform.localPosition = pos;
+		
+		yield return new WaitForSeconds(te.animation.duration);
+		if (balloon != null) {
+			Destroy (balloon);
+		}
+	}
+
+	bool isBalloonPopping = false;
+	IEnumerator popBalloon(SkeletonAnimation skelAnim)
+	{
+		isBalloonPopping = true;
+		TrackEntry te = skelAnim.state.SetAnimation( 0, "Tap", false );
+		StartCoroutine(delayedDestroy(te.animation.duration, skelAnim.gameObject));
+		playAnimationOnAllAnimals ("Duck");
+		yield return new WaitForSeconds (te.animation.duration+2);
+		isBalloonPopping = false;
 	}
 }

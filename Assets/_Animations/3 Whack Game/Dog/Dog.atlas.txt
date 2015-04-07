@@ -5,100 +5,107 @@ format: RGBA8888
 filter: Linear,Linear
 repeat: none
 Dog/Arm-bend
-  rotate: false
-  xy: 266, 124
+  rotate: true
+  xy: 831, 287
   size: 223, 167
   orig: 223, 168
   offset: 0, 1
   index: -1
 Dog/Arm-curve
-  rotate: false
-  xy: 699, 383
+  rotate: true
+  xy: 831, 37
   size: 248, 125
   orig: 248, 126
   offset: 0, 1
   index: -1
 Dog/Arm-straight
   rotate: false
-  xy: 2, 2
+  xy: 2, 4
   size: 299, 47
   orig: 299, 48
   offset: 0, 1
   index: -1
 Dog/Body-dog
   rotate: false
-  xy: 2, 51
+  xy: 567, 53
   size: 262, 457
   orig: 262, 457
   offset: 0, 0
   index: -1
 Dog/Ear-dog
-  rotate: true
-  xy: 491, 216
+  rotate: false
+  xy: 459, 82
   size: 75, 204
   orig: 75, 206
   offset: 0, 2
   index: -1
 Dog/Eye-cls-dog
-  rotate: false
-  xy: 699, 302
+  rotate: true
+  xy: 525, 16
   size: 64, 38
   orig: 64, 39
   offset: 0, 1
   index: -1
 Dog/Eye-dog
-  rotate: true
-  xy: 266, 69
+  rotate: false
+  xy: 536, 177
   size: 19, 51
   orig: 19, 52
   offset: 0, 1
   index: -1
 Dog/Hand
-  rotate: false
-  xy: 949, 444
+  rotate: true
+  xy: 459, 15
   size: 65, 64
   orig: 65, 65
   offset: 0, 0
   index: -1
 Dog/Head-dog
   rotate: false
-  xy: 266, 293
+  xy: 2, 71
   size: 431, 215
   orig: 431, 216
   offset: 0, 1
   index: -1
 Dog/Mouth-dog
   rotate: false
-  xy: 266, 90
+  xy: 565, 19
   size: 147, 32
   orig: 147, 32
   offset: 0, 0
   index: -1
 Dog/Mouth-o-dog
-  rotate: false
-  xy: 949, 389
+  rotate: true
+  xy: 714, 2
   size: 49, 53
   orig: 49, 54
   offset: 0, 1
   index: -1
 Dog/Mouth-open-dog
   rotate: false
-  xy: 699, 342
+  xy: 303, 12
   size: 154, 39
   orig: 154, 40
   offset: 0, 1
   index: -1
 Dog/Nose-dog
-  rotate: false
-  xy: 855, 354
+  rotate: true
+  xy: 536, 230
   size: 56, 27
   orig: 56, 28
   offset: 0, 1
   index: -1
 Dog/Tongue-dog
-  rotate: false
-  xy: 491, 155
+  rotate: true
+  xy: 958, 229
   size: 56, 59
   orig: 56, 60
   offset: 0, 1
+  index: -1
+Universal/Ray
+  rotate: false
+  xy: 2, 288
+  size: 563, 222
+  orig: 596, 277
+  offset: 18, 55
   index: -1

@@ -1,90 +1,97 @@
 
 Bird.png
-size: 512,512
+size: 1024,512
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 Bird/Beak-btm-brd
   rotate: false
-  xy: 2, 19
+  xy: 800, 483
   size: 70, 18
   orig: 70, 19
   offset: 0, 0
   index: -1
 Bird/Beak-top-brd
-  rotate: true
-  xy: 235, 52
+  rotate: false
+  xy: 567, 305
   size: 70, 45
   orig: 70, 46
   offset: 0, 1
   index: -1
 Bird/Body-brd
-  rotate: false
-  xy: 2, 124
+  rotate: true
+  xy: 2, 2
   size: 281, 328
   orig: 281, 328
   offset: 0, 0
   index: -1
 Bird/Eye-brd
   rotate: false
-  xy: 285, 164
+  xy: 743, 384
   size: 45, 44
   orig: 45, 45
   offset: 0, 0
   index: -1
 Bird/EyeBar-brd
   rotate: false
-  xy: 2, 39
+  xy: 800, 503
   size: 128, 4
   orig: 128, 5
   offset: 0, 1
   index: -1
 Bird/Feathers-brd
   rotate: true
-  xy: 285, 210
+  xy: 332, 41
   size: 242, 49
   orig: 242, 50
   offset: 0, 1
   index: -1
 Bird/Foot-brd
   rotate: false
-  xy: 347, 360
+  xy: 394, 269
   size: 53, 14
   orig: 55, 14
   offset: 0, 0
   index: -1
 Bird/Leg-brd
   rotate: false
-  xy: 336, 256
+  xy: 383, 165
   size: 9, 118
   orig: 9, 123
   offset: 0, 3
   index: -1
 Bird/Pupil-brd
   rotate: false
-  xy: 2, 2
+  xy: 567, 288
   size: 16, 15
   orig: 16, 16
   offset: 0, 1
   index: -1
 Bird/Pupil-cls-brd
   rotate: false
-  xy: 285, 152
+  xy: 332, 29
   size: 28, 10
   orig: 28, 10
   offset: 0, 0
   index: -1
 Bird/Twirly-brd
   rotate: true
-  xy: 336, 376
+  xy: 567, 352
   size: 76, 174
   orig: 76, 175
   offset: 0, 1
   index: -1
 Bird/Wing-brd
   rotate: false
-  xy: 2, 45
+  xy: 567, 430
   size: 231, 77
   orig: 231, 78
   offset: 0, 1
+  index: -1
+Universal/Ray
+  rotate: false
+  xy: 2, 285
+  size: 563, 222
+  orig: 596, 277
+  offset: 18, 55
   index: -1

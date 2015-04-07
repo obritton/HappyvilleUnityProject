@@ -5,7 +5,7 @@ using Spine;
 public class FruitKiller : CrumbColorer {
 
 	public SkeletonAnimation lionAnimation;
-	public GameObject numbersPrefab;
+//	public GameObject numbersPrefab;
 	public GameObject splatPrefab;
 	public TimerAndMeter timerAndMeter;
 	public CatchGameManager catchGame;
@@ -44,15 +44,18 @@ public class FruitKiller : CrumbColorer {
 			Vector3 numbersPos = lionAnimation.transform.position + new Vector3( 100, 350, 0 );
 			if( catchGame.gameMode == CatchGameManager.CatchGameMode.Frenzy )
 				numbersPos.y += 40;
-			GameObject numbers = Instantiate( numbersPrefab, numbersPos, Quaternion.identity ) as GameObject;
-			SkeletonAnimation numbersAnim = ((SkeletonAnimation)numbers.GetComponent<SkeletonAnimation>());
-			string skin = food.tag == "food" ? "Five" : "Ten";
+			ScoreShower shower = GetComponent<ScoreShower>();
+			if( shower != null )
+				shower.showScoreAtPosition( numbersPos, food.tag == "food" ? 5: 10 );
+//			GameObject numbers = Instantiate( numbersPrefab, numbersPos, Quaternion.identity ) as GameObject;
+//			SkeletonAnimation numbersAnim = ((SkeletonAnimation)numbers.GetComponent<SkeletonAnimation>());
+//			string skin = food.tag == "food" ? "Five" : "Ten";
 			if( food.tag == "food" )
 				CatchGameManager.totalFruits++;
 			else
 				CatchGameManager.totalCandies++;
-			numbersAnim.skeleton.SetSkin(skin);
-			numbersAnim.state.SetAnimation(0,"animation",false);
+//			numbersAnim.skeleton.SetSkin(skin);
+//			numbersAnim.state.SetAnimation(0,"animation",false);
 
 			timerAndMeter.incrementScore( food.tag == "food" ? 5 : 10, catchGame.gameMode == CatchGameManager.CatchGameMode.Frenzy );
 			if( liveFoods.Contains(food))

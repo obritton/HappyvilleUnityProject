@@ -13,9 +13,23 @@ public class TimerAndMeter : MonoBehaviour {
 	int score = 0;
 	int totalDots = 0;
 
+	void Update(){
+		if (pieChart.currentChartAmount <= 0) {
+			frenziableGame.timerComplete();
+		}
+	}
+
 	public IEnumerator delayedPieChartStart( float delay )
 	{
 		yield return new WaitForSeconds (delay);
+		pieChart.isActive = true;
+	}
+
+	public void pausePieChart(){
+		pieChart.isActive = false;
+	}
+
+	public void unpausePieChart(){
 		pieChart.isActive = true;
 	}
 

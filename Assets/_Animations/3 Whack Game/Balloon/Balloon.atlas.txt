@@ -1,6 +1,6 @@
 
 Balloon.png
-size: 1024,512
+size: 1024,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
@@ -12,8 +12,8 @@ Balloon/Balloon
   offset: 0, 0
   index: -1
 Balloon/Rope
-  rotate: true
-  xy: 284, 365
+  rotate: false
+  xy: 599, 349
   size: 5, 543
   orig: 8, 543
   offset: 2, 0
@@ -23,5 +23,12 @@ Balloon/Tie
   xy: 2, 2
   size: 32, 29
   orig: 32, 29
+  offset: 0, 0
+  index: -1
+Universal/Ray_Food
+  rotate: false
+  xy: 2, 372
+  size: 595, 520
+  orig: 596, 520
   offset: 0, 0
   index: -1

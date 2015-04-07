@@ -36,6 +36,12 @@ public class CatchGameManager : FrenziableGame {
 		}
 	}
 
+	public override void timerComplete ()
+	{
+		if( gameMode != CatchGameMode.Results )
+			initiateResults ();
+	}
+
 	GameObject mousePick(){
 		RaycastHit hit;
 		if(Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 100))
@@ -86,6 +92,7 @@ public class CatchGameManager : FrenziableGame {
 	IEnumerator returnToNormalMode(){
 		if (gameMode != CatchGameMode.Results) {
 			yield return new WaitForSeconds (15);
+			timerAndMeter.unpausePieChart();
 			fruitKiller.currentPitch = 1;
 			timerAndMeter.zerototalDots();
 			foodDropper.startFruitDrops ();
@@ -128,7 +135,7 @@ public class CatchGameManager : FrenziableGame {
 		timerAndMeter.dropDown ();
 		foodDropper.startFruitDrops ();
 		StartCoroutine (timerAndMeter.delayedPieChartStart (1));
-		StartCoroutine (initiateResults ());
+//		StartCoroutine (delayedInitiateResults (60));
 	}
 
 	bool isLionTouched = false;
@@ -153,6 +160,7 @@ public class CatchGameManager : FrenziableGame {
 		StartCoroutine (animateFrenzyStart ());
 		foodDropper.startFrenzyMode ();
 		StartCoroutine (returnToNormalMode ());
+		timerAndMeter.pausePieChart ();
 	}
 
 	bool canLionAnimate = true;
@@ -226,9 +234,15 @@ public class CatchGameManager : FrenziableGame {
 	public static int totalFruits = 0;
 	public static int totalCandies = 0;
 	//---------- ---------- ---------- ---------- ---------- ------ RESULTS ----------
-	IEnumerator initiateResults(){
+	IEnumerator delayedInitiateResults( float delay ){
 		yield return new WaitForSeconds(60);
-		music.Stop ();
+		initiateResults ();
+	}
+
+	void initiateResults(){
+		gameMode = CatchGameMode.Results;
+		if( music != null )
+			music.Stop ();
 		SoundManager.PlaySFX("EndWin", false, 0);
 		foodDropper.dropperMode = FoodDropper.DropperMode.Inactive;
 		fruitKiller.explodeAllLiveFoodAway ();

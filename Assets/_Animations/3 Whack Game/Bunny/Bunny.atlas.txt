@@ -1,54 +1,54 @@
 
 Bunny.png
-size: 1024,512
+size: 2048,512
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 Bunny/Arm-bend
   rotate: false
-  xy: 670, 343
+  xy: 2, 13
   size: 223, 167
   orig: 223, 168
   offset: 0, 1
   index: -1
 Bunny/Arm-curve
   rotate: false
-  xy: 2, 13
+  xy: 1235, 279
   size: 248, 125
   orig: 248, 126
   offset: 0, 1
   index: -1
 Bunny/Arm-straight
   rotate: false
-  xy: 374, 168
+  xy: 227, 133
   size: 299, 47
   orig: 299, 48
   offset: 0, 1
   index: -1
 Bunny/Body-bunny
   rotate: false
-  xy: 374, 217
+  xy: 939, 111
   size: 294, 293
   orig: 294, 294
   offset: 0, 1
   index: -1
 Bunny/Ear-bunny
   rotate: true
-  xy: 670, 246
+  xy: 1235, 182
   size: 95, 244
   orig: 95, 245
   offset: 0, 0
   index: -1
 Bunny/Eye-bunny
   rotate: false
-  xy: 252, 22
+  xy: 227, 15
   size: 116, 116
   orig: 116, 116
   offset: 0, 0
   index: -1
 Bunny/Eye-cls-bunny
-  rotate: true
-  xy: 895, 367
+  rotate: false
+  xy: 1741, 383
   size: 59, 21
   orig: 59, 21
   offset: 0, 0
@@ -62,50 +62,57 @@ Bunny/EyeBar-bunny
   index: -1
 Bunny/Hand
   rotate: false
-  xy: 955, 446
+  xy: 1235, 116
   size: 65, 64
   orig: 65, 65
   offset: 0, 0
   index: -1
 Bunny/Head-bunny
   rotate: false
-  xy: 2, 140
+  xy: 567, 34
   size: 370, 370
   orig: 370, 370
   offset: 0, 0
   index: -1
 Bunny/Mouth-bunny
   rotate: false
-  xy: 374, 139
+  xy: 1485, 293
   size: 98, 27
   orig: 98, 28
   offset: 0, 1
   index: -1
 Bunny/Mouth-o-bunny
-  rotate: false
-  xy: 895, 428
+  rotate: true
+  xy: 939, 51
   size: 58, 82
   orig: 58, 82
   offset: 0, 0
   index: -1
 Bunny/Mouth-open-bunny
   rotate: false
-  xy: 675, 162
+  xy: 1485, 322
   size: 254, 82
   orig: 254, 83
   offset: 0, 1
   index: -1
 Bunny/Nose-bunny
-  rotate: true
-  xy: 918, 389
+  rotate: false
+  xy: 528, 144
   size: 37, 36
   orig: 37, 37
   offset: 0, 0
   index: -1
 Bunny/Pupil-bunny
   rotate: false
-  xy: 474, 139
+  xy: 345, 104
   size: 28, 27
   orig: 28, 28
   offset: 0, 1
+  index: -1
+Universal/Ray
+  rotate: false
+  xy: 2, 182
+  size: 563, 222
+  orig: 596, 277
+  offset: 18, 55
   index: -1

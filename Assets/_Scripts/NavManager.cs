@@ -9,7 +9,7 @@ public class NavManager : MonoBehaviour {
 
 
 	void OnGUI(){
-		if( !isBackingOut && GUI.Button( new Rect( Screen.width/64, Screen.width/64, Screen.width /6.4f, Screen.width /6.4f), "", backStyle)){
+		if( !isBackingOut && GUI.Button( new Rect( Screen.width/64, Screen.width/64, Screen.width /12.8f, Screen.width/12.8f), "", backStyle)){
 			isBackingOut = true;
 			SoundManager.Stop();
 			MapManager.openPageIndex = ((Application.loadedLevelName == "TableGame") ? (Table.level/3) + 1 : MapManager.openPageIndex);
