@@ -1,0 +1,13 @@
+
+Fish_School.png
+size: 256,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Menu_Screens/Fish_School
+  rotate: false
+  xy: 2, 2
+  size: 243, 104
+  orig: 244, 104
+  offset: 0, 0
+  index: -1

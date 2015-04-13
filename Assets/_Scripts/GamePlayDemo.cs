@@ -37,24 +37,18 @@ public class GamePlayDemo : MonoBehaviour {
 		StartCoroutine(openDoors ());
 	}
 
-	void OnGUI(){
-		if( GUI.Button( new Rect( 0, 0, Screen.width * 0.1f, Screen.height * 0.05f), "Back")){
-			MapManager.openPageIndex = 1;
-			iTween.Stop ();
-			Application.LoadLevel("MainMenuMap");
-		}
-	}
+//	void OnGUI(){
+//		if( GUI.Button( new Rect( 0, 0, Screen.width * 0.1f, Screen.height * 0.05f), "Back")){
+//			MapManager.openPageIndex = 1;
+//			iTween.Stop ();
+//			Application.LoadLevel("MainMenuMap");
+//		}
+//	}
 
 	IEnumerator openDoors()
 	{
 		yield return new WaitForSeconds (0.5f);
-		GameObject doors = GameObject.Find ("Doors");
-		if (doors) {
-			DoorManager doorManager = (DoorManager)doors.GetComponent<DoorManager>();
-			if( doorManager ){
-				StartCoroutine(doorManager.openDoors());
-			}
-		}
+		DoorManager.openDoors ();
 
 		StartCoroutine (startGame ());
 	}

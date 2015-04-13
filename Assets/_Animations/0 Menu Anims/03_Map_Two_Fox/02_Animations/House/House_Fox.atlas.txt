@@ -1,0 +1,27 @@
+
+House_Fox.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Houses/Map_02/Ear_House
+  rotate: false
+  xy: 1039, 647
+  size: 99, 132
+  orig: 99, 132
+  offset: 0, 0
+  index: -1
+Houses/Map_02/House_Fox
+  rotate: false
+  xy: 2, 2
+  size: 1035, 985
+  orig: 1035, 985
+  offset: 0, 0
+  index: -1
+Houses/Map_02/Window_Background
+  rotate: false
+  xy: 1039, 781
+  size: 158, 206
+  orig: 158, 206
+  offset: 0, 0
+  index: -1

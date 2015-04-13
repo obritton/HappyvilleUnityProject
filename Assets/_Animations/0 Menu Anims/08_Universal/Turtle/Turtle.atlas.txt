@@ -1,0 +1,62 @@
+
+Turtle.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Menu_Screens/Bottom_Turtle
+  rotate: false
+  xy: 2, 11
+  size: 174, 23
+  orig: 178, 23
+  offset: 1, 0
+  index: -1
+Menu_Screens/Eye_Turtle_Map
+  rotate: false
+  xy: 2, 2
+  size: 8, 7
+  orig: 8, 8
+  offset: 0, 1
+  index: -1
+Menu_Screens/Eye_cls_Turtle_Map
+  rotate: true
+  xy: 268, 90
+  size: 12, 4
+  orig: 12, 5
+  offset: 0, 1
+  index: -1
+Menu_Screens/Head_Turtle
+  rotate: false
+  xy: 183, 41
+  size: 83, 61
+  orig: 83, 62
+  offset: 0, 1
+  index: -1
+Menu_Screens/Leg_back_turtle
+  rotate: true
+  xy: 336, 106
+  size: 20, 42
+  orig: 21, 42
+  offset: 0, 0
+  index: -1
+Menu_Screens/Leg_front_turtle
+  rotate: true
+  xy: 278, 99
+  size: 27, 56
+  orig: 28, 56
+  offset: 0, 0
+  index: -1
+Menu_Screens/Shadow_Turtle
+  rotate: false
+  xy: 2, 104
+  size: 274, 22
+  orig: 274, 23
+  offset: 0, 1
+  index: -1
+Menu_Screens/Shell_Turtle
+  rotate: false
+  xy: 2, 36
+  size: 179, 66
+  orig: 186, 66
+  offset: 4, 0
+  index: -1

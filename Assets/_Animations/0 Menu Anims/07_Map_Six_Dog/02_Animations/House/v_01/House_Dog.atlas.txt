@@ -1,0 +1,62 @@
+
+House_Dog.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Houses/Map_06/Bush_One
+  rotate: false
+  xy: 1334, 137
+  size: 270, 317
+  orig: 270, 318
+  offset: 0, 1
+  index: -1
+Houses/Map_06/Bush_Three
+  rotate: false
+  xy: 1334, 9
+  size: 126, 126
+  orig: 126, 126
+  offset: 0, 0
+  index: -1
+Houses/Map_06/Bush_Two
+  rotate: false
+  xy: 1606, 244
+  size: 228, 210
+  orig: 229, 210
+  offset: 0, 0
+  index: -1
+Houses/Map_06/House_Dog
+  rotate: true
+  xy: 825, 21
+  size: 433, 507
+  orig: 433, 507
+  offset: 0, 0
+  index: -1
+Houses/Map_06/Island
+  rotate: false
+  xy: 2, 216
+  size: 821, 238
+  orig: 821, 238
+  offset: 0, 0
+  index: -1
+Houses/Map_06/Star
+  rotate: false
+  xy: 1462, 25
+  size: 116, 110
+  orig: 116, 111
+  offset: 0, 1
+  index: -1
+Houses/Map_06/Tower_House
+  rotate: true
+  xy: 2, 2
+  size: 212, 724
+  orig: 212, 724
+  offset: 0, 0
+  index: -1
+Houses/Map_06/Window_Background
+  rotate: false
+  xy: 1836, 248
+  size: 129, 206
+  orig: 129, 206
+  offset: 0, 0
+  index: -1

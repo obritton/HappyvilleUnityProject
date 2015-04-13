@@ -27,12 +27,7 @@ public class WhackGameManager : FrenziableGame {
 		StartCoroutine (showStartBunny ());
 		Physics.gravity = Vector3.down * 400;
 
-		GameObject doors = GameObject.Find ("Doors");
-		DoorManager doorManager = doors.GetComponent <DoorManager>();
-		if( doorManager )
-		{
-			StartCoroutine(doorManager.openDoors());
-		}
+		DoorManager.openDoors ();
 	}
 
 	public override void timerComplete ()
@@ -108,6 +103,7 @@ public class WhackGameManager : FrenziableGame {
 
 				if ( touchedGO.tag == "CatchBtn") {
 					TrackEntry te = startBtn.state.SetAnimation (0, "Tap", false);
+					print ("te.animation.duration: " + te.animation.duration);
 					StartCoroutine (delayedButtonMove (te.animation.duration));
 					te = startBunny.state.SetAnimation (0, "Start_Duck", true);
 					StartCoroutine(delayedGameStart(te.animation.duration));
@@ -238,8 +234,8 @@ public class WhackGameManager : FrenziableGame {
 
 	IEnumerator delayedGameStart( float delay ){
 		SoundManager.PlaySFX ("SuperTransform");
-		startBtn.transform.Translate (1000, 0, 0);
 		yield return new WaitForSeconds(delay-0.05f);
+		startBtn.transform.Translate (1000, 0, 0);
 		StartCoroutine (loopAnimalPopups());
 		Destroy (startBunny.gameObject);
 		timerAndMeter.dropDown ();
@@ -248,7 +244,7 @@ public class WhackGameManager : FrenziableGame {
 
 	IEnumerator loopAnimalPopups(){
 		while (!gameEnded) {
-			yield return new WaitForSeconds( isFrenzy ? 2 : 1);
+			yield return new WaitForSeconds( isFrenzy ? 1 : 1);
 			if( isFrenzy ){
 				popupFrenzyFruit();
 			}
@@ -261,7 +257,7 @@ public class WhackGameManager : FrenziableGame {
 	void popupFrenzyFruit(){
 		popupRandomItem (true);
 		popupRandomItem (true);
-		popupRandomItem (true);
+//		popupRandomItem (true);
 	}
 
 	void popupRandomItem( bool forceFruit = false ){

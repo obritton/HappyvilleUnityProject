@@ -26,14 +26,11 @@ public class CatchGameManager : FrenziableGame {
 		StartCoroutine (delayedLionPoint(10));
 		StartCoroutine (openDoors ());
 	}
-
-	public DoorManager doorManager;
+	
 	IEnumerator openDoors()
 	{
 		yield return new WaitForSeconds (0.5f);
-		if( doorManager ){
-			StartCoroutine(doorManager.openDoors());
-		}
+		DoorManager.openDoors ();
 	}
 
 	public override void timerComplete ()
@@ -244,16 +241,22 @@ public class CatchGameManager : FrenziableGame {
 		if( music != null )
 			music.Stop ();
 		SoundManager.PlaySFX("EndWin", false, 0);
-		foodDropper.dropperMode = FoodDropper.DropperMode.Inactive;
-		fruitKiller.explodeAllLiveFoodAway ();
+//		foodDropper.dropperMode = FoodDropper.DropperMode.Inactive;
+//		fruitKiller.explodeAllLiveFoodAway ();
 		catchResults.showResults ( totalFruits, totalCandies, timerAndMeter.getScore());
 		timerAndMeter.moveUp ();
 		canLionAnimate = false;
-		fireLionEnd ();
+		StartCoroutine(fireLionEnd ());
 	}
 
-	void fireLionEnd( )
+	IEnumerator fireLionEnd( )
 	{
+		lion.GetComponent<Collider> ().enabled = false;
+		Transform basketCollision = lion.transform.FindChild ("BasketCollision");
+		if (basketCollision != null) {
+			basketCollision.gameObject.SetActive(false);
+		}
+		yield return new WaitForSeconds (3);
 		lion.state.SetAnimation (0, "End", false);
 		lion.state.AddAnimation (0, "Wait", true, 0);
 	}

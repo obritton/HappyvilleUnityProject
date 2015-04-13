@@ -1,41 +1,41 @@
 
 Bear.png
-size: 1024,1024
+size: 2048,512
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 Characters/Bear/Arm_bent_Bear_Map
   rotate: false
-  xy: 507, 411
-  size: 64, 86
+  xy: 200, 107
+  size: 63, 86
   orig: 64, 86
   offset: 0, 0
   index: -1
 Characters/Bear/Arm_straight_Bear_Map
   rotate: false
-  xy: 236, 251
-  size: 112, 68
+  xy: 1677, 442
+  size: 112, 67
   orig: 112, 68
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Bear/Body_Bear_Map
-  rotate: false
-  xy: 507, 499
-  size: 178, 196
+  rotate: true
+  xy: 2, 16
+  size: 177, 196
   orig: 178, 196
   offset: 0, 0
   index: -1
 Characters/Bear/Ear_Bear_Map
   rotate: false
-  xy: 940, 888
-  size: 58, 58
+  xy: 200, 48
+  size: 58, 57
   orig: 58, 58
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Bear/Eye_Bear_Map
   rotate: false
-  xy: 893, 707
-  size: 28, 28
+  xy: 893, 204
+  size: 27, 28
   orig: 28, 28
   offset: 0, 0
   index: -1
@@ -48,92 +48,92 @@ Characters/Bear/Eye_cls_Bear_Map
   index: -1
 Characters/Bear/Hand_Bear_Map
   rotate: false
-  xy: 350, 276
+  xy: 1559, 211
   size: 43, 43
   orig: 43, 43
   offset: 0, 0
   index: -1
 Characters/Bear/Hat_Bear_Map
   rotate: false
-  xy: 940, 948
-  size: 82, 65
+  xy: 1559, 256
+  size: 82, 64
   orig: 82, 65
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Bear/Head_Bear_Map
   rotate: false
-  xy: 2, 132
-  size: 232, 187
+  xy: 1444, 322
+  size: 231, 187
   orig: 232, 187
   offset: 0, 0
   index: -1
 Characters/Bear/Mouth_Bear_Map
-  rotate: true
-  xy: 161, 37
-  size: 93, 27
+  rotate: false
+  xy: 1791, 482
+  size: 91, 27
   orig: 93, 27
   offset: 0, 0
   index: -1
 Characters/Bear/Mouth_o_Bear_Map
   rotate: false
-  xy: 507, 359
-  size: 33, 50
+  xy: 1677, 353
+  size: 33, 49
   orig: 33, 50
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Bear/Mouth_smile_Bear_Map
   rotate: false
-  xy: 687, 659
-  size: 89, 36
+  xy: 1677, 404
+  size: 88, 36
   orig: 89, 36
   offset: 0, 0
   index: -1
 Characters/Bear/Nose_Bear_Map
   rotate: false
-  xy: 573, 473
+  xy: 1444, 137
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 Characters/Bear/Pupil_Bear_Map
   rotate: false
-  xy: 687, 641
-  size: 16, 16
+  xy: 922, 217
+  size: 16, 15
   orig: 16, 16
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Menu_Screens/Anchor_Boat
-  rotate: true
-  xy: 2, 16
-  size: 114, 157
+  rotate: false
+  xy: 1444, 163
+  size: 113, 157
   orig: 114, 157
   offset: 0, 0
   index: -1
 Menu_Screens/Boat
   rotate: false
-  xy: 2, 737
-  size: 936, 276
+  xy: 2, 234
+  size: 936, 275
   orig: 936, 276
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Menu_Screens/Boat_top
   rotate: false
-  xy: 2, 321
-  size: 503, 374
+  xy: 940, 135
+  size: 502, 374
   orig: 503, 374
   offset: 0, 0
   index: -1
 Menu_Screens/Flag_Boat
   rotate: false
-  xy: 236, 191
-  size: 38, 58
+  xy: 265, 136
+  size: 38, 57
   orig: 38, 58
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Menu_Screens/Shadow_Boat
   rotate: false
-  xy: 2, 697
-  size: 889, 38
+  xy: 2, 195
+  size: 889, 37
   orig: 889, 38
-  offset: 0, 0
+  offset: 0, 1
   index: -1

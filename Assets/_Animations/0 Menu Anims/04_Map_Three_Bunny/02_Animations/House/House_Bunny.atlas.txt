@@ -1,0 +1,76 @@
+
+House_Bunny.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Houses/Map_03/Back_House
+  rotate: false
+  xy: 780, 109
+  size: 650, 650
+  orig: 650, 650
+  offset: 0, 0
+  index: -1
+Houses/Map_03/Bush_Five
+  rotate: true
+  xy: 1629, 583
+  size: 241, 121
+  orig: 241, 121
+  offset: 0, 0
+  index: -1
+Houses/Map_03/Bush_Four
+  rotate: false
+  xy: 1410, 826
+  size: 389, 195
+  orig: 389, 195
+  offset: 0, 0
+  index: -1
+Houses/Map_03/Bush_One
+  rotate: true
+  xy: 1432, 435
+  size: 389, 195
+  orig: 389, 195
+  offset: 0, 0
+  index: -1
+Houses/Map_03/Bush_Three
+  rotate: false
+  xy: 1801, 834
+  size: 187, 187
+  orig: 187, 187
+  offset: 0, 0
+  index: -1
+Houses/Map_03/Bush_Two
+  rotate: false
+  xy: 2, 2
+  size: 306, 153
+  orig: 307, 153
+  offset: 0, 0
+  index: -1
+Houses/Map_03/Ear_House
+  rotate: false
+  xy: 1432, 147
+  size: 134, 286
+  orig: 134, 286
+  offset: 0, 0
+  index: -1
+Houses/Map_03/House_Bunny
+  rotate: false
+  xy: 2, 157
+  size: 776, 602
+  orig: 776, 602
+  offset: 0, 0
+  index: -1
+Houses/Map_03/Shadow_House
+  rotate: false
+  xy: 2, 761
+  size: 1406, 260
+  orig: 1409, 260
+  offset: 1, 0
+  index: -1
+Houses/Map_03/Window_Background
+  rotate: true
+  xy: 310, 26
+  size: 129, 206
+  orig: 129, 206
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,62 @@
+
+Tree_Owl.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Title_Screen/Owl/Beak_Owl
+  rotate: false
+  xy: 493, 221
+  size: 12, 11
+  orig: 13, 11
+  offset: 0, 0
+  index: -1
+Title_Screen/Owl/Body_Owl
+  rotate: false
+  xy: 425, 161
+  size: 66, 87
+  orig: 66, 88
+  offset: 0, 1
+  index: -1
+Title_Screen/Owl/Eye_Owl
+  rotate: false
+  xy: 393, 13
+  size: 25, 26
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
+Title_Screen/Owl/Pupil_Cls_Owl
+  rotate: false
+  xy: 425, 153
+  size: 18, 6
+  orig: 18, 7
+  offset: 0, 1
+  index: -1
+Title_Screen/Owl/Pupil_Opn_Owl
+  rotate: false
+  xy: 493, 234
+  size: 13, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+Title_Screen/Owl/Top_Owl
+  rotate: true
+  xy: 393, 41
+  size: 69, 32
+  orig: 69, 33
+  offset: 0, 1
+  index: -1
+Title_Screen/Shadow_tree
+  rotate: true
+  xy: 393, 112
+  size: 136, 30
+  orig: 136, 30
+  offset: 0, 0
+  index: -1
+Title_Screen/Tree_Round
+  rotate: true
+  xy: 2, 2
+  size: 246, 389
+  orig: 246, 391
+  offset: 0, 2
+  index: -1

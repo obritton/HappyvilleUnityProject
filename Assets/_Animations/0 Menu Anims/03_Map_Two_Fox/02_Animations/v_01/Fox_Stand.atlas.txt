@@ -6,24 +6,24 @@ filter: Linear,Linear
 repeat: none
 Fox/Arm_Fox_Map
   rotate: false
-  xy: 426, 56
-  size: 94, 127
+  xy: 425, 56
+  size: 94, 126
   orig: 94, 127
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Fox/Arm_bend_Fox_Map
   rotate: false
-  xy: 522, 112
+  xy: 521, 111
   size: 102, 142
   orig: 102, 142
   offset: 0, 0
   index: -1
 Fox/Body_Fox_Map
   rotate: true
-  xy: 257, 64
-  size: 119, 167
+  xy: 257, 63
+  size: 119, 166
   orig: 119, 167
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Fox/Ear_Fox_Map
   rotate: true
@@ -34,92 +34,92 @@ Fox/Ear_Fox_Map
   index: -1
 Fox/Eye_Fox_Map
   rotate: false
-  xy: 100, 37
-  size: 52, 22
+  xy: 100, 38
+  size: 52, 21
   orig: 52, 22
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Fox/Eye_cls_Fox_Map
   rotate: false
-  xy: 522, 58
-  size: 38, 19
+  xy: 521, 59
+  size: 38, 18
   orig: 38, 19
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Fox/Foot_Fox_Map
   rotate: true
-  xy: 626, 147
-  size: 36, 17
+  xy: 625, 146
+  size: 36, 16
   orig: 36, 17
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Fox/Hand_Fox_Map
   rotate: false
-  xy: 591, 83
-  size: 27, 27
+  xy: 590, 82
+  size: 26, 27
   orig: 27, 27
   offset: 0, 0
   index: -1
 Fox/Head_Fox_Map
   rotate: false
   xy: 2, 61
-  size: 253, 193
+  size: 253, 192
   orig: 253, 193
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Fox/Leg_Fox_Map
   rotate: false
-  xy: 626, 185
+  xy: 625, 184
   size: 20, 69
   orig: 20, 69
   offset: 0, 0
   index: -1
 Fox/Mouth_Smile_Fox_Map
   rotate: false
-  xy: 648, 241
-  size: 38, 13
+  xy: 2, 2
+  size: 38, 12
   orig: 38, 13
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Fox/Mouth_o_Fox_Map
   rotate: false
-  xy: 648, 192
+  xy: 154, 39
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 Fox/Mouth_open_Fox_Map
   rotate: false
-  xy: 2, 2
-  size: 38, 12
+  xy: 647, 242
+  size: 38, 11
   orig: 38, 12
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Fox/Nose_Fox_Map
   rotate: false
-  xy: 648, 214
-  size: 25, 25
+  xy: 647, 215
+  size: 24, 25
   orig: 25, 25
   offset: 0, 0
   index: -1
 Fox/Pupil_Fox_Map
   rotate: false
-  xy: 154, 38
-  size: 21, 21
+  xy: 100, 16
+  size: 21, 20
   orig: 21, 21
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Fox/Shadow_Fox_Map
   rotate: false
-  xy: 257, 185
-  size: 263, 69
+  xy: 257, 184
+  size: 261, 69
   orig: 263, 69
   offset: 0, 0
   index: -1
 Fox/Whisker_Fox_Map
   rotate: false
-  xy: 522, 79
-  size: 67, 31
+  xy: 521, 79
+  size: 67, 30
   orig: 67, 31
-  offset: 0, 0
+  offset: 0, 1
   index: -1

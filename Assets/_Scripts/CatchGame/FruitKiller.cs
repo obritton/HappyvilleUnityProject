@@ -35,6 +35,7 @@ public class FruitKiller : CrumbColorer {
 	}
 
 	public float currentPitch = 1;
+	public Transform background;
 	public void killFruitFrom( GameObject food, string collisionTag ){
 
 		if (collisionTag == "CatchBasket") {
@@ -47,15 +48,10 @@ public class FruitKiller : CrumbColorer {
 			ScoreShower shower = GetComponent<ScoreShower>();
 			if( shower != null )
 				shower.showScoreAtPosition( numbersPos, food.tag == "food" ? 5: 10 );
-//			GameObject numbers = Instantiate( numbersPrefab, numbersPos, Quaternion.identity ) as GameObject;
-//			SkeletonAnimation numbersAnim = ((SkeletonAnimation)numbers.GetComponent<SkeletonAnimation>());
-//			string skin = food.tag == "food" ? "Five" : "Ten";
 			if( food.tag == "food" )
 				CatchGameManager.totalFruits++;
 			else
 				CatchGameManager.totalCandies++;
-//			numbersAnim.skeleton.SetSkin(skin);
-//			numbersAnim.state.SetAnimation(0,"animation",false);
 
 			timerAndMeter.incrementScore( food.tag == "food" ? 5 : 10, catchGame.gameMode == CatchGameManager.CatchGameMode.Frenzy );
 			if( liveFoods.Contains(food))
@@ -70,6 +66,7 @@ public class FruitKiller : CrumbColorer {
 					liveFoods.Remove(food);
 				Destroy (food);
 				GameObject splat = Instantiate( splatPrefab, pos, Quaternion.identity ) as GameObject;
+				splat.transform.parent = background;
 				SkeletonAnimation splatAnim = ((SkeletonAnimation)splat.GetComponent<SkeletonAnimation>());
 				splatAnim.state.SetAnimation(0, "Splat_Fall", false);
 				Color color = getColorForFood( food.name );

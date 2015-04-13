@@ -15,18 +15,23 @@ public class MapManager : MonoBehaviour {
 	public GameObject[] leftArrows;
 	public GameObject[] rightArrows;
 
+	static bool firstTime = true;
+
 	void Start(){
+		if (firstTime) {
+			DoorManager.immediateOpen();
+			firstTime = false;
+		}
+
 		if (openPageIndex > 0) {
 			startMusic();
-			doorManager.GetComponent<Renderer>().enabled = true;
-			StartCoroutine(doorManager.openDoors());
+			print ("openPageIndex: " + openPageIndex);
+			DoorManager.openDoors();
 		}
 
 		startHappyvilleSignedAnimsHandle ();
 
 		if (openPageIndex > 0) {
-//			StartCoroutine( closeDoors(true));
-//			StartCoroutine( openDoors());
 			StartCoroutine( navigateToPage(openPageIndex, false, false, true ));
 		}
 	}
@@ -70,8 +75,7 @@ public class MapManager : MonoBehaviour {
 		((SkeletonAnimation)monkey.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle-monk", true, 0);
 		yield return new WaitForSeconds (trackEntry.animation.duration);
 		startMusic ();
-		((SkeletonAnimation)goSign.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Sway", false);
-		StartCoroutine (startTimedSignSway());
+		((SkeletonAnimation)goSign.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Sway", true);
 		StartCoroutine (fireRandomTouchRoutines ());
 	}
 
@@ -79,15 +83,6 @@ public class MapManager : MonoBehaviour {
 	{
 		if( music == null )
 			music = SoundManager.PlaySFX ("HappyMusic", true, 0, 100);
-	}
-
-	bool signSway = false;
-	IEnumerator startTimedSignSway(){
-		signSway = true;
-		while (signSway) {
-			yield return new WaitForSeconds(5);
-			((SkeletonAnimation)goSign.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Sway", false);
-		}
 	}
 
 	bool isAnimatingTouch = false;
@@ -117,7 +112,7 @@ public class MapManager : MonoBehaviour {
 	}
 
 	int currentPage = 0;
-	float kPageLength = 7.68f;
+	float kPageLength = 768f;
 
 	int totalBirdClicks = 0;
 	int totalCatClicks = 0;
@@ -126,8 +121,7 @@ public class MapManager : MonoBehaviour {
 	int totalMonkeyClicks = 0;
 
 	public GameObject[] tableGameButtons;
-	public SkeletonAnimation catchGameButtonAnim;
-	public SkeletonAnimation whackGameButtonAnim;
+	public SkeletonAnimation[] miniGameButtonsArr;
 
 	void Update () {
 		if (Input.GetMouseButtonDown (0)) {
@@ -147,7 +141,7 @@ public class MapManager : MonoBehaviour {
 					break;
 				case "NavRightBtn":
 					if(currentPage > 0 && currentPage < 6){
-							StartCoroutine(navigateToPage(currentPage + 1, true, false));
+						StartCoroutine(navigateToPage(currentPage + 1, true, false));
 					}
 					break;
 				case "ForParentsBtn":
@@ -186,23 +180,25 @@ public class MapManager : MonoBehaviour {
 					Table.level = buttonIndex;
 					GameObject button = tableGameButtons[buttonIndex];
 					((SkeletonAnimation)button.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Active_press", false);
-					StartCoroutine(loadTableGame("Table Game"));
+					StartCoroutine(loadTableGame("Table Game", currentPage, true));
 					break;
 				case "CatchGameBtn":
-					catchGameButtonAnim.state.SetAnimation(0,"Active_press",false);
-					iTween.Stop ();
-					openPageIndex = 1;
-					StartCoroutine(loadTableGame("CatchGame"));
+					StartCoroutine(loadTableGame("CatchGame", 1));
 					break;
 				case "WhackGame":
-					whackGameButtonAnim.state.SetAnimation(0,"Active_press",false);
-					iTween.Stop ();
-					openPageIndex = 2;
-					StartCoroutine(loadTableGame("Whack Game"));
+					StartCoroutine(loadTableGame("Whack Game", 3));
 					break;
-				case "PuzzleGameBtn":
-					iTween.Stop ();
-					Application.LoadLevel("PuzzleProto");
+				case "SlingshotGameBtn":
+					StartCoroutine(loadTableGame("Slingshot Game", 5));
+					break;
+				case "PuzzleGame":
+					StartCoroutine(loadTableGame("PuzzleGame", 2));
+					break;
+				case "MatchingGame":
+					StartCoroutine(loadTableGame("MatchingGame", 6));
+					break;
+				case "PhotoBooth":
+					StartCoroutine(loadTableGame("PhotoBooth", 4));
 					break;
 				default:
 					break;
@@ -211,31 +207,20 @@ public class MapManager : MonoBehaviour {
 		}
 	}
 
-	public DoorManager doorManager;
-	IEnumerator openDoors()
-	{
-		if( doorManager ){
-			StartCoroutine(doorManager.openDoors());
-		}
-		yield return new WaitForSeconds (0);
-	}
 
-	IEnumerator closeDoors( bool isImmediate = false )
-	{
-		if( doorManager ){
-			StartCoroutine(doorManager.closeDoors());
+	IEnumerator loadTableGame( string gameName, int pageIndex, bool isTableButton = false){
+		if (!isTableButton) {
+			miniGameButtonsArr[pageIndex-1].state.SetAnimation(0,"Active_press",false);
 		}
-		yield return new WaitForSeconds (0);
-	}
-
-	IEnumerator loadTableGame( string gameName ){
+		openPageIndex = pageIndex;
+		iTween.Stop ();
 		yield return new WaitForSeconds (1);
 		SoundManager.Stop();
-		if( doorManager )
-			StartCoroutine(doorManager.closeDoors());
+		DoorManager.closeDoors ();
 
 		yield return new WaitForSeconds (1);
 		iTween.Stop ();
+		print ("openPageIndex: " + openPageIndex);
 		Application.LoadLevel (gameName);
 	}
 
@@ -316,17 +301,18 @@ public class MapManager : MonoBehaviour {
 	IEnumerator clickGoSign()
 	{
 		((SkeletonAnimation)goSign.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Click", false);
+		((SkeletonAnimation)goSign.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Sway", true, 0);
 		yield return new WaitForSeconds (0.5f);
-		StartCoroutine (startTimedSignSway());
 		StartCoroutine(navigateToPage(1));
 	}
 
 	AudioSource snoreAS = null;
 	void toggleSnore( bool toggleOn ){
 		if (snoreAS != null) {
-						snoreAS.Stop ();
-						music.volume = 100;
-				}
+			snoreAS.Stop ();
+			if( music != null )
+				music.volume = 100;
+			}
 
 		if (toggleOn) {
 			if( music != null )

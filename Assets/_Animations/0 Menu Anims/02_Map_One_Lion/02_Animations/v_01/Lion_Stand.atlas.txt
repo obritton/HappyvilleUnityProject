@@ -6,155 +6,155 @@ filter: Linear,Linear
 repeat: none
 Lion/Arm_Bent_Lion_Stand
   rotate: true
-  xy: 754, 306
-  size: 90, 151
+  xy: 342, 230
+  size: 90, 150
   orig: 90, 151
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Lion/Arm_Stand_Lion
   rotate: true
-  xy: 2, 53
-  size: 113, 275
+  xy: 2, 58
+  size: 113, 273
   orig: 113, 275
-  offset: 0, 0
+  offset: 0, 2
   index: -1
 Lion/Body_Stand_Lion
   rotate: true
-  xy: 534, 349
-  size: 157, 218
+  xy: 534, 353
+  size: 157, 217
   orig: 157, 218
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Lion/Ear_Stand_Lion
   rotate: false
-  xy: 907, 342
-  size: 46, 54
+  xy: 277, 118
+  size: 46, 53
   orig: 46, 54
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Lion/Eye_Stand_Lion
   rotate: false
-  xy: 907, 316
+  xy: 243, 2
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 Lion/Eye_cls_Stand_Lion
   rotate: false
-  xy: 296, 148
-  size: 35, 18
+  xy: 954, 403
+  size: 35, 17
   orig: 35, 18
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Lion/Eyebrow_Stand_Lion
-  rotate: false
-  xy: 2, 2
+  rotate: true
+  xy: 480, 196
   size: 32, 10
   orig: 32, 10
   offset: 0, 0
   index: -1
 Lion/Foot_Lion
   rotate: false
-  xy: 678, 328
-  size: 41, 19
+  xy: 897, 383
+  size: 41, 18
   orig: 41, 19
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Lion/Hand_Stand_Lion
   rotate: false
-  xy: 955, 378
+  xy: 494, 282
   size: 38, 38
   orig: 38, 38
   offset: 0, 0
   index: -1
 Lion/Head_Stand_Lion
   rotate: false
-  xy: 342, 318
+  xy: 342, 322
   size: 190, 188
   orig: 190, 188
   offset: 0, 0
   index: -1
 Lion/Leg_Bent_Stand_Lion
   rotate: false
-  xy: 955, 418
+  xy: 954, 422
   size: 59, 88
   orig: 59, 88
   offset: 0, 0
   index: -1
 Lion/Leg_Lion
-  rotate: false
-  xy: 494, 238
-  size: 22, 78
+  rotate: true
+  xy: 669, 329
+  size: 22, 77
   orig: 22, 78
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Lion/Mane_Stand_Lion
   rotate: false
-  xy: 2, 168
-  size: 338, 338
+  xy: 2, 173
+  size: 338, 337
   orig: 338, 338
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Lion/Mouth_bigSmile_Stand_Lion
   rotate: false
-  xy: 534, 312
-  size: 142, 35
+  xy: 753, 367
+  size: 142, 34
   orig: 142, 35
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Lion/Mouth_frown_Stand_Lion
-  rotate: true
-  xy: 279, 59
-  size: 107, 15
+  rotate: false
+  xy: 2, 3
+  size: 107, 14
   orig: 107, 15
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Lion/Mouth_o_Stand_Lion
   rotate: false
-  xy: 494, 215
-  size: 21, 21
+  xy: 277, 96
+  size: 21, 20
   orig: 21, 21
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Lion/Nose_Stand_Lion
   rotate: true
-  xy: 342, 150
-  size: 61, 137
+  xy: 342, 167
+  size: 61, 136
   orig: 61, 137
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Lion/Pupil_Stand_Lion
   rotate: false
-  xy: 955, 358
-  size: 18, 18
+  xy: 494, 263
+  size: 18, 17
   orig: 18, 18
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Lion/Shadow_Stand_Lion
   rotate: false
-  xy: 2, 14
-  size: 242, 37
+  xy: 2, 19
+  size: 239, 37
   orig: 242, 37
-  offset: 0, 0
+  offset: 1, 0
   index: -1
 Lion/Smile_Stand_Lion
   rotate: false
-  xy: 342, 213
-  size: 150, 103
+  xy: 534, 312
+  size: 133, 39
   orig: 150, 103
-  offset: 0, 0
+  offset: 6, 28
   index: -1
 Lion/Tail_End_Lion
   rotate: false
-  xy: 246, 23
+  xy: 243, 28
   size: 28, 28
   orig: 28, 28
   offset: 0, 0
   index: -1
 Lion/Tail_Lion
   rotate: false
-  xy: 754, 398
-  size: 199, 108
+  xy: 753, 403
+  size: 199, 107
   orig: 199, 108
-  offset: 0, 0
+  offset: 0, 1
   index: -1

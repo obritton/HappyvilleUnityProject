@@ -1,0 +1,41 @@
+
+Tree_Circles.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Trees/Circles/Bottom_Tree
+  rotate: false
+  xy: 128, 40
+  size: 158, 158
+  orig: 158, 158
+  offset: 0, 0
+  index: -1
+Trees/Circles/Middle_Tree
+  rotate: false
+  xy: 288, 75
+  size: 123, 123
+  orig: 123, 123
+  offset: 0, 0
+  index: -1
+Trees/Circles/Shadow_Tree
+  rotate: false
+  xy: 128, 9
+  size: 130, 29
+  orig: 130, 29
+  offset: 0, 0
+  index: -1
+Trees/Circles/Top_Tree
+  rotate: false
+  xy: 413, 120
+  size: 78, 78
+  orig: 78, 78
+  offset: 0, 0
+  index: -1
+Trees/Circles/Trunk_Tree
+  rotate: false
+  xy: 2, 2
+  size: 124, 196
+  orig: 124, 196
+  offset: 0, 0
+  index: -1

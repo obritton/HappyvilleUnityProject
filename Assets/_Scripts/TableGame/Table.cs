@@ -338,13 +338,7 @@ public class Table : MonoBehaviour {
 
 	IEnumerator delayedGameExit( float delay ){
 		yield return new WaitForSeconds (delay);
-		GameObject doors = GameObject.Find ("Doors");
-		if (doors) {
-			DoorManager doorManager = (DoorManager)doors.GetComponent<DoorManager>();
-			if( doorManager ){
-				StartCoroutine(doorManager.closeDoors());
-			}
-		}
+		DoorManager.closeDoors ();
 
 		MapManager.openPageIndex = 1;
 		yield return new WaitForSeconds (1.05f);

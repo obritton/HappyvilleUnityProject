@@ -1,0 +1,34 @@
+
+Lightpole.png
+size: 1024,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Lightpole/Bug
+  rotate: false
+  xy: 994, 104
+  size: 10, 10
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
+Lightpole/Flame
+  rotate: true
+  xy: 713, 2
+  size: 36, 51
+  orig: 37, 51
+  offset: 0, 0
+  index: -1
+Lightpole/Lightpole
+  rotate: true
+  xy: 2, 20
+  size: 94, 709
+  orig: 94, 709
+  offset: 0, 0
+  index: -1
+Lightpole/Shadow_Lightpole
+  rotate: false
+  xy: 713, 40
+  size: 279, 74
+  orig: 279, 74
+  offset: 0, 0
+  index: -1

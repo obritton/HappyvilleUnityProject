@@ -6,63 +6,63 @@ filter: Linear,Linear
 repeat: none
 Characters/Dog/Arm_bent_Dog_Map
   rotate: true
-  xy: 744, 118
-  size: 62, 83
+  xy: 743, 118
+  size: 62, 82
   orig: 62, 83
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Dog/Arm_straight_Dog_Map
   rotate: false
-  xy: 744, 182
-  size: 111, 65
+  xy: 743, 182
+  size: 111, 64
   orig: 111, 65
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Dog/Body_Dog_Map
   rotate: true
-  xy: 2, 76
-  size: 171, 299
+  xy: 2, 75
+  size: 171, 298
   orig: 171, 299
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Dog/Ear_Dog_Map
   rotate: true
-  xy: 2, 25
-  size: 49, 135
+  xy: 2, 24
+  size: 49, 133
   orig: 49, 135
-  offset: 0, 0
+  offset: 0, 2
   index: -1
 Characters/Dog/Eye_Dog_Map
   rotate: true
-  xy: 407, 91
+  xy: 743, 103
   size: 13, 34
   orig: 13, 34
   offset: 0, 0
   index: -1
 Characters/Dog/Eye_cls_Dog_Map
   rotate: false
-  xy: 857, 221
-  size: 42, 26
+  xy: 856, 221
+  size: 42, 25
   orig: 42, 26
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Dog/Hand_Dog_Map
   rotate: false
-  xy: 174, 42
-  size: 32, 32
+  xy: 172, 42
+  size: 32, 31
   orig: 32, 32
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Dog/Hat_Dog_Map
   rotate: true
-  xy: 588, 104
+  xy: 587, 103
   size: 143, 154
   orig: 143, 154
   offset: 0, 0
   index: -1
 Characters/Dog/Head_Dog_Map
   rotate: false
-  xy: 303, 106
+  xy: 302, 105
   size: 283, 141
   orig: 283, 141
   offset: 0, 0
@@ -70,27 +70,27 @@ Characters/Dog/Head_Dog_Map
 Characters/Dog/Mouth_Dog_Map
   rotate: false
   xy: 2, 2
-  size: 95, 21
+  size: 95, 20
   orig: 95, 21
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Dog/Mouth_Smile_Dog_Map
   rotate: false
-  xy: 303, 78
-  size: 102, 26
+  xy: 302, 77
+  size: 100, 26
   orig: 102, 26
   offset: 0, 0
   index: -1
 Characters/Dog/Mouth_o_Dog_Map
   rotate: false
-  xy: 139, 38
-  size: 33, 36
+  xy: 137, 38
+  size: 33, 35
   orig: 33, 36
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Dog/Nose_Dog_Map
   rotate: true
-  xy: 829, 143
+  xy: 827, 143
   size: 37, 18
   orig: 37, 18
   offset: 0, 0

@@ -1,0 +1,20 @@
+
+House_Lion.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Houses/Map_01/House_Lion
+  rotate: true
+  xy: 2, 2
+  size: 926, 1108
+  orig: 926, 1108
+  offset: 0, 0
+  index: -1
+Houses/Map_01/Window_Background
+  rotate: false
+  xy: 1112, 722
+  size: 129, 206
+  orig: 129, 206
+  offset: 0, 0
+  index: -1

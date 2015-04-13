@@ -6,127 +6,127 @@ filter: Linear,Linear
 repeat: none
 Characters/Bunny/Arm_Bent_Bunny_Map
   rotate: false
-  xy: 341, 29
+  xy: 341, 37
   size: 102, 142
   orig: 102, 142
   offset: 0, 0
   index: -1
 Characters/Bunny/Arm_Bunny_Map
   rotate: true
-  xy: 470, 152
+  xy: 469, 160
   size: 94, 126
   orig: 94, 126
   offset: 0, 0
   index: -1
 Characters/Bunny/Body_Bunny_Map
   rotate: false
-  xy: 191, 23
+  xy: 191, 31
   size: 148, 148
   orig: 148, 148
   offset: 0, 0
   index: -1
 Characters/Bunny/Button_Bunny_Map
   rotate: false
-  xy: 157, 37
-  size: 20, 20
+  xy: 127, 40
+  size: 20, 19
   orig: 20, 20
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Bunny/Ear_Bunny_Map
   rotate: true
-  xy: 2, 9
-  size: 48, 124
+  xy: 2, 17
+  size: 48, 123
   orig: 48, 124
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Bunny/Eye_Bunny_Map
   rotate: false
-  xy: 598, 146
-  size: 59, 59
+  xy: 597, 156
+  size: 59, 58
   orig: 59, 59
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Bunny/Foot_Bunny_Map
   rotate: true
-  xy: 445, 64
-  size: 36, 17
+  xy: 445, 73
+  size: 36, 16
   orig: 36, 17
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Bunny/Glasses_Bar_Bunny_Map
   rotate: false
-  xy: 2, 2
-  size: 62, 5
+  xy: 127, 61
+  size: 62, 4
   orig: 62, 5
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Bunny/Hand_Bunny_Map
   rotate: false
-  xy: 659, 178
-  size: 27, 27
+  xy: 658, 188
+  size: 27, 26
   orig: 27, 27
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Bunny/Head_Bunny_Map
   rotate: false
-  xy: 2, 59
+  xy: 2, 67
   size: 187, 187
   orig: 187, 187
   offset: 0, 0
   index: -1
 Characters/Bunny/Leg_Bunny_Map
   rotate: false
-  xy: 445, 102
-  size: 20, 69
+  xy: 445, 111
+  size: 20, 68
   orig: 20, 69
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Bunny/Mouth_Bunny_Map
   rotate: false
-  xy: 719, 232
-  size: 49, 14
+  xy: 2, 2
+  size: 49, 13
   orig: 49, 14
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Bunny/Mouth_bgsmile_Bunny_Map
   rotate: false
-  xy: 598, 207
-  size: 119, 39
+  xy: 597, 216
+  size: 119, 38
   orig: 119, 39
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Bunny/Mouth_o_Bunny_Map
   rotate: false
-  xy: 128, 19
-  size: 27, 38
+  xy: 718, 216
+  size: 26, 38
   orig: 27, 38
   offset: 0, 0
   index: -1
 Characters/Bunny/Nose_Bunny_Map
   rotate: false
-  xy: 659, 158
+  xy: 746, 236
   size: 18, 18
   orig: 18, 18
   offset: 0, 0
   index: -1
 Characters/Bunny/Pupil_Bunny_Map
   rotate: false
-  xy: 770, 232
-  size: 14, 14
+  xy: 79, 2
+  size: 14, 13
   orig: 14, 14
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Bunny/Pupil_cls_Bunny_Map
   rotate: false
-  xy: 719, 216
-  size: 24, 14
+  xy: 53, 2
+  size: 24, 13
   orig: 24, 14
-  offset: 0, 0
+  offset: 0, 1
   index: -1
 Characters/Bunny/Shadow_Bunny_Map
   rotate: false
-  xy: 191, 173
-  size: 277, 73
+  xy: 191, 181
+  size: 276, 73
   orig: 277, 73
   offset: 0, 0
   index: -1

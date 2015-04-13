@@ -6,39 +6,25 @@ public class TableGame : MonoBehaviour {
 	
 	public Table table;
 
-	void OnGUI(){
-		if( GUI.Button( new Rect( 0, 0, Screen.width * 0.1f, Screen.height * 0.05f), "Back")){
-			MapManager.openPageIndex = (Table.level/3)+1;
-			iTween.Stop ();
-			SoundManager.Stop();
-			StartCoroutine(closeDoors());
-		}
-	}
-
 	// Use this for initialization
 	void Start () {
 		Physics.gravity = Vector3.down * 9.81f;
 		StartCoroutine(openDoors ());
 	}
 
-	public DoorManager doorManager;
 	IEnumerator openDoors()
 	{
 		yield return new WaitForSeconds (0.5f);
-		if( doorManager ){
-			StartCoroutine(doorManager.openDoors());
-		}
+		DoorManager.openDoors ();
 
-		yield return new WaitForSeconds (1 + 0.5f);
+		yield return new WaitForSeconds (1.5f);
 		StartCoroutine (startNewGame ());
 	}
 
 	IEnumerator closeDoors()
 	{
 		yield return new WaitForSeconds (0.5f);
-		if( doorManager ){
-			StartCoroutine(doorManager.closeDoors());
-		}
+		DoorManager.closeDoors ();
 		
 		yield return new WaitForSeconds (1 + 0.5f);
 		iTween.Stop ();
