@@ -1,68 +1,201 @@
 
 Fly.png
-size: 388,142
+size: 1024,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-Fly/Body-fly
+Fly/Bear_mask
   rotate: false
-  xy: 2, 2
+  xy: 2, 312
+  size: 273, 180
+  orig: 273, 180
+  offset: 0, 0
+  index: -1
+Fly/Body-fly
+  rotate: true
+  xy: 732, 351
   size: 175, 138
   orig: 175, 139
   offset: 0, 0
   index: -1
+Fly/Bunny_mask
+  rotate: false
+  xy: 599, 748
+  size: 171, 266
+  orig: 171, 266
+  offset: 0, 0
+  index: -1
+Fly/Cat_mask
+  rotate: false
+  xy: 599, 528
+  size: 217, 218
+  orig: 217, 218
+  offset: 0, 0
+  index: -1
+Fly/Dog_mask
+  rotate: false
+  xy: 2, 144
+  size: 271, 166
+  orig: 271, 166
+  offset: 0, 0
+  index: -1
 Fly/Eye-cls-fly
-  rotate: true
-  xy: 210, 2
+  rotate: false
+  xy: 992, 972
   size: 30, 11
   orig: 30, 11
   offset: 0, 0
   index: -1
 Fly/Eye-fly
   rotate: false
-  xy: 334, 89
+  xy: 739, 140
   size: 52, 51
   orig: 52, 52
   offset: 0, 1
   index: -1
 Fly/Foot-fly
   rotate: false
-  xy: 334, 39
+  xy: 599, 503
   size: 11, 23
   orig: 11, 25
   offset: 0, 2
   index: -1
-Fly/Leg-fly
+Fly/Frog_mask
+  rotate: false
+  xy: 818, 604
+  size: 185, 190
+  orig: 185, 190
+  offset: 0, 0
+  index: -1
+Fly/Hat_1
+  rotate: false
+  xy: 2, 17
+  size: 233, 125
+  orig: 233, 125
+  offset: 0, 0
+  index: -1
+Fly/Hat_2
+  rotate: false
+  xy: 473, 114
+  size: 156, 175
+  orig: 156, 175
+  offset: 0, 0
+  index: -1
+Fly/Hat_3
   rotate: true
-  xy: 223, 26
+  xy: 513, 291
+  size: 201, 118
+  orig: 201, 118
+  offset: 0, 0
+  index: -1
+Fly/Hat_4
+  rotate: false
+  xy: 275, 144
+  size: 196, 162
+  orig: 196, 162
+  offset: 0, 0
+  index: -1
+Fly/Hat_5
+  rotate: false
+  xy: 237, 12
+  size: 217, 130
+  orig: 217, 130
+  offset: 0, 0
+  index: -1
+Fly/Leg-fly
+  rotate: false
+  xy: 885, 232
   size: 6, 40
   orig: 6, 40
   offset: 0, 0
   index: -1
+Fly/Lion_mask
+  rotate: false
+  xy: 772, 796
+  size: 218, 218
+  orig: 218, 218
+  offset: 0, 0
+  index: -1
+Fly/Mask_1
+  rotate: true
+  xy: 633, 273
+  size: 253, 97
+  orig: 253, 97
+  offset: 0, 0
+  index: -1
+Fly/Mask_2
+  rotate: false
+  xy: 818, 533
+  size: 142, 69
+  orig: 142, 69
+  offset: 0, 0
+  index: -1
+Fly/Mask_4
+  rotate: false
+  xy: 732, 274
+  size: 161, 75
+  orig: 161, 75
+  offset: 0, 0
+  index: -1
+Fly/Mask_5
+  rotate: false
+  xy: 456, 2
+  size: 175, 110
+  orig: 175, 110
+  offset: 0, 0
+  index: -1
+Fly/Mask_7
+  rotate: false
+  xy: 739, 193
+  size: 146, 37
+  orig: 147, 37
+  offset: 0, 0
+  index: -1
+Fly/Mask_8
+  rotate: false
+  xy: 739, 232
+  size: 144, 40
+  orig: 146, 40
+  offset: 0, 0
+  index: -1
+Fly/Monkey_mask
+  rotate: false
+  xy: 277, 308
+  size: 234, 184
+  orig: 234, 184
+  offset: 0, 0
+  index: -1
 Fly/Mouth-fly
   rotate: false
-  xy: 360, 76
+  xy: 2, 4
   size: 26, 11
   orig: 27, 11
   offset: 0, 0
   index: -1
 Fly/Mouth-opn-fly
-  rotate: true
-  xy: 179, 2
+  rotate: false
+  xy: 992, 985
   size: 30, 29
   orig: 30, 29
   offset: 0, 0
   index: -1
 Fly/Pupil-fly
   rotate: false
-  xy: 334, 64
+  xy: 772, 771
   size: 24, 23
   orig: 24, 24
   offset: 0, 1
   index: -1
+Fly/Ray_Food
+  rotate: false
+  xy: 2, 494
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
 Fly/Wing-fly
-  rotate: true
-  xy: 179, 34
+  rotate: false
+  xy: 631, 118
   size: 106, 153
   orig: 106, 154
   offset: 0, 1

@@ -1,111 +1,111 @@
 
 Fox.png
-size: 1024,256
+size: 1024,512
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 Fox/Arm-bend
   rotate: false
-  xy: 447, 153
-  size: 134, 101
-  orig: 134, 101
-  offset: 0, 0
+  xy: 2, 2
+  size: 223, 167
+  orig: 223, 168
+  offset: 0, 1
   index: -1
 Fox/Arm-curve
-  rotate: true
-  xy: 447, 2
-  size: 149, 76
-  orig: 149, 76
-  offset: 0, 0
+  rotate: false
+  xy: 742, 370
+  size: 248, 125
+  orig: 248, 126
+  offset: 0, 1
   index: -1
 Fox/Arm-straight
   rotate: false
-  xy: 583, 225
-  size: 179, 29
-  orig: 179, 29
-  offset: 0, 0
+  xy: 431, 140
+  size: 299, 47
+  orig: 299, 48
+  offset: 0, 1
   index: -1
 Fox/Body-fox
   rotate: false
-  xy: 260, 70
-  size: 185, 184
-  orig: 185, 184
+  xy: 431, 189
+  size: 309, 306
+  orig: 309, 306
   offset: 0, 0
   index: -1
 Fox/Ear-fox
-  rotate: true
-  xy: 2, 14
-  size: 43, 97
-  orig: 43, 97
-  offset: 0, 0
+  rotate: false
+  xy: 742, 207
+  size: 72, 161
+  orig: 72, 162
+  offset: 0, 1
   index: -1
 Fox/Eye-cls-fox
   rotate: false
-  xy: 101, 37
-  size: 40, 20
-  orig: 40, 20
+  xy: 343, 137
+  size: 66, 32
+  orig: 66, 33
   offset: 0, 0
   index: -1
 Fox/Eye-fox
   rotate: false
-  xy: 764, 232
-  size: 53, 22
-  orig: 53, 22
+  xy: 227, 78
+  size: 88, 36
+  orig: 88, 36
   offset: 0, 0
   index: -1
 Fox/Hand
   rotate: false
-  xy: 583, 184
-  size: 39, 39
-  orig: 39, 39
+  xy: 816, 304
+  size: 65, 64
+  orig: 65, 65
   offset: 0, 0
   index: -1
 Fox/Head-fox
   rotate: false
-  xy: 2, 59
-  size: 256, 195
-  orig: 256, 195
-  offset: 0, 0
+  xy: 2, 171
+  size: 427, 324
+  orig: 427, 325
+  offset: 0, 1
   index: -1
 Fox/Mouth-fox
   rotate: true
-  xy: 525, 41
-  size: 40, 14
-  orig: 40, 14
-  offset: 0, 0
+  xy: 992, 429
+  size: 66, 23
+  orig: 66, 24
+  offset: 0, 1
   index: -1
 Fox/Mouth-o-fox
   rotate: false
-  xy: 624, 203
-  size: 20, 20
-  orig: 20, 20
-  offset: 0, 0
+  xy: 227, 44
+  size: 33, 32
+  orig: 33, 33
+  offset: 0, 1
   index: -1
 Fox/Mouth-open-fox
   rotate: true
-  xy: 525, 2
-  size: 37, 11
-  orig: 37, 11
-  offset: 0, 0
+  xy: 411, 108
+  size: 61, 18
+  orig: 61, 19
+  offset: 0, 1
   index: -1
 Fox/Nose-fox
   rotate: false
-  xy: 583, 156
-  size: 26, 26
-  orig: 26, 26
+  xy: 816, 260
+  size: 43, 42
+  orig: 43, 43
   offset: 0, 0
   index: -1
 Fox/Pupil-fox
   rotate: false
-  xy: 559, 130
-  size: 21, 21
-  orig: 21, 21
+  xy: 883, 334
+  size: 35, 34
+  orig: 35, 35
   offset: 0, 0
   index: -1
 Fox/Whisker-fox
-  rotate: true
-  xy: 525, 83
-  size: 68, 32
-  orig: 68, 32
+  rotate: false
+  xy: 227, 116
+  size: 114, 53
+  orig: 114, 53
   offset: 0, 0
   index: -1

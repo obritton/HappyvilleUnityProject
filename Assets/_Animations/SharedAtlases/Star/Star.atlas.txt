@@ -1,0 +1,34 @@
+
+Star.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Star_Speakers/Star/Burst
+  rotate: false
+  xy: 2, 18
+  size: 846, 839
+  orig: 846, 840
+  offset: 0, 1
+  index: -1
+Star_Speakers/Star/Dot
+  rotate: false
+  xy: 850, 467
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+Star_Speakers/Star/Rope
+  rotate: true
+  xy: 2, 2
+  size: 14, 475
+  orig: 14, 494
+  offset: 0, 0
+  index: -1
+Star_Speakers/Star/Star
+  rotate: false
+  xy: 850, 493
+  size: 380, 364
+  orig: 380, 364
+  offset: 0, 0
+  index: -1

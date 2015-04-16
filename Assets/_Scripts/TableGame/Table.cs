@@ -13,12 +13,13 @@ public class Table : MonoBehaviour {
 	FlySession flySession;
 	public GameObject crumbsPrefab;
 	public static int level = -1;
+	public GameObject starAndSpeakersPrefab;
 
 	public GameObject bgSprite;
 	public GameObject tableSprite;
 	
 	void Start(){
-
+//		StartCoroutine (doGameWin (6));
 		if (level > -1)
 			loadTableAndBG ();
 		CharacterNode.totalCharactersUnlocked = 4 + (Table.level / 3);
@@ -45,7 +46,7 @@ public class Table : MonoBehaviour {
 	IEnumerator checkAndPlayRandomTapAnim(){
 		while (playing) {
 			yield return new WaitForSeconds(Random.Range (5,10));
-			if( !touchedRecently && !isFoodDragging && !isFlyOut )
+			if( !touchedRecently && !isFoodDragging && !isFlyOut && !canTouchAnim )
 			{
 				playTouchForCharacter(Random.Range(0,3));
 			}
@@ -69,6 +70,7 @@ public class Table : MonoBehaviour {
 //				print ("hitGO.tag: " + hitGO.tag);
 				switch( hitGO.tag ){
 				case "food":
+					setAnimForAll( "Pant", true, true );
 					isFoodDragging = true;
 					foodTouched = true;
 					EyeFollow.registerFollowTransform (food.transform.Find("SkeletonUtility-Root/root/Food"));
@@ -158,6 +160,7 @@ public class Table : MonoBehaviour {
 				}
 			}
 			touchedRecently = true;
+			setAnimForAll("Idle", true, false );
 			isFoodDragging = false;
 		}
 	}
@@ -333,7 +336,9 @@ public class Table : MonoBehaviour {
 		delay = makeEveryoneDance ();
 		food.transform.Translate (1000, 0, 0);
 		StartCoroutine (scoreBoard.makeStarsDance ());
-		StartCoroutine (delayedGameExit (4));
+		GameObject starAndSpeakers = Instantiate (starAndSpeakersPrefab, Vector3.forward * 5, Quaternion.identity) as GameObject;
+		iTween.MoveBy (scoreBoard.gameObject, iTween.Hash ("y", 100, "time", 0.5f, "easetype", iTween.EaseType.easeInBounce));
+		StartCoroutine (delayedGameExit (8));
 	}
 
 	IEnumerator delayedGameExit( float delay ){
@@ -395,6 +400,7 @@ public class Table : MonoBehaviour {
 
 	Vector3 flyPosLeft = new Vector3( -472, 242, -11 );
 	Vector3 flyPosRight = new Vector3( 489, 242, -11 );
+	static bool firstTimeFlyOut = true;
 	IEnumerator startFlySession(float delay){
 		isFlyOut = true;
 		touchedFly = false;
@@ -408,6 +414,12 @@ public class Table : MonoBehaviour {
 		Transform fly = flySession.getFly ();
 		fly.GetComponent<Renderer>().enabled = true;
 		((SkeletonAnimation)fly.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Fly", true, 0);
+		if (firstTimeFlyOut) {
+			firstTimeFlyOut = false;
+			((SkeletonAnimation)fly.GetComponent<SkeletonAnimation> ()).skeleton.SetSkin("Fly_1");
+		} else {
+			((SkeletonAnimation)fly.GetComponent<SkeletonAnimation> ()).skeleton.SetSkin("Fly_" + Random.Range(1,18));
+		}
 		iTween.MoveTo( flySession.gameObject, iTween.Hash( "position", flyPosRight, "time", 10, "islocal", true, "easetype", iTween.EaseType.linear, "name", "flypass", "oncomplete", "turnFlyAround", "oncompletetarget", gameObject));
 		StartCoroutine (collapseThoughts ());
 		EyeFollow.registerFollowTransform (fly.Find ("SkeletonUtility-Root/root/Body/Mouth-fly"));

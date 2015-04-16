@@ -16,6 +16,44 @@ public class MapManager : MonoBehaviour {
 	public GameObject[] rightArrows;
 
 	static bool firstTime = true;
+	public SkeletonAnimation[] mapDenizenArr;
+
+	bool isPlaying = false;
+	IEnumerator loopRandomAnims(){
+		while (isPlaying) {
+			yield return new WaitForSeconds(6);
+			randomAnimOnAll();
+		}
+	}
+
+	void randomAnimOnAll(){
+		string animStr = "Touch" + (Random.value < 0.5f ? "One" : "Two");
+
+		foreach( SkeletonAnimation anim in mapDenizenArr ){
+			anim.state.SetAnimation(0,animStr, false);
+			anim.state.AddAnimation(0,"Idle", true, 0);
+		}
+	}
+
+	//LIGHTPOSTS
+	public SkeletonAnimation[] lightpostsArr;
+
+	IEnumerator loopRandomLightpostAnims(){
+		yield return new WaitForSeconds(3);
+		while (isPlaying) {
+			yield return new WaitForSeconds(12);
+			randomLighpostAnimOnAll();
+		};
+	}
+	
+	void randomLighpostAnimOnAll(){
+		string animStr = "TouchOne2";
+		foreach( SkeletonAnimation anim in lightpostsArr ){
+			anim.state.SetAnimation(0,animStr, false);
+			anim.state.AddAnimation(0,"Idle", true, 0);
+		}
+	}
+	//
 
 	void Start(){
 		if (firstTime) {
@@ -209,6 +247,7 @@ public class MapManager : MonoBehaviour {
 
 
 	IEnumerator loadTableGame( string gameName, int pageIndex, bool isTableButton = false){
+		isPlaying = false;
 		if (!isTableButton) {
 			miniGameButtonsArr[pageIndex-1].state.SetAnimation(0,"Active_press",false);
 		}
@@ -300,10 +339,14 @@ public class MapManager : MonoBehaviour {
 
 	IEnumerator clickGoSign()
 	{
+		isPlaying = true;
 		((SkeletonAnimation)goSign.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Click", false);
 		((SkeletonAnimation)goSign.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Sway", true, 0);
 		yield return new WaitForSeconds (0.5f);
 		StartCoroutine(navigateToPage(1));
+
+		StartCoroutine (loopRandomLightpostAnims());
+		StartCoroutine (loopRandomAnims());
 	}
 
 	AudioSource snoreAS = null;

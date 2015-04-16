@@ -1,13 +1,13 @@
 
 Plate.png
-size: 256,128
+size: 512,256
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 Assets/Plate
   rotate: false
   xy: 2, 2
-  size: 215, 113
-  orig: 215, 113
+  size: 359, 188
+  orig: 359, 188
   offset: 0, 0
   index: -1

@@ -1,0 +1,55 @@
+
+Speaker_rht.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Star_Speakers/Speakers/Bottom_Speaker
+  rotate: false
+  xy: 663, 310
+  size: 178, 178
+  orig: 178, 178
+  offset: 0, 0
+  index: -1
+Star_Speakers/Speakers/Box_Speaker
+  rotate: false
+  xy: 2, 96
+  size: 258, 392
+  orig: 258, 392
+  offset: 0, 0
+  index: -1
+Star_Speakers/Speakers/Middle_Bottom
+  rotate: false
+  xy: 262, 146
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Star_Speakers/Speakers/Middle_Top
+  rotate: false
+  xy: 622, 252
+  size: 36, 36
+  orig: 36, 36
+  offset: 0, 0
+  index: -1
+Star_Speakers/Speakers/Shadow-food
+  rotate: false
+  xy: 262, 218
+  size: 358, 70
+  orig: 358, 70
+  offset: 0, 0
+  index: -1
+Star_Speakers/Speakers/Sound_Burst
+  rotate: true
+  xy: 262, 290
+  size: 198, 399
+  orig: 198, 399
+  offset: 0, 0
+  index: -1
+Star_Speakers/Speakers/Top_Speaker
+  rotate: false
+  xy: 2, 2
+  size: 92, 92
+  orig: 92, 92
+  offset: 0, 0
+  index: -1

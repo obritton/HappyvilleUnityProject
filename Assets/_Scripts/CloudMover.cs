@@ -5,7 +5,7 @@ public class CloudMover : MonoBehaviour {
 
 	public float cloudSpeed = -1;
 	float leftLimit = -5;
-	float rightLimitOffset = 56;//51
+	public float rightLimitOffset = 56;//51
 
 	public Transform[] cloudsArr;
 	
