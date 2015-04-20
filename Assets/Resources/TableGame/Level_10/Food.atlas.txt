@@ -1,0 +1,152 @@
+
+Food.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+DotCup_brown
+  rotate: false
+  xy: 878, 1051
+  size: 436, 448
+  orig: 436, 448
+  offset: 0, 0
+  index: -1
+DotCup_orange
+  rotate: false
+  xy: 878, 601
+  size: 436, 448
+  orig: 436, 448
+  offset: 0, 0
+  index: -1
+Dot_Cup_pink
+  rotate: false
+  xy: 878, 151
+  size: 436, 448
+  orig: 436, 448
+  offset: 0, 0
+  index: -1
+HeartCup_blue
+  rotate: false
+  xy: 1316, 1054
+  size: 436, 448
+  orig: 436, 448
+  offset: 0, 0
+  index: -1
+HeartCup_orange
+  rotate: false
+  xy: 1316, 604
+  size: 436, 448
+  orig: 436, 448
+  offset: 0, 0
+  index: -1
+HeartCup_pink
+  rotate: false
+  xy: 1316, 154
+  size: 436, 448
+  orig: 436, 448
+  offset: 0, 0
+  index: -1
+HorizontalCup_Brown
+  rotate: false
+  xy: 1037, 1504
+  size: 436, 449
+  orig: 436, 449
+  offset: 0, 0
+  index: -1
+HorizontalCup_Orange
+  rotate: false
+  xy: 2, 74
+  size: 436, 449
+  orig: 436, 449
+  offset: 0, 0
+  index: -1
+HorizontalCup_Pink
+  rotate: false
+  xy: 1475, 1504
+  size: 436, 449
+  orig: 436, 449
+  offset: 0, 0
+  index: -1
+Ray_Food
+  rotate: false
+  xy: 2, 1433
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Shadow-food
+  rotate: false
+  xy: 2, 2
+  size: 358, 70
+  orig: 358, 70
+  offset: 0, 0
+  index: -1
+VerticalCup_Blue
+  rotate: false
+  xy: 2, 979
+  size: 436, 452
+  orig: 436, 452
+  offset: 0, 0
+  index: -1
+VerticalCup_Pink
+  rotate: false
+  xy: 599, 1501
+  size: 436, 452
+  orig: 436, 452
+  offset: 0, 0
+  index: -1
+VerticalCup_Red
+  rotate: false
+  xy: 2, 525
+  size: 436, 452
+  orig: 436, 452
+  offset: 0, 0
+  index: -1
+WaveCup_blue
+  rotate: false
+  xy: 440, 982
+  size: 436, 449
+  orig: 436, 449
+  offset: 0, 0
+  index: -1
+WaveCup_green
+  rotate: false
+  xy: 440, 531
+  size: 436, 449
+  orig: 436, 449
+  offset: 0, 0
+  index: -1
+WaveCup_pink
+  rotate: false
+  xy: 440, 80
+  size: 436, 449
+  orig: 436, 449
+  offset: 0, 0
+  index: -1
+
+Food2.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+SquareCup_blue
+  rotate: false
+  xy: 2, 2
+  size: 436, 448
+  orig: 436, 448
+  offset: 0, 0
+  index: -1
+SquareCup_purple
+  rotate: false
+  xy: 440, 2
+  size: 436, 448
+  orig: 436, 448
+  offset: 0, 0
+  index: -1
+SquareCup_red
+  rotate: false
+  xy: 878, 2
+  size: 436, 448
+  orig: 436, 448
+  offset: 0, 0
+  index: -1

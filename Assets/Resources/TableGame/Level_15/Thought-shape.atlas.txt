@@ -1,0 +1,55 @@
+
+Thought-shape.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Food/Assets/Universal/Ray_Food
+  rotate: false
+  xy: 2, 469
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_15/Apple
+  rotate: false
+  xy: 599, 762
+  size: 217, 227
+  orig: 217, 227
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_15/Kiwi
+  rotate: false
+  xy: 2, 2
+  size: 257, 176
+  orig: 257, 176
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_15/Lemon
+  rotate: true
+  xy: 437, 206
+  size: 261, 164
+  orig: 261, 164
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_15/Orange
+  rotate: false
+  xy: 818, 798
+  size: 191, 191
+  orig: 192, 192
+  offset: 0, 1
+  index: -1
+Thought_Shapes/Level_15/Tomato
+  rotate: true
+  xy: 599, 536
+  size: 224, 203
+  orig: 225, 203
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_15/Watermelon-oval
+  rotate: false
+  xy: 2, 180
+  size: 433, 287
+  orig: 433, 287
+  offset: 0, 0
+  index: -1

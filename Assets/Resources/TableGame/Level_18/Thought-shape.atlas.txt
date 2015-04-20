@@ -1,0 +1,195 @@
+
+Thought-shape.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Food/Assets/Universal/Ray_Food
+  rotate: false
+  xy: 2, 481
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/apple_word
+  rotate: false
+  xy: 1679, 771
+  size: 318, 128
+  orig: 319, 128
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/bread_word
+  rotate: false
+  xy: 1578, 667
+  size: 324, 102
+  orig: 324, 102
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/cookie_word
+  rotate: false
+  xy: 456, 106
+  size: 365, 102
+  orig: 365, 102
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/donut_word
+  rotate: false
+  xy: 1232, 563
+  size: 334, 102
+  orig: 334, 102
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/egg_word
+  rotate: true
+  xy: 914, 126
+  size: 212, 99
+  orig: 212, 99
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/fish_word
+  rotate: true
+  xy: 1904, 576
+  size: 193, 102
+  orig: 193, 102
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/grape_word
+  rotate: false
+  xy: 1214, 462
+  size: 333, 99
+  orig: 333, 99
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/hamburger_word
+  rotate: false
+  xy: 599, 665
+  size: 631, 128
+  orig: 633, 128
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/icecream_word
+  rotate: false
+  xy: 1323, 901
+  size: 541, 100
+  orig: 541, 100
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/juice_word
+  rotate: false
+  xy: 1549, 397
+  size: 281, 140
+  orig: 281, 140
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/kiwi_word
+  rotate: true
+  xy: 1116, 180
+  size: 215, 102
+  orig: 215, 102
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/lemon_word
+  rotate: false
+  xy: 1232, 667
+  size: 344, 102
+  orig: 344, 102
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/muffin_word
+  rotate: false
+  xy: 404, 2
+  size: 348, 102
+  orig: 348, 102
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/nachos_word
+  rotate: false
+  xy: 2, 13
+  size: 400, 102
+  orig: 400, 102
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/orange_word
+  rotate: false
+  xy: 607, 434
+  size: 403, 99
+  orig: 403, 99
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/pizza_word
+  rotate: false
+  xy: 1568, 539
+  size: 292, 126
+  orig: 292, 126
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/quiche_word
+  rotate: false
+  xy: 539, 210
+  size: 373, 128
+  orig: 374, 128
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/rasberry_word
+  rotate: false
+  xy: 2, 221
+  size: 535, 128
+  orig: 537, 128
+  offset: 1, 0
+  index: -1
+Thought_Shapes/Level_18/strawberry_word
+  rotate: false
+  xy: 2, 351
+  size: 603, 128
+  orig: 605, 128
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/tomato_word
+  rotate: false
+  xy: 607, 340
+  size: 405, 92
+  orig: 407, 92
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/udong_word
+  rotate: false
+  xy: 1323, 771
+  size: 354, 128
+  orig: 355, 128
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/vegetables_word
+  rotate: false
+  xy: 599, 535
+  size: 613, 128
+  orig: 615, 128
+  offset: 1, 0
+  index: -1
+Thought_Shapes/Level_18/watermelon_word
+  rotate: false
+  xy: 599, 795
+  size: 677, 102
+  orig: 677, 102
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/xmas_word
+  rotate: false
+  xy: 599, 899
+  size: 722, 102
+  orig: 722, 102
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/yam_word
+  rotate: true
+  xy: 1015, 152
+  size: 243, 99
+  orig: 243, 99
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_18/zucchini_word
+  rotate: false
+  xy: 2, 117
+  size: 452, 102
+  orig: 452, 102
+  offset: 0, 0
+  index: -1

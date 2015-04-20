@@ -1,0 +1,83 @@
+
+Food.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Juice_apple
+  rotate: false
+  xy: 2, 74
+  size: 273, 383
+  orig: 273, 383
+  offset: 0, 0
+  index: -1
+Juice_blueberries
+  rotate: false
+  xy: 599, 596
+  size: 273, 383
+  orig: 273, 383
+  offset: 0, 0
+  index: -1
+Juice_chocolate
+  rotate: false
+  xy: 277, 74
+  size: 273, 383
+  orig: 273, 383
+  offset: 0, 0
+  index: -1
+Juice_kiwi
+  rotate: false
+  xy: 874, 596
+  size: 273, 383
+  orig: 273, 383
+  offset: 0, 0
+  index: -1
+Juice_lemon
+  rotate: false
+  xy: 1149, 596
+  size: 273, 383
+  orig: 273, 383
+  offset: 0, 0
+  index: -1
+Juice_orange
+  rotate: false
+  xy: 1424, 596
+  size: 273, 383
+  orig: 273, 383
+  offset: 0, 0
+  index: -1
+Juice_rasberries
+  rotate: false
+  xy: 1699, 596
+  size: 273, 383
+  orig: 273, 383
+  offset: 0, 0
+  index: -1
+Juice_strawberry
+  rotate: true
+  xy: 599, 321
+  size: 273, 383
+  orig: 273, 383
+  offset: 0, 0
+  index: -1
+Juice_tomato
+  rotate: true
+  xy: 984, 321
+  size: 273, 383
+  orig: 273, 383
+  offset: 0, 0
+  index: -1
+Ray_Food
+  rotate: false
+  xy: 2, 459
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Shadow-food
+  rotate: false
+  xy: 2, 2
+  size: 358, 70
+  orig: 358, 70
+  offset: 0, 0
+  index: -1

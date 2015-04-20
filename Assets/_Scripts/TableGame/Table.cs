@@ -12,7 +12,7 @@ public class Table : MonoBehaviour {
 	public ScoreBoard scoreBoard;
 	FlySession flySession;
 	public GameObject crumbsPrefab;
-	public static int level = -1;
+	public static int level = 0;
 	public GameObject starAndSpeakersPrefab;
 
 	public GameObject bgSprite;
@@ -146,7 +146,6 @@ public class Table : MonoBehaviour {
 					snapFoodBack();
 				}
 				else{
-					print ("pickedGO: " + pickedGO.name);
 					for( int i = 1; i <= 3; i++ ){
 						string plateTag = "Plate" + i + "Btn";
 						string characterTag = "Character" + i;
@@ -374,24 +373,25 @@ public class Table : MonoBehaviour {
 	}
 
 	IEnumerator resetTurnWithEmptyIndex( int plateIndex ){
-				food.transform.position = foodAnimOnStartPos.position;
-				food.GetComponent<Renderer>().enabled = false;
-				yield return new WaitForSeconds (0.5f);
-				float delay = addNewCharacterAtSpot (plateIndex);
+		food.transform.position = foodAnimOnStartPos.position;
+		food.GetComponent<Renderer>().enabled = false;
+		yield return new WaitForSeconds (0.5f);
+		float delay = addNewCharacterAtSpot (plateIndex);
 
-				float flyRandom = Random.value;
-				if (scoreBoard.getTotalStars() > 0 && flyRandom < 0.2f ){
-					StartCoroutine(startFlySession (delay));
-				} else {
-						yield return new WaitForSeconds (delay);
-						delay = makeAllTap ();
-						addIdelForAll ();
-						jumpAllPlates ();
-						yield return new WaitForSeconds (delay);
-						isFoodDragging = false;
-						animateMatchingFoodOn ();
-						canTouchAnim = true;
-				}
+		float flyRandom = Random.value;
+		if (scoreBoard.getTotalStars() > 0 && flyRandom < 0.2f ){
+			StartCoroutine(startFlySession (delay));
+		} else {
+			yield return new WaitForSeconds (delay);
+			delay = makeAllTap ();
+			addIdelForAll ();
+			jumpAllPlates ();
+			yield return new WaitForSeconds (delay);
+			isFoodDragging = false;
+			createMatchingFood ();
+			StartCoroutine (animateFoodOn ());
+			canTouchAnim = true;
+		}
 	}
 
 	public GameObject prefabFly;
@@ -483,7 +483,8 @@ public class Table : MonoBehaviour {
 
 		yield return new WaitForSeconds (delay + 0.5f);
 		isFlyOut = false;
-		animateMatchingFoodOn ();
+		createMatchingFood ();
+		StartCoroutine (animateFoodOn ());
 	}
 
 	IEnumerator animateFoodMisMatch( int plateIndex ){
@@ -509,156 +510,31 @@ public class Table : MonoBehaviour {
 	public CrumbColorer crumbColorer;
 	public GameObject foodPrefab;
 	Color foodColor = Color.white;
-	public void animateMatchingFoodOn(){
+	public void createMatchingFood(){
 		iTween.Stop (food.gameObject);
 		Destroy (food.gameObject);
-		GameObject foodFromPrefab = Instantiate (foodPrefab, foodAnimOnStartPos.position, Quaternion.identity) as GameObject;
+//		GameObject foodFromPrefab = Instantiate (foodPrefab, foodAnimOnStartPos.position, Quaternion.identity) as GameObject;
+		GameObject foodFromPrefab = FoodManager.createFoodForLevel (level + 1);
 		foodFromPrefab.transform.parent = transform;
 		foodFromPrefab.transform.localScale = foodStartSize;
 		food = (Food)foodFromPrefab.GetComponent<Food>();
 		food.GetComponent<Renderer>().enabled = false;
 		int randSpotIndex = Random.Range (0, 3);
 		food.shape = tableSpotArr [randSpotIndex].thoughtShape;
-
-		string foodSkinName = "";
-
-		switch (food.shape) {
-		case ThoughtBubble.ThoughtShape.Circle:
-				switch (Random.Range (0, 4)) {
-				case 0:
-					foodSkinName = "Cookie-circle";
-					break;
-				case 1:
-					foodSkinName = "Donut-circle";
-					break;
-				case 2:
-					foodSkinName = "GreenApple-circle";
-					break;
-				case 3:
-					foodSkinName = "Orange-circle";
-					break;
-				}
-				break;
-		case ThoughtBubble.ThoughtShape.Diamond:
-				switch (Random.Range (0, 4)) {
-				case 0:
-					foodSkinName = "Candy-green-diamond";
-					break;
-				case 1:
-					foodSkinName = "Candy-pink-diamond";
-					break;
-				case 2:
-					foodSkinName = "Chocolate-diamond";
-					break;
-				case 3:
-					foodSkinName = "Cracker-diamond";
-					break;
-				}
-				break;
-		case ThoughtBubble.ThoughtShape.HalfCircle:
-				switch (Random.Range (0, 4)) {
-				case 0:
-					foodSkinName = "Apple-half-circle";
-					break;
-				case 1:
-					foodSkinName = "Canteloupe-half-circle";
-					break;
-				case 2:
-					foodSkinName = "Orange-half-circle";
-					break;
-				case 3:
-					foodSkinName = "Watermelon-half-circle";
-					break;
-				}
-				break;
-		case ThoughtBubble.ThoughtShape.Oval:
-				switch (Random.Range (0, 4)) {
-				case 0:
-					foodSkinName = "Bread-oval";
-					break;
-				case 1:
-					foodSkinName = "Burger-oval";
-					break;
-				case 2:
-					foodSkinName = "Pumpkin-oval";
-					break;
-				case 3:
-					foodSkinName = "Watermelon-oval";
-					break;
-				}
-				break;
-		case ThoughtBubble.ThoughtShape.Rectangle:
-				switch (Random.Range (0, 3)) {
-				case 0:
-					foodSkinName = "Chocolate-rectangle";
-					break;
-				case 1:
-					foodSkinName = "Ice-cream-rectangle";
-					break;
-				case 2:
-					foodSkinName = "Pastry-rectangle";
-					break;
-				}
-				break;
-		case ThoughtBubble.ThoughtShape.Square:
-				switch (Random.Range (0, 4)) {
-				case 0:
-					foodSkinName = "Chocolate-square";
-					break;
-				case 1:
-					foodSkinName = "Cracker-square";
-					break;
-				case 2:
-					foodSkinName = "Pizza-square";
-					break;
-				case 3:
-					foodSkinName = "Sandwhich-square";
-					break;
-				}
-				break;
-		case ThoughtBubble.ThoughtShape.Star:
-				switch (Random.Range (0, 3)) {
-				case 0:
-					foodSkinName = "Candy-blue-star";
-					break;
-				case 1:
-					foodSkinName = "Candy-pink-star";
-					break;
-				case 2:
-					foodSkinName = "Cookie-star";
-					break;
-				}
-				break;
-		case ThoughtBubble.ThoughtShape.Triangle:
-				switch (Random.Range (0, 4)) {
-				case 0:
-					foodSkinName = "Cheese-triangle";
-					break;
-				case 1:
-					foodSkinName = "Pizza-triangle";
-					break;
-				case 2:
-					foodSkinName = "Strawberry-triangle";
-					break;
-				case 3:
-					foodSkinName = "Watermelon-triangle";
-					break;
-				}
-				break;
-		default:
-				break;
+		TableSpot spot = tableSpotArr [randSpotIndex];
+		if (spot != null) {
+			GameObject thoughtShape = spot.transform.FindChild ("Thought-Shape SkeletonAnimation").gameObject;
+			SkeletonAnimation anim = thoughtShape.GetComponent<SkeletonAnimation> ();
+			if (anim != null) {
+				string skinName = thoughtShape.GetComponent<SkeletonAnimation> ().skeleton.Skin.name;
+				FoodManager.setRandomFoodSkinForLevel (foodFromPrefab, level + 1, skinName);
+			}
 		}
+//		foodColor = crumbColorer.getColorForFood (foodSkinName);
 
-		foodColor = crumbColorer.getColorForFood (foodSkinName);
-
-//		print ("shape: " + food.shape + ", \tfoodSkinName: " + foodSkinName);
-		SkeletonAnimation skelAnim = ((SkeletonAnimation)food.GetComponent<SkeletonAnimation> ());
-		skelAnim.skeleton.SetSkin (foodSkinName);
-
-		StartCoroutine (animateFoodOn ());
 	}
 	
-	IEnumerator animateFoodOn(){
+	public IEnumerator animateFoodOn(){
 		yield return new WaitForSeconds (0);
 		food.transform.position = foodAnimOnStartPos.position;
 		iTween.MoveTo (food.gameObject, iTween.Hash ("time", 1, "position", foodAnimOnTargetPos, "islocal", false, "easetype", iTween.EaseType.easeOutElastic));

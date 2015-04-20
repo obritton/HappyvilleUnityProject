@@ -1,0 +1,97 @@
+
+Thought-shape.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Food/Assets/Universal/Ray_Food
+  rotate: false
+  xy: 2, 467
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_11/10_time
+  rotate: false
+  xy: 2, 374
+  size: 299, 91
+  orig: 301, 91
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_11/11_time
+  rotate: false
+  xy: 2, 281
+  size: 263, 91
+  orig: 265, 91
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_11/12_time
+  rotate: false
+  xy: 599, 896
+  size: 283, 91
+  orig: 285, 91
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_11/1_time
+  rotate: false
+  xy: 2, 2
+  size: 223, 91
+  orig: 225, 91
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_11/2_time
+  rotate: false
+  xy: 2, 95
+  size: 243, 91
+  orig: 245, 91
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_11/3_time
+  rotate: false
+  xy: 599, 710
+  size: 245, 91
+  orig: 247, 91
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_11/4_time
+  rotate: false
+  xy: 303, 374
+  size: 257, 91
+  orig: 259, 91
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_11/5_time
+  rotate: false
+  xy: 250, 188
+  size: 243, 91
+  orig: 245, 91
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_11/6_time
+  rotate: false
+  xy: 2, 188
+  size: 246, 91
+  orig: 249, 91
+  offset: 1, 0
+  index: -1
+Thought_Shapes/Level_11/7_time
+  rotate: false
+  xy: 599, 617
+  size: 241, 91
+  orig: 243, 91
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_11/8_time
+  rotate: false
+  xy: 599, 803
+  size: 247, 91
+  orig: 251, 91
+  offset: 2, 0
+  index: -1
+Thought_Shapes/Level_11/9_time
+  rotate: false
+  xy: 267, 281
+  size: 246, 91
+  orig: 249, 91
+  offset: 1, 0
+  index: -1

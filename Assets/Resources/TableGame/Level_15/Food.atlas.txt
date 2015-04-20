@@ -1,0 +1,62 @@
+
+Food.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Apple_slice
+  rotate: false
+  xy: 2, 267
+  size: 384, 192
+  orig: 384, 192
+  offset: 0, 0
+  index: -1
+Kiwi_slice
+  rotate: false
+  xy: 388, 218
+  size: 276, 241
+  orig: 277, 241
+  offset: 0, 0
+  index: -1
+Lemon_slice
+  rotate: false
+  xy: 2, 2
+  size: 309, 263
+  orig: 309, 263
+  offset: 0, 0
+  index: -1
+Orange_slice
+  rotate: false
+  xy: 599, 538
+  size: 310, 249
+  orig: 310, 249
+  offset: 0, 0
+  index: -1
+Ray_Food
+  rotate: false
+  xy: 2, 461
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Shadow-food
+  rotate: false
+  xy: 313, 146
+  size: 358, 70
+  orig: 358, 70
+  offset: 0, 0
+  index: -1
+Tomato_slice
+  rotate: true
+  xy: 666, 226
+  size: 310, 249
+  orig: 310, 249
+  offset: 0, 0
+  index: -1
+Watermelon_slice
+  rotate: false
+  xy: 599, 789
+  size: 384, 192
+  orig: 384, 192
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,118 @@
+
+Thought-shape.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Food/Assets/Universal/Ray_Food
+  rotate: false
+  xy: 2, 502
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_04/Circle-circle-thought
+  rotate: false
+  xy: 541, 404
+  size: 233, 96
+  orig: 233, 96
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_04/Circle-square-thought
+  rotate: false
+  xy: 2, 268
+  size: 266, 113
+  orig: 266, 113
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_04/Circle-star-thought
+  rotate: false
+  xy: 2, 383
+  size: 269, 117
+  orig: 269, 117
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_04/Circle-triangle-thought
+  rotate: true
+  xy: 2, 2
+  size: 264, 113
+  orig: 264, 113
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_04/Square-circle-thought
+  rotate: false
+  xy: 273, 387
+  size: 266, 113
+  orig: 266, 113
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_04/Square-square-thought
+  rotate: true
+  xy: 808, 530
+  size: 260, 100
+  orig: 260, 100
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_04/Square-star-thought
+  rotate: true
+  xy: 334, 31
+  size: 252, 110
+  orig: 252, 110
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_04/Square-triangle-thought
+  rotate: true
+  xy: 232, 9
+  size: 257, 100
+  orig: 257, 100
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_04/Star-circle-thought
+  rotate: false
+  xy: 599, 906
+  size: 269, 116
+  orig: 269, 116
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_04/Star-square-thought
+  rotate: true
+  xy: 446, 32
+  size: 251, 110
+  orig: 251, 110
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_04/Star-star-thought
+  rotate: true
+  xy: 696, 531
+  size: 259, 110
+  orig: 259, 110
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_04/Triangle-circle-thought
+  rotate: true
+  xy: 117, 2
+  size: 264, 113
+  orig: 264, 113
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_04/Triangle-square-thought
+  rotate: false
+  xy: 273, 285
+  size: 257, 100
+  orig: 257, 100
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_04/Triangle-star-thought
+  rotate: false
+  xy: 599, 792
+  size: 265, 112
+  orig: 265, 112
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_04/Triangle-triangle-thought
+  rotate: true
+  xy: 599, 508
+  size: 282, 95
+  orig: 282, 95
+  offset: 0, 0
+  index: -1

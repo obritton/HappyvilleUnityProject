@@ -1,0 +1,83 @@
+
+Thought-shape.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Food/Assets/Universal/Ray_Food
+  rotate: false
+  xy: 2, 460
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_02/Dot_1
+  rotate: false
+  xy: 937, 920
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_02/Dot_10
+  rotate: false
+  xy: 599, 696
+  size: 331, 126
+  orig: 332, 126
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_02/Dot_2
+  rotate: false
+  xy: 2, 2
+  size: 182, 60
+  orig: 182, 60
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_02/Dot_3
+  rotate: false
+  xy: 599, 634
+  size: 258, 60
+  orig: 258, 60
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_02/Dot_4
+  rotate: false
+  xy: 238, 178
+  size: 336, 60
+  orig: 336, 60
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_02/Dot_5
+  rotate: false
+  xy: 238, 240
+  size: 365, 60
+  orig: 365, 60
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_02/Dot_6
+  rotate: false
+  xy: 340, 302
+  size: 244, 156
+  orig: 244, 156
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_02/Dot_7
+  rotate: false
+  xy: 2, 302
+  size: 336, 156
+  orig: 336, 156
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_02/Dot_8
+  rotate: false
+  xy: 599, 824
+  size: 336, 156
+  orig: 336, 156
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_02/Dot_9
+  rotate: false
+  xy: 2, 64
+  size: 234, 236
+  orig: 235, 236
+  offset: 0, 0
+  index: -1

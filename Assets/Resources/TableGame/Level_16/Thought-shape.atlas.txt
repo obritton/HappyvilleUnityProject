@@ -1,0 +1,76 @@
+
+Thought-shape.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Food/Assets/Universal/Ray_Food
+  rotate: false
+  xy: 2, 473
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_16/Apple-half-circle
+  rotate: false
+  xy: 599, 801
+  size: 384, 192
+  orig: 384, 192
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_16/Blueberries
+  rotate: false
+  xy: 889, 546
+  size: 111, 100
+  orig: 111, 100
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_16/Chocolate-square
+  rotate: false
+  xy: 599, 511
+  size: 288, 288
+  orig: 288, 288
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_16/Kiwi_slice
+  rotate: true
+  xy: 345, 195
+  size: 276, 241
+  orig: 277, 241
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_16/Lemon
+  rotate: false
+  xy: 228, 29
+  size: 261, 164
+  orig: 261, 164
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_16/Orange
+  rotate: false
+  xy: 491, 2
+  size: 191, 191
+  orig: 192, 192
+  offset: 0, 1
+  index: -1
+Thought_Shapes/Level_16/Rasberries
+  rotate: true
+  xy: 889, 648
+  size: 151, 128
+  orig: 151, 128
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_16/Strawberry-triangle
+  rotate: false
+  xy: 2, 212
+  size: 341, 259
+  orig: 341, 259
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_16/Tomato
+  rotate: false
+  xy: 2, 7
+  size: 224, 203
+  orig: 225, 203
+  offset: 0, 0
+  index: -1

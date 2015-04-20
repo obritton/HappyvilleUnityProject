@@ -1,0 +1,62 @@
+
+Thought-shape.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Food/Assets/Universal/Ray_Food
+  rotate: false
+  xy: 2, 365
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_07/Blue_color
+  rotate: false
+  xy: 2, 123
+  size: 189, 119
+  orig: 227, 155
+  offset: 19, 18
+  index: -1
+Thought_Shapes/Level_07/Green_color
+  rotate: false
+  xy: 2, 244
+  size: 190, 119
+  orig: 228, 155
+  offset: 19, 18
+  index: -1
+Thought_Shapes/Level_07/Orange_color
+  rotate: false
+  xy: 194, 244
+  size: 189, 119
+  orig: 227, 155
+  offset: 19, 18
+  index: -1
+Thought_Shapes/Level_07/Pink_color
+  rotate: false
+  xy: 599, 645
+  size: 189, 119
+  orig: 227, 155
+  offset: 19, 18
+  index: -1
+Thought_Shapes/Level_07/Purple_color
+  rotate: false
+  xy: 791, 766
+  size: 189, 119
+  orig: 227, 155
+  offset: 19, 18
+  index: -1
+Thought_Shapes/Level_07/Red_color
+  rotate: false
+  xy: 599, 766
+  size: 190, 119
+  orig: 228, 155
+  offset: 19, 18
+  index: -1
+Thought_Shapes/Level_07/Yellow_color
+  rotate: false
+  xy: 2, 2
+  size: 189, 119
+  orig: 227, 155
+  offset: 19, 18
+  index: -1

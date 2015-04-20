@@ -1,0 +1,195 @@
+
+Thought-shape.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Food/Assets/Universal/Ray_Food
+  rotate: false
+  xy: 2, 496
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/a_sm_grey
+  rotate: false
+  xy: 90, 220
+  size: 86, 93
+  orig: 86, 93
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/b_sm_grey
+  rotate: false
+  xy: 599, 791
+  size: 86, 131
+  orig: 86, 131
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/c_sm_grey
+  rotate: true
+  xy: 281, 359
+  size: 73, 93
+  orig: 73, 93
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/d_sm_grey
+  rotate: true
+  xy: 730, 930
+  size: 86, 131
+  orig: 86, 131
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/e_sm_grey
+  rotate: true
+  xy: 413, 408
+  size: 86, 93
+  orig: 87, 93
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/f_sm_grey
+  rotate: true
+  xy: 281, 434
+  size: 60, 130
+  orig: 60, 130
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/g_sm_grey
+  rotate: true
+  xy: 63, 315
+  size: 86, 128
+  orig: 86, 128
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/h_sm_grey
+  rotate: false
+  xy: 599, 659
+  size: 79, 130
+  orig: 80, 130
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/i_sm_grey
+  rotate: false
+  xy: 687, 795
+  size: 27, 127
+  orig: 27, 128
+  offset: 0, 1
+  index: -1
+Thought_Shapes/Level_06/j_sm_grey
+  rotate: false
+  xy: 2, 315
+  size: 59, 179
+  orig: 59, 179
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/k_sm_grey
+  rotate: true
+  xy: 863, 939
+  size: 77, 131
+  orig: 77, 131
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/l_sm_grey
+  rotate: false
+  xy: 716, 793
+  size: 24, 129
+  orig: 24, 130
+  offset: 0, 1
+  index: -1
+Thought_Shapes/Level_06/m_sm_grey
+  rotate: false
+  xy: 599, 924
+  size: 129, 92
+  orig: 129, 92
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/n_sm_grey
+  rotate: false
+  xy: 193, 272
+  size: 79, 92
+  orig: 80, 92
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/o_sm_grey
+  rotate: true
+  xy: 508, 408
+  size: 86, 93
+  orig: 87, 93
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/p_sm_grey
+  rotate: false
+  xy: 2, 185
+  size: 86, 128
+  orig: 86, 128
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/q_sm_grey
+  rotate: false
+  xy: 193, 366
+  size: 86, 128
+  orig: 86, 128
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/r_sm_grey
+  rotate: true
+  xy: 2, 2
+  size: 53, 91
+  orig: 53, 91
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/s_sm_grey
+  rotate: true
+  xy: 178, 202
+  size: 68, 93
+  orig: 68, 93
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/t_sm_grey
+  rotate: false
+  xy: 599, 539
+  size: 58, 118
+  orig: 59, 118
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/u_sm_grey
+  rotate: true
+  xy: 274, 278
+  size: 79, 92
+  orig: 80, 92
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/v_sm_grey
+  rotate: true
+  xy: 742, 757
+  size: 78, 91
+  orig: 78, 91
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/w_sm_grey
+  rotate: false
+  xy: 63, 403
+  size: 128, 91
+  orig: 128, 91
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/x_sm_grey
+  rotate: false
+  xy: 742, 837
+  size: 84, 91
+  orig: 84, 91
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_06/y_sm_grey
+  rotate: false
+  xy: 2, 57
+  size: 81, 126
+  orig: 81, 127
+  offset: 0, 1
+  index: -1
+Thought_Shapes/Level_06/z_sm_grey
+  rotate: false
+  xy: 828, 839
+  size: 77, 89
+  orig: 77, 89
+  offset: 0, 0
+  index: -1

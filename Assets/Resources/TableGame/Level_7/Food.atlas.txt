@@ -1,0 +1,153 @@
+
+Food.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Apple
+  rotate: false
+  xy: 1822, 43
+  size: 217, 227
+  orig: 217, 227
+  offset: 0, 0
+  index: -1
+Candy-blue-star
+  rotate: false
+  xy: 1677, 477
+  size: 257, 245
+  orig: 257, 245
+  offset: 0, 0
+  index: -1
+Candy-green-diamond
+  rotate: false
+  xy: 726, 241
+  size: 315, 315
+  orig: 315, 318
+  offset: 0, 0
+  index: -1
+Candy-pink-diamond
+  rotate: false
+  xy: 1043, 461
+  size: 315, 315
+  orig: 315, 318
+  offset: 0, 0
+  index: -1
+Candy-pink-star
+  rotate: false
+  xy: 1330, 197
+  size: 258, 247
+  orig: 258, 250
+  offset: 0, 0
+  index: -1
+Candy_blue
+  rotate: false
+  xy: 1360, 446
+  size: 315, 315
+  orig: 315, 315
+  offset: 0, 0
+  index: -1
+Candy_purple_circle
+  rotate: true
+  xy: 1590, 198
+  size: 246, 230
+  orig: 246, 230
+  offset: 0, 0
+  index: -1
+Candy_purple_square
+  rotate: false
+  xy: 726, 8
+  size: 231, 231
+  orig: 231, 231
+  offset: 0, 0
+  index: -1
+Candy_yellow
+  rotate: false
+  xy: 599, 558
+  size: 384, 175
+  orig: 397, 230
+  offset: 6, 27
+  index: -1
+Cheese-triangle
+  rotate: false
+  xy: 1043, 209
+  size: 285, 250
+  orig: 285, 250
+  offset: 0, 0
+  index: -1
+GreenApple-circle
+  rotate: false
+  xy: 437, 179
+  size: 287, 321
+  orig: 288, 321
+  offset: 0, 0
+  index: -1
+Lemon
+  rotate: false
+  xy: 1034, 778
+  size: 388, 244
+  orig: 388, 244
+  offset: 0, 0
+  index: -1
+Orange
+  rotate: false
+  xy: 1319, 4
+  size: 191, 191
+  orig: 192, 192
+  offset: 0, 1
+  index: -1
+Orange-half-circle
+  rotate: false
+  xy: 2, 2
+  size: 352, 169
+  orig: 352, 169
+  offset: 0, 0
+  index: -1
+Pumpkin-oval
+  rotate: false
+  xy: 2, 173
+  size: 433, 327
+  orig: 433, 327
+  offset: 0, 0
+  index: -1
+Ray_Food
+  rotate: false
+  xy: 2, 502
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Shadow-food
+  rotate: false
+  xy: 959, 137
+  size: 358, 70
+  orig: 358, 70
+  offset: 0, 0
+  index: -1
+Strawberry-triangle
+  rotate: false
+  xy: 1424, 763
+  size: 341, 259
+  orig: 341, 259
+  offset: 0, 0
+  index: -1
+Tomato
+  rotate: false
+  xy: 1822, 272
+  size: 224, 203
+  orig: 225, 203
+  offset: 0, 0
+  index: -1
+Watermelon-oval
+  rotate: false
+  xy: 599, 735
+  size: 433, 287
+  orig: 433, 287
+  offset: 0, 0
+  index: -1
+Watermelon-triangle
+  rotate: false
+  xy: 1767, 724
+  size: 276, 298
+  orig: 276, 298
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,55 @@
+
+Thought-shape.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Food/Assets/Universal/Ray_Food
+  rotate: false
+  xy: 2, 442
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_10/Dots_Thought
+  rotate: false
+  xy: 2, 2
+  size: 191, 149
+  orig: 191, 149
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_10/Heart_Thought
+  rotate: false
+  xy: 599, 820
+  size: 280, 142
+  orig: 280, 142
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_10/Square_Thought
+  rotate: false
+  xy: 352, 301
+  size: 190, 139
+  orig: 190, 139
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_10/Stripe_Horizontal_Thought
+  rotate: false
+  xy: 2, 153
+  size: 237, 155
+  orig: 237, 155
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_10/Stripe_Verticle_Thought
+  rotate: false
+  xy: 599, 608
+  size: 170, 210
+  orig: 170, 210
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_10/Wave_Thought
+  rotate: false
+  xy: 2, 310
+  size: 348, 130
+  orig: 348, 130
+  offset: 0, 0
+  index: -1

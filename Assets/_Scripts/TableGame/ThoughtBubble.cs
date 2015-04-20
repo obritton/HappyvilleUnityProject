@@ -3,13 +3,14 @@ using System.Collections;
 
 public class ThoughtBubble : MonoBehaviour {
 
+	//TODO: Get rid of thought shape- just use the common pattern from matching foods and thoughts
 	public GameObject thoughtShape;
 
 	public static int totalShapesUnlocked = 8;
 	public enum ThoughtShape{
 		Star, Circle, Triangle,
 		Diamond, Square, HalfCircle,
-		Rectangle, Oval, Hexagon,
+		Rectangle, Oval,
 		None
 	};
 
@@ -24,9 +25,6 @@ public class ThoughtBubble : MonoBehaviour {
 			break;
 		case ThoughtBubble.ThoughtShape.HalfCircle:
 			skinName = "Half-Circle-shape";
-			break;
-		case ThoughtBubble.ThoughtShape.Hexagon:
-			skinName = "Hexagon-shape";
 			break;
 		case ThoughtBubble.ThoughtShape.Oval:
 			skinName = "Oval-shape";

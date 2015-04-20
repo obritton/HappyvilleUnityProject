@@ -1,0 +1,125 @@
+
+Food.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Circle-circle
+  rotate: false
+  xy: 599, 852
+  size: 337, 161
+  orig: 337, 161
+  offset: 0, 0
+  index: -1
+Circle-square
+  rotate: false
+  xy: 2, 184
+  size: 334, 161
+  orig: 334, 161
+  offset: 0, 0
+  index: -1
+Circle-str
+  rotate: false
+  xy: 375, 333
+  size: 312, 158
+  orig: 400, 170
+  offset: 0, 12
+  index: -1
+Circle-triangle
+  rotate: false
+  xy: 2, 30
+  size: 324, 152
+  orig: 324, 152
+  offset: 0, 0
+  index: -1
+Ray_Food
+  rotate: false
+  xy: 2, 493
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Shadow-food
+  rotate: false
+  xy: 338, 128
+  size: 358, 70
+  orig: 358, 70
+  offset: 0, 0
+  index: -1
+Square-Triangle
+  rotate: false
+  xy: 689, 214
+  size: 310, 149
+  orig: 311, 199
+  offset: 1, 0
+  index: -1
+Square-circle
+  rotate: false
+  xy: 599, 525
+  size: 320, 154
+  orig: 320, 154
+  offset: 0, 0
+  index: -1
+Square-square
+  rotate: false
+  xy: 938, 865
+  size: 330, 148
+  orig: 330, 148
+  offset: 0, 0
+  index: -1
+Square-star
+  rotate: false
+  xy: 698, 69
+  size: 297, 143
+  orig: 384, 155
+  offset: 0, 12
+  index: -1
+Star-circle
+  rotate: false
+  xy: 689, 365
+  size: 310, 158
+  orig: 368, 170
+  offset: 58, 12
+  index: -1
+Star-square
+  rotate: false
+  xy: 1270, 868
+  size: 319, 145
+  orig: 347, 178
+  offset: 28, 27
+  index: -1
+Star-star
+  rotate: false
+  xy: 328, 2
+  size: 283, 124
+  orig: 385, 147
+  offset: 14, 12
+  index: -1
+Triangle-circle
+  rotate: false
+  xy: 1591, 861
+  size: 315, 152
+  orig: 315, 152
+  offset: 0, 0
+  index: -1
+Triangle-square
+  rotate: false
+  xy: 2, 347
+  size: 371, 144
+  orig: 371, 144
+  offset: 0, 0
+  index: -1
+Triangle-star
+  rotate: false
+  xy: 338, 200
+  size: 327, 131
+  orig: 415, 147
+  offset: 0, 12
+  index: -1
+Triangle-triangle
+  rotate: false
+  xy: 599, 681
+  size: 325, 169
+  orig: 325, 169
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,83 @@
+
+Thought-shape.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Food/Assets/Universal/Ray_Food
+  rotate: false
+  xy: 2, 376
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_08/10_thought
+  rotate: false
+  xy: 2, 251
+  size: 152, 123
+  orig: 152, 124
+  offset: 0, 1
+  index: -1
+Thought_Shapes/Level_08/1_thought
+  rotate: false
+  xy: 599, 524
+  size: 47, 121
+  orig: 47, 121
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_08/2_thought
+  rotate: false
+  xy: 2, 2
+  size: 81, 121
+  orig: 81, 122
+  offset: 0, 1
+  index: -1
+Thought_Shapes/Level_08/3_thought
+  rotate: false
+  xy: 2, 125
+  size: 83, 124
+  orig: 83, 124
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_08/4_thought
+  rotate: false
+  xy: 599, 773
+  size: 91, 123
+  orig: 91, 123
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_08/5_thought
+  rotate: false
+  xy: 242, 253
+  size: 81, 121
+  orig: 81, 122
+  offset: 0, 1
+  index: -1
+Thought_Shapes/Level_08/6_thought
+  rotate: false
+  xy: 156, 251
+  size: 84, 123
+  orig: 84, 124
+  offset: 0, 1
+  index: -1
+Thought_Shapes/Level_08/7_thought
+  rotate: false
+  xy: 87, 129
+  size: 85, 120
+  orig: 85, 121
+  offset: 0, 1
+  index: -1
+Thought_Shapes/Level_08/8_thought
+  rotate: false
+  xy: 599, 647
+  size: 83, 124
+  orig: 83, 124
+  offset: 0, 0
+  index: -1
+Thought_Shapes/Level_08/9_thought
+  rotate: false
+  xy: 692, 773
+  size: 84, 123
+  orig: 84, 124
+  offset: 0, 1
+  index: -1

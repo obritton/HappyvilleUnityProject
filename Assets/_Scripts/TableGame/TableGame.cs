@@ -50,6 +50,7 @@ public class TableGame : MonoBehaviour {
 		table.jumpAllPlates ();
 		table.addIdelForAll ();
 		yield return new WaitForSeconds (time);
-		table.animateMatchingFoodOn ();
+		table.createMatchingFood ();
+		StartCoroutine (table.animateFoodOn ());
 	}
 }
