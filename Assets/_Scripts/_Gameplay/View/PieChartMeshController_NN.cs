@@ -23,7 +23,9 @@ public class PieChartMeshController_NN : MonoBehaviour
     void Update()
     {
 		if( isActive ){
-			currentChartAmount -= (Time.deltaTime * chartDelta);
+			float delta = Time.deltaTime * chartDelta * 1.33f;
+			currentChartAmount -= delta;
+//			print ("delta: " + delta + ", currentChartAmount: " + currentChartAmount);
 			if( currentChartAmount >= 0 ){
 				mData =  new float[]{ currentChartAmount, 100-currentChartAmount, 0, 0 };
 				mPieChart.Draw (mData);

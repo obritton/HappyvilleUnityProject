@@ -27,6 +27,8 @@ public class LionHousePuffManager : MonoBehaviour {
 				}
 
 				anim.state.SetAnimation(0, "Path_One", false);
+				if( MapManager.currentPage == 1 )
+					SoundManager.PlaySFX ("LionHouse_SmokePuff");
 				currentPuff = (currentPuff + 1)%3;
 			}
 		}

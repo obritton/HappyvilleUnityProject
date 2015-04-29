@@ -3,9 +3,11 @@ using System.Collections;
 
 public class OwlTreeTapManager : MonoBehaviour {
 
+	int onPage = -1;
 	void Start(){
 		lastPopoutIndex = Random.Range(0,2);
 		StartCoroutine (loopRandomPopups ());
+		onPage = int.Parse(gameObject.tag.Split("_"[0])[1]);
 	}
 
 	bool canPopup = true;
@@ -48,10 +50,14 @@ public class OwlTreeTapManager : MonoBehaviour {
 			if( isOwlDucked ){
 				skelAnim.state.SetAnimation( 0, "Popout_" + (lastPopoutIndex+1), false );
 				skelAnim.state.AddAnimation(0, "Idle_" + (lastPopoutIndex+1), true, 0 );
+				if( onPage == MapManager.currentPage )
+					SoundManager.PlaySFX ("RoundTree_Popup");
 			}
 			else{
 				skelAnim.state.SetAnimation( 0, "Duck_" + (lastPopoutIndex+1), false );
 				lastPopoutIndex = Random.Range(0,2);
+				if( onPage == MapManager.currentPage )
+					SoundManager.PlaySFX ("RoundTree_Duck");
 			}
 			isOwlDucked = !isOwlDucked;
 		}

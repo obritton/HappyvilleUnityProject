@@ -18,9 +18,13 @@ public class CatHouseTapManager : MonoBehaviour {
 				SkeletonAnimation skelAnim = GetComponent<SkeletonAnimation>();
 				if( skelAnim != null ){
 					string animName = currentTapIndex == 0 ? "Tap 1" : "Tap 2";
+					int soundIndex =  currentTapIndex == 0 ? 1 : 2;
 					string idleName = currentTapIndex == 0 ? "Tap_1_Idle" : "Start";
 					skelAnim.state.SetAnimation( 0, animName, false );
 					skelAnim.state.AddAnimation(0, idleName, true, 0 );
+
+					string soundStr = "CatHouse_Tap"+soundIndex;
+					SoundManager.PlaySFX (soundStr);
 				}
 				currentTapIndex = (currentTapIndex+1)%2;
 			}

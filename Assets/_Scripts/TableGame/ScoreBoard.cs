@@ -73,6 +73,7 @@ public class ScoreBoard : MonoBehaviour {
 				yield return new WaitForSeconds( 0.1f);
 			}
 		}
+		yield return new WaitForSeconds (0);
 	}
 
 	void setAllStarsAlpha( float alpha ){

@@ -10,7 +10,7 @@ public class TableSpot : MonoBehaviour {
 	public CharacterNode.CharacterType characterType = CharacterNode.CharacterType.None;
 	public ThoughtBubble.ThoughtShape thoughtShape = ThoughtBubble.ThoughtShape.None;
 
-	public float addNewCharacterOfType(CharacterNode.CharacterType characterTypeIn, ThoughtBubble.ThoughtShape thoughtShapeIn, GameObject newCharacter){
+	public float addNewCharacterOfType(CharacterNode.CharacterType characterTypeIn, ThoughtBubble.ThoughtShape thoughtShapeIn, GameObject newCharacter, string skinName = "blank"){
 		characterType = characterTypeIn;
 		thoughtShape = thoughtShapeIn;
 
@@ -34,6 +34,7 @@ public class TableSpot : MonoBehaviour {
 		newCharacter.transform.parent = characterNode.transform;
 
 		TrackEntry te = ((SkeletonAnimation)newCharacter.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Popup", false );
+		SoundManager.PlaySFX ("Character_Popup");
 		((SkeletonAnimation)newCharacter.GetComponent<SkeletonAnimation> ()).state.AddAnimation(0, "Idle", true, 0 );
 
 		StartCoroutine (delayCharacterAlpha (newCharacter));
@@ -42,9 +43,9 @@ public class TableSpot : MonoBehaviour {
 	}
 
 	IEnumerator configAndAnimateNewThoughtBubbleForTypeWithDelay( ThoughtBubble.ThoughtShape thoughtShapeIn, float delay = 0 ){
-		thoughtBubble.configWithShape (thoughtShapeIn);
 		yield return new WaitForSeconds( delay );
 		((SkeletonAnimation)thoughtBubble.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "PopUp-thought", false );
+		SoundManager.PlaySFX("Thought_Popup");
 		((SkeletonAnimation)thoughtBubble.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "IdleOne-thought", true, 0);
 		yield return new WaitForSeconds( 0.01f );
 		thoughtBubble.GetComponent<Renderer>().enabled = true;

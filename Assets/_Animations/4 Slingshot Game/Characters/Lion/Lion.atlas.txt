@@ -1,0 +1,111 @@
+
+Lion.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Lion/Arm-bend
+  rotate: false
+  xy: 318, 279
+  size: 223, 167
+  orig: 223, 168
+  offset: 0, 1
+  index: -1
+Lion/Arm-curve
+  rotate: false
+  xy: 2, 2
+  size: 248, 125
+  orig: 248, 126
+  offset: 0, 1
+  index: -1
+Lion/Arm-straight
+  rotate: true
+  xy: 829, 710
+  size: 299, 47
+  orig: 299, 48
+  offset: 0, 1
+  index: -1
+Lion/Body-lion
+  rotate: false
+  xy: 566, 648
+  size: 261, 361
+  orig: 261, 362
+  offset: 0, 1
+  index: -1
+Lion/Brow-crv-lion
+  rotate: false
+  xy: 318, 181
+  size: 72, 35
+  orig: 72, 36
+  offset: 0, 1
+  index: -1
+Lion/Ear-lion
+  rotate: false
+  xy: 946, 920
+  size: 75, 89
+  orig: 76, 89
+  offset: 0, 0
+  index: -1
+Lion/Eye-cls-lion
+  rotate: true
+  xy: 795, 582
+  size: 64, 31
+  orig: 64, 32
+  offset: 0, 1
+  index: -1
+Lion/Hand
+  rotate: true
+  xy: 252, 62
+  size: 65, 64
+  orig: 65, 65
+  offset: 0, 0
+  index: -1
+Lion/Head-lion
+  rotate: false
+  xy: 2, 129
+  size: 314, 317
+  orig: 314, 317
+  offset: 0, 0
+  index: -1
+Lion/Mane-lion
+  rotate: false
+  xy: 2, 448
+  size: 562, 561
+  orig: 562, 562
+  offset: 0, 1
+  index: -1
+Lion/Mouth-cls-lion
+  rotate: false
+  xy: 318, 218
+  size: 215, 59
+  orig: 219, 61
+  offset: 2, 2
+  index: -1
+Lion/Mouth-o-lion
+  rotate: false
+  xy: 566, 480
+  size: 58, 63
+  orig: 58, 63
+  offset: 0, 0
+  index: -1
+Lion/Mouth-opn-lion
+  rotate: true
+  xy: 878, 739
+  size: 270, 66
+  orig: 270, 67
+  offset: 0, 1
+  index: -1
+Lion/Nose-lion
+  rotate: true
+  xy: 566, 545
+  size: 101, 227
+  orig: 101, 228
+  offset: 0, 1
+  index: -1
+Lion/Pupil-lion
+  rotate: false
+  xy: 829, 679
+  size: 30, 29
+  orig: 30, 30
+  offset: 0, 1
+  index: -1

@@ -43,6 +43,7 @@ public class DoorManager : MonoBehaviour {
 
 	public IEnumerator animateCloseDoors()
 	{
+		SoundManager.PlaySFX ("Door_Close");
 		yield return new WaitForSeconds (0);
 		doorAnim.state.SetAnimation (0, "Close", false);
 		doorAnim.GetComponent<Renderer>().enabled = true;
@@ -53,7 +54,7 @@ public class DoorManager : MonoBehaviour {
 		if (immediate) {
 			doorAnim.GetComponent<Renderer> ().enabled = false;
 		} else {
-				SoundManager.PlaySFX ("DoorOpen", false, 0);
+			SoundManager.PlaySFX ("Door_Open");
 		}
 		TrackEntry te = doorAnim.state.SetAnimation (0, "Open", false);
 		yield return new WaitForSeconds (te.animation.duration);

@@ -13,10 +13,14 @@ public class TurtleManager : MonoBehaviour {
 		Vector3 startPos = new Vector3 (0.6f, -4.5f, -3);
 		transform.localPosition = startPos;
 		playAnimStr ("Popup", true);
+		if( MapManager.currentPage == 6)
+			SoundManager.PlaySFX ("Turtle_Popup");
 		yield return new WaitForSeconds (2);
 		iTween.MoveTo (gameObject, iTween.Hash ("position", new Vector3(-14, -4.5f, -3), "time", swimTime, "islocal", true, "easetype", iTween.EaseType.linear ));
 		yield return new WaitForSeconds (swimTime);
-		playAnimStr ("TouchOne", false);
+		if( MapManager.currentPage == 4)
+			playAnimStr ("TouchOne", false);
+		SoundManager.PlaySFX ("Turtle_Touch1");
 		yield return new WaitForSeconds (2);
 		StartCoroutine (startTurtle ());
 	}
@@ -45,6 +49,8 @@ public class TurtleManager : MonoBehaviour {
 				SkeletonAnimation skelAnim = GetComponent<SkeletonAnimation> ();
 				if (skelAnim != null) {
 					playAnimStr("TouchTwo", true);
+					if( MapManager.currentPage >= 4 && MapManager.currentPage <= 6 )
+					SoundManager.PlaySFX ("Turtle_Touch2");
 				}
 			}
 		}

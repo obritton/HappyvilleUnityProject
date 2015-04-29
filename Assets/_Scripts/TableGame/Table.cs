@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using Spine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class Table : MonoBehaviour {
+public class Table : GameManagerBase {
 
 	public Food food;
 	public Transform foodAnimOnStartPos;
@@ -12,18 +13,21 @@ public class Table : MonoBehaviour {
 	public ScoreBoard scoreBoard;
 	FlySession flySession;
 	public GameObject crumbsPrefab;
-	public static int level = 0;
+	public static int level = 3;
 	public GameObject starAndSpeakersPrefab;
 
 	public GameObject bgSprite;
 	public GameObject tableSprite;
-	
+
+	public SkeletonAnimation[] thoughtShapeArr;
+	public Transform[] thoughShapeLocArr;
+
 	void Start(){
 //		StartCoroutine (doGameWin (6));
 		if (level > -1)
 			loadTableAndBG ();
 		CharacterNode.totalCharactersUnlocked = 4 + (Table.level / 3);
-		SoundManager.PlaySFX ("WierdMusic", true);
+		SoundManager.PlaySFX ("OLDWierdMusic", true);
 
 		foodStartPos = food.transform.localPosition;
 		foodStartSize = food.transform.localScale;
@@ -39,6 +43,20 @@ public class Table : MonoBehaviour {
 
 		bgSprite.GetComponent<Renderer>().sharedMaterial.SetTexture ("_MainTex", bgSpriteFromRsc);
 		tableSprite.GetComponent<Renderer>().sharedMaterial.SetTexture ("_MainTex", tableSpriteFromRsc);
+
+		createThoughtShapesForThisLevel ();
+	}
+
+	void createThoughtShapesForThisLevel(){
+		for (int i = 0; i < 3; i++) {
+			GameObject thoughtShape = FoodManager.createThoughtShapeForLevel(level+1);
+			thoughtShape.name = "thoughtShape";
+			thoughtShape.transform.parent = thoughShapeLocArr[i];
+			thoughtShape.transform.localPosition = Vector3.zero;
+			SkeletonAnimation skelAnim = thoughtShape.GetComponent<SkeletonAnimation>();
+			thoughtShapeArr[i] = skelAnim;
+			tableSpotArr[i].thoughtBubble.thoughtShape = thoughtShape;
+		}
 	}
 
 	bool playing = true;
@@ -46,7 +64,7 @@ public class Table : MonoBehaviour {
 	IEnumerator checkAndPlayRandomTapAnim(){
 		while (playing) {
 			yield return new WaitForSeconds(Random.Range (5,10));
-			if( !touchedRecently && !isFoodDragging && !isFlyOut && !canTouchAnim )
+			if( !touchedRecently && !isFoodDragging && !isFlyOut && canTouchAnim )
 			{
 				playTouchForCharacter(Random.Range(0,3));
 			}
@@ -62,6 +80,7 @@ public class Table : MonoBehaviour {
 	bool canTouchAnim = false;
 
 	bool touchedRecently = false;
+	AudioSource plateOverAS = null;
 	void Update(){
 		if( Input.GetMouseButtonDown(0)){
 			GameObject hitGO = mousePick();
@@ -73,7 +92,8 @@ public class Table : MonoBehaviour {
 					setAnimForAll( "Pant", true, true );
 					isFoodDragging = true;
 					foodTouched = true;
-					EyeFollow.registerFollowTransform (food.transform.Find("SkeletonUtility-Root/root/Food"));
+					Transform foodBone = food.transform.Find("SkeletonUtility-Root/root/Food");
+					EyeFollow.registerFollowTransform (foodBone);
 					iTween.Stop();
 					lastMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 					((SkeletonAnimation)food.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Grab", false);
@@ -129,6 +149,12 @@ public class Table : MonoBehaviour {
 //					print ("newArea-1: " + (newArea-1));
 					GameObject plateGO = ((TableSpot)tableSpotArr[newArea-1]).plate.gameObject;
 					((SkeletonAnimation)plateGO.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Over", false);
+//					if( plateOverAS == null ){
+//						plateOverAS = SoundManager.PlaySFX("TablePlate_Over");
+//					}
+//					else if( !plateOverAS.isPlaying ){
+//						plateOverAS = SoundManager.PlaySFX("TablePlate_Over");
+//					}
 //					iTween.PunchPosition( plateGO, iTween.Hash ("time", 0.6f, "amount", Vector3.up * 0.5f, "easetype", iTween.EaseType.easeOutBounce));
 				}
 			}
@@ -157,10 +183,10 @@ public class Table : MonoBehaviour {
 						}
 					}
 				}
+				touchedRecently = true;
+				setAnimForAll("Idle", true, false );
+				isFoodDragging = false;
 			}
-			touchedRecently = true;
-			setAnimForAll("Idle", true, false );
-			isFoodDragging = false;
 		}
 	}
 
@@ -190,13 +216,25 @@ public class Table : MonoBehaviour {
 	float setAnimForAll( string animName, bool immediate = true, bool loop = false, float delay = 0 ){
 		TrackEntry te = null;
 		for (int i = 0; i < 3; i++) {
-			GameObject character = tableSpotArr[i].characterNode.transform.GetChild(0).gameObject;
-			if( immediate ){
-				te = ((SkeletonAnimation)character.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, animName, loop);
-			}
-			else{
-				te = ((SkeletonAnimation)character.GetComponent<SkeletonAnimation> ()).state.AddAnimation(0, animName, loop, delay);
-			}
+//			GameObject character = tableSpotArr[i].characterNode.transform.GetChild(0).gameObject;
+			TableSpot spot = tableSpotArr[i];
+			if( spot != null ){
+				CharacterNode characterNode = spot.characterNode;
+				if( characterNode != null ){
+					Transform cnTransform = characterNode.transform;
+					if( cnTransform != null ){
+						Transform child = cnTransform.GetChild(0);
+						if( child != null )
+						{
+							GameObject character = child.gameObject;
+
+							if( immediate ){
+								te = ((SkeletonAnimation)character.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, animName, loop);
+							}
+							else{
+								te = ((SkeletonAnimation)character.GetComponent<SkeletonAnimation> ()).state.AddAnimation(0, animName, loop, delay);
+							}
+						}}}}
 		}
 		
 		return te.animation.duration;
@@ -206,7 +244,7 @@ public class Table : MonoBehaviour {
 		if (!canTouchAnim || isFlyOut)
 						return;
 
-		SoundManager.PlaySFX ("TableWrong" + Random.Range (0, 6));
+		SoundManager.PlaySFX ("OLDTableWrong" + Random.Range (0, 6));
 		string touchAnimStr = "TouchOne";
 		if( Random.value < 0.3f )
 			touchAnimStr = "TouchTwo";
@@ -215,15 +253,18 @@ public class Table : MonoBehaviour {
 
 		((SkeletonAnimation)tableSpotArr[characterIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, touchAnimStr, false);
 		((SkeletonAnimation)tableSpotArr[characterIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle", true, 0);
+		string animalName = tableSpotArr [characterIndex].characterNode.transform.GetChild (0).name;
+		StartCoroutine(playSoundForAnimal (touchAnimStr, animalName));
 	}
 
 	public SkeletonAnimation[] plateArr;
 	void playTouchForPlate( int p ){
-		if( canTouchAnim )
-		plateArr [p].state.SetAnimation (0, "Bounce", false);
+		if (canTouchAnim) {
+			plateArr [p].state.SetAnimation (0, "Bounce", false);
+			SoundManager.PlaySFX("TablePlate_Bounce");
+		}
 	}
-
-	public SkeletonAnimation[] thoughtShapeArr;
+	
 	void playTouchForThought( int t ){
 		if( canTouchAnim && !isFlyOut )
 		thoughtShapeArr[t].state.SetAnimation (0, "Tap-shape", false);
@@ -262,7 +303,15 @@ public class Table : MonoBehaviour {
 
 	IEnumerator performResponseForPosition( int plateIndex, float delay = 0 ){
 		yield return new WaitForSeconds (delay);
-		if (food.shape == tableSpotArr [plateIndex].thoughtShape) {
+//		if (food.shape == tableSpotArr [plateIndex].thoughtShape) {
+		List<Skin> skins = new List<Skin> ();
+		skins.Add (food.gameObject.GetComponent<SkeletonAnimation>().skeleton.Skin);
+
+		GameObject thoughtShape = tableSpotArr [plateIndex].transform.FindChild ("ThoughtShapeLoc").GetChild(0).gameObject;
+		SkeletonAnimation anim = thoughtShape.GetComponent<SkeletonAnimation> ();
+		string thoughtSkinName = thoughtShape.GetComponent<SkeletonAnimation> ().skeleton.Skin.name;
+
+		if (FoodManager.isMatch(level+1, skins, thoughtSkinName)) {
 			StartCoroutine(animateFoodMatch(plateIndex));
 		} else {
 			StartCoroutine(animateFoodMisMatch(plateIndex));
@@ -276,30 +325,40 @@ public class Table : MonoBehaviour {
 		totalCorrects++;
 		TrackEntry te = ((SkeletonAnimation)tableSpotArr[plateIndex].thoughtBubble.thoughtShape.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Correct-shape", false);
 		((SkeletonAnimation)food.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Correct", false);
+		SoundManager.PlaySFX ("Thought_Correct");
 		yield return new WaitForSeconds (te.animation.duration);
 		for (int i = 0; i < 3; i++) {
 			if( i == plateIndex || totalCorrects >= 12) {
 				te = ((SkeletonAnimation)tableSpotArr[i].thoughtBubble.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Leave-thought", false);
 				((SkeletonAnimation)tableSpotArr[i].thoughtBubble.thoughtShape.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Leave-shape", false);
+				SoundManager.PlaySFX("Thought_Leave");
 			}
 		}
 		yield return new WaitForSeconds (te.animation.duration);
-		((SkeletonAnimation)food.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Eat", false);
+ 		((SkeletonAnimation)food.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Eat", false);
+		SoundManager.PlaySFX ("TablePlate_Eat");
 		delayedEyeUnregister(1);
 		StartCoroutine(fireCrumbsForCharacterIndex ( plateIndex ));
-		te = ((SkeletonAnimation)tableSpotArr[plateIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Eat", false);
+		TrackEntry eatTe = ((SkeletonAnimation)tableSpotArr[plateIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Eat", false);
+		//Put per character eat anim here
+		string animalName = tableSpotArr[plateIndex].characterNode.transform.GetChild(0).name;
+		StartCoroutine(playSoundForAnimal ("Eat", animalName));
 		canTouchAnim = false;
 		StartCoroutine (delayedReactivateTouchAnims (te.animation.duration));
 		((SkeletonAnimation)tableSpotArr[plateIndex].plate.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Bounce", false);
-		float duration = te.animation.duration;
+		float duration = eatTe.animation.duration;
 		StartCoroutine (delayedEyeUnregister (duration));
 		te = ((SkeletonAnimation)tableSpotArr [plateIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "ThankYou", false, 0);
-		SoundManager.PlaySFX ("TableRight" + Random.Range (0, 5),false,2,1,1+Random.Range (0.0f,0.5f));
+		animalName = tableSpotArr [plateIndex].characterNode.transform.GetChild (0).name;
+		StartCoroutine (playSoundForAnimal ("ThankYou", animalName, eatTe.animation.duration));
+		SoundManager.PlaySFX ("OLDTableRight" + Random.Range (0, 5),false,2,1,1+Random.Range (0.0f,0.5f));
 		scoreBoard.addStar ();
 		if (totalCorrects < 12) {
 			duration += te.animation.duration;
+			yield return new WaitForSeconds (duration);
+			SoundManager.PlaySFX("Character_Leave");
 			te = ((SkeletonAnimation)tableSpotArr [plateIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Leave", false, 0);
-			duration += te.animation.duration;
+			duration = te.animation.duration;
 			yield return new WaitForSeconds (duration);
 			StartCoroutine (resetTurnWithEmptyIndex (plateIndex));
 		} else {
@@ -308,6 +367,15 @@ public class Table : MonoBehaviour {
 			EyeFollow.unregisterFollowTransform();
 			StartCoroutine(doGameWin(te.animation.duration));
 		}
+	}
+
+	IEnumerator playSoundForAnimal( string soundName, string animalName, float delay = 0 ){
+		yield return new WaitForSeconds (delay);
+		animalName = animalName.Split (" "[0])[0];
+
+		string soundStr = "Table" + animalName + "_" + soundName;
+//		print ("soundStr: " + soundStr);
+		SoundManager.PlaySFX (soundStr);
 	}
 
 	IEnumerator fireCrumbsForCharacterIndex( int i ){
@@ -330,21 +398,32 @@ public class Table : MonoBehaviour {
 	}
 
 	IEnumerator doGameWin(float delay){
+		MapUnlockSystem.wasLastGameCompleted = true;
+		base.doWin ();
+		incrementMapUnlock ();
 		yield return new WaitForSeconds (delay);
 		playing = false;
 		delay = makeEveryoneDance ();
 		food.transform.Translate (1000, 0, 0);
 		StartCoroutine (scoreBoard.makeStarsDance ());
 		GameObject starAndSpeakers = Instantiate (starAndSpeakersPrefab, Vector3.forward * 5, Quaternion.identity) as GameObject;
+		SoundManager.PlaySFX ("TableGame_EndDance");
 		iTween.MoveBy (scoreBoard.gameObject, iTween.Hash ("y", 100, "time", 0.5f, "easetype", iTween.EaseType.easeInBounce));
 		StartCoroutine (delayedGameExit (8));
+	}
+
+	void incrementMapUnlock(){
+		int tableGameCompleted = MapUnlockSystem.tableGameCompleted();
+		if (level >= tableGameCompleted) {
+			MapUnlockSystem.setTableGameComplete(level);
+			MapUnlockSystem.shouldNewButtonUnlock = true;
+		}
 	}
 
 	IEnumerator delayedGameExit( float delay ){
 		yield return new WaitForSeconds (delay);
 		DoorManager.closeDoors ();
 
-		MapManager.openPageIndex = 1;
 		yield return new WaitForSeconds (1.05f);
 		iTween.Stop ();
 		Application.LoadLevel("MainMenu Map");
@@ -360,6 +439,7 @@ public class Table : MonoBehaviour {
 	}
 
 	public float makeAllTap(){
+		SoundManager.PlaySFX ("TablePlate_TableTap");
 		return setAnimForAll ("TapTable");
 	}
 
@@ -367,6 +447,7 @@ public class Table : MonoBehaviour {
 		TrackEntry te = null;
 		for (int i = 0; i < 3; i++) {
 			te = ((SkeletonAnimation)tableSpotArr[i].plate.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Bounce", false);
+			SoundManager.PlaySFX("TablePlate_Bounce");
 		}
 		
 		return te.animation.duration;
@@ -408,7 +489,7 @@ public class Table : MonoBehaviour {
 		GameObject flyS = Instantiate (prefabFly, Vector3.left * 1000, Quaternion.identity) as GameObject;
 		flySession = flyS.GetComponent<FlySession> ();
 		flySession.transform.parent = transform.parent;
-		flyAS = SoundManager.PlaySFX ("FlyBuzz", true);
+		flyAS = SoundManager.PlaySFX ("TableFly_Fly", true);
 		flySession.transform.localPosition = flyPosLeft;
 		yield return new WaitForSeconds (delay);
 		Transform fly = flySession.getFly ();
@@ -447,17 +528,22 @@ public class Table : MonoBehaviour {
 		}
 		foreach( TableSpot spot in tableSpotArr ){
 			((SkeletonAnimation)spot.thoughtBubble.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Leave-thought", false);
+			SoundManager.PlaySFX("Thought_Leave");
 		}
 	}
 
 	bool touchedFly = false;
 	IEnumerator endFlySession(){
-		flyAS.Stop ();
+		if( flyAS != null )
+			flyAS.Stop ();
 		touchedFly = true;
 		TrackEntry te1 = ((SkeletonAnimation)flySession.getFly().GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Touch", false);
 		TrackEntry te2 = ((SkeletonAnimation)flySession.getFly().GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Leave", false, 0);
 		EyeFollow.unregisterFollowTransform ();
 		iTween.StopByName ("flypass");
+
+		SoundManager.PlaySFX("TableFly_Touch");
+		SoundManager.PlaySFX ("TableFly_Leave", false, te1.animation.duration);
 
 		yield return new WaitForSeconds (te1.animation.duration + te2.animation.duration);
 		Destroy (flySession.gameObject);
@@ -476,6 +562,7 @@ public class Table : MonoBehaviour {
 		float delay = 0;
 		foreach( TableSpot spot in tableSpotArr ){
 			TrackEntry te = ((SkeletonAnimation)spot.thoughtBubble.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "PopUp-thought", false);
+			SoundManager.PlaySFX("Thought_Popup");
 			((SkeletonAnimation)spot.thoughtBubble.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "IdleOne-thought", false, 0);
 
 			delay = te.animation.duration;
@@ -489,19 +576,24 @@ public class Table : MonoBehaviour {
 
 	IEnumerator animateFoodMisMatch( int plateIndex ){
 		TrackEntry te = ((SkeletonAnimation)tableSpotArr[plateIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Wrong", false);
+		string animalName = tableSpotArr [plateIndex].characterNode.transform.GetChild (0).name;
+		StartCoroutine(playSoundForAnimal ("Wrong", animalName));
 		((SkeletonAnimation)tableSpotArr[plateIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle", true, 0);
 		yield return new WaitForSeconds (te.animation.duration/2.0f);
-		SoundManager.PlaySFX ("TableWrong" + Random.Range (0, 6),false,1.5f,1,1+Random.Range (0.0f,0.5f));
+		SoundManager.PlaySFX ("OLDTableWrong" + Random.Range (0, 6),false,1.5f,1,1+Random.Range (0.0f,0.5f));
 		yield return new WaitForSeconds (te.animation.duration/2.0f);
 		snapFoodBack ();
 	}
 
 	public float addNewCharacterAtSpot( int spotIndex ){
 		CharacterNode.CharacterType newCharacterType = createRandomCharacterTypeNotAtTable ();
-		ThoughtBubble.ThoughtShape newThoughtshape = createRandomThoughtShapeNotAtTable ();
-
+		string newThoughtStr = createRandomThoughtShapeNotAtTable ();
+		GameObject thoughtShape = tableSpotArr [spotIndex].transform.FindChild ("ThoughtShapeLoc").GetChild(0).gameObject;
+		thoughtShape.transform.localScale = thoughtShape.transform.localScale * 0.8f;
+		thoughtShape.GetComponent<SkeletonAnimation> ().skeleton.SetSkin (newThoughtStr);
 		GameObject newCharacter = createCharacterForType ( newCharacterType );
-		float time = tableSpotArr [spotIndex].addNewCharacterOfType (newCharacterType, newThoughtshape, newCharacter);
+		float time = tableSpotArr [spotIndex].addNewCharacterOfType (newCharacterType, ThoughtBubble.ThoughtShape.None, newCharacter, newThoughtStr);
+
 		canTouchAnim = false;
 		StartCoroutine (delayedReactivateTouchAnims(time));
 		return time;
@@ -513,7 +605,6 @@ public class Table : MonoBehaviour {
 	public void createMatchingFood(){
 		iTween.Stop (food.gameObject);
 		Destroy (food.gameObject);
-//		GameObject foodFromPrefab = Instantiate (foodPrefab, foodAnimOnStartPos.position, Quaternion.identity) as GameObject;
 		GameObject foodFromPrefab = FoodManager.createFoodForLevel (level + 1);
 		foodFromPrefab.transform.parent = transform;
 		foodFromPrefab.transform.localScale = foodStartSize;
@@ -523,7 +614,8 @@ public class Table : MonoBehaviour {
 		food.shape = tableSpotArr [randSpotIndex].thoughtShape;
 		TableSpot spot = tableSpotArr [randSpotIndex];
 		if (spot != null) {
-			GameObject thoughtShape = spot.transform.FindChild ("Thought-Shape SkeletonAnimation").gameObject;
+
+			GameObject thoughtShape = spot.transform.FindChild ("ThoughtShapeLoc").GetChild(0).gameObject;
 			SkeletonAnimation anim = thoughtShape.GetComponent<SkeletonAnimation> ();
 			if (anim != null) {
 				string skinName = thoughtShape.GetComponent<SkeletonAnimation> ().skeleton.Skin.name;
@@ -569,16 +661,29 @@ public class Table : MonoBehaviour {
 		return newCharacterType;
 	}
 
-	ThoughtBubble.ThoughtShape createRandomThoughtShapeNotAtTable(){
-		ThoughtBubble.ThoughtShape newThoughtShape = RandomEnum<ThoughtBubble.ThoughtShape>(ThoughtBubble.totalShapesUnlocked);
+	string createRandomThoughtShapeNotAtTable(){
+		SkeletonAnimation thoughtAnim = tableSpotArr [0].transform.FindChild ("ThoughtShapeLoc").GetChild (0).GetComponent<SkeletonAnimation> ();
+		AnimationStateData data = thoughtAnim.state.Data;
+		List<Skin> skins = data.SkeletonData.Skins;
 
-		while(( newThoughtShape == tableSpotArr[0].thoughtShape ) ||
-		      ( newThoughtShape == tableSpotArr[1].thoughtShape ) ||
-		      ( newThoughtShape == tableSpotArr[2].thoughtShape )){
-			newThoughtShape = RandomEnum<ThoughtBubble.ThoughtShape>(ThoughtBubble.totalShapesUnlocked);
+		Skin randomSkin = skins [Random.Range(1, skins.Count)];
+
+		while(( randomSkin.name == getThoughtShapeSkinNameAtSpot(0) ) ||
+		      ( randomSkin.name == getThoughtShapeSkinNameAtSpot(1) ) ||
+		      ( randomSkin.name == getThoughtShapeSkinNameAtSpot(2) ) ||
+		      ( randomSkin.name == "Hexagon-shape" )){
+			randomSkin = skins [Random.Range(0, skins.Count)];
 		}
 
-		return newThoughtShape;
+		return randomSkin.name;
+	}
+
+	string getThoughtShapeSkinNameAtSpot( int spotI ){
+		SkeletonAnimation thoughtAnim = tableSpotArr [spotI].transform.FindChild ("ThoughtShapeLoc").GetChild (0).GetComponent<SkeletonAnimation> ();
+		if (thoughtAnim != null)
+			return "";
+		else
+			return thoughtAnim.skeleton.Skin.name;
 	}
 
 	public T RandomEnum<T>( int cap )

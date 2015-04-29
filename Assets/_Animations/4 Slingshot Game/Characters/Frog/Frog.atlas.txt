@@ -1,0 +1,125 @@
+
+Frog.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Frog/Arm-bend
+  rotate: false
+  xy: 799, 184
+  size: 223, 167
+  orig: 223, 168
+  offset: 0, 1
+  index: -1
+Frog/Arm-curve
+  rotate: false
+  xy: 2, 2
+  size: 248, 125
+  orig: 248, 126
+  offset: 0, 1
+  index: -1
+Frog/Arm-straight
+  rotate: false
+  xy: 1100, 383
+  size: 299, 47
+  orig: 299, 48
+  offset: 0, 1
+  index: -1
+Frog/Body-frg
+  rotate: false
+  xy: 373, 190
+  size: 424, 308
+  orig: 424, 308
+  offset: 0, 0
+  index: -1
+Frog/Eye-cls-frg
+  rotate: false
+  xy: 679, 171
+  size: 48, 17
+  orig: 48, 18
+  offset: 0, 1
+  index: -1
+Frog/Eye-frg
+  rotate: false
+  xy: 252, 22
+  size: 106, 105
+  orig: 107, 107
+  offset: 0, 2
+  index: -1
+Frog/Hand
+  rotate: false
+  xy: 1709, 434
+  size: 65, 64
+  orig: 65, 65
+  offset: 0, 0
+  index: -1
+Frog/Head-frg
+  rotate: false
+  xy: 2, 129
+  size: 369, 369
+  orig: 369, 369
+  offset: 0, 0
+  index: -1
+Frog/Mouth-cls-frg
+  rotate: false
+  xy: 373, 137
+  size: 304, 51
+  orig: 304, 52
+  offset: 0, 1
+  index: -1
+Frog/Mouth-o-frg
+  rotate: false
+  xy: 1615, 411
+  size: 92, 87
+  orig: 92, 88
+  offset: 0, 1
+  index: -1
+Frog/Mouth-opn-frg
+  rotate: false
+  xy: 799, 353
+  size: 299, 145
+  orig: 300, 145
+  offset: 0, 0
+  index: -1
+Frog/Mouth-wide-frg
+  rotate: false
+  xy: 1100, 432
+  size: 305, 66
+  orig: 305, 66
+  offset: 0, 0
+  index: -1
+Frog/Nostril-frg
+  rotate: false
+  xy: 252, 7
+  size: 44, 13
+  orig: 44, 13
+  offset: 0, 0
+  index: -1
+Frog/Pupil-frg
+  rotate: true
+  xy: 1100, 353
+  size: 28, 27
+  orig: 28, 28
+  offset: 0, 1
+  index: -1
+Frog/Tongue-base-frg
+  rotate: true
+  xy: 1407, 402
+  size: 96, 108
+  orig: 96, 108
+  offset: 0, 0
+  index: -1
+Frog/Tongue-mid-frg
+  rotate: false
+  xy: 1024, 193
+  size: 96, 158
+  orig: 96, 158
+  offset: 0, 0
+  index: -1
+Frog/Tongue-top-frg
+  rotate: false
+  xy: 1517, 407
+  size: 96, 91
+  orig: 96, 92
+  offset: 0, 0
+  index: -1

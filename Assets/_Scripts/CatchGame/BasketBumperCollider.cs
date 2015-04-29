@@ -3,7 +3,12 @@ using System.Collections;
 
 public class BasketBumperCollider : MonoBehaviour {
 
+	void playBounce(){
+		string sfxName = "Food_Bounce_0" + (1 + Random.Range (0,3));
+		SoundManager.PlaySFX(sfxName);
+	}
+
 	void OnCollisionEnter( Collision collision ){
-		SoundManager.PlaySFX("Catch BasketBounce", false, 0, 100, Random.Range(1.0f,4.0f));
+		playBounce ();
 	}
 }

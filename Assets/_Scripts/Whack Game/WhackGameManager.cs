@@ -22,7 +22,7 @@ public class WhackGameManager : FrenziableGame {
 	void Start(){
 		CatchGameManager.totalFruits = 0;
 		CatchGameManager.totalCandies = 0;
-		SoundManager.PlaySFX ("BariSaxMusic", true);
+		SoundManager.PlaySFX ("OLDBariSaxMusic", true);
 		liveAnimalsIs = new ArrayList ();
 		StartCoroutine (showStartBunny ());
 		Physics.gravity = Vector3.down * 400;
@@ -152,7 +152,7 @@ public class WhackGameManager : FrenziableGame {
 			WhackAnimal animal = node.GetChild(0).GetComponent<WhackAnimal>();
 			if( animal && !animal.whacked ){
 				animal.whacked = true;
-				SoundManager.PlaySFX ("WhackTap" + (1+Random.Range (0,2)),false,0,1,1+Random.Range(0.0f,1.0f));
+				SoundManager.PlaySFX ("OLDWhackTap" + (1+Random.Range (0,2)),false,0,1,1+Random.Range(0.0f,1.0f));
 				((SkeletonAnimation)node.GetChild(0).GetComponent<SkeletonAnimation>()).state.SetAnimation(0, "Tap", false);
 
 				timerAndMeter.incrementScore( 5, isFrenzy );
@@ -233,7 +233,7 @@ public class WhackGameManager : FrenziableGame {
 	}
 
 	IEnumerator delayedGameStart( float delay ){
-		SoundManager.PlaySFX ("SuperTransform");
+		SoundManager.PlaySFX ("OLDSuperTransform");
 		yield return new WaitForSeconds(delay-0.05f);
 		startBtn.transform.Translate (1000, 0, 0);
 		StartCoroutine (loopAnimalPopups());

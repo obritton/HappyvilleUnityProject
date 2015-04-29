@@ -93,6 +93,7 @@ public class FoodDropper : MonoBehaviour {
 		int spotIndex = Random.Range (0, dropSpots.Length);
 		Vector3 position = dropSpots [spotIndex].transform.position;
 		food.transform.position = position;
+//		food.transform.localScale *= 2;
 	}
 
 	GameObject createRandomFood( bool forceCandy ){
@@ -106,7 +107,7 @@ public class FoodDropper : MonoBehaviour {
 		food.name = foodSkinName;
 		food.tag = isCandy ? "candy" : "food";
 		Vector3 scale = food.transform.localScale;
-		scale *= 0.58f;
+//		scale *= 0.58f;
 		food.transform.localScale = scale;
 		SkeletonAnimation skelAnim = ((SkeletonAnimation)food.GetComponent<SkeletonAnimation> ());
 		skelAnim.skeleton.SetSkin (foodSkinName);

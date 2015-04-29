@@ -1,0 +1,48 @@
+
+Target.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Assets/Target/Float
+  rotate: false
+  xy: 196, 7
+  size: 204, 80
+  orig: 206, 80
+  offset: 0, 0
+  index: -1
+Assets/Target/Float_Front
+  rotate: false
+  xy: 390, 94
+  size: 205, 47
+  orig: 206, 47
+  offset: 0, 0
+  index: -1
+Assets/Target/Float_Half
+  rotate: false
+  xy: 390, 143
+  size: 213, 95
+  orig: 213, 95
+  offset: 0, 0
+  index: -1
+Assets/Target/Shadow_Float
+  rotate: false
+  xy: 605, 169
+  size: 225, 69
+  orig: 225, 69
+  offset: 0, 0
+  index: -1
+Assets/Target/Target
+  rotate: false
+  xy: 2, 2
+  size: 192, 236
+  orig: 192, 236
+  offset: 0, 0
+  index: -1
+Assets/Target/Target_Hit
+  rotate: false
+  xy: 196, 89
+  size: 192, 149
+  orig: 192, 149
+  offset: 0, 0
+  index: -1

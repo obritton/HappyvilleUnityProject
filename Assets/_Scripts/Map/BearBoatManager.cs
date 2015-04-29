@@ -15,7 +15,7 @@ public class BearBoatManager : MonoBehaviour {
 	void Update(){
 		if (Input.GetMouseButtonDown (0)) {
 			if( mousePick() == gameObject ){
-				SoundManager.PlaySFX("FOGGY", false, 0, 200, Random.Range(0.5f, 1.5f));
+				SoundManager.PlaySFX("OLDFOGGY", false, 0, 200, Random.Range(0.5f, 1.5f));
 			}
 		}
 	}

@@ -10,8 +10,9 @@ public class EyeFollow : MonoBehaviour {
 	public static void registerFollowTransform( Transform newFollowTransform ){
 		EyeFollow eyeFollow = getEyeFollow ();
 		if (eyeFollow) {
-			eyeFollow.regFollowTransform( newFollowTransform );
-		}
+						eyeFollow.regFollowTransform (newFollowTransform);
+				} else
+			print ("eyeFollow is NULL");
 	}
 
 	public static void unregisterFollowTransform(){

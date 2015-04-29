@@ -1,0 +1,48 @@
+
+Duck.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Assets/Animal_Float/Duck/Beak_duck
+  rotate: false
+  xy: 2, 2
+  size: 66, 40
+  orig: 66, 40
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Duck/Body_duck
+  rotate: false
+  xy: 2, 109
+  size: 498, 106
+  orig: 498, 106
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Duck/Eye_duck
+  rotate: false
+  xy: 755, 191
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Duck/Head_duck
+  rotate: false
+  xy: 545, 28
+  size: 208, 187
+  orig: 208, 187
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Pelican/Valve_Pelican_Float
+  rotate: false
+  xy: 502, 173
+  size: 41, 42
+  orig: 41, 43
+  offset: 0, 1
+  index: -1
+Assets/Animal_Float/Universal/Shadow_float
+  rotate: false
+  xy: 2, 44
+  size: 541, 63
+  orig: 542, 63
+  offset: 0, 0
+  index: -1

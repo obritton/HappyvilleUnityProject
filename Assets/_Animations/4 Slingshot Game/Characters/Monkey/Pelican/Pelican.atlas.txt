@@ -1,0 +1,62 @@
+
+Pelican.png
+size: 2048,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Assets/Animal_Float/Pelican/Body_Pelican
+  rotate: false
+  xy: 2, 18
+  size: 504, 108
+  orig: 504, 108
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Pelican/Eye_Pelican_Float
+  rotate: false
+  xy: 1575, 92
+  size: 34, 34
+  orig: 34, 34
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Pelican/Head_Pelican_Float
+  rotate: false
+  xy: 1313, 2
+  size: 124, 124
+  orig: 124, 124
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Pelican/MouthBottom_Pelican
+  rotate: false
+  xy: 1051, 55
+  size: 260, 71
+  orig: 261, 71
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Pelican/MouthTop_Pelican
+  rotate: false
+  xy: 508, 42
+  size: 264, 19
+  orig: 264, 19
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Pelican/Neck_Pelican_Float
+  rotate: true
+  xy: 1439, 90
+  size: 36, 134
+  orig: 36, 134
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Pelican/Valve_Pelican_Float
+  rotate: false
+  xy: 1439, 46
+  size: 41, 42
+  orig: 41, 43
+  offset: 0, 1
+  index: -1
+Assets/Animal_Float/Universal/Shadow_float
+  rotate: false
+  xy: 508, 63
+  size: 541, 63
+  orig: 542, 63
+  offset: 0, 0
+  index: -1

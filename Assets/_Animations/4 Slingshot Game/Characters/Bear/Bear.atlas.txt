@@ -1,0 +1,132 @@
+
+Bear.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Bear/Arm-bend
+  rotate: true
+  xy: 724, 27
+  size: 223, 167
+  orig: 223, 168
+  offset: 0, 1
+  index: -1
+Bear/Arm-curve
+  rotate: true
+  xy: 893, 2
+  size: 248, 125
+  orig: 248, 126
+  offset: 0, 1
+  index: -1
+Bear/Arm-straight
+  rotate: true
+  xy: 969, 722
+  size: 299, 47
+  orig: 299, 48
+  offset: 0, 1
+  index: -1
+Bear/Body-bear
+  rotate: true
+  xy: 331, 428
+  size: 309, 341
+  orig: 309, 341
+  offset: 0, 0
+  index: -1
+Bear/Ear-bear
+  rotate: true
+  xy: 445, 328
+  size: 98, 97
+  orig: 98, 98
+  offset: 0, 1
+  index: -1
+Bear/Eye-bear
+  rotate: false
+  xy: 969, 510
+  size: 49, 49
+  orig: 49, 49
+  offset: 0, 0
+  index: -1
+Bear/Eye-cls-bear
+  rotate: true
+  xy: 969, 405
+  size: 59, 21
+  orig: 59, 21
+  offset: 0, 0
+  index: -1
+Bear/Float
+  rotate: false
+  xy: 2, 739
+  size: 720, 282
+  orig: 720, 282
+  offset: 0, 0
+  index: -1
+Bear/Float_Front
+  rotate: false
+  xy: 2, 84
+  size: 720, 166
+  orig: 720, 166
+  offset: 0, 0
+  index: -1
+Bear/Float_Shadow
+  rotate: true
+  xy: 724, 252
+  size: 769, 243
+  orig: 769, 243
+  offset: 0, 0
+  index: -1
+Bear/Hand
+  rotate: true
+  xy: 247, 17
+  size: 65, 64
+  orig: 65, 65
+  offset: 0, 0
+  index: -1
+Bear/Hat
+  rotate: true
+  xy: 331, 284
+  size: 142, 112
+  orig: 143, 112
+  offset: 0, 0
+  index: -1
+Bear/Head-bear
+  rotate: true
+  xy: 2, 332
+  size: 405, 327
+  orig: 405, 327
+  offset: 0, 0
+  index: -1
+Bear/Mouth-bear
+  rotate: true
+  xy: 969, 561
+  size: 159, 47
+  orig: 161, 47
+  offset: 0, 0
+  index: -1
+Bear/Mouth-o-bear
+  rotate: true
+  xy: 158, 24
+  size: 58, 87
+  orig: 58, 88
+  offset: 0, 1
+  index: -1
+Bear/Mouth-open-bear
+  rotate: false
+  xy: 2, 20
+  size: 154, 62
+  orig: 154, 63
+  offset: 0, 1
+  index: -1
+Bear/Nose-bear
+  rotate: false
+  xy: 969, 466
+  size: 42, 42
+  orig: 42, 42
+  offset: 0, 0
+  index: -1
+Bear/Pupil-bear
+  rotate: false
+  xy: 992, 437
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1

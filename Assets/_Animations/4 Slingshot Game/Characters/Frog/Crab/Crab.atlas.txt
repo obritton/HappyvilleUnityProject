@@ -1,0 +1,55 @@
+
+Crab.png
+size: 2048,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Assets/Animal_Float/Crab/Arm_crab
+  rotate: true
+  xy: 502, 33
+  size: 28, 91
+  orig: 28, 91
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Crab/Body_crab
+  rotate: false
+  xy: 2, 20
+  size: 498, 106
+  orig: 498, 106
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Crab/Claw
+  rotate: false
+  xy: 1045, 15
+  size: 128, 111
+  orig: 129, 111
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Crab/Eye_crab
+  rotate: false
+  xy: 595, 37
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Pelican/Head_Pelican_Float
+  rotate: false
+  xy: 1175, 2
+  size: 124, 124
+  orig: 124, 124
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Pelican/Valve_Pelican_Float
+  rotate: false
+  xy: 1301, 84
+  size: 41, 42
+  orig: 41, 43
+  offset: 0, 1
+  index: -1
+Assets/Animal_Float/Universal/Shadow_float
+  rotate: false
+  xy: 502, 63
+  size: 541, 63
+  orig: 542, 63
+  offset: 0, 0
+  index: -1

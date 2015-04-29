@@ -1,0 +1,55 @@
+
+Penguin.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Assets/Animal_Float/Pelican/Valve_Pelican_Float
+  rotate: false
+  xy: 502, 203
+  size: 41, 42
+  orig: 41, 43
+  offset: 0, 1
+  index: -1
+Assets/Animal_Float/Penguin/Beak_penguin
+  rotate: false
+  xy: 737, 220
+  size: 25, 25
+  orig: 25, 26
+  offset: 0, 1
+  index: -1
+Assets/Animal_Float/Penguin/Body_penguin
+  rotate: false
+  xy: 2, 138
+  size: 498, 107
+  orig: 498, 107
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Penguin/Eye_penguin
+  rotate: false
+  xy: 227, 55
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Penguin/Head_penguin
+  rotate: true
+  xy: 545, 57
+  size: 188, 190
+  orig: 189, 190
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Penguin/Wing_penguin
+  rotate: false
+  xy: 2, 2
+  size: 223, 69
+  orig: 223, 69
+  offset: 0, 0
+  index: -1
+Assets/Animal_Float/Universal/Shadow_float
+  rotate: false
+  xy: 2, 73
+  size: 541, 63
+  orig: 542, 63
+  offset: 0, 0
+  index: -1

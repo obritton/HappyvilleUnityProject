@@ -10,15 +10,20 @@ public class SimpleTreeTapper : MonoBehaviour {
 				return hit.collider.gameObject;
 		return null;
 	}
-	
+
+	public string treeType = "Point";
 	void Update(){
 		if (Input.GetMouseButtonDown (0)) {
 			if( mousePick() == gameObject ){
-				string tapName = "Tap_" + Random.Range (1,5);
+				int randomTapIndex = Random.Range (1,5);
+				string tapName = "Tap_" + randomTapIndex;
 				SkeletonAnimation skelAnim = GetComponent<SkeletonAnimation>();
 				if( skelAnim != null ){
 					skelAnim.state.SetAnimation( 0, tapName, false );
 					skelAnim.state.AddAnimation( 0, "Tree", true, 0 );
+					string soundName = treeType+"Tree_Tap" + randomTapIndex;
+					print ("soundName: " + soundName);
+					SoundManager.PlaySFX (soundName);
 				}
 			}
 		}

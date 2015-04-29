@@ -23,6 +23,7 @@ public class LightPostTapManager : MonoBehaviour {
 				SkeletonAnimation skelAnim = GetComponent<SkeletonAnimation>();
 				if( skelAnim != null ){
 					print ("tapName: " + tapName);
+					SoundManager.PlaySFX("Lightpole_Touch4");
 					skelAnim.state.SetAnimation( 0, tapName, false );
 					skelAnim.state.AddAnimation( 0, "Idle", true, 0 );
 				}

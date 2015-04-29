@@ -99,7 +99,7 @@ public class CatchGameManager : FrenziableGame {
 	}
 
 	IEnumerator animateReturnToNormal(){
-		SoundManager.PlaySFX("CatchSuperDone", false, 0);
+		SoundManager.PlaySFX("ChangeFrom_SuperLion", false, 0);
 		float duration = 0;
 		canLionAnimate = false;
 		duration = lion.state.SetAnimation (0, "Change_From_Super", false).animation.duration;
@@ -128,7 +128,7 @@ public class CatchGameManager : FrenziableGame {
 	IEnumerator delayedGameStart( float delay )
 	{
 		yield return new WaitForSeconds (delay);
-		music = SoundManager.PlaySFX("FastMusic", true);
+		music = SoundManager.PlaySFX("OLDFastMusic", true);
 		timerAndMeter.dropDown ();
 		foodDropper.startFruitDrops ();
 		StartCoroutine (timerAndMeter.delayedPieChartStart (1));
@@ -162,7 +162,7 @@ public class CatchGameManager : FrenziableGame {
 
 	bool canLionAnimate = true;
 	IEnumerator animateFrenzyStart(){
-		SoundManager.PlaySFX("CatchBecomeSuperman", false, 0);
+		SoundManager.PlaySFX("ChangeFrom_Lion", false, 0);
 		float duration = 0;
 		canLionAnimate = false;
 		duration = lion.state.SetAnimation (0, "Change_From_Lion", false).animation.duration;
@@ -240,7 +240,7 @@ public class CatchGameManager : FrenziableGame {
 		gameMode = CatchGameMode.Results;
 		if( music != null )
 			music.Stop ();
-		SoundManager.PlaySFX("EndWin", false, 0);
+		SoundManager.PlaySFX("OLDEndWin", false, 0);
 //		foodDropper.dropperMode = FoodDropper.DropperMode.Inactive;
 //		fruitKiller.explodeAllLiveFoodAway ();
 		catchResults.showResults ( totalFruits, totalCandies, timerAndMeter.getScore());
@@ -259,6 +259,7 @@ public class CatchGameManager : FrenziableGame {
 		yield return new WaitForSeconds (3);
 		lion.state.SetAnimation (0, "End", false);
 		lion.state.AddAnimation (0, "Wait", true, 0);
+		SoundManager.PlaySFX("Lion_End", false, 0);
 	}
 
 	void results_mouseButtonDown(){

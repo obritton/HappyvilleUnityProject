@@ -22,8 +22,17 @@ public class HouseTapManager : MonoBehaviour {
 				SkeletonAnimation skelAnim = GetComponent<SkeletonAnimation>();
 				if( skelAnim != null ){
 					skelAnim.state.SetAnimation( 0, tapNames[currentTapIndex], looped );
+					playSound(currentTapIndex);
 				}
 			}
+		}
+	}
+
+	void playSound(int soundIndex){
+		switch (tag) {
+		case "LionHouse":
+			SoundManager.PlaySFX ("LionHouse_Tap");
+			break;
 		}
 	}
 }

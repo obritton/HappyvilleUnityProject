@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class ThoughtBubble : MonoBehaviour {
-
-	//TODO: Get rid of thought shape- just use the common pattern from matching foods and thoughts
+	
 	public GameObject thoughtShape;
 
 	public static int totalShapesUnlocked = 8;
@@ -13,41 +12,6 @@ public class ThoughtBubble : MonoBehaviour {
 		Rectangle, Oval,
 		None
 	};
-
-	public void configWithShape( ThoughtBubble.ThoughtShape thoughtShapeIn){
-		string skinName = "";
-		switch (thoughtShapeIn) {
-		case ThoughtBubble.ThoughtShape.Circle:
-			skinName = "Circle-shape";
-			break;
-		case ThoughtBubble.ThoughtShape.Diamond:
-			skinName = "Diamond-shape";
-			break;
-		case ThoughtBubble.ThoughtShape.HalfCircle:
-			skinName = "Half-Circle-shape";
-			break;
-		case ThoughtBubble.ThoughtShape.Oval:
-			skinName = "Oval-shape";
-			break;
-		case ThoughtBubble.ThoughtShape.Rectangle:
-			skinName = "Rectangle-shape";
-			break;
-		case ThoughtBubble.ThoughtShape.Square:
-			skinName = "Square-shape";
-			break;
-		case ThoughtBubble.ThoughtShape.Star:
-			skinName = "Star-shape";
-			break;
-		case ThoughtBubble.ThoughtShape.Triangle:
-			skinName = "Triangle-shape";
-			break;
-		default:
-			break;
-		}
-
-		SkeletonAnimation skelAnim = ((SkeletonAnimation)thoughtShape.GetComponent<SkeletonAnimation> ());
-		skelAnim.skeleton.SetSkin (skinName);
-	}
 
 	public IEnumerator popupShape()
 	{
