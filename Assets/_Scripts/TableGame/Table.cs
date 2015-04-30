@@ -97,6 +97,7 @@ public class Table : GameManagerBase {
 					iTween.Stop();
 					lastMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 					((SkeletonAnimation)food.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Grab", false);
+					SoundManager.PlaySFX ("Food_Grab");
 					((SkeletonAnimation)food.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Drag", true, 0);
 					break;
 				case "Character1":
@@ -630,6 +631,7 @@ public class Table : GameManagerBase {
 		yield return new WaitForSeconds (0);
 		food.transform.position = foodAnimOnStartPos.position;
 		iTween.MoveTo (food.gameObject, iTween.Hash ("time", 1, "position", foodAnimOnTargetPos, "islocal", false, "easetype", iTween.EaseType.easeOutElastic));
+		SoundManager.PlaySFX ("Food_Enter");
 		food.GetComponent<Renderer>().enabled = true;
 		StartCoroutine (delayedConditionalFoodPunch ());
 	}

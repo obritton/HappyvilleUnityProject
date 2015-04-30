@@ -20,11 +20,8 @@ public class CharacterTapManager : MonoBehaviour {
 					skelAnim.state.SetAnimation( 0, tapName, false );
 					skelAnim.state.AddAnimation( 0, "Idle", true, 0 );
 
-					switch( gameObject.tag ){
-					case "MenuBunny":
-						SoundManager.PlaySFX("MenuBunny_" + tapName);
-						break;
-					}
+					string soundName = gameObject.tag + "_" + tapName;
+					SoundManager.PlaySFX (soundName);
 				}
 			}
 		}

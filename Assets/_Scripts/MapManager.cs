@@ -36,8 +36,8 @@ public class MapManager : MonoBehaviour {
 				mapDenizenArr[i].state.AddAnimation(0, "Idle", true, 0);
 			}
 			else{
-				if( i > 0 )
-					mapDenizenArr[i].state.SetAnimation( 0, "Sleep", true );
+//				if( i > 0 )
+//					mapDenizenArr[i].state.SetAnimation( 0, "Sleep", true );
 			}
 		}
 	}

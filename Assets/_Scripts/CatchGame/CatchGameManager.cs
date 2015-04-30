@@ -52,13 +52,15 @@ public class CatchGameManager : FrenziableGame {
 		yield return new WaitForSeconds( 3 );
 		while (gameMode == CatchGameMode.WaitForStart) {
 			makeLionPoint();
+			SoundManager.PlaySFX("Lion_Point");
 			yield return new WaitForSeconds( 8 );
 		}
 	}
 
 	void makeLionPoint(){
-		lion.state.SetAnimation (0, "Point", false);
+		TrackEntry te = lion.state.SetAnimation (0, "Point", false);
 		lion.state.AddAnimation (0, "Wait", true, 0);
+		SoundManager.PlaySFX ("Lion_Wait", false, te.animation.duration);
 	}
 
 	AudioSource music = null;
@@ -70,6 +72,7 @@ public class CatchGameManager : FrenziableGame {
 			TrackEntry te = startBtn.state.SetAnimation (0, "Tap", false);
 			StartCoroutine (delayedButtonMove (te.animation.duration));
 			te = lion.state.SetAnimation (0, "Start", false);
+			SoundManager.PlaySFX ("Lion_Start");
 			lion.state.AddAnimation (0, "Walk", true, 0);
 			StartCoroutine (delayedGameStart (te.animation.duration));
 		}
@@ -99,6 +102,7 @@ public class CatchGameManager : FrenziableGame {
 	}
 
 	IEnumerator animateReturnToNormal(){
+		windAS.Stop ();
 		SoundManager.PlaySFX("ChangeFrom_SuperLion", false, 0);
 		float duration = 0;
 		canLionAnimate = false;
@@ -152,12 +156,20 @@ public class CatchGameManager : FrenziableGame {
 	//---------- ---------- ---------- ---------- ---------- -- FRENZY MODE ----------
 	public GameObject vertCloudPrefab;
 
+	AudioSource windAS = null;
 	public override void startFrenzy(){
 		gameMode = CatchGameMode.Frenzy;
 		StartCoroutine (animateFrenzyStart ());
 		foodDropper.startFrenzyMode ();
 		StartCoroutine (returnToNormalMode ());
 		timerAndMeter.pausePieChart ();
+	}
+
+	void playWindAfterDelay( float delay ){
+		if (windAS == null)
+			windAS = SoundManager.PlaySFX ("SuperLion_Fly", true, delay);
+		else
+			windAS.Play();
 	}
 
 	bool canLionAnimate = true;
@@ -176,6 +188,7 @@ public class CatchGameManager : FrenziableGame {
 		fruitKiller.explodeAllLiveFoodAway ();
 		lion.state.AddAnimation (0, "Fly", true, 0);
 		yield return new WaitForSeconds (duration);
+		playWindAfterDelay(0);
 		StartCoroutine (dropShrinkClouds ());
 		canLionAnimate = true;
 	}
@@ -240,7 +253,7 @@ public class CatchGameManager : FrenziableGame {
 		gameMode = CatchGameMode.Results;
 		if( music != null )
 			music.Stop ();
-		SoundManager.PlaySFX("OLDEndWin", false, 0);
+		SoundManager.PlaySFX("Scoreboard_Populate", false, 0);
 //		foodDropper.dropperMode = FoodDropper.DropperMode.Inactive;
 //		fruitKiller.explodeAllLiveFoodAway ();
 		catchResults.showResults ( totalFruits, totalCandies, timerAndMeter.getScore());

@@ -26,6 +26,7 @@ public class ExitButtonManager : MonoBehaviour {
 			if( mousePick() == gameObject ){
 				touchDownInside = true;
 				changeTexture(true);
+				SoundManager.PlaySFX("StartButton_Tap");
 			}
 		}
 		
