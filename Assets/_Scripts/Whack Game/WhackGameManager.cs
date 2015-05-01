@@ -110,6 +110,7 @@ public class WhackGameManager : FrenziableGame {
 					SoundManager.PlaySFX("Bunny_StartDuck");
 					StartCoroutine(delayedGameStart(te.animation.duration));
 					isGameStarted = true;
+					base.startTimer ();
 				}
 				else if( isGameStarted ){
 					handleMashIndex(int.Parse( touchedGO.name ));

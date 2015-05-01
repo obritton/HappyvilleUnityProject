@@ -444,11 +444,12 @@ public class Table : GameManagerBase {
 		return setAnimForAll ("TapTable");
 	}
 
-	public float jumpAllPlates(){
+	public float jumpAllPlates( bool playSound = true ){
 		TrackEntry te = null;
 		for (int i = 0; i < 3; i++) {
 			te = ((SkeletonAnimation)tableSpotArr[i].plate.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Bounce", false);
-			SoundManager.PlaySFX("TablePlate_Bounce");
+			if( playSound )
+				SoundManager.PlaySFX("TablePlate_Bounce");
 		}
 		
 		return te.animation.duration;
@@ -467,7 +468,7 @@ public class Table : GameManagerBase {
 			yield return new WaitForSeconds (delay);
 			delay = makeAllTap ();
 			addIdelForAll ();
-			jumpAllPlates ();
+			jumpAllPlates (false);
 			yield return new WaitForSeconds (delay);
 			isFoodDragging = false;
 			createMatchingFood ();

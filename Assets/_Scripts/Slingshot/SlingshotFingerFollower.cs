@@ -11,6 +11,7 @@ public class SlingshotFingerFollower : MonoBehaviour {
 	Vector3 fruitStartPos;
 	Vector3 jumpFromPos;
 	public List<GameObject> targets;
+	public GameObject normalModeWalls;
 
 	public static bool hasGameStarted = false;
 	void Start(){
@@ -20,6 +21,20 @@ public class SlingshotFingerFollower : MonoBehaviour {
 		hasGameStarted = false;
 		ConvFuncs.setRandomSkin(fruit.GetComponent<SkeletonAnimation>());
 		StartCoroutine (loopPopupFish());
+	}
+
+	public void startFrenzy(){
+		foreach (GameObject target in targets) {
+			target.GetComponent<Rigidbody>().velocity = Vector3.zero;
+		}
+		normalModeWalls.SetActive (false);
+	}
+
+	public void endFrenzy(){
+		normalModeWalls.SetActive (true);
+		foreach (GameObject target in targets) {
+			target.GetComponent<SlingTarget>().startVelocity();
+		}
 	}
 
 	bool loopFish = false;
@@ -108,7 +123,8 @@ public class SlingshotFingerFollower : MonoBehaviour {
 		//MOUSE DOWN
 		if (hasGameStarted && Input.GetMouseButtonDown (0)) {
 			GameObject pickedGO = mousePick ();
-			if (pickedGO != null && pickedGO.tag == "food") {
+//			print ("pickedGO: " + (pickedGO == null ? "NULL" : pickedGO.name));
+			if (pickedGO != null && (pickedGO.tag == "FruitSkingshotStart" || pickedGO.tag == "food")) {
 				isDragging = true;
 				fruit.GetComponent<Rigidbody> ().isKinematic = true;
 			}
@@ -118,14 +134,20 @@ public class SlingshotFingerFollower : MonoBehaviour {
 		if (hasGameStarted && isDragging && Input.GetMouseButton (0)) {
 			Vector3 touchPos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 
-			if (touchPos.x < -100)
-					touchPos.x = -100;
-			if (touchPos.x > 100)
-					touchPos.x = 100;
 			if (touchPos.y < -500)
-					touchPos.y = -500;
+				touchPos.y = -500;
 			if (touchPos.y > -250)
-					touchPos.y = -250;
+				touchPos.y = -250;
+//			if (touchPos.x < -300)
+//				touchPos.x = -300;
+//			if (touchPos.x > 300)
+//				touchPos.x = 300;
+//			if (touchPos.x < touchPos.y/2)
+//				touchPos.x = touchPos.y/2;
+//			if (touchPos.x > 300)
+//				touchPos.x = 300;
+			if( -Mathf.Abs (touchPos.x) < touchPos.y/2)
+				touchPos.x = touchPos.y/2 * -Mathf.Sign(touchPos.x);
 
 			float xWidth = touchPos.x + halfSlingW;
 			float yHeight = touchPos.y + 210;
@@ -177,6 +199,7 @@ public class SlingshotFingerFollower : MonoBehaviour {
 
 				launchFruit ();
 			}
+			isDragging = false;
 		}
 	}
 
