@@ -14,6 +14,8 @@ public class SlingshotFingerFollower : MonoBehaviour {
 	public GameObject normalModeWalls;
 
 	public static bool hasGameStarted = false;
+	public static bool showingResults = false;
+
 	void Start(){
 		fruitStartPos = fruit.localPosition;
 		jumpFromPos = fruitStartPos;
@@ -23,17 +25,26 @@ public class SlingshotFingerFollower : MonoBehaviour {
 		StartCoroutine (loopPopupFish());
 	}
 
+	public void initiateResults(){
+		showingResults = true;
+	}
+
 	public void startFrenzy(){
 		foreach (GameObject target in targets) {
 			target.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		}
 		normalModeWalls.SetActive (false);
+		StartCoroutine (endFrenzy ());
 	}
 
-	public void endFrenzy(){
+	IEnumerator endFrenzy(){
+		yield return new WaitForSeconds (20);
 		normalModeWalls.SetActive (true);
 		foreach (GameObject target in targets) {
 			target.GetComponent<SlingTarget>().startVelocity();
+			if( target.tag == "WaterTarget" ){
+				target.GetComponent<SkeletonAnimation>().state.SetAnimation(0,"Idle",true);
+			}
 		}
 	}
 
@@ -93,6 +104,7 @@ public class SlingshotFingerFollower : MonoBehaviour {
 
 	public void resetFruit(){
 //		print ("resetFruit");
+		fruit.GetComponent<Collider> ().enabled = false;
 		fruit.GetComponent<Renderer> ().enabled = true;
 		fruit.GetComponent<Rigidbody> ().useGravity = false;
 		fruit.localPosition = Vector3.zero;
@@ -121,7 +133,7 @@ public class SlingshotFingerFollower : MonoBehaviour {
 	void Update () {
 
 		//MOUSE DOWN
-		if (hasGameStarted && Input.GetMouseButtonDown (0)) {
+		if (hasGameStarted && !showingResults && Input.GetMouseButtonDown (0)) {
 			GameObject pickedGO = mousePick ();
 //			print ("pickedGO: " + (pickedGO == null ? "NULL" : pickedGO.name));
 			if (pickedGO != null && (pickedGO.tag == "FruitSkingshotStart" || pickedGO.tag == "food")) {
@@ -131,21 +143,13 @@ public class SlingshotFingerFollower : MonoBehaviour {
 		}
 
 		//MOUSE MOVED
-		if (hasGameStarted && isDragging && Input.GetMouseButton (0)) {
+		if (hasGameStarted && !showingResults && isDragging && Input.GetMouseButton (0)) {
 			Vector3 touchPos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 
 			if (touchPos.y < -500)
 				touchPos.y = -500;
 			if (touchPos.y > -250)
 				touchPos.y = -250;
-//			if (touchPos.x < -300)
-//				touchPos.x = -300;
-//			if (touchPos.x > 300)
-//				touchPos.x = 300;
-//			if (touchPos.x < touchPos.y/2)
-//				touchPos.x = touchPos.y/2;
-//			if (touchPos.x > 300)
-//				touchPos.x = 300;
 			if( -Mathf.Abs (touchPos.x) < touchPos.y/2)
 				touchPos.x = touchPos.y/2 * -Mathf.Sign(touchPos.x);
 
@@ -189,7 +193,7 @@ public class SlingshotFingerFollower : MonoBehaviour {
 
 		//MOUSE UP
 		if (Input.GetMouseButtonUp (0)) {
-			if (hasGameStarted && isDragging ) {
+			if (hasGameStarted && !showingResults && isDragging ) {
 				float time = 1;
 				iTween.EaseType easetype = iTween.EaseType.easeOutElastic;
 				iTween.MoveTo (bandLeftHalf.gameObject, iTween.Hash ("position", new Vector3 (-81.85f, 337.157f, 0), "islocal", true, "time", time, "easetype", easetype));
@@ -213,6 +217,7 @@ public class SlingshotFingerFollower : MonoBehaviour {
 		dir = dir.normalized * 5000;
 //		print ("  - - - dir: " + dir);
 		fruit.GetComponent<Rigidbody> ().AddForce (dir);
+		fruit.GetComponent<Collider> ().enabled = true;
 //		fruit.GetComponent<Rigidbody> ().AddTorque (Vector3.back * 1000000);
 //		iTween.ScaleTo (fruit.gameObject, iTween.Hash ("scale", Vector3.one*0.25f, "time", 3, "easetype", iTween.EaseType.linear));
 	}

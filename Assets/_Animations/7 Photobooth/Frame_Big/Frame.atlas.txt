@@ -1,0 +1,13 @@
+
+Frame.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Assets/Frame_Big
+  rotate: false
+  xy: 2, 2
+  size: 1037, 1443
+  orig: 1037, 1444
+  offset: 0, 1
+  index: -1

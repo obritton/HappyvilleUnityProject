@@ -6,35 +6,49 @@ filter: Linear,Linear
 repeat: none
 _assets/Sign/Burst
   rotate: false
-  xy: 1193, 1199
+  xy: 1193, 1424
   size: 525, 525
   orig: 525, 525
   offset: 0, 0
   index: -1
 _assets/Sign/Candy
   rotate: false
-  xy: 2, 2
+  xy: 1193, 1243
   size: 207, 179
   orig: 207, 179
   offset: 0, 0
   index: -1
+_assets/Sign/Characters
+  rotate: false
+  xy: 2, 194
+  size: 206, 212
+  orig: 206, 212
+  offset: 0, 0
+  index: -1
 _assets/Sign/Food
   rotate: false
-  xy: 1193, 1036
+  xy: 1720, 1788
   size: 225, 161
   orig: 225, 161
   offset: 0, 0
   index: -1
 _assets/Sign/Scoreboard
   rotate: false
-  xy: 2, 183
+  xy: 2, 408
   size: 1189, 1541
   orig: 1189, 1541
   offset: 0, 0
   index: -1
+_assets/Sign/Target
+  rotate: false
+  xy: 2, 2
+  size: 180, 190
+  orig: 180, 190
+  offset: 0, 0
+  index: -1
 _assets/Sign/Your_Score
-  rotate: true
-  xy: 1720, 1395
+  rotate: false
+  xy: 210, 352
   size: 329, 54
   orig: 329, 84
   offset: 0, 20

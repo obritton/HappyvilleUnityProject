@@ -121,8 +121,11 @@ public class SlingshotGameManager : FrenziableGame {
 		StartCoroutine(panToFrenzy ());
 	}
 
+	public CatchResults catchResults;
 	public override void timerComplete ()
 	{
-	
+		print ("timerComplete");
+		fingerFollower.initiateResults ();
+		catchResults.showResults (10, 10, 85);
 	}
 }

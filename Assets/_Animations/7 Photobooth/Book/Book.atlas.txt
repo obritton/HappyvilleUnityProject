@@ -1,0 +1,27 @@
+
+Book.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Assets/Book
+  rotate: false
+  xy: 2, 2
+  size: 347, 461
+  orig: 347, 461
+  offset: 0, 0
+  index: -1
+Assets/Ray_Food
+  rotate: false
+  xy: 2, 465
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Assets/Shadow
+  rotate: false
+  xy: 599, 895
+  size: 419, 90
+  orig: 419, 90
+  offset: 0, 0
+  index: -1

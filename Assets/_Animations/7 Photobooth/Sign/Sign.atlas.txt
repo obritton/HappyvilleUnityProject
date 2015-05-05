@@ -1,0 +1,27 @@
+
+Sign.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Assets/Rope
+  rotate: true
+  xy: 2, 2
+  size: 15, 489
+  orig: 15, 489
+  offset: 0, 0
+  index: -1
+Assets/Sign
+  rotate: false
+  xy: 2, 19
+  size: 950, 317
+  orig: 950, 317
+  offset: 0, 0
+  index: -1
+Assets/Sign_Shadow
+  rotate: false
+  xy: 954, 30
+  size: 950, 306
+  orig: 950, 306
+  offset: 0, 0
+  index: -1

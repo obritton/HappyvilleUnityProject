@@ -1,0 +1,20 @@
+
+Tray_Back.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Assets/Tray
+  rotate: false
+  xy: 2, 394
+  size: 1140, 538
+  orig: 1140, 538
+  offset: 0, 0
+  index: -1
+Assets/Tray_Back
+  rotate: false
+  xy: 2, 2
+  size: 1119, 390
+  orig: 1120, 390
+  offset: 0, 0
+  index: -1

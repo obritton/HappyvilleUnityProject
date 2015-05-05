@@ -1,0 +1,13 @@
+
+Curtain.png
+size: 1024,4096
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Assets/Curtain
+  rotate: false
+  xy: 2, 2
+  size: 801, 2301
+  orig: 801, 2301
+  offset: 0, 0
+  index: -1

@@ -33,6 +33,14 @@ public class SlingFruit : MonoBehaviour {
 			slingshotFF.hitFish(collision.transform.position);
 		}
 			break;
+		case "SlingshotFrenzyAnimal":
+		{
+			fingerFollower.resetFruit ();
+			slingshotFF.hitAnimal(collision.transform.position);
+			collision.collider.GetComponent<SkeletonAnimation>().state.SetAnimation(0,"Eat",false);
+			collision.collider.GetComponent<SkeletonAnimation>().state.AddAnimation(0,"Idle",true,0);
+		}
+			break;
 		case "SlingshotWalls":
 			fingerFollower.resetFruit ();
 			break;

@@ -39,6 +39,7 @@ public class Table : GameManagerBase {
 		string bgTxtStr = "TableGame/Level_" + (level+1) + "/TableGame_Background";
 		string tableTxtStr = "TableGame/Level_" + (level+1) + "/TableGame_Table";
 		Texture2D bgSpriteFromRsc = Resources.Load (bgTxtStr) as Texture2D;
+//		print ("bgSpriteFromRsc.height: " + bgSpriteFromRsc.height);
 		Texture2D tableSpriteFromRsc = Resources.Load (tableTxtStr) as Texture2D;
 
 		bgSprite.GetComponent<Renderer>().sharedMaterial.SetTexture ("_MainTex", bgSpriteFromRsc);

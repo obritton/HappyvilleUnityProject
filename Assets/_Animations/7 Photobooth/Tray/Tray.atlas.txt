@@ -1,0 +1,69 @@
+
+Tray.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Assets/Face_TabActive
+  rotate: false
+  xy: 2, 282
+  size: 274, 138
+  orig: 275, 138
+  offset: 0, 0
+  index: -1
+Assets/Face_TabInactive
+  rotate: false
+  xy: 1144, 822
+  size: 274, 138
+  orig: 275, 138
+  offset: 0, 0
+  index: -1
+Assets/Glasses_TabActive
+  rotate: false
+  xy: 2, 142
+  size: 274, 138
+  orig: 275, 138
+  offset: 0, 0
+  index: -1
+Assets/Glasses_TabInactive
+  rotate: false
+  xy: 278, 282
+  size: 274, 138
+  orig: 275, 138
+  offset: 0, 0
+  index: -1
+Assets/Hat_TabInactive
+  rotate: false
+  xy: 1144, 682
+  size: 274, 138
+  orig: 275, 138
+  offset: 0, 0
+  index: -1
+Assets/Hat_Tab_Active
+  rotate: false
+  xy: 1420, 822
+  size: 274, 138
+  orig: 275, 138
+  offset: 0, 0
+  index: -1
+Assets/Head_TabActive
+  rotate: false
+  xy: 2, 2
+  size: 274, 138
+  orig: 275, 138
+  offset: 0, 0
+  index: -1
+Assets/Head_TabInactive
+  rotate: false
+  xy: 278, 142
+  size: 274, 138
+  orig: 275, 138
+  offset: 0, 0
+  index: -1
+Assets/Tray
+  rotate: false
+  xy: 2, 422
+  size: 1140, 538
+  orig: 1140, 538
+  offset: 0, 0
+  index: -1

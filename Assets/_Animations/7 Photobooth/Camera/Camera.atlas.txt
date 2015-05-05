@@ -1,0 +1,76 @@
+
+Camera.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Assets/Body_Camera
+  rotate: false
+  xy: 2, 238
+  size: 333, 249
+  orig: 333, 249
+  offset: 0, 0
+  index: -1
+Assets/Bottom_Camera
+  rotate: false
+  xy: 337, 340
+  size: 147, 147
+  orig: 147, 147
+  offset: 0, 0
+  index: -1
+Assets/Eye_Camera
+  rotate: false
+  xy: 2, 2
+  size: 38, 38
+  orig: 38, 38
+  offset: 0, 0
+  index: -1
+Assets/Foot_Camera
+  rotate: false
+  xy: 337, 314
+  size: 48, 24
+  orig: 48, 24
+  offset: 0, 0
+  index: -1
+Assets/Leg_Camera
+  rotate: false
+  xy: 2, 42
+  size: 146, 194
+  orig: 146, 195
+  offset: 0, 1
+  index: -1
+Assets/Leg_Middle_Camera
+  rotate: false
+  xy: 150, 71
+  size: 27, 165
+  orig: 27, 165
+  offset: 0, 0
+  index: -1
+Assets/Lens_Camera
+  rotate: false
+  xy: 599, 782
+  size: 135, 135
+  orig: 135, 135
+  offset: 0, 0
+  index: -1
+Assets/Pupil_Camera
+  rotate: false
+  xy: 486, 470
+  size: 17, 17
+  orig: 17, 17
+  offset: 0, 0
+  index: -1
+Assets/Ray_Food
+  rotate: false
+  xy: 2, 489
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Assets/Shadow
+  rotate: false
+  xy: 599, 919
+  size: 419, 90
+  orig: 419, 90
+  offset: 0, 0
+  index: -1
