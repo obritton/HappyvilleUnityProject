@@ -1,0 +1,55 @@
+
+Sign_Puzzle.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+_Assets/Sign/Eye_Closed_Sign
+  rotate: false
+  xy: 2, 2
+  size: 58, 22
+  orig: 58, 22
+  offset: 0, 0
+  index: -1
+_Assets/Sign/Eye_Sign
+  rotate: false
+  xy: 944, 459
+  size: 45, 45
+  orig: 45, 45
+  offset: 0, 0
+  index: -1
+_Assets/Sign/Pupil_Sign
+  rotate: false
+  xy: 900, 305
+  size: 21, 21
+  orig: 21, 21
+  offset: 0, 0
+  index: -1
+_Assets/Sign/Puzzle_Sign
+  rotate: false
+  xy: 2, 41
+  size: 447, 463
+  orig: 447, 464
+  offset: 0, 1
+  index: -1
+_Assets/Sign/Shadow_Sign
+  rotate: false
+  xy: 451, 57
+  size: 447, 447
+  orig: 447, 447
+  offset: 0, 0
+  index: -1
+_Assets/Sign/Smile_Sign
+  rotate: true
+  xy: 900, 328
+  size: 176, 42
+  orig: 176, 42
+  offset: 0, 0
+  index: -1
+_Assets/Sign/String_Puzzle
+  rotate: true
+  xy: 2, 26
+  size: 13, 409
+  orig: 13, 409
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,20 @@
+
+Border.png
+size: 4096,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+_Assets/Dots/Dots_Orange
+  rotate: false
+  xy: 2, 2
+  size: 1175, 1175
+  orig: 1175, 1175
+  offset: 0, 0
+  index: -1
+_Assets/Dots/Dots_Yellow
+  rotate: false
+  xy: 1179, 2
+  size: 1175, 1175
+  orig: 1175, 1175
+  offset: 0, 0
+  index: -1

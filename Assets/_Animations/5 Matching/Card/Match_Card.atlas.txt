@@ -1,0 +1,27 @@
+
+Match_Card.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+_Assets/Cards/Card_6
+  rotate: false
+  xy: 686, 22
+  size: 318, 448
+  orig: 318, 448
+  offset: 0, 0
+  index: -1
+_Assets/Cards/Card_Shadow_Large
+  rotate: false
+  xy: 2, 2
+  size: 340, 468
+  orig: 340, 468
+  offset: 0, 0
+  index: -1
+_Assets/Cards/Frame_Large
+  rotate: false
+  xy: 344, 2
+  size: 340, 468
+  orig: 340, 468
+  offset: 0, 0
+  index: -1

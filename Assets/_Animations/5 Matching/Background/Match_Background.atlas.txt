@@ -1,0 +1,20 @@
+
+Match_Background.png
+size: 4096,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+_Assets/Background/Background_Circle_White
+  rotate: false
+  xy: 2276, 188
+  size: 1350, 1350
+  orig: 1354, 1354
+  offset: 2, 2
+  index: -1
+_Assets/Background/Background_White
+  rotate: true
+  xy: 2, 2
+  size: 1536, 2272
+  orig: 1536, 2272
+  offset: 0, 0
+  index: -1
