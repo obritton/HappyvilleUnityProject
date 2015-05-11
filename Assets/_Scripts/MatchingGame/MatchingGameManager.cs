@@ -25,7 +25,8 @@ public class MatchingGameManager : GameManagerBase {
 		currentTurn++;
 		int frontIndex = currentTurn % 2;
 		cardFRONTArr [frontIndex].transform.parent = card.transform;
-		cardFRONTArr [frontIndex].transform.localPosition = new Vector3 (0, 1, 0);
+//		cardFRONTArr [frontIndex].transform.localPosition = new Vector3 (0, 1, 0);
+		cardFRONTArr [frontIndex].transform.localPosition = new Vector3 (-.06f, 1, 3.6f	);
 		cardFRONTArr [frontIndex].transform.localRotation = new Quaternion (0, 180, 0, 1);
 		iTween.RotateBy( card, iTween.Hash("y", 0.5f));
 	}
