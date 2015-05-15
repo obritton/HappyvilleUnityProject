@@ -31,6 +31,8 @@ public class HouseTapManager : MonoBehaviour {
 	void playSound(int soundIndex){
 		switch (tag) {
 		case "LionHouse":
+		case "FoxHouse":
+		case "BunnyHouse":
 			SoundManager.PlaySFX ("LionHouse_Tap");
 			break;
 		}

@@ -254,8 +254,8 @@ public class CatchGameManager : FrenziableGame {
 		if( music != null )
 			music.Stop ();
 		SoundManager.PlaySFX("Scoreboard_Populate", false, 0);
-//		foodDropper.dropperMode = FoodDropper.DropperMode.Inactive;
-//		fruitKiller.explodeAllLiveFoodAway ();
+		foodDropper.dropperMode = FoodDropper.DropperMode.Inactive;
+		fruitKiller.explodeAllLiveFoodAway ();
 		catchResults.showResults ( totalFruits, totalCandies, timerAndMeter.getScore());
 		timerAndMeter.moveUp ();
 		canLionAnimate = false;

@@ -330,7 +330,7 @@ public class Table : GameManagerBase {
 		SoundManager.PlaySFX ("Thought_Correct");
 		yield return new WaitForSeconds (te.animation.duration);
 		for (int i = 0; i < 3; i++) {
-			if( i == plateIndex || totalCorrects >= 12) {
+			if( i == plateIndex || totalCorrects >= 10) {
 				te = ((SkeletonAnimation)tableSpotArr[i].thoughtBubble.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Leave-thought", false);
 				((SkeletonAnimation)tableSpotArr[i].thoughtBubble.thoughtShape.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Leave-shape", false);
 				SoundManager.PlaySFX("Thought_Leave");
@@ -355,7 +355,7 @@ public class Table : GameManagerBase {
 		StartCoroutine (playSoundForAnimal ("ThankYou", animalName, eatTe.animation.duration));
 		SoundManager.PlaySFX ("OLDTableRight" + Random.Range (0, 5),false,2,1,1+Random.Range (0.0f,0.5f));
 		scoreBoard.addStar ();
-		if (totalCorrects < 12) {
+		if (totalCorrects < 10) {
 			duration += te.animation.duration;
 			yield return new WaitForSeconds (duration);
 			SoundManager.PlaySFX("Character_Leave");
@@ -625,6 +625,7 @@ public class Table : GameManagerBase {
 				FoodManager.setRandomFoodSkinForLevel (foodFromPrefab, level + 1, skinName);
 			}
 		}
+
 //		foodColor = crumbColorer.getColorForFood (foodSkinName);
 
 	}

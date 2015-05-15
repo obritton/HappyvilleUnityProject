@@ -5,20 +5,31 @@ using Spine;
 public class MatchingTableManager : MonoBehaviour {
 
 	public GameObject[] cardFRONTArr;
-	int currentTurn = 0;
+	int currentTurn = 1;
+	GameObject[] cardsInPlayArr;
+
+	public GameObject[] allCardsArr;
+
+	void Start(){
+		cardsInPlayArr = new GameObject[2];
+	}
+
 	void Update()
 	{
 		if (Input.GetMouseButtonDown (0)) {
 			GameObject pickedGO = mousePick ();
-			if (pickedGO != null && pickedGO.tag == "MatchCard") {
+			if (pickedGO != null && pickedGO.tag == "MatchCard" && !pickedGO.GetComponent<MatchingCard>().isInUse) {
 				flipCard( pickedGO );
 			}
 		}
 	}
-
+	
 	public void flipCard( GameObject card ){
+		card.GetComponent<MatchingCard> ().isInUse = true;
+
 		currentTurn++;
 		int frontIndex = currentTurn % 2;
+		cardsInPlayArr [frontIndex] = card;
 		Transform characterNode = card.transform.Find ("Card SkeletonAnimation/SkeletonUtility-Root/root/Frame_Card");
 
 		cardFRONTArr [frontIndex].gameObject.SetActive (false);
@@ -29,13 +40,33 @@ public class MatchingTableManager : MonoBehaviour {
 		SkeletonAnimation skelAnim = card.transform.GetChild (0).GetComponent<SkeletonAnimation> ();
 		TrackEntry te = skelAnim.state.SetAnimation (0, "animation", false);
 
-
-		StartCoroutine (delayedGameObjectActivate (te.animation.duration/3.0f, cardFRONTArr [frontIndex].gameObject));
+		StartCoroutine (delayedGameObjectActivate (te.animation.duration/3.0f, cardFRONTArr [frontIndex].gameObject, frontIndex == 1));
+		if (frontIndex == 1) {
+			StartCoroutine(endTurn(te.animation.duration));
+		}
 	}
 
-	IEnumerator delayedGameObjectActivate( float delay, GameObject go ){
+	IEnumerator endTurn( float delay  = 0){
+		yield return new WaitForSeconds (delay);
+
+//		StartCoroutine (animateMatchAndExit ());
+		StartCoroutine (animateMismatch ());
+	}
+
+	IEnumerator animateMismatch(){
+		yield return new WaitForSeconds (1);
+	}
+
+	IEnumerator animateMatchAndExit(){
+		yield return new WaitForSeconds (1);
+	}
+
+	IEnumerator delayedGameObjectActivate( float delay, GameObject go, bool isSecondTurn ){
 		yield return new WaitForSeconds (delay);
 		go.SetActive (true);
+		if (!isSecondTurn) {
+			yield return new WaitForSeconds (delay);
+		}
 	}
 
 	GameObject mousePick(){

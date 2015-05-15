@@ -254,11 +254,11 @@ public class MapManager : MonoBehaviour {
 	}
 
 	AudioSource music = null;
-	AudioSource swaySound = null;
+//	AudioSource swaySound = null;
 	IEnumerator makeCharactersCheer(){
 		if (currentPage == 0) {
-						SoundManager.PlaySFX ("OLDGameStartCheer");
-			swaySound = SoundManager.PlaySFX ("GoSign_Sway", true);
+//						SoundManager.PlaySFX ("OLDGameStartCheer");
+//			swaySound = SoundManager.PlaySFX ("GoSign_Sway", true);
 				}
 		TrackEntry trackEntry = ((SkeletonAnimation)bird.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Cheer-brd", false);
 		((SkeletonAnimation)bird.GetComponent<SkeletonAnimation> ()).state.AddAnimation(0, "Idle-brd", true, 0);
@@ -569,10 +569,10 @@ public class MapManager : MonoBehaviour {
 
 //		toggleSnore (pageIndex >= 2);
 
-		if (swaySound != null) {
-			float volume = (pageIndex == 0) ? 100 : 0;
-						swaySound.volume = volume;
-				}
+//		if (swaySound != null) {
+//			float volume = (pageIndex == 0) ? 100 : 0;
+//						swaySound.volume = volume;
+//				}
 
 		if (popupAS != null)
 			popupAS.volume = (currentPage == 0) ? 100 : 0;
