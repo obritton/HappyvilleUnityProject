@@ -44,7 +44,7 @@ public class FoodManager : MonoBehaviour {
 	}
 
 	public static void setRandomFoodSkinForLevel( GameObject food, int level, string thoughtSkinName ){
-//		print ("thoughtSkinName: " + thoughtSkinName + ", level: " + level);
+		print ("thoughtSkinName: " + thoughtSkinName + ", level: " + level);
 		string foodSkinName = "";
 		List<Skin> foodNameOptions = new List<Skin> ();
 		Food foodComp = food.GetComponent<Food> ();
@@ -53,7 +53,7 @@ public class FoodManager : MonoBehaviour {
 		if (skelAnim != null) {
 			foodNameOptions = skelAnim.state.Data.SkeletonData.Skins;
 		}
-
+		print ("setRandomFood... 1");
 		switch (level) {
 		case 1://FOOD after last dash = THOUGHT before first dash
 		{
@@ -84,7 +84,7 @@ public class FoodManager : MonoBehaviour {
 			foreach( Skin skin in foodNameOptions ){
 				if( skin.name != "default" ){
 					string foodKey = skin.name;
-					if( foodKey == thoughtSkinName){
+					if( string.Equals(thoughtSkinName,foodKey, System.StringComparison.OrdinalIgnoreCase)){
 						foodOptions.Add(skin.name);
 		}}}}
 			break;
@@ -95,7 +95,7 @@ public class FoodManager : MonoBehaviour {
 			foreach( Skin skin in foodNameOptions ){
 				if( skin.name != "default" ){
 					string foodKey = skin.name.Substring(0,2);
-					if( string.Equals(thoughtKey,foodKey,System.StringComparison.OrdinalIgnoreCase)){
+					if( string.Equals(thoughtKey,foodKey, System.StringComparison.OrdinalIgnoreCase)){
 						foodOptions.Add(skin.name);
 		}}}}
 			break;
@@ -104,8 +104,10 @@ public class FoodManager : MonoBehaviour {
 			string[] thoughtTokenArr = thoughtSkinName.Split("-"[0]);
 			string thoughtKey = thoughtTokenArr[thoughtTokenArr.Length-2];
 			thoughtKey = thoughtKey.Substring(thoughtKey.Length-3, 3);
+			print ("13 thoughtKey: " + thoughtKey);
 			foreach( Skin skin in foodNameOptions ){
 				if( skin.name != "default" ){
+//					print ("  skin.name: " + skin.name);
 					string[] foodTokenArr = skin.name.Split("-"[0]);
 					string foodKey = foodTokenArr[foodTokenArr.Length-2];
 					foodKey = foodKey.Substring(foodKey.Length-3, 3);
@@ -121,6 +123,7 @@ public class FoodManager : MonoBehaviour {
 				if( skin.name != "default" ){
 					int foodKey = int.Parse(skin.name);
 					if( foodKey == thoughtKey){
+//					if( string.Equals(thoughtKey,foodKey,System.StringComparison.OrdinalIgnoreCase)){
 						foodOptions.Add(skin.name);
 		}}}}
 			break;

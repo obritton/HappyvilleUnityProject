@@ -7,7 +7,9 @@ public class PuzzleGameManager : GameManagerBase {
 	public Transform[] puzzleNodeArr;
 
 	public GameObject[] characterPrefabArr;
+	public Texture2D[] textureArr;
 	public SkeletonAnimation currentPuzzleCharacter;
+	public Renderer camBGRenderer;
 
 	public GameObject[] puzzlePieceArr;
 	// Use this for initialization
@@ -141,6 +143,9 @@ public class PuzzleGameManager : GameManagerBase {
 			iTween.MoveTo( piece, iTween.Hash ( "position", Vector3.zero, "islocal", true, "easetype", iTween.EaseType.easeOutBounce, "time", time,
 			                                   "oncomplete", "pushBack", "oncompletetarget", gameObject));
 		}
+
+		if (checkForWin ())
+			StartCoroutine(doWin ());
 	}
 
 	ArrayList getOpenNodesIn( Transform[] nodes ){
@@ -193,10 +198,36 @@ public class PuzzleGameManager : GameManagerBase {
 		newAnimal.transform.localScale = Vector3.one * 2.8f;
 		Destroy (currentPuzzleCharacter.gameObject);
 		currentPuzzleCharacter = newAnimal.GetComponent<SkeletonAnimation>();
+
+		camBGRenderer.material.SetTexture ("_MainTex", textureArr [newAnimalIndex]);
 	}
 
-	void doWin(){
+	bool checkForWin(){
+		foreach (Transform node in puzzleNodeArr) {
+			if( node.childCount == 0 ){
+				return false;
+			}else{
+				string[] nodeNameArr = node.name.Split("n"[0]);
+				string[] childNameArr = node.GetChild(0).name.Split("_"[0]);
+				int nodeNumber = int.Parse(nodeNameArr[1]);
+				int childNumber = int.Parse (childNameArr[1]);
+
+				if( nodeNumber != 10 - childNumber )
+					return false;
+			}
+		}
+
+		return true;
+	}
+
+	public GameObject borderLights;
+	public GameObject confettiSystem;
+	IEnumerator doWin(){
 		base.doWin ();
+		hasGameStarted = false;
+		confettiSystem.SetActive (true);
+		yield return new WaitForSeconds (1);
+		borderLights.SetActive (true);
 	}
 
 	GameObject mousePick(){

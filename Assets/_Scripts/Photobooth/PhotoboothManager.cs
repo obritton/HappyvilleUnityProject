@@ -29,12 +29,6 @@ public class PhotoboothManager : GameManagerBase {
 		tray.transform.Translate (Vector3.down*325);
 	}
 
-	string cameraReportStr = "";
-	public GUIStyle style;
-	void OnGUI(){
-		GUI.TextArea (new Rect (0, 0, Screen.width, Screen.height), cameraReportStr, style);
-	}
-
 	public SkeletonAnimation[] skelAnim;
 	void Update(){
 		if( Input.GetMouseButtonDown(0)){

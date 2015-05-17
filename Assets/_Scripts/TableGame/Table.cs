@@ -592,7 +592,7 @@ public class Table : GameManagerBase {
 		CharacterNode.CharacterType newCharacterType = createRandomCharacterTypeNotAtTable ();
 		string newThoughtStr = createRandomThoughtShapeNotAtTable ();
 		GameObject thoughtShape = tableSpotArr [spotIndex].transform.FindChild ("ThoughtShapeLoc").GetChild(0).gameObject;
-		thoughtShape.transform.localScale = thoughtShape.transform.localScale * 0.8f;
+		thoughtShape.transform.localScale = thoughtShape.transform.localScale;
 		thoughtShape.GetComponent<SkeletonAnimation> ().skeleton.SetSkin (newThoughtStr);
 		GameObject newCharacter = createCharacterForType ( newCharacterType );
 		float time = tableSpotArr [spotIndex].addNewCharacterOfType (newCharacterType, ThoughtBubble.ThoughtShape.None, newCharacter, newThoughtStr);

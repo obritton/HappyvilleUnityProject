@@ -339,7 +339,8 @@ public class WhackGameManager : FrenziableGame {
 		string fruitName = foodNamesArr [randomFruitIndex];
 		GameObject fruit = Instantiate (foodPrefab, Vector3.down * 1000, Quaternion.identity) as GameObject;
 		Vector3 localScale = fruit.transform.localScale;
-		localScale *= 0.8f;
+//		localScale *= 0.8f;
+		localScale *= 1.6f;
 		fruit.transform.localScale = localScale;
 		fruit.GetComponent<Collider> ().enabled = false;
 		SkeletonAnimation skelAnim = fruit.GetComponent<SkeletonAnimation> ();

@@ -377,7 +377,7 @@ public class MapManager : MonoBehaviour {
 					int buttonIndex = int.Parse( hit.collider.gameObject.name);
 					MapUnlockSystem.lastGamePlayed = MapUnlockSystem.GameType.TableGame;
 					MapUnlockSystem.lastTableGamePlayed = buttonIndex;
-					print ("buttonIndex: " + buttonIndex + ", MapUnlockSystem.tableGameCompleted(): " + MapUnlockSystem.tableGameCompleted());
+//					print ("buttonIndex: " + buttonIndex + ", MapUnlockSystem.tableGameCompleted(): " + MapUnlockSystem.tableGameCompleted());
 					if( buttonIndex <= MapUnlockSystem.tableGameCompleted() || MapUnlockSystem.shouldAutoUnlock)
 					{
 						Table.level = buttonIndex;

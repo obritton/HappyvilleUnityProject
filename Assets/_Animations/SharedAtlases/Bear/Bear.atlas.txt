@@ -1,0 +1,104 @@
+
+Bear.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Bear/Arm-bend
+  rotate: false
+  xy: 2, 2
+  size: 223, 167
+  orig: 223, 168
+  offset: 0, 1
+  index: -1
+Bear/Arm-curve
+  rotate: false
+  xy: 752, 373
+  size: 248, 125
+  orig: 248, 126
+  offset: 0, 1
+  index: -1
+Bear/Arm-straight
+  rotate: false
+  xy: 409, 140
+  size: 299, 47
+  orig: 299, 48
+  offset: 0, 1
+  index: -1
+Bear/Body-bear
+  rotate: true
+  xy: 409, 189
+  size: 309, 341
+  orig: 309, 341
+  offset: 0, 0
+  index: -1
+Bear/Ear-bear
+  rotate: false
+  xy: 752, 210
+  size: 98, 97
+  orig: 98, 98
+  offset: 0, 1
+  index: -1
+Bear/Eye-bear
+  rotate: false
+  xy: 852, 258
+  size: 49, 49
+  orig: 49, 49
+  offset: 0, 0
+  index: -1
+Bear/Eye-cls-bear
+  rotate: false
+  xy: 294, 99
+  size: 59, 21
+  orig: 59, 21
+  offset: 0, 0
+  index: -1
+Bear/Hand
+  rotate: false
+  xy: 227, 56
+  size: 65, 64
+  orig: 65, 65
+  offset: 0, 0
+  index: -1
+Bear/Head-bear
+  rotate: false
+  xy: 2, 171
+  size: 405, 327
+  orig: 405, 327
+  offset: 0, 0
+  index: -1
+Bear/Mouth-bear
+  rotate: false
+  xy: 227, 122
+  size: 159, 47
+  orig: 161, 47
+  offset: 0, 0
+  index: -1
+Bear/Mouth-o-bear
+  rotate: true
+  xy: 908, 313
+  size: 58, 87
+  orig: 58, 88
+  offset: 0, 1
+  index: -1
+Bear/Mouth-open-bear
+  rotate: false
+  xy: 752, 309
+  size: 154, 62
+  orig: 154, 63
+  offset: 0, 1
+  index: -1
+Bear/Nose-bear
+  rotate: false
+  xy: 227, 12
+  size: 42, 42
+  orig: 42, 42
+  offset: 0, 0
+  index: -1
+Bear/Pupil-bear
+  rotate: false
+  xy: 710, 160
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1

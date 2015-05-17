@@ -1,27 +1,48 @@
 
 Match_Card.png
-size: 1024,512
+size: 2048,512
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+_Assets/Cards/Card_12
+  rotate: false
+  xy: 1100, 16
+  size: 265, 371
+  orig: 265, 371
+  offset: 0, 0
+  index: -1
+_Assets/Cards/Card_16
+  rotate: false
+  xy: 1367, 16
+  size: 265, 371
+  orig: 265, 371
+  offset: 0, 0
+  index: -1
 _Assets/Cards/Card_6
   rotate: false
-  xy: 686, 22
-  size: 318, 448
-  orig: 318, 448
+  xy: 566, 13
+  size: 265, 374
+  orig: 265, 374
   offset: 0, 0
   index: -1
-_Assets/Cards/Card_Shadow_Large
+_Assets/Cards/Card_8
+  rotate: false
+  xy: 833, 16
+  size: 265, 371
+  orig: 265, 371
+  offset: 0, 0
+  index: -1
+_Assets/Cards/Card_Shadow_Small
   rotate: false
   xy: 2, 2
-  size: 340, 468
-  orig: 340, 468
+  size: 280, 385
+  orig: 280, 385
   offset: 0, 0
   index: -1
-_Assets/Cards/Frame_Large
+_Assets/Cards/Frame_Small
   rotate: false
-  xy: 344, 2
-  size: 340, 468
-  orig: 340, 468
+  xy: 284, 2
+  size: 280, 385
+  orig: 280, 385
   offset: 0, 0
   index: -1

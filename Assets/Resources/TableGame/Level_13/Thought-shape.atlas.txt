@@ -6,70 +6,63 @@ filter: Linear,Linear
 repeat: none
 Food/Assets/Universal/Ray_Food
   rotate: false
-  xy: 2, 486
+  xy: 2, 444
   size: 595, 520
   orig: 596, 520
   offset: 0, 0
   index: -1
 Thought_Shapes/Circle_Thought_Shape
   rotate: false
-  xy: 599, 587
+  xy: 599, 545
   size: 191, 192
   orig: 192, 192
   offset: 0, 0
   index: -1
 Thought_Shapes/Diamond_Thought_Shape
   rotate: false
-  xy: 2, 236
+  xy: 2, 194
   size: 248, 248
   orig: 248, 248
   offset: 0, 0
   index: -1
 Thought_Shapes/Half_Circle_Thought_Shape
   rotate: false
-  xy: 599, 480
+  xy: 252, 183
   size: 210, 105
   orig: 210, 105
   offset: 0, 0
   index: -1
 Thought_Shapes/Hexagon_Thought_Shape
   rotate: false
-  xy: 2, 44
+  xy: 2, 2
   size: 214, 190
   orig: 215, 190
   offset: 0, 0
   index: -1
-Thought_Shapes/Oval_Thought_Shape
-  rotate: false
-  xy: 252, 179
-  size: 231, 151
-  orig: 232, 151
-  offset: 0, 0
-  index: -1
 Thought_Shapes/Rectangle_Thought_Shape
   rotate: false
-  xy: 252, 332
+  xy: 252, 290
   size: 268, 152
   orig: 268, 152
   offset: 0, 0
   index: -1
 Thought_Shapes/Square_Thought_Shape
   rotate: false
-  xy: 838, 822
+  xy: 838, 780
   size: 184, 184
   orig: 184, 184
   offset: 0, 0
   index: -1
 Thought_Shapes/Star_Thought_Shape
   rotate: false
-  xy: 599, 781
+  xy: 599, 739
   size: 237, 225
   orig: 237, 226
   offset: 0, 1
   index: -1
 Thought_Shapes/Triangle_Thought_Shape
   rotate: false
-  xy: 218, 2
+  xy: 218, 6
   size: 200, 175
   orig: 200, 176
   offset: 0, 1
