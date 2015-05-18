@@ -9,10 +9,12 @@ public class MatchingTrayManager : MonoBehaviour {
 	public void setNewTable( int totalCards ){
 		foreach (MatchingTableManager tm in tableManagerArr) {
 			tm.transform.localPosition = Vector3.right * 1000;
+			tm.enabled = false;
 		}
 
 		currentTableManager = tableManagerArr [totalCards / 4 - 1];
-		currentTableManager.transform.localPosition = Vector3.zero;
+		currentTableManager.transform.localPosition = Vector3.forward * 900;
+		currentTableManager.enabled = true;
 	}
 
 	public MatchingGameManager gameManager;

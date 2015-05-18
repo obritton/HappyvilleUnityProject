@@ -1,27 +1,69 @@
 
 Door.png
-size: 2414,1544
+size: 4096,2048
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 Menu_Screens/Door/Door
   rotate: true
-  xy: 2, 2
+  xy: 2, 321
   size: 1540, 2280
   orig: 1540, 2280
   offset: 0, 0
   index: -1
 Menu_Screens/Door/Door_Knob
   rotate: false
-  xy: 2284, 1414
+  xy: 2284, 1733
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 Menu_Screens/Door/Door_Shadow
   rotate: false
-  xy: 2284, 1291
+  xy: 2, 27
   size: 128, 121
   orig: 128, 122
   offset: 0, 1
+  index: -1
+Menu_Screens/Door/Eye_cls_door
+  rotate: false
+  xy: 2, 2
+  size: 60, 23
+  orig: 64, 28
+  offset: 2, 3
+  index: -1
+Menu_Screens/Door/Eye_door
+  rotate: false
+  xy: 132, 116
+  size: 32, 32
+  orig: 34, 34
+  offset: 1, 1
+  index: -1
+Menu_Screens/Door/Happyville
+  rotate: false
+  xy: 2, 150
+  size: 681, 169
+  orig: 688, 174
+  offset: 4, 2
+  index: -1
+Menu_Screens/Door/Mouth_door
+  rotate: false
+  xy: 685, 277
+  size: 174, 42
+  orig: 178, 44
+  offset: 2, 1
+  index: -1
+Menu_Screens/Door/Mouth_o_door
+  rotate: false
+  xy: 2414, 1808
+  size: 53, 53
+  orig: 58, 58
+  offset: 2, 3
+  index: -1
+Menu_Screens/Door/Mouth_open_door
+  rotate: true
+  xy: 2284, 1565
+  size: 166, 43
+  orig: 170, 48
+  offset: 2, 3
   index: -1

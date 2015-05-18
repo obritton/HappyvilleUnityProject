@@ -17,10 +17,14 @@ public class MatchingTableManager : MonoBehaviour {
 
 	bool canTap = true;
 
+	public Transform[] cameraArr;
+	int cameraXOffset = 1500;
+
 	void Start(){
 		cardsInPlayArr = new GameObject[2];
 		cardScale = cardFRONTArr [0].transform.localScale;
 		cardFaceIndexArr = new int[allCardsArr.Length];
+		fillCardIndex ();
 	}
 
 	void fillCardIndex(){
@@ -29,23 +33,33 @@ public class MatchingTableManager : MonoBehaviour {
 		}
 
 		for (int i = 0; i < cardFaceIndexArr.Length/2; i++) {
-			int randomI = -1;
-			do{
-				randomI = Random.Range(0, 9);
-			}while( isContainedIn(randomI, cardFaceIndexArr));
-			cardFaceIndexArr[i] = randomI;
-			cardFaceIndexArr[i*2] = randomI;
+			int randomVal = Random.Range (0, 9);
+			while( isContainedIn( randomVal, cardFaceIndexArr)){
+				randomVal = Random.Range (0, 9);
+			}
+
+			int index1 = getRandomOpenIndexInCards();
+			cardFaceIndexArr[index1] = randomVal;
+			int index2 = getRandomOpenIndexInCards();
+			cardFaceIndexArr[index2] = randomVal;
 		}
 	}
 
-	bool isContainedIn( int testI, int[] arr ){
+	int getRandomOpenIndexInCards(){
+		int returnIndex = Random.Range (0, cardFaceIndexArr.Length);
+		do {
+			returnIndex = Random.Range (0, cardFaceIndexArr.Length);
+		} while( cardFaceIndexArr[returnIndex] != -1 );
 
+		return returnIndex;
+	}
+
+	bool isContainedIn( int testI, int[] arr ){
 		foreach (int i in arr) {
 			if( testI == i ){
 				return true;
 			}
 		}
-
 		return false;
 	}
 
@@ -71,6 +85,11 @@ public class MatchingTableManager : MonoBehaviour {
 		cardFRONTArr [frontIndex].transform.parent = characterNode;
 		cardFRONTArr [frontIndex].transform.localPosition = new Vector3 (0, 0, 0);
 		cardFRONTArr [frontIndex].transform.localRotation = new Quaternion (0, 0, 0, 1);
+
+		int cardIndex = int.Parse( card.name.Split (" " [0])[1]);
+		Vector3 position = cameraArr [frontIndex].localPosition;
+		position.x = cardFaceIndexArr[cardIndex] * cameraXOffset;
+		cameraArr [frontIndex].localPosition = position;
 
 		SkeletonAnimation skelAnim = card.transform.GetChild (0).GetComponent<SkeletonAnimation> ();
 		TrackEntry te = skelAnim.state.SetAnimation (0, "Tap", false);
@@ -99,8 +118,14 @@ public class MatchingTableManager : MonoBehaviour {
 	IEnumerator endTurn( float delay  = 0){
 		yield return new WaitForSeconds (delay);
 
-		StartCoroutine (animateMatchAndExit ());
-//		StartCoroutine (animateMismatch ());
+		int card0Index = int.Parse( cardsInPlayArr[0].name.Split (" " [0])[1]);
+		int card1Index = int.Parse( cardsInPlayArr[1].name.Split (" " [0])[1]);
+
+		if (cardFaceIndexArr[card0Index] == cardFaceIndexArr[card1Index]) {
+			StartCoroutine (animateMatchAndExit ());
+		}
+		else
+			StartCoroutine (animateMismatch ());
 	}
 
 	IEnumerator animateMismatch(){
@@ -161,7 +186,7 @@ public class MatchingTableManager : MonoBehaviour {
 
 	GameObject mousePick(){
 		RaycastHit hit;
-		if(Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 100))
+		if(Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 1000))
 			if( hit.collider )
 				return hit.collider.gameObject;
 		return null;

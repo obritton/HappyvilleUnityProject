@@ -7,14 +7,17 @@ public class DoorManager : MonoBehaviour {
 	public SkeletonAnimation doorAnim;
 
 	public static void openDoors(float delay = 0){
+		print ("static openDoors");
 		changeDoors (true);
 	}
 
 	public static void closeDoors(float delay = 0){
+		print ("static closeDoors");
 		changeDoors (false);
 	}
 
 	public static void immediateOpen(){
+		print ("static immediateOpen");
 		changeDoors (true, true);
 	}
 
@@ -45,7 +48,12 @@ public class DoorManager : MonoBehaviour {
 	{
 		SoundManager.PlaySFX ("Door_Close");
 		yield return new WaitForSeconds (0);
-		doorAnim.state.SetAnimation (0, "Close", false);
+
+		int randomI = Random.Range (1, 10);
+		string animName = "Close" + (randomI == 1 ? "" : "" + randomI);
+		print ("animName: " + animName);
+
+		doorAnim.state.SetAnimation (0, animName, false);
 		doorAnim.GetComponent<Renderer>().enabled = true;
 	}
 
