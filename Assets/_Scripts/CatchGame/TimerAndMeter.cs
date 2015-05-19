@@ -60,7 +60,6 @@ public class TimerAndMeter : MonoBehaviour {
 	}
 
 	public void dropDown(){
-		print ("TimerAndMeter dropDown");
 		iTween.MoveTo (gameObject, iTween.Hash ("y", 484, "time", 1, "easetype", iTween.EaseType.easeOutBounce));
 	}
 

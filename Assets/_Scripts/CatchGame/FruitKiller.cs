@@ -31,6 +31,7 @@ public class FruitKiller : CrumbColorer {
 
 	public void playSplat(){
 		string sfxName = "Food_Splat_0" + (1 + Random.Range (0,3));
+		print ("sfxName: " + sfxName);
 		SoundManager.PlaySFX(sfxName);
 	}
 

@@ -452,7 +452,7 @@ public class MapManager : MonoBehaviour {
 		SoundManager.Stop();
 		DoorManager.closeDoors ();
 
-		yield return new WaitForSeconds (1);
+		yield return new WaitForSeconds (2.5f);
 		iTween.Stop ();
 		Application.LoadLevel (gameName);
 	}
