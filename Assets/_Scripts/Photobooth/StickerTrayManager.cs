@@ -46,6 +46,34 @@ public class StickerTrayManager : MonoBehaviour {
 				}
 			}
 		}
+
+		if( Input.GetMouseButtonUp(0)){
+			GameObject pickedGO = mousePick ();
+			if( pickedGO != null ){
+				ButtonType buttonType = ButtonType.Head;
+				switch( pickedGO.tag ){
+				case "StickerTrayBtn":
+					pressedTrayBtn(pickedGO.name, Input.mousePosition);
+					break;
+				}
+			}
+		}
+	}
+
+	public GameObject stickerPrefab;
+	void pressedTrayBtn( string stickerName, Vector3 touchPos ){
+		touchPos = Camera.main.ScreenToWorldPoint (touchPos);
+		touchPos.z = -6;
+
+		Texture2D stickerTex = Resources.Load ("Phototbooth/TrayAssets/" + stickerName) as Texture2D;
+		int height = stickerTex.height;
+		int width = stickerTex.width;
+		GameObject sticker = Instantiate( stickerPrefab, touchPos, Quaternion.identity ) as GameObject;
+		sticker.transform.localScale = new Vector3 (width / 4, height / 4, 1);
+		sticker.GetComponent<Renderer> ().material.SetTexture ("_MainTex", stickerTex);
+		iTween.MoveTo (sticker, iTween.Hash ("position", Vector3.back * 6, "time", 1, "easetype", iTween.EaseType.easeOutExpo));
+		iTween.ScaleBy (sticker, iTween.Hash ("amount", Vector3.one * 2, "time", 1, "easetype", iTween.EaseType.easeOutExpo));
+//		print ("touchPos: " + touchPos);
 	}
 
 	void pressedTrayArrow( bool isLeft ){

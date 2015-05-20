@@ -7,17 +7,14 @@ public class DoorManager : MonoBehaviour {
 	public SkeletonAnimation doorAnim;
 
 	public static void openDoors(float delay = 0){
-		print ("static openDoors");
 		changeDoors (true);
 	}
 
 	public static void closeDoors(float delay = 0){
-		print ("static closeDoors");
 		changeDoors (false);
 	}
 
 	public static void immediateOpen(){
-		print ("static immediateOpen");
 		changeDoors (true, true);
 	}
 
