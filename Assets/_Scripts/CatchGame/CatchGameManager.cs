@@ -14,7 +14,7 @@ public class CatchGameManager : FrenziableGame {
 	public GameObject background;
 	public GameObject clouds;
 
-	public CatchResults catchResults;
+	public ScoreboardManager catchResults;
 
 	public enum CatchGameMode{
 		WaitForStart, NormalGameplay, Frenzy, Results

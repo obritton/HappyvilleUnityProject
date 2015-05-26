@@ -18,6 +18,7 @@ public class MatchingTableManager : MonoBehaviour {
 	bool canTap = true;
 
 	public Transform[] cameraArr;
+
 	int cameraXOffset = 1500;
 
 	void Start(){
@@ -83,16 +84,18 @@ public class MatchingTableManager : MonoBehaviour {
 
 		cardFRONTArr [frontIndex].gameObject.SetActive (false);
 		cardFRONTArr [frontIndex].transform.parent = characterNode;
-		cardFRONTArr [frontIndex].transform.localPosition = new Vector3 (0, 0, 0);
+		cardFRONTArr [frontIndex].transform.localPosition = new Vector3 (0, 4, 0);
 		cardFRONTArr [frontIndex].transform.localRotation = new Quaternion (0, 0, 0, 1);
+		cardFRONTArr [frontIndex].transform.localScale = new Vector3 (131,184,1);
 
 		int cardIndex = int.Parse( card.name.Split (" " [0])[1]);
 		Vector3 position = cameraArr [frontIndex].localPosition;
 		position.x = cardFaceIndexArr[cardIndex] * cameraXOffset;
 		cameraArr [frontIndex].localPosition = position;
 
-		SkeletonAnimation skelAnim = card.transform.GetChild (0).GetComponent<SkeletonAnimation> ();
-		TrackEntry te = skelAnim.state.SetAnimation (0, "Tap", false);
+//		SkeletonAnimation skelAnim = card.transform.GetChild (0).GetComponent<SkeletonAnimation> ();
+//		TrackEntry te = skelAnim.state.SetAnimation (0, "Tap", false);
+		TrackEntry te = playAnimOnAllChildren( card.transform, "Tap" );
 
 		StartCoroutine (delayedGameObjectActivate (te.animation.duration/3.0f, cardFRONTArr [frontIndex].gameObject, frontIndex == 1));
 		if (frontIndex == 1) {
@@ -101,12 +104,23 @@ public class MatchingTableManager : MonoBehaviour {
 		}
 	}
 
+	TrackEntry playAnimOnAllChildren( Transform parent, string animStr ){
+		TrackEntry te = null;
+		foreach (Transform child in parent) {
+			SkeletonAnimation skelAnim = child.GetComponent<SkeletonAnimation> ();
+			te = skelAnim.state.SetAnimation (0, animStr, false);
+		}
+
+		return te;
+	}
+
 	public Transform offscrenNode;
 	public void flipCardFacedown(GameObject card){
 		card.GetComponent<MatchingCard> ().isInUse = false;
 		
-		SkeletonAnimation skelAnim = card.transform.GetChild (0).GetComponent<SkeletonAnimation> ();
-		TrackEntry te = skelAnim.state.SetAnimation (0, "Wrong", false);
+//		SkeletonAnimation skelAnim = card.transform.GetChild (0).GetComponent<SkeletonAnimation> ();
+//		TrackEntry te = skelAnim.state.SetAnimation (0, "Wrong", false);
+		TrackEntry te = playAnimOnAllChildren (card.transform, "Wrong");
 		StartCoroutine (delayedMakeTappable (te.animation.duration));
 	}
 

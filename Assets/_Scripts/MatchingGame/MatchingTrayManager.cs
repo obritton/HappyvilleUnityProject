@@ -46,7 +46,7 @@ public class MatchingTrayManager : MonoBehaviour {
 					break;
 				case "PuzzleSign":
 					signSA.state.SetAnimation(0,"Tap",false);
-					signSA.state.AddAnimation(0,"Idle",false,0);
+					signSA.state.AddAnimation(0,"Idle",true,0);
 					break;
 				}
 			}

@@ -21,7 +21,6 @@ public class PhotoboothManager : GameManagerBase {
 
 		string deviceStr = devices.Length > 1 ? devices[1].name : devices[0].name;
 		camTexture = new WebCamTexture (deviceStr);
-//		WebCamTexture texture = new WebCamTexture();
 		webcamRenderer.material.mainTexture = camTexture;
 		camTexture.Play ();
 
@@ -82,10 +81,37 @@ public class PhotoboothManager : GameManagerBase {
 				case "HatBtn":
 					tray.state.SetAnimation(0, "Tap_Hat", false);
 					break;
-				}
+				case "PhotoDone":
+//					shouldSnapShot = true;
+//					StartCoroutine(pressedDoneBtn ());
+					screenShotter.doScreenShot();
+					break;
+			}
 			}
 		}
 	}
+
+	public ScreenShotter screenShotter;
+
+//	public Renderer picTester;
+//
+//	IEnumerator pressedDoneBtn(){
+//		yield return new WaitForEndOfFrame ();
+//		Texture2D tex = new Texture2D(Screen.width, Screen.height);
+//		tex.ReadPixels(new Rect(0,0,Screen.width,Screen.height),0,0);
+//		tex.Apply();
+//
+//		picTester.material.SetTexture ("_MainTex", tex);
+//		picTester.enabled = true;
+//	}
+
+//	bool shouldSnapShot = false;
+//	void LateUpdate(){
+//		if (shouldSnapShot) {
+//			pressedDoneBtn();
+//			shouldSnapShot = false;
+//		}
+//	}
 
 	public GameObject shutterBtn;
 	public GameObject confirmPhotoBtn;
@@ -95,8 +121,10 @@ public class PhotoboothManager : GameManagerBase {
 		setShutterBtnActive (false);
 	}
 
+	public Renderer trayMaskRenderer;
 	void pressedPhotoConfirm(){
 		iTween.MoveTo (tray.gameObject, iTween.Hash ("y", trayStartY, "time", 0.5f));
+		trayMaskRenderer.enabled = true;
 	}
 
 	void pressedPhotoReject(){
@@ -133,6 +161,7 @@ public class PhotoboothManager : GameManagerBase {
 	Texture2D snap;
 	void takeSnapshot(){
 		snap = new Texture2D(camTexture.width, camTexture.height);
+//		print ("camTexture.w: " + camTexture.width + ", .h: " + camTexture.height);
 		snap.SetPixels(camTexture.GetPixels());
 		snap.Apply();
 		

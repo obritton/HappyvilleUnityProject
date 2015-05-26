@@ -44,7 +44,7 @@ public class FoodManager : MonoBehaviour {
 	}
 
 	public static void setRandomFoodSkinForLevel( GameObject food, int level, string thoughtSkinName ){
-		print ("thoughtSkinName: " + thoughtSkinName + ", level: " + level);
+//		print ("thoughtSkinName: " + thoughtSkinName + ", level: " + level);
 		string foodSkinName = "";
 		List<Skin> foodNameOptions = new List<Skin> ();
 		Food foodComp = food.GetComponent<Food> ();
@@ -53,7 +53,7 @@ public class FoodManager : MonoBehaviour {
 		if (skelAnim != null) {
 			foodNameOptions = skelAnim.state.Data.SkeletonData.Skins;
 		}
-		print ("setRandomFood... 1");
+//		print ("setRandomFood... 1");
 		switch (level) {
 		case 1://FOOD after last dash = THOUGHT before first dash
 		{

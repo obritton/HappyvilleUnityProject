@@ -13,7 +13,7 @@ public class Table : GameManagerBase {
 	public ScoreBoard scoreBoard;
 	FlySession flySession;
 	public GameObject crumbsPrefab;
-	public static int level = 3;
+	public static int level = 0;
 	public GameObject starAndSpeakersPrefab;
 
 	public GameObject bgSprite;
@@ -329,6 +329,14 @@ public class Table : GameManagerBase {
 		((SkeletonAnimation)food.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Correct", false);
 		SoundManager.PlaySFX ("Thought_Correct");
 		yield return new WaitForSeconds (te.animation.duration);
+
+		//Add VO here
+		string skinName = ((SkeletonAnimation)tableSpotArr[plateIndex].thoughtBubble.thoughtShape.GetComponent<SkeletonAnimation> ()).skeleton.Skin.name;
+		skinName = skinName.Split ("-" [0]) [0];
+		print ("animateFoodMatch: " + skinName);
+		float voDuration = playVoiceOver (skinName);
+		yield return new WaitForSeconds (voDuration);
+
 		for (int i = 0; i < 3; i++) {
 			if( i == plateIndex || totalCorrects >= 10) {
 				te = ((SkeletonAnimation)tableSpotArr[i].thoughtBubble.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Leave-thought", false);
@@ -350,6 +358,9 @@ public class Table : GameManagerBase {
 		((SkeletonAnimation)tableSpotArr[plateIndex].plate.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Bounce", false);
 		float duration = eatTe.animation.duration;
 		StartCoroutine (delayedEyeUnregister (duration));
+
+		yield return new WaitForSeconds(0.5f);	//Little extra time Jason asked for 5/26/2015
+
 		te = ((SkeletonAnimation)tableSpotArr [plateIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "ThankYou", false, 0);
 		animalName = tableSpotArr [plateIndex].characterNode.transform.GetChild (0).name;
 		StartCoroutine (playSoundForAnimal ("ThankYou", animalName, eatTe.animation.duration));
@@ -369,6 +380,12 @@ public class Table : GameManagerBase {
 			EyeFollow.unregisterFollowTransform();
 			StartCoroutine(doGameWin(te.animation.duration));
 		}
+	}
+
+	float playVoiceOver( string voStr ){
+		print ("playVoiceOver: " + voStr);
+		SoundManager.PlaySFX (voStr);
+		return 1;
 	}
 
 	IEnumerator playSoundForAnimal( string soundName, string animalName, float delay = 0 ){

@@ -31,7 +31,7 @@ public class FruitKiller : CrumbColorer {
 
 	public void playSplat(){
 		string sfxName = "Food_Splat_0" + (1 + Random.Range (0,3));
-		print ("sfxName: " + sfxName);
+//		print ("sfxName: " + sfxName);
 		SoundManager.PlaySFX(sfxName);
 	}
 
@@ -49,8 +49,10 @@ public class FruitKiller : CrumbColorer {
 			ScoreShower shower = GetComponent<ScoreShower>();
 			if( shower != null )
 				shower.showScoreAtPosition( numbersPos, food.tag == "food" ? 5: 10 );
-			if( food.tag == "food" )
+			if( food.tag == "food" ){
 				CatchGameManager.totalFruits++;
+				print("CatchGameManager.totalFruits: " + CatchGameManager.totalFruits);
+			}
 			else
 				CatchGameManager.totalCandies++;
 

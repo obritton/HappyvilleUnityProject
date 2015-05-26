@@ -422,11 +422,11 @@ public class MapManager : MonoBehaviour {
 					}
 					break;
 				case "PhotoBooth":
-					if( MapUnlockSystem.miniGamePlayed() >= 3 || MapUnlockSystem.shouldAutoUnlock )
-					{
-					MapUnlockSystem.lastGamePlayed = MapUnlockSystem.GameType.Photobooth;
-					StartCoroutine(loadTableGame("PhotoBooth", 4));
-					}
+//					if( MapUnlockSystem.miniGamePlayed() >= 3 || MapUnlockSystem.shouldAutoUnlock )
+//					{
+//					MapUnlockSystem.lastGamePlayed = MapUnlockSystem.GameType.Photobooth;
+//					StartCoroutine(loadTableGame("PhotoBooth", 4));
+//					}
 					break;
 				default:
 					break;

@@ -18,6 +18,8 @@ public class WhackGameManager : FrenziableGame {
 	bool isGameStarted = false;
 	public TimerAndMeter timerAndMeter;
 
+	public ScoreboardManager sbManager;
+
 	public SkeletonAnimation startBunny;
 	void Start(){
 		CatchGameManager.totalFruits = 0;
@@ -39,7 +41,8 @@ public class WhackGameManager : FrenziableGame {
 	void endGame()
 	{
 		gameEnded = true;
-		print ("endGame");
+		timerAndMeter.moveUp ();
+		sbManager.showResults ( totalAnimals, totalFruits, timerAndMeter.getScore());
 	}
 
 	public override void startFrenzy(){
@@ -149,6 +152,8 @@ public class WhackGameManager : FrenziableGame {
 		}
 	}
 
+	int totalAnimals = 0;
+	int totalFruits = 0;
 	public CrumbColorer crumbColorer;
 	void mashAtNode( Transform node ){
 		if (node.childCount > 0) {
@@ -162,6 +167,7 @@ public class WhackGameManager : FrenziableGame {
 				((SkeletonAnimation)node.GetChild(0).GetComponent<SkeletonAnimation>()).state.SetAnimation(0, "Tap", false);
 
 				timerAndMeter.incrementScore( 5, isFrenzy );
+				totalAnimals++;
 				Vector3 numbersPos = animal.transform.position + new Vector3( 100, 350, 0 );
 				showScore(numbersPos, 5 );
 			}
@@ -176,6 +182,7 @@ public class WhackGameManager : FrenziableGame {
 					Color crumbColor = crumbColorer.getColorForFood(skelAnim.gameObject.name);
 					Vector3 numbersPos = skelAnim.transform.position + new Vector3( 100, 100, 0 );
 					showScore(numbersPos, 10 );
+					totalFruits++;
 					timerAndMeter.incrementScore( 10, isFrenzy );
 					GameObject crumbs = Instantiate( crumbsPrefab, skelAnim.transform.position, Quaternion.identity ) as GameObject;
 					crumbs.GetComponent<Renderer>().material.color = crumbColor;

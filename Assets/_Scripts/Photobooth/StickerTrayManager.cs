@@ -10,11 +10,14 @@ public class StickerTrayManager : MonoBehaviour {
 	public GameObject maskTray;
 	public GameObject hatTray;
 	GameObject currenTray;
+
+	ArrayList liveStickerArr;
 	
 	enum ButtonType{	Head, Face, Glasses, Hat	};
 
 	void Start(){
 		currenTray = hairTray;
+		liveStickerArr = new ArrayList ();
 	}
 
 	int currentPosition = 0;
@@ -68,12 +71,28 @@ public class StickerTrayManager : MonoBehaviour {
 		Texture2D stickerTex = Resources.Load ("Phototbooth/TrayAssets/" + stickerName) as Texture2D;
 		int height = stickerTex.height;
 		int width = stickerTex.width;
+//		print ("stickerTex w,h: " + width + ", " + height);
 		GameObject sticker = Instantiate( stickerPrefab, touchPos, Quaternion.identity ) as GameObject;
+		liveStickerArr.Add (sticker);
 		sticker.transform.localScale = new Vector3 (width / 4, height / 4, 1);
 		sticker.GetComponent<Renderer> ().material.SetTexture ("_MainTex", stickerTex);
-		iTween.MoveTo (sticker, iTween.Hash ("position", Vector3.back * 6, "time", 1, "easetype", iTween.EaseType.easeOutExpo));
+		Vector3 targetPos = Vector3.forward * -6;
+		targetPos.y += 90;
+		iTween.MoveTo (sticker, iTween.Hash ("position", targetPos, "time", 1, "easetype", iTween.EaseType.easeOutExpo));
 		iTween.ScaleBy (sticker, iTween.Hash ("amount", Vector3.one * 2, "time", 1, "easetype", iTween.EaseType.easeOutExpo));
-//		print ("touchPos: " + touchPos);
+		StartCoroutine(delayedStickerPushBack(sticker, 1.1f));
+	}
+
+	IEnumerator delayedStickerPushBack( GameObject sticker, float delay )
+	{
+		yield return new WaitForSeconds (delay);
+		Vector3 pos = sticker.transform.position;
+		pos.z = .1f;
+		sticker.transform.position = pos;
+	}
+
+	void sortAllStickersDown(){
+//		liveStickerArr.Sort(
 	}
 
 	void pressedTrayArrow( bool isLeft ){
