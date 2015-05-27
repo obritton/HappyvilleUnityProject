@@ -43,15 +43,16 @@ public class DoorManager : MonoBehaviour {
 
 	public IEnumerator animateCloseDoors()
 	{
-		SoundManager.PlaySFX ("Door_Close");
-		yield return new WaitForSeconds (0);
+		AudioSource aSource = SoundManager.PlaySFX ("Door_Close");
+		print ("aSource: " + aSource.name);
 
 		int randomI = Random.Range (1, 10);
 		string animName = "Close" + (randomI == 1 ? "" : "" + randomI);
-		print ("animName: " + animName);
 
 		doorAnim.state.SetAnimation (0, animName, false);
 		doorAnim.GetComponent<Renderer>().enabled = true;
+
+		yield return new WaitForSeconds (0.1f);
 	}
 
 	public IEnumerator animateOpenDoors( bool immediate = false )

@@ -1,201 +1,201 @@
 
 Food.png
-size: 2048,2048
+size: 4096,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 A
   rotate: false
-  xy: 350, 883
+  xy: 711, 224
   size: 298, 311
   orig: 298, 311
   offset: 0, 0
   index: -1
 B
-  rotate: false
-  xy: 426, 1196
+  rotate: true
+  xy: 1741, 708
   size: 314, 319
   orig: 314, 319
   offset: 0, 0
   index: -1
 C
-  rotate: false
-  xy: 420, 211
+  rotate: true
+  xy: 2409, 500
   size: 289, 303
   orig: 289, 303
   offset: 0, 0
   index: -1
 D
   rotate: false
-  xy: 711, 252
+  xy: 2714, 479
   size: 297, 297
   orig: 297, 297
   offset: 0, 0
   index: -1
 E
   rotate: true
-  xy: 420, 2
+  xy: 1022, 22
   size: 207, 259
   orig: 207, 259
   offset: 0, 0
   index: -1
 F
-  rotate: true
-  xy: 235, 118
+  rotate: false
+  xy: 3166, 839
   size: 394, 183
   orig: 394, 183
   offset: 0, 0
   index: -1
 G
-  rotate: false
-  xy: 2, 514
+  rotate: true
+  xy: 1029, 734
   size: 288, 362
   orig: 288, 362
   offset: 0, 0
   index: -1
 H
   rotate: false
-  xy: 1376, 1793
+  xy: 2796, 778
   size: 368, 244
   orig: 368, 244
   offset: 0, 0
   index: -1
 I
-  rotate: false
-  xy: 872, 887
+  rotate: true
+  xy: 2, 15
   size: 164, 344
   orig: 164, 344
   offset: 0, 0
   index: -1
 J
-  rotate: false
-  xy: 650, 885
+  rotate: true
+  xy: 711, 2
   size: 220, 309
   orig: 220, 309
   offset: 0, 0
   index: -1
 K
-  rotate: true
-  xy: 711, 9
+  rotate: false
+  xy: 3013, 489
   size: 241, 276
   orig: 241, 276
   offset: 0, 0
   index: -1
 L
-  rotate: true
-  xy: 664, 551
+  rotate: false
+  xy: 1014, 506
   size: 332, 226
   orig: 332, 226
   offset: 0, 0
   index: -1
 M
   rotate: true
-  xy: 1736, 1480
+  xy: 1312, 181
   size: 282, 309
   orig: 282, 309
   offset: 0, 0
   index: -1
 N
   rotate: false
-  xy: 2, 878
+  xy: 1393, 706
   size: 346, 316
   orig: 346, 316
   offset: 0, 0
   index: -1
 O
   rotate: false
-  xy: 1010, 35
+  xy: 1664, 449
   size: 255, 255
   orig: 255, 255
   offset: 0, 0
   index: -1
 P
   rotate: false
-  xy: 742, 1233
+  xy: 426, 183
   size: 283, 317
-  orig: 283, 317
-  offset: 0, 0
+  orig: 288, 320
+  offset: 2, 2
   index: -1
 Q
-  rotate: true
-  xy: 2, 127
+  rotate: false
+  xy: 2409, 791
   size: 385, 231
   orig: 385, 231
   offset: 0, 0
   index: -1
 R
   rotate: true
-  xy: 1010, 292
+  xy: 3256, 488
   size: 277, 235
   orig: 277, 235
   offset: 0, 0
   index: -1
 Ray_Food
   rotate: false
-  xy: 2, 1517
+  xy: 2, 502
   size: 595, 520
   orig: 596, 520
   offset: 0, 0
   index: -1
 S
-  rotate: true
-  xy: 892, 571
+  rotate: false
+  xy: 1348, 465
   size: 314, 239
   orig: 314, 239
   offset: 0, 0
   index: -1
 Shadow-food
   rotate: false
-  xy: 1376, 1721
+  xy: 3166, 767
   size: 358, 70
   orig: 358, 70
   offset: 0, 0
   index: -1
 T
   rotate: false
-  xy: 1746, 1764
+  xy: 1011, 231
   size: 299, 273
   orig: 313, 273
   offset: 14, 0
   index: -1
 U
   rotate: false
-  xy: 599, 1761
+  xy: 599, 746
   size: 428, 276
   orig: 428, 276
   offset: 0, 0
   index: -1
 V
   rotate: false
-  xy: 2, 1196
+  xy: 2, 181
   size: 422, 319
   orig: 422, 319
   offset: 0, 0
   index: -1
 W
   rotate: false
-  xy: 599, 1552
+  xy: 599, 537
   size: 413, 207
   orig: 413, 207
   offset: 0, 0
   index: -1
 X
   rotate: true
-  xy: 1029, 1762
+  xy: 2062, 747
   size: 275, 345
   orig: 275, 345
   offset: 0, 0
   index: -1
 Y
-  rotate: true
-  xy: 292, 516
+  rotate: false
+  xy: 1283, 34
   size: 360, 145
   orig: 360, 145
   offset: 0, 0
   index: -1
 Z
-  rotate: true
-  xy: 439, 546
+  rotate: false
+  xy: 3562, 799
   size: 335, 223
   orig: 356, 238
   offset: 0, 0

@@ -15,7 +15,7 @@ public class SimpleTreeTapper : MonoBehaviour {
 	void Update(){
 		if (Input.GetMouseButtonDown (0)) {
 			if( mousePick() == gameObject ){
-				int randomTapIndex = Random.Range (1,5);
+				int randomTapIndex = Random.Range (1,6);
 				string tapName = "Tap_" + randomTapIndex;
 				SkeletonAnimation skelAnim = GetComponent<SkeletonAnimation>();
 				if( skelAnim != null ){

@@ -6,189 +6,189 @@ filter: Linear,Linear
 repeat: none
 Food/Assets/Universal/Ray_Food
   rotate: false
-  xy: 2, 480
+  xy: 2, 502
   size: 595, 520
   orig: 596, 520
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_03/A_grey
   rotate: false
-  xy: 739, 878
+  xy: 739, 900
   size: 105, 122
   orig: 105, 123
   offset: 0, 1
   index: -1
 Thought_Shapes/Level_03/B_grey
   rotate: false
-  xy: 529, 358
+  xy: 529, 380
   size: 87, 120
   orig: 87, 120
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_03/C_grey
   rotate: true
-  xy: 403, 382
+  xy: 403, 404
   size: 96, 124
   orig: 96, 124
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_03/D_grey
   rotate: false
-  xy: 599, 506
+  xy: 599, 528
   size: 100, 120
   orig: 100, 120
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_03/E_grey
   rotate: false
-  xy: 949, 881
+  xy: 949, 903
   size: 68, 119
   orig: 68, 120
   offset: 0, 1
   index: -1
 Thought_Shapes/Level_03/F_grey
   rotate: false
-  xy: 379, 253
+  xy: 220, 17
   size: 67, 120
   orig: 67, 121
   offset: 0, 1
   index: -1
 Thought_Shapes/Level_03/G_grey
   rotate: false
-  xy: 599, 752
+  xy: 599, 774
   size: 113, 124
   orig: 113, 124
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_03/H_grey
   rotate: true
-  xy: 280, 375
+  xy: 280, 397
   size: 103, 121
   orig: 103, 122
   offset: 0, 1
   index: -1
 Thought_Shapes/Level_03/I_grey
   rotate: false
-  xy: 992, 758
-  size: 25, 121
-  orig: 25, 122
-  offset: 0, 1
+  xy: 124, 254
+  size: 45, 122
+  orig: 50, 124
+  offset: 3, 1
   index: -1
 Thought_Shapes/Level_03/J_grey
   rotate: false
-  xy: 124, 232
+  xy: 817, 776
   size: 64, 122
   orig: 64, 123
   offset: 0, 1
   index: -1
 Thought_Shapes/Level_03/K_grey
   rotate: true
-  xy: 2, 2
+  xy: 2, 24
   size: 95, 122
   orig: 95, 122
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_03/L_grey
   rotate: false
-  xy: 448, 260
+  xy: 266, 262
   size: 67, 120
   orig: 67, 121
   offset: 0, 1
   index: -1
 Thought_Shapes/Level_03/M_grey
   rotate: false
-  xy: 599, 878
+  xy: 599, 900
   size: 138, 122
   orig: 138, 122
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_03/N_grey
   rotate: false
-  xy: 599, 628
+  xy: 599, 650
   size: 102, 122
   orig: 102, 122
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_03/O_grey
   rotate: true
-  xy: 154, 362
+  xy: 154, 384
   size: 116, 124
   orig: 116, 124
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_03/P_grey
   rotate: false
-  xy: 817, 755
+  xy: 883, 778
   size: 86, 121
   orig: 86, 121
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_03/Q_grey
   rotate: false
-  xy: 2, 224
+  xy: 2, 246
   size: 120, 130
   orig: 120, 130
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_03/R_grey
-  rotate: true
-  xy: 517, 271
+  rotate: false
+  xy: 193, 139
   size: 85, 120
   orig: 85, 121
   offset: 0, 1
   index: -1
 Thought_Shapes/Level_03/S_grey
   rotate: false
-  xy: 618, 380
+  xy: 618, 402
   size: 84, 124
   orig: 84, 124
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_03/T_grey
   rotate: false
-  xy: 905, 756
+  xy: 106, 123
   size: 85, 121
   orig: 85, 121
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_03/U_grey
   rotate: false
-  xy: 2, 99
+  xy: 2, 121
   size: 102, 123
   orig: 102, 123
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_03/V_grey
   rotate: false
-  xy: 714, 754
+  xy: 714, 776
   size: 101, 122
   orig: 101, 122
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_03/W_grey
   rotate: false
-  xy: 2, 356
+  xy: 2, 378
   size: 150, 122
   orig: 150, 122
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_03/X_grey
   rotate: false
-  xy: 846, 879
+  xy: 846, 901
   size: 101, 121
   orig: 101, 122
   offset: 0, 1
   index: -1
 Thought_Shapes/Level_03/Y_grey
   rotate: false
-  xy: 190, 239
+  xy: 171, 261
   size: 93, 121
   orig: 93, 122
   offset: 0, 1
   index: -1
 Thought_Shapes/Level_03/Z_grey
   rotate: false
-  xy: 285, 254
+  xy: 126, 2
   size: 92, 119
   orig: 92, 120
   offset: 0, 1

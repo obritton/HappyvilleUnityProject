@@ -143,6 +143,7 @@ public class Table : GameManagerBase {
 				lastMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				foodPos.x += dragDelta.x;
 				foodPos.y += dragDelta.y;
+				foodPos.z = -11;
 				food.transform.localPosition = foodPos;
 
 				int newArea = getNewAreaEntered();

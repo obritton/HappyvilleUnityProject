@@ -146,7 +146,7 @@ public class MatchingTableManager : MonoBehaviour {
 		//Play incorrect animation
 		float duration = 0;
 		foreach (SkeletonAnimation anim in characterAnimArr) {
-			duration = anim.state.SetAnimation( 0, "Wrong", false ).animation.duration;
+			duration = anim.state.SetAnimation( 0, "HeadShake", false ).animation.duration;
 			anim.state.AddAnimation( 0, "Idle", true, 0 );
 		}
 		

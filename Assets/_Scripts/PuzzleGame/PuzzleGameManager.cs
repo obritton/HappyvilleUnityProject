@@ -224,6 +224,7 @@ public class PuzzleGameManager : GameManagerBase {
 	public GameObject confettiSystem;
 	IEnumerator doWin(){
 		base.doWin ();
+		currentPuzzleCharacter.state.SetAnimation (0, "Dance", true);
 		hasGameStarted = false;
 		confettiSystem.SetActive (true);
 		yield return new WaitForSeconds (1);

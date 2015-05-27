@@ -81,13 +81,6 @@ Lion/Cape_3
   orig: 240, 214
   offset: 0, 0
   index: -1
-Lion/Drop_One
-  rotate: true
-  xy: 146, 34
-  size: 23, 35
-  orig: 23, 36
-  offset: 0, 1
-  index: -1
 Lion/Ear_Stand_Lion
   rotate: false
   xy: 402, 630
@@ -97,7 +90,7 @@ Lion/Ear_Stand_Lion
   index: -1
 Lion/Eye_Stand_Lion
   rotate: false
-  xy: 2004, 823
+  xy: 399, 218
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
@@ -279,7 +272,7 @@ Lion/Strawberry-triangle
   index: -1
 Lion/Tail_End_Lion
   rotate: false
-  xy: 399, 214
+  xy: 146, 29
   size: 28, 28
   orig: 28, 28
   offset: 0, 0

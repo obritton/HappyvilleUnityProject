@@ -79,13 +79,20 @@ public class PuzzleTrayManager : MonoBehaviour {
 	public GameObject handleArrow;
 	void slideTray( bool slideUp ){
 		int newYPos = slideUp ? 950 : 56;
-		iTween.MoveTo (gameObject, iTween.Hash ("y", newYPos, "time", 1, "easetype", iTween.EaseType.easeOutBounce));
+		iTween.MoveTo (gameObject, iTween.Hash ("y", newYPos, "time", 1, "easetype", iTween.EaseType.easeOutBounce,
+		                                        "oncomplete", "trayIsDoneAnimating", "oncompletetarget", gameObject));
 
 		int newHandleRot = slideUp ? 0 : 180;
 		iTween.RotateTo (handleArrow, iTween.Hash ("z", newHandleRot, "time", 1, "delay", 0.5f, "easetype", iTween.EaseType.easeInOutCubic));
 
 		isTrayDown = !isTrayDown;
 		PuzzleGameManager.hasGameStarted = slideUp;
+	}
+	
+	void trayIsDoneAnimating(){
+		Vector3 pos = transform.localPosition;
+		pos.z = pos.x < 100 ? -11 : -1;
+		transform.localPosition = pos;
 	}
 
 	public GameObject slidingThumbs;

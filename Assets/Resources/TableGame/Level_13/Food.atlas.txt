@@ -1,96 +1,88 @@
 
 Food.png
-size: 2048,2048
+size: 1024,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 Cake_circle_01
-  rotate: false
-  xy: 284, 1070
+  rotate: true
+  xy: 599, 328
   size: 266, 325
   orig: 266, 325
   offset: 0, 0
   index: -1
 Cake_circle_02
-  rotate: false
-  xy: 881, 1592
-  size: 266, 325
-  orig: 266, 325
-  offset: 0, 0
-  index: -1
-Cake_circle_03
-  rotate: false
-  xy: 2, 324
+  rotate: true
+  xy: 566, 60
   size: 266, 325
   orig: 266, 325
   offset: 0, 0
   index: -1
 Cake_diamond_01
   rotate: false
-  xy: 2, 1024
+  xy: 2, 74
   size: 280, 371
   orig: 280, 372
   offset: 0, 1
   index: -1
 Cake_diamond_02
   rotate: false
-  xy: 599, 1546
+  xy: 599, 596
   size: 280, 371
   orig: 280, 372
   offset: 0, 1
   index: -1
 Cake_diamond_03
   rotate: false
-  xy: 2, 651
+  xy: 284, 74
   size: 280, 371
   orig: 280, 372
   offset: 0, 1
   index: -1
+Ray_Food
+  rotate: false
+  xy: 2, 447
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1
+Shadow-food
+  rotate: false
+  xy: 2, 2
+  size: 358, 70
+  orig: 358, 70
+  offset: 0, 0
+  index: -1
+
+Food2.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Cake_circle_03
+  rotate: false
+  xy: 2, 646
+  size: 266, 325
+  orig: 266, 325
+  offset: 0, 0
+  index: -1
 Cake_hexagon_01
-  rotate: true
-  xy: 599, 1284
+  rotate: false
+  xy: 592, 383
   size: 260, 294
   orig: 260, 294
   offset: 0, 0
   index: -1
 Cake_hexagon_02
   rotate: true
-  xy: 552, 1022
+  xy: 545, 121
   size: 260, 294
   orig: 260, 294
-  offset: 0, 0
-  index: -1
-Cake_hexagon_03
-  rotate: true
-  xy: 537, 760
-  size: 260, 294
-  orig: 260, 294
-  offset: 0, 0
-  index: -1
-Cake_square_01
-  rotate: true
-  xy: 848, 1014
-  size: 254, 280
-  orig: 254, 280
-  offset: 0, 0
-  index: -1
-Cake_square_02
-  rotate: true
-  xy: 833, 758
-  size: 254, 280
-  orig: 254, 280
-  offset: 0, 0
-  index: -1
-Cake_square_03
-  rotate: false
-  xy: 1148, 1271
-  size: 254, 280
-  orig: 254, 280
   offset: 0, 0
   index: -1
 Cake_star_01
   rotate: false
-  xy: 284, 748
+  xy: 2, 324
   size: 251, 320
   orig: 251, 320
   offset: 0, 0
@@ -103,44 +95,64 @@ Cake_star_02
   offset: 0, 0
   index: -1
 Cake_star_03
-  rotate: false
-  xy: 895, 1270
+  rotate: true
+  xy: 270, 426
   size: 251, 320
   orig: 251, 320
   offset: 0, 0
   index: -1
 Cake_triangle_01
   rotate: false
-  xy: 1149, 1625
+  xy: 270, 679
   size: 288, 292
   orig: 288, 292
   offset: 0, 0
   index: -1
 Cake_triangle_02
   rotate: false
-  xy: 1439, 1625
+  xy: 560, 679
   size: 288, 292
   orig: 288, 292
   offset: 0, 0
   index: -1
 Cake_triangle_03
   rotate: false
-  xy: 1729, 1625
+  xy: 255, 132
   size: 288, 292
   orig: 288, 292
   offset: 0, 0
   index: -1
-Ray_Food
+
+Food3.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Cake_hexagon_03
   rotate: false
-  xy: 2, 1397
-  size: 595, 520
-  orig: 596, 520
+  xy: 2, 566
+  size: 260, 294
+  orig: 260, 294
   offset: 0, 0
   index: -1
-Shadow-food
+Cake_square_01
   rotate: false
-  xy: 1149, 1553
-  size: 358, 70
-  orig: 358, 70
+  xy: 2, 284
+  size: 254, 280
+  orig: 254, 280
+  offset: 0, 0
+  index: -1
+Cake_square_02
+  rotate: false
+  xy: 264, 580
+  size: 254, 280
+  orig: 254, 280
+  offset: 0, 0
+  index: -1
+Cake_square_03
+  rotate: false
+  xy: 2, 2
+  size: 254, 280
+  orig: 254, 280
   offset: 0, 0
   index: -1

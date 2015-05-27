@@ -6,189 +6,189 @@ filter: Linear,Linear
 repeat: none
 Food/Assets/Universal/Ray_Food
   rotate: false
-  xy: 2, 496
+  xy: 2, 498
   size: 595, 520
   orig: 596, 520
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/a_sm_grey
   rotate: false
-  xy: 90, 220
+  xy: 2, 2
   size: 86, 93
   orig: 86, 93
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/b_sm_grey
   rotate: false
-  xy: 599, 791
+  xy: 660, 887
   size: 86, 131
   orig: 86, 131
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/c_sm_grey
   rotate: true
-  xy: 281, 359
+  xy: 122, 208
   size: 73, 93
   orig: 73, 93
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/d_sm_grey
-  rotate: true
-  xy: 730, 930
+  rotate: false
+  xy: 2, 97
   size: 86, 131
   orig: 86, 131
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/e_sm_grey
   rotate: true
-  xy: 413, 408
+  xy: 506, 410
   size: 86, 93
   orig: 87, 93
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/f_sm_grey
-  rotate: true
-  xy: 281, 434
+  rotate: false
+  xy: 599, 707
   size: 60, 130
   orig: 60, 130
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/g_sm_grey
   rotate: true
-  xy: 63, 315
+  xy: 244, 410
   size: 86, 128
   orig: 86, 128
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/h_sm_grey
-  rotate: false
-  xy: 599, 659
+  rotate: true
+  xy: 374, 417
   size: 79, 130
   orig: 80, 130
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/i_sm_grey
-  rotate: false
-  xy: 687, 795
+  rotate: true
+  xy: 114, 376
   size: 27, 127
   orig: 27, 128
   offset: 0, 1
   index: -1
 Thought_Shapes/Level_06/j_sm_grey
   rotate: false
-  xy: 2, 315
+  xy: 599, 839
   size: 59, 179
   orig: 59, 179
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/k_sm_grey
   rotate: true
-  xy: 863, 939
+  xy: 836, 941
   size: 77, 131
   orig: 77, 131
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/l_sm_grey
   rotate: false
-  xy: 716, 793
+  xy: 96, 230
   size: 24, 129
   orig: 24, 130
   offset: 0, 1
   index: -1
 Thought_Shapes/Level_06/m_sm_grey
-  rotate: false
-  xy: 599, 924
+  rotate: true
+  xy: 2, 230
   size: 129, 92
   orig: 129, 92
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/n_sm_grey
-  rotate: false
-  xy: 193, 272
+  rotate: true
+  xy: 599, 498
   size: 79, 92
   orig: 80, 92
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/o_sm_grey
   rotate: true
-  xy: 508, 408
+  xy: 601, 410
   size: 86, 93
   orig: 87, 93
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/p_sm_grey
   rotate: false
-  xy: 2, 185
+  xy: 748, 890
   size: 86, 128
   orig: 86, 128
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/q_sm_grey
   rotate: false
-  xy: 193, 366
-  size: 86, 128
-  orig: 86, 128
-  offset: 0, 0
+  xy: 2, 361
+  size: 110, 135
+  orig: 112, 138
+  offset: 1, 2
   index: -1
 Thought_Shapes/Level_06/r_sm_grey
-  rotate: true
-  xy: 2, 2
+  rotate: false
+  xy: 969, 927
   size: 53, 91
   orig: 53, 91
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/s_sm_grey
-  rotate: true
-  xy: 178, 202
+  rotate: false
+  xy: 171, 113
   size: 68, 93
   orig: 68, 93
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/t_sm_grey
-  rotate: false
-  xy: 599, 539
+  rotate: true
+  xy: 836, 881
   size: 58, 118
   orig: 59, 118
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/u_sm_grey
-  rotate: true
-  xy: 274, 278
+  rotate: false
+  xy: 90, 114
   size: 79, 92
   orig: 80, 92
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/v_sm_grey
-  rotate: true
-  xy: 742, 757
+  rotate: false
+  xy: 90, 21
   size: 78, 91
   orig: 78, 91
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/w_sm_grey
   rotate: false
-  xy: 63, 403
+  xy: 114, 405
   size: 128, 91
   orig: 128, 91
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/x_sm_grey
   rotate: false
-  xy: 742, 837
+  xy: 122, 283
   size: 84, 91
   orig: 84, 91
   offset: 0, 0
   index: -1
 Thought_Shapes/Level_06/y_sm_grey
   rotate: false
-  xy: 2, 57
+  xy: 599, 579
   size: 81, 126
   orig: 81, 127
   offset: 0, 1
   index: -1
 Thought_Shapes/Level_06/z_sm_grey
   rotate: false
-  xy: 828, 839
+  xy: 170, 22
   size: 77, 89
   orig: 77, 89
   offset: 0, 0

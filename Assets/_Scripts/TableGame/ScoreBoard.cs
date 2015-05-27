@@ -4,7 +4,7 @@ using System.Collections;
 public class ScoreBoard : MonoBehaviour {
 
 	public GameObject starPrefab;
-	double starStartX = -2;
+	double starStartX = -1.62f;
 	double starGapX = 0.372;//1.64(current/bad) vs 1.72
 	int totalStars = 0;
 	ArrayList stars;

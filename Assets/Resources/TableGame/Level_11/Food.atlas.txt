@@ -8,85 +8,85 @@ repeat: none
   rotate: false
   xy: 2, 74
   size: 290, 304
-  orig: 290, 304
-  offset: 0, 0
+  orig: 294, 308
+  offset: 2, 2
   index: -1
 11_cookie
   rotate: false
   xy: 599, 596
   size: 290, 304
-  orig: 290, 304
-  offset: 0, 0
+  orig: 294, 308
+  offset: 2, 2
   index: -1
 12_cookie
   rotate: false
   xy: 294, 74
   size: 290, 304
-  orig: 290, 304
-  offset: 0, 0
+  orig: 294, 308
+  offset: 2, 2
   index: -1
 1_cookie
   rotate: false
   xy: 891, 596
   size: 290, 304
-  orig: 290, 304
-  offset: 0, 0
+  orig: 294, 308
+  offset: 2, 2
   index: -1
 2_cookie
   rotate: false
   xy: 1183, 596
   size: 290, 304
-  orig: 290, 304
-  offset: 0, 0
+  orig: 294, 308
+  offset: 2, 2
   index: -1
 3_cookie
   rotate: false
   xy: 1475, 596
   size: 290, 304
-  orig: 290, 304
-  offset: 0, 0
+  orig: 294, 308
+  offset: 2, 2
   index: -1
 4_cookie
   rotate: true
   xy: 599, 304
   size: 290, 304
-  orig: 290, 304
-  offset: 0, 0
+  orig: 294, 308
+  offset: 2, 2
   index: -1
 5_cookie
   rotate: true
   xy: 905, 304
   size: 290, 304
-  orig: 290, 304
-  offset: 0, 0
+  orig: 294, 308
+  offset: 2, 2
   index: -1
 6_cookie
   rotate: true
   xy: 1211, 304
   size: 290, 304
-  orig: 290, 304
-  offset: 0, 0
+  orig: 294, 308
+  offset: 2, 2
   index: -1
 7_cookie
   rotate: false
   xy: 1517, 290
   size: 290, 304
-  orig: 290, 304
-  offset: 0, 0
+  orig: 294, 308
+  offset: 2, 2
   index: -1
 8_cookie
   rotate: true
   xy: 586, 12
   size: 290, 304
-  orig: 290, 304
-  offset: 0, 0
+  orig: 294, 308
+  offset: 2, 2
   index: -1
 9_cookie
   rotate: true
   xy: 892, 12
   size: 290, 304
-  orig: 290, 304
-  offset: 0, 0
+  orig: 294, 308
+  offset: 2, 2
   index: -1
 Ray_Food
   rotate: false

@@ -6,51 +6,51 @@ filter: Linear,Linear
 repeat: none
 Title_Screen/Owl/Beak_Owl
   rotate: false
-  xy: 493, 221
+  xy: 393, 6
   size: 12, 11
   orig: 13, 11
   offset: 0, 0
   index: -1
 Title_Screen/Owl/Body_Owl
   rotate: false
-  xy: 425, 161
+  xy: 424, 161
   size: 66, 87
   orig: 66, 88
   offset: 0, 1
   index: -1
 Title_Screen/Owl/Eye_Owl
   rotate: false
-  xy: 393, 13
+  xy: 393, 19
   size: 25, 26
   orig: 26, 26
   offset: 0, 0
   index: -1
 Title_Screen/Owl/Pupil_Cls_Owl
   rotate: false
-  xy: 425, 153
+  xy: 492, 242
   size: 18, 6
   orig: 18, 7
   offset: 0, 1
   index: -1
 Title_Screen/Owl/Pupil_Opn_Owl
   rotate: false
-  xy: 493, 234
+  xy: 424, 145
   size: 13, 14
   orig: 14, 14
   offset: 0, 0
   index: -1
 Title_Screen/Owl/Top_Owl
   rotate: true
-  xy: 393, 41
+  xy: 393, 47
   size: 69, 32
   orig: 69, 33
   offset: 0, 1
   index: -1
-Title_Screen/Shadow_tree
+Title_Screen/Shadow_Tree
   rotate: true
-  xy: 393, 112
-  size: 136, 30
-  orig: 136, 30
+  xy: 393, 118
+  size: 130, 29
+  orig: 130, 29
   offset: 0, 0
   index: -1
 Title_Screen/Tree_Round

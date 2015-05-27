@@ -1,124 +1,124 @@
 
 Frog.png
-size: 2048,512
+size: 1024,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 Frog/Arm-bend
   rotate: false
-  xy: 793, 196
+  xy: 2, 21
   size: 223, 167
   orig: 223, 168
   offset: 0, 1
   index: -1
 Frog/Arm-curve
   rotate: false
-  xy: 1094, 385
+  xy: 422, 708
   size: 248, 125
   orig: 248, 126
   offset: 0, 1
   index: -1
 Frog/Arm-straight
   rotate: false
-  xy: 422, 92
+  xy: 723, 933
   size: 299, 47
   orig: 299, 48
   offset: 0, 1
   index: -1
 Frog/Body-frg
   rotate: false
-  xy: 2, 91
+  xy: 2, 561
   size: 418, 419
   orig: 419, 419
   offset: 0, 0
   index: -1
 Frog/Eye-cls-frg
   rotate: false
-  xy: 793, 177
+  xy: 2, 2
   size: 48, 17
   orig: 48, 18
   offset: 0, 1
   index: -1
 Frog/Eye-frg
   rotate: false
-  xy: 1116, 278
+  xy: 672, 728
   size: 106, 105
   orig: 107, 107
   offset: 0, 2
   index: -1
 Frog/Hand
   rotate: false
-  xy: 1116, 212
+  xy: 441, 495
   size: 65, 64
   orig: 65, 65
   offset: 0, 0
   index: -1
 Frog/Head-frg
   rotate: false
-  xy: 422, 141
+  xy: 2, 190
   size: 369, 369
   orig: 369, 369
   offset: 0, 0
   index: -1
 Frog/Mouth-cls-frg
   rotate: false
-  xy: 1344, 459
+  xy: 422, 655
   size: 304, 51
   orig: 304, 52
   offset: 0, 1
   index: -1
 Frog/Mouth-o-frg
-  rotate: false
-  xy: 309, 2
+  rotate: true
+  xy: 422, 561
   size: 92, 87
   orig: 92, 88
   offset: 0, 1
   index: -1
 Frog/Mouth-opn-frg
   rotate: false
-  xy: 793, 365
+  xy: 422, 835
   size: 299, 145
   orig: 300, 145
   offset: 0, 0
   index: -1
 Frog/Mouth-wide-frg
-  rotate: false
-  xy: 2, 23
+  rotate: true
+  xy: 373, 254
   size: 305, 66
   orig: 305, 66
   offset: 0, 0
   index: -1
 Frog/Nostril-frg
   rotate: false
-  xy: 1650, 497
+  xy: 373, 239
   size: 44, 13
   orig: 44, 13
   offset: 0, 0
   index: -1
 Frog/Pupil-frg
   rotate: false
-  xy: 723, 112
+  xy: 325, 161
   size: 28, 27
   orig: 28, 28
   offset: 0, 1
   index: -1
 Frog/Tongue-base-frg
   rotate: true
-  xy: 1224, 287
+  xy: 723, 835
   size: 96, 108
   orig: 96, 108
   offset: 0, 0
   index: -1
 Frog/Tongue-mid-frg
   rotate: false
-  xy: 1018, 205
+  xy: 227, 30
   size: 96, 158
   orig: 96, 158
   offset: 0, 0
   index: -1
 Frog/Tongue-top-frg
   rotate: false
-  xy: 1344, 366
+  xy: 833, 840
   size: 96, 91
   orig: 96, 92
   offset: 0, 0
