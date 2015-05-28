@@ -13,7 +13,7 @@ public class Table : GameManagerBase {
 	public ScoreBoard scoreBoard;
 	FlySession flySession;
 	public GameObject crumbsPrefab;
-	public static int level = 0;
+	public static int level = 17;
 	public GameObject starAndSpeakersPrefab;
 
 	public GameObject bgSprite;
@@ -394,7 +394,7 @@ public class Table : GameManagerBase {
 		animalName = animalName.Split (" "[0])[0];
 
 		string soundStr = "Table" + animalName + "_" + soundName;
-//		print ("soundStr: " + soundStr);
+		print ("soundStr: " + soundStr);
 		SoundManager.PlaySFX (soundStr);
 	}
 
@@ -427,6 +427,7 @@ public class Table : GameManagerBase {
 		food.transform.Translate (1000, 0, 0);
 		StartCoroutine (scoreBoard.makeStarsDance ());
 		GameObject starAndSpeakers = Instantiate (starAndSpeakersPrefab, Vector3.forward * 5, Quaternion.identity) as GameObject;
+		SoundManager.PlaySFX ("Dance_Music_01");
 		SoundManager.PlaySFX ("TableGame_EndDance");
 		iTween.MoveBy (scoreBoard.gameObject, iTween.Hash ("y", 100, "time", 0.5f, "easetype", iTween.EaseType.easeInBounce));
 		StartCoroutine (delayedGameExit (8));

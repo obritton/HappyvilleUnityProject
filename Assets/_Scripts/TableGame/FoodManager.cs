@@ -154,7 +154,7 @@ public class FoodManager : MonoBehaviour {
 			string thoughtKey = thoughtSkinName;
 			foreach( Skin skin in foodNameOptions ){
 				if( skin.name != "default" ){
-					print ("skin.name.Substring(0,1): " + skin.name.Substring(0,1) + ", thoughtKey.Substring(0,1): " + thoughtKey.Substring(0,1));
+//					print ("skin.name.Substring(0,1): " + skin.name.Substring(0,1) + ", thoughtKey.Substring(0,1): " + thoughtKey.Substring(0,1));
 					if( string.Equals(skin.name.Substring(0,1),thoughtKey.Substring(0,1),System.StringComparison.OrdinalIgnoreCase)){
 						foodOptions.Add(skin.name);
 		}}}}
