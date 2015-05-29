@@ -26,7 +26,7 @@ public class TableGame : MonoBehaviour {
 		yield return new WaitForSeconds (0.5f);
 		DoorManager.closeDoors ();
 		
-		yield return new WaitForSeconds (1 + 0.5f);
+		yield return new WaitForSeconds (2.5f);
 		iTween.Stop ();
 		Application.LoadLevel("MainMenu Map");
 	}

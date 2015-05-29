@@ -25,7 +25,7 @@ public class HVButton : MonoBehaviour {
 
 	GameObject mousePick(){
 		RaycastHit hit;
-		if(Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 100))
+		if(Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 1000))
 			if( hit.collider )
 				return hit.collider.gameObject;
 		return null;

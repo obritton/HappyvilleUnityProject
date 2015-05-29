@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DogHouseTapManager : MonoBehaviour {
+public class DogHouseTapManager : SingleSoundBase {
 
 	GameObject mousePick(){
 		RaycastHit hit;
@@ -20,17 +20,20 @@ public class DogHouseTapManager : MonoBehaviour {
 					switch(currentTapIndex){
 					case 0:
 						skelAnim.state.SetAnimation( 0, "Tap_One", false );
-						SoundManager.PlaySFX ("DogHouse_TapOne");
+//						SoundManager.PlaySFX ("DogHouse_TapOne");
+						playSingleSound("DogHouse_TapOne");
 						skelAnim.state.AddAnimation(0, "Start", true, 0 );
 						break;
 					case 1:
 						skelAnim.state.SetAnimation( 0, "Tap_Two", false );
-						SoundManager.PlaySFX ("DogHouse_TapTwo");
+//						SoundManager.PlaySFX ("DogHouse_TapTwo");
+						playSingleSound("DogHouse_TapTwo");
 						skelAnim.state.AddAnimation(0, "Tap_Two_Idle", true, 0 );
 						break;
 					case 2:
 						skelAnim.state.SetAnimation( 0, "Tap_Three", false );
-						SoundManager.PlaySFX ("DogHouse_TapThree");
+//						SoundManager.PlaySFX ("DogHouse_TapThree");
+						playSingleSound("DogHouse_TapThree");
 						skelAnim.state.AddAnimation(0, "Start", true, 0 );
 						break;
 					}

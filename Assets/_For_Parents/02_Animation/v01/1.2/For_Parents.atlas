@@ -1,0 +1,76 @@
+
+For_Parents.png
+size: 4096,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+_Assets/Arrow
+  rotate: false
+  xy: 2368, 14
+  size: 15, 14
+  orig: 16, 29
+  offset: 0, 7
+  index: -1
+_Assets/For_Parents
+  rotate: false
+  xy: 2412, 37
+  size: 155, 19
+  orig: 161, 24
+  offset: 3, 3
+  index: -1
+_Assets/Three_Down
+  rotate: false
+  xy: 2, 30
+  size: 623, 26
+  orig: 629, 32
+  offset: 0, 4
+  index: -1
+_Assets/Three_Left
+  rotate: false
+  xy: 1236, 30
+  size: 594, 26
+  orig: 629, 32
+  offset: 0, 4
+  index: -1
+_Assets/Three_Right
+  rotate: false
+  xy: 2, 2
+  size: 617, 26
+  orig: 629, 32
+  offset: 0, 4
+  index: -1
+_Assets/Three_Up
+  rotate: false
+  xy: 1224, 2
+  size: 578, 26
+  orig: 629, 32
+  offset: 0, 4
+  index: -1
+_Assets/Two_Down
+  rotate: false
+  xy: 627, 30
+  size: 607, 26
+  orig: 629, 32
+  offset: 0, 4
+  index: -1
+_Assets/Two_Left
+  rotate: false
+  xy: 1832, 30
+  size: 578, 26
+  orig: 629, 32
+  offset: 0, 4
+  index: -1
+_Assets/Two_Right
+  rotate: false
+  xy: 621, 2
+  size: 601, 26
+  orig: 629, 32
+  offset: 0, 4
+  index: -1
+_Assets/Two_Up
+  rotate: false
+  xy: 1804, 2
+  size: 562, 26
+  orig: 629, 32
+  offset: 0, 4
+  index: -1

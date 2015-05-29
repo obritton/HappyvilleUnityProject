@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OwlTreeTapManager : MonoBehaviour {
+public class OwlTreeTapManager : SingleSoundBase {
 
 	int onPage = -1;
 	void Start(){
-		lastPopoutIndex = Random.Range(0,2);
+		lastPopoutIndex = Random.Range(0,3);
 		StartCoroutine (loopRandomPopups ());
 		onPage = int.Parse(gameObject.tag.Split("_"[0])[1]);
 	}
@@ -51,13 +51,15 @@ public class OwlTreeTapManager : MonoBehaviour {
 				skelAnim.state.SetAnimation( 0, "Popout_" + (lastPopoutIndex+1), false );
 				skelAnim.state.AddAnimation(0, "Idle_" + (lastPopoutIndex+1), true, 0 );
 				if( onPage == MapManager.currentPage )
-					SoundManager.PlaySFX ("RoundTree_Popup");
+//					SoundManager.PlaySFX ("RoundTree_Popup");
+					playSingleSound("RoundTree_Popup");
 			}
 			else{
 				skelAnim.state.SetAnimation( 0, "Duck_" + (lastPopoutIndex+1), false );
-				lastPopoutIndex = Random.Range(0,2);
+				lastPopoutIndex = Random.Range(0,3);
 				if( onPage == MapManager.currentPage )
-					SoundManager.PlaySFX ("RoundTree_Duck");
+//					SoundManager.PlaySFX ("RoundTree_Duck");
+					playSingleSound("RoundTree_Duck");
 			}
 			isOwlDucked = !isOwlDucked;
 		}

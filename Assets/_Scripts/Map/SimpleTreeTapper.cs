@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SimpleTreeTapper : MonoBehaviour {
+public class SimpleTreeTapper : SingleSoundBase {
 
 	GameObject mousePick(){
 		RaycastHit hit;
@@ -23,7 +23,8 @@ public class SimpleTreeTapper : MonoBehaviour {
 					skelAnim.state.AddAnimation( 0, "Tree", true, 0 );
 					string soundName = treeType+"Tree_Tap" + randomTapIndex;
 					print ("soundName: " + soundName);
-					SoundManager.PlaySFX (soundName);
+//					SoundManager.PlaySFX (soundName);
+					playSingleSound(soundName);
 				}
 			}
 		}

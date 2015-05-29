@@ -30,7 +30,8 @@ public class ScoreboardManager : MonoBehaviour {
 		StartCoroutine( countUpScore( rightScore, rightScoreTMP ));
 		rightScoreTMP.GetComponent<Renderer>().enabled = true;
 		yield return new WaitForSeconds (countUpLength + 0.2f);
-		StartCoroutine( countUpScore( totalScore, totalScoreTMP ));
+//		StartCoroutine( countUpScore( totalScore, totalScoreTMP ));
+		totalScoreTMP.text = "" + totalScore;
 		totalScoreTMP.GetComponent<Renderer>().enabled = true;
 	}
 

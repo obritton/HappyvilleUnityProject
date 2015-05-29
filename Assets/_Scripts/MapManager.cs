@@ -27,7 +27,7 @@ public class MapManager : MonoBehaviour {
 	}
 
 	void randomAnimOnAll(){
-		string animStr = "Touch" + (Random.value < 0.5f ? "One" : "Two");
+		string animStr = "Touch" + (Random.value < 0.66f ? "One" : (Random.value < 0.5f ? "Two" : "Two"));//"Three"));
 		int highestTableGameUnlocked = MapUnlockSystem.tableGameCompleted () + 1;
 
 		for( int i = 0; i < mapDenizenArr.Length; i++ ){
@@ -40,6 +40,29 @@ public class MapManager : MonoBehaviour {
 //					mapDenizenArr[i].state.SetAnimation( 0, "Sleep", true );
 			}
 		}
+	}
+
+	public ForParentsBtnManager parentsBtn;
+
+	void OnSwipe( SwipeGesture gesture){
+//		print ("OnSwipe: " + gesture.Direction + ", " + gesture.StartPosition);
+//		if (currentPage == 0)
+//			return;
+
+		int totalFingers = gesture.Fingers.Count;
+
+		if (totalFingers == 1) {
+			if (gesture.Direction == FingerGestures.SwipeDirection.Right) {
+				if (gesture.StartPosition.x < Screen.width / 3)
+					StartCoroutine (navigateToPage (currentPage - 1, false, false));
+			} else if (gesture.Direction == FingerGestures.SwipeDirection.Left) {
+				if (gesture.StartPosition.x > 2 * Screen.width / 3)
+					StartCoroutine (navigateToPage (currentPage + 1, true, false));
+			}
+		}
+
+		if( currentPage == 0 )
+			parentsBtn.OnSwipe(gesture);
 	}
 
 	//LIGHTPOSTS
@@ -66,7 +89,7 @@ public class MapManager : MonoBehaviour {
 	//
 
 	void Start(){
-
+		MapUnlockSystem.setTableGameComplete (7);
 		if (firstTime) {
 			DoorManager.immediateOpen();
 			firstTime = false;
@@ -101,16 +124,19 @@ public class MapManager : MonoBehaviour {
 			if( i > 9 ){
 				animName = (i <= highestTableGameUnlocked) ? "Active_Float_Idle" : "Locked_Float_Idle";
 			}
-			skelAnim.state.SetAnimation(0, animName, true);
+
+//			skelAnim.state.SetAnimation(0, animName, true);
+			StartCoroutine(startSkelAnimWithDelayOffset( skelAnim, animName, 2.0f/3.0f * (i % 3)));
 		}
 
 		//set minigame buttons locked and idle
 		for( int i = 0; i < miniGameButtonsArr.Length; i++){
 			string animName = (i <= highestMiniGameUnlocked) ? "Active_Idle" : "Locked_Idle";
-			if( i > 3 ){
+			if( i == 3 || i == 4 ){
 				animName = (i < highestMiniGameUnlocked) ? "Active_Float_Idle" : "Locked_Idle";//"Locked_Float_Idle";
 			}
-			miniGameButtonsArr[i].state.SetAnimation(0, animName, true);
+//			miniGameButtonsArr[i].state.SetAnimation(0, animName, true);
+			StartCoroutine(startSkelAnimWithDelayOffset( miniGameButtonsArr[i], animName, 2.0f/3.0f * (i % 3)));
 		}
 
 		if (MapUnlockSystem.lastGamePlayed != MapUnlockSystem.GameType.TableGame) {
@@ -125,6 +151,12 @@ public class MapManager : MonoBehaviour {
 		} else {
 			lastButtonAnim.state.SetAnimation(0, lastAnimName, true);
 		}
+	}
+
+	IEnumerator startSkelAnimWithDelayOffset( SkeletonAnimation skelAnim, string animStr, float delay )
+	{
+		yield return new WaitForSeconds (delay);
+		skelAnim.state.SetAnimation (0, animStr, true);
 	}
 
 	void determineIfMiniGameWasPlayedForTheFirstTime(){
@@ -374,6 +406,7 @@ public class MapManager : MonoBehaviour {
 					StartCoroutine(delayedTouchOff());
 					break;
 				case "TableGameBtn":
+					if( !canPressTableBtn ) break;
 					int buttonIndex = int.Parse( hit.collider.gameObject.name);
 					MapUnlockSystem.lastGamePlayed = MapUnlockSystem.GameType.TableGame;
 					MapUnlockSystem.lastTableGamePlayed = buttonIndex;
@@ -387,6 +420,7 @@ public class MapManager : MonoBehaviour {
 					}
 					break;
 				case "CatchGameBtn":
+					if( !canPressTableBtn ) break;
 					if( MapUnlockSystem.miniGamePlayed() >= 0 || MapUnlockSystem.shouldAutoUnlock )
 					{
 					MapUnlockSystem.lastGamePlayed = MapUnlockSystem.GameType.CatchGame;
@@ -394,6 +428,7 @@ public class MapManager : MonoBehaviour {
 					}
 					break;
 				case "WhackGame":
+					if( !canPressTableBtn ) break;
 					if( MapUnlockSystem.miniGamePlayed() >= 2 || MapUnlockSystem.shouldAutoUnlock )
 					{
 					MapUnlockSystem.lastGamePlayed = MapUnlockSystem.GameType.WhackGame;
@@ -401,6 +436,7 @@ public class MapManager : MonoBehaviour {
 					}
 					break;
 				case "SlingshotGameBtn":
+					if( !canPressTableBtn ) break;
 					if( MapUnlockSystem.miniGamePlayed() >= 4 || MapUnlockSystem.shouldAutoUnlock )
 					{
 					MapUnlockSystem.lastGamePlayed = MapUnlockSystem.GameType.SlingshotGame;
@@ -408,6 +444,7 @@ public class MapManager : MonoBehaviour {
 					}
 					break;
 				case "PuzzleGame":
+					if( !canPressTableBtn ) break;
 					if( MapUnlockSystem.miniGamePlayed() >= 1 || MapUnlockSystem.shouldAutoUnlock )
 					{
 					MapUnlockSystem.lastGamePlayed = MapUnlockSystem.GameType.PuzzleGame;
@@ -415,6 +452,7 @@ public class MapManager : MonoBehaviour {
 					}
 					break;
 				case "MatchingGame":
+					if( !canPressTableBtn ) break;
 					if( MapUnlockSystem.miniGamePlayed() >= 5 || MapUnlockSystem.shouldAutoUnlock )
 					{
 					MapUnlockSystem.lastGamePlayed = MapUnlockSystem.GameType.MatchGame;
@@ -422,6 +460,7 @@ public class MapManager : MonoBehaviour {
 					}
 					break;
 				case "PhotoBooth":
+					if( !canPressTableBtn ) break;
 //					if( MapUnlockSystem.miniGamePlayed() >= 3 || MapUnlockSystem.shouldAutoUnlock )
 //					{
 //					MapUnlockSystem.lastGamePlayed = MapUnlockSystem.GameType.Photobooth;
@@ -435,8 +474,10 @@ public class MapManager : MonoBehaviour {
 		}
 	}
 
+	bool canPressTableBtn = true;
 	static string lastGame;
 	IEnumerator loadTableGame( string gameName, int pageIndex, bool isTableButton = false){
+		canPressTableBtn = false;
 		SoundManager.PlaySFX ("Path_Active_Press");
 		MapUnlockSystem.wasLastGameCompleted = false;
 		MapUnlockSystem.shouldNewButtonUnlock = false;
@@ -449,7 +490,7 @@ public class MapManager : MonoBehaviour {
 //		print ("openPageIndex: " + openPageIndex);
 		iTween.Stop ();
 		yield return new WaitForSeconds (1);
-		SoundManager.Stop();
+		SoundManager.Stop ();
 		DoorManager.closeDoors ();
 
 		yield return new WaitForSeconds (2.5f);
@@ -460,6 +501,7 @@ public class MapManager : MonoBehaviour {
 	IEnumerator fireBirdTouchAnim(){
 		totalBirdClicks= (totalBirdClicks + 1) % 2;
 		string birdAnimName = (totalBirdClicks == 0 ? "TouchOne-brd" : "TouchTwo-brd");
+		SoundManager.PlaySFX (birdAnimName);
 		TrackEntry te = ((SkeletonAnimation)bird.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, birdAnimName, false);
 		yield return new WaitForSeconds (te.animation.duration);
 		((SkeletonAnimation)bird.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Idle-brd", true);
@@ -508,7 +550,8 @@ public class MapManager : MonoBehaviour {
 			indexStr = "Three";
 		}
 
-		return "Touch" + indexStr + "-" + animalStr;
+		string animStr = "Touch" + indexStr + "-" + animalStr;
+		return animStr;
 	}
 
 	bool fireLeftArrows;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LightPostTapManager : MonoBehaviour {
+public class LightPostTapManager : SingleSoundBase {
 
 	GameObject mousePick(){
 		RaycastHit hit;
@@ -17,13 +17,14 @@ public class LightPostTapManager : MonoBehaviour {
 			if( mousePick() == gameObject ){
 				int touchIndex = Random.Range (0,4);
 				string touchIndexStr = "";
-				if( touchIndex > 0 )
+				if( touchIndex > 1 )
 					touchIndexStr = "" + touchIndex;
 				string tapName = "TouchOne" + touchIndexStr;
 				SkeletonAnimation skelAnim = GetComponent<SkeletonAnimation>();
 				if( skelAnim != null ){
 					print ("tapName: " + tapName);
-					SoundManager.PlaySFX("Lightpole_Touch4");
+//					SoundManager.PlaySFX("Lightpole_Touch4");
+					playSingleSound("Lightpole_Touch4");
 					skelAnim.state.SetAnimation( 0, tapName, false );
 					skelAnim.state.AddAnimation( 0, "Idle", true, 0 );
 				}

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HouseTapManager : MonoBehaviour {
+public class HouseTapManager : SingleSoundBase {
 
 	public string[] tapNames;
 	public bool looped;
@@ -33,7 +33,8 @@ public class HouseTapManager : MonoBehaviour {
 		case "LionHouse":
 		case "FoxHouse":
 		case "BunnyHouse":
-			SoundManager.PlaySFX ("LionHouse_Tap");
+//			SoundManager.PlaySFX ("LionHouse_Tap");
+			playSingleSound("LionHouse_Tap");
 			break;
 		}
 	}

@@ -1,16 +1,9 @@
 
 Sign_Match.png
-size: 2048,1024
+size: 1024,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-_Assets/Sign/Shadow_Sign
-  rotate: false
-  xy: 830, 84
-  size: 827, 827
-  orig: 827, 827
-  offset: 0, 0
-  index: -1
 _Assets/Sign/Sign_Memory
   rotate: false
   xy: 2, 58
@@ -23,5 +16,18 @@ _Assets/Sign/Star_White
   xy: 2, 2
   size: 56, 54
   orig: 56, 54
+  offset: 0, 0
+  index: -1
+
+Sign_Match2.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+_Assets/Sign/Shadow_Sign
+  rotate: false
+  xy: 2, 2
+  size: 827, 827
+  orig: 827, 827
   offset: 0, 0
   index: -1

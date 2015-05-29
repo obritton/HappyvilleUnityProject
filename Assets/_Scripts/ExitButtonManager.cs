@@ -8,7 +8,7 @@ public class ExitButtonManager : MonoBehaviour {
 
 	IEnumerator delayedMenuLoad()
 	{
-		yield return new WaitForSeconds (1);
+		yield return new WaitForSeconds (2.5f);
 		Application.LoadLevel("MainMenu Map");
 	}
 

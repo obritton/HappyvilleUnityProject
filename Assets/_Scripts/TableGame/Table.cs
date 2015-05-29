@@ -13,7 +13,7 @@ public class Table : GameManagerBase {
 	public ScoreBoard scoreBoard;
 	FlySession flySession;
 	public GameObject crumbsPrefab;
-	public static int level = 17;
+	public static int level = 0;
 	public GameObject starAndSpeakersPrefab;
 
 	public GameObject bgSprite;
@@ -63,13 +63,14 @@ public class Table : GameManagerBase {
 	bool playing = true;
 	bool isFlyOut = false;
 	IEnumerator checkAndPlayRandomTapAnim(){
+		yield return new WaitForSeconds(3);
 		while (playing) {
-			yield return new WaitForSeconds(Random.Range (5,10));
 			if( !touchedRecently && !isFoodDragging && !isFlyOut && canTouchAnim )
 			{
 				playTouchForCharacter(Random.Range(0,3));
 			}
 			touchedRecently = false;
+			yield return new WaitForSeconds(Random.Range (5,10));
 		}
 	}
 
@@ -187,7 +188,7 @@ public class Table : GameManagerBase {
 					}
 				}
 				touchedRecently = true;
-				setAnimForAll("Idle", true, false );
+				setAnimForAll("Idle", true, true );
 				isFoodDragging = false;
 			}
 		}
@@ -334,7 +335,7 @@ public class Table : GameManagerBase {
 		//Add VO here
 		string skinName = ((SkeletonAnimation)tableSpotArr[plateIndex].thoughtBubble.thoughtShape.GetComponent<SkeletonAnimation> ()).skeleton.Skin.name;
 		skinName = skinName.Split ("-" [0]) [0];
-		print ("animateFoodMatch: " + skinName);
+//		print ("animateFoodMatch: " + skinName);
 		float voDuration = playVoiceOver (skinName);
 		yield return new WaitForSeconds (voDuration);
 
@@ -429,7 +430,7 @@ public class Table : GameManagerBase {
 		GameObject starAndSpeakers = Instantiate (starAndSpeakersPrefab, Vector3.forward * 5, Quaternion.identity) as GameObject;
 		SoundManager.PlaySFX ("Dance_Music_01");
 		SoundManager.PlaySFX ("TableGame_EndDance");
-		iTween.MoveBy (scoreBoard.gameObject, iTween.Hash ("y", 100, "time", 0.5f, "easetype", iTween.EaseType.easeInBounce));
+		iTween.MoveBy (scoreBoard.gameObject, iTween.Hash ("y", 300, "time", 0.5f, "easetype", iTween.EaseType.easeInBounce));
 		StartCoroutine (delayedGameExit (8));
 	}
 
@@ -442,10 +443,12 @@ public class Table : GameManagerBase {
 	}
 
 	IEnumerator delayedGameExit( float delay ){
+		iTween.Stop ();
 		yield return new WaitForSeconds (delay);
+		SoundManager.Stop ();
 		DoorManager.closeDoors ();
 
-		yield return new WaitForSeconds (1.05f);
+		yield return new WaitForSeconds (2.5f);
 		iTween.Stop ();
 		Application.LoadLevel("MainMenu Map");
 	}
@@ -461,7 +464,9 @@ public class Table : GameManagerBase {
 
 	public float makeAllTap(){
 		SoundManager.PlaySFX ("TablePlate_TableTap");
-		return setAnimForAll ("TapTable");
+		float delay = setAnimForAll ("TapTable");
+		setAnimForAll ("Idle", false, true);
+		return delay;
 	}
 
 	public float jumpAllPlates( bool playSound = true ){
@@ -487,7 +492,7 @@ public class Table : GameManagerBase {
 		} else {
 			yield return new WaitForSeconds (delay);
 			delay = makeAllTap ();
-			addIdelForAll ();
+//			addIdelForAll ();
 			jumpAllPlates (false);
 			yield return new WaitForSeconds (delay);
 			isFoodDragging = false;

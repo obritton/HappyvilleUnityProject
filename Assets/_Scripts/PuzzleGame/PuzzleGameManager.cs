@@ -226,14 +226,14 @@ public class PuzzleGameManager : GameManagerBase {
 		base.doWin ();
 		currentPuzzleCharacter.state.SetAnimation (0, "Dance", true);
 		hasGameStarted = false;
-		confettiSystem.SetActive (true);
-		yield return new WaitForSeconds (1);
 		borderLights.SetActive (true);
+		yield return new WaitForSeconds (0.5f);
+		confettiSystem.SetActive (true);
 	}
 
 	GameObject mousePick(){
 		RaycastHit hit;
-		if(Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 100))
+		if(Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 1000))
 			if( hit.collider )
 				return hit.collider.gameObject;
 		return null;

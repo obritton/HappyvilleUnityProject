@@ -91,7 +91,7 @@ public class PuzzleTrayManager : MonoBehaviour {
 	
 	void trayIsDoneAnimating(){
 		Vector3 pos = transform.localPosition;
-		pos.z = pos.x < 100 ? -11 : -1;
+		pos.z = pos.x < 100 ? -12 : -1;
 		transform.localPosition = pos;
 	}
 
@@ -104,7 +104,7 @@ public class PuzzleTrayManager : MonoBehaviour {
 
 	GameObject mousePick(){
 		RaycastHit hit;
-		if(Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 100))
+		if(Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 1000))
 			if( hit.collider )
 				return hit.collider.gameObject;
 		return null;

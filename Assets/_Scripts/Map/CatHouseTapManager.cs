@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CatHouseTapManager : MonoBehaviour {
+public class CatHouseTapManager : SingleSoundBase {
 
 	GameObject mousePick(){
 		RaycastHit hit;
@@ -24,7 +24,8 @@ public class CatHouseTapManager : MonoBehaviour {
 					skelAnim.state.AddAnimation(0, idleName, true, 0 );
 
 					string soundStr = "CatHouse_Tap"+soundIndex;
-					SoundManager.PlaySFX (soundStr);
+//					SoundManager.PlaySFX (soundStr);
+					playSingleSound(soundStr);
 				}
 				currentTapIndex = (currentTapIndex+1)%2;
 			}
