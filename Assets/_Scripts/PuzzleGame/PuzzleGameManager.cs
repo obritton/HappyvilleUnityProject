@@ -27,10 +27,10 @@ public class PuzzleGameManager : GameManagerBase {
 			switch( Random.Range( 0, 5 ))
 			{
 			case 0:
-				newAnim = "Pant";
+				newAnim = "TouchOne";
 				break;
 			case 1:
-				newAnim = "Dance";
+				newAnim = "TouchTwo";
 				break;
 			case 2:
 				newAnim = "TouchOne";
@@ -42,7 +42,7 @@ public class PuzzleGameManager : GameManagerBase {
 				newAnim = "TouchThree";
 				break;
 			case 5:
-				newAnim = "Wrong";
+				newAnim = "TouchThree";
 				break;
 			}
 			currentPuzzleCharacter.state.SetAnimation( 0, newAnim, false);
@@ -61,6 +61,7 @@ public class PuzzleGameManager : GameManagerBase {
 				case "PuzzlePiece":
 					draggingPP = pickedGO;
 					draggingPP.transform.parent = null;
+					iTween.Stop( draggingPP );
 					iTween.ScaleTo( pickedGO, iTween.Hash ( "scale", 25000*Vector3.one, "easetype", iTween.EaseType.easeOutBack, "time", 0.5f ));
 					draggingPP.transform.Translate(0, 1, 0 );
 					lastMousePos = Input.mousePosition;

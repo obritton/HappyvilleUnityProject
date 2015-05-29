@@ -171,6 +171,8 @@ public class MapManager : MonoBehaviour {
 		case MapUnlockSystem.GameType.MatchGame:{		lastGameIndex = 5;		}	break;
 		}
 
+		print ("lastGameIndex: " + lastGameIndex);
+		print ("MapUnlockSystem.miniGamePlayed(): " + MapUnlockSystem.miniGamePlayed());
 		if (lastGameIndex >= MapUnlockSystem.miniGamePlayed()) {
 			MapUnlockSystem.setMiniGamePlayed(lastGameIndex);
 			MapUnlockSystem.shouldNewButtonUnlock = true;
@@ -244,7 +246,7 @@ public class MapManager : MonoBehaviour {
 		string idleAnimName = (l < 9 ? "Active_Idle" : "Active_Float_Idle");
 		tableGameButtons [l].GetComponent<SkeletonAnimation> ().state.AddAnimation(0, idleAnimName, true, 0);
 		mapDenizenArr [l / 3].state.SetAnimation (0, "Unlock", false);
-		mapDenizenArr [l / 3].state.AddAnimation (0, "Idle", false, 0);
+		mapDenizenArr [l / 3].state.AddAnimation (0, "Idle", true, 0);
 
 		if (l >= 6 && l <= 8) {
 			SoundManager.PlaySFX("MenuBunny_Unlock");

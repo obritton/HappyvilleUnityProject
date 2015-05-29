@@ -5,6 +5,8 @@ public class PuzzleTrayManager : MonoBehaviour {
 
 	public PuzzleGameManager gameManager;
 	public SkeletonAnimation signSA;
+	public SkeletonAnimation borderAnim;
+	public GameObject confetti;
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetMouseButtonUp (0)) {
@@ -15,49 +17,31 @@ public class PuzzleTrayManager : MonoBehaviour {
 					slideTray (isTrayDown);
 					break;
 				case "PuzzleCatBtn":
-					gameManager.loadNewAnimal(PuzzleGameManager.PuzzleAnimal.Cat);
-					gameManager.resetAllPieces();
-					slideTray (isTrayDown);
+					startNewGame(PuzzleGameManager.PuzzleAnimal.Cat);
 					break;
 				case "PuzzleDogBtn":
-					gameManager.loadNewAnimal(PuzzleGameManager.PuzzleAnimal.Dog);
-					gameManager.resetAllPieces();
-					slideTray (isTrayDown);
+					startNewGame(PuzzleGameManager.PuzzleAnimal.Dog);
 					break;
 				case "PuzzleMonkeyBtn":
-					gameManager.loadNewAnimal(PuzzleGameManager.PuzzleAnimal.Monkey);
-					gameManager.resetAllPieces();
-					slideTray (isTrayDown);
+					startNewGame(PuzzleGameManager.PuzzleAnimal.Monkey);
 					break;
 				case "PuzzleFoxBtn":
-					gameManager.loadNewAnimal(PuzzleGameManager.PuzzleAnimal.Fox);
-					gameManager.resetAllPieces();
-					slideTray (isTrayDown);
+					startNewGame(PuzzleGameManager.PuzzleAnimal.Fox);
 					break;
 				case "PuzzleBearBtn":
-					gameManager.loadNewAnimal(PuzzleGameManager.PuzzleAnimal.Bear);
-					gameManager.resetAllPieces();
-					slideTray (isTrayDown);
+					startNewGame(PuzzleGameManager.PuzzleAnimal.Bear);
 					break;
 				case "PuzzleBirdBtn":
-					gameManager.loadNewAnimal(PuzzleGameManager.PuzzleAnimal.Bird);
-					gameManager.resetAllPieces();
-					slideTray (isTrayDown);
+					startNewGame(PuzzleGameManager.PuzzleAnimal.Bird);
 					break;
 				case "PuzzleBunnyBtn":
-					gameManager.loadNewAnimal(PuzzleGameManager.PuzzleAnimal.Bunny);
-					gameManager.resetAllPieces();
-					slideTray (isTrayDown);
+					startNewGame(PuzzleGameManager.PuzzleAnimal.Bunny);
 					break;
 				case "PuzzleFrogBtn":
-					gameManager.loadNewAnimal(PuzzleGameManager.PuzzleAnimal.Frog);
-					gameManager.resetAllPieces();
-					slideTray (isTrayDown);
+					startNewGame(PuzzleGameManager.PuzzleAnimal.Frog);
 					break;
 				case "PuzzleLionBtn":
-					gameManager.loadNewAnimal(PuzzleGameManager.PuzzleAnimal.Lion);
-					gameManager.resetAllPieces();
-					slideTray (isTrayDown);
+					startNewGame(PuzzleGameManager.PuzzleAnimal.Lion);
 					break;
 				case "LeftArrow":
 					slideThumbs(true);
@@ -72,6 +56,14 @@ public class PuzzleTrayManager : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	void startNewGame( PuzzleGameManager.PuzzleAnimal animal ){
+		gameManager.loadNewAnimal(animal);
+		gameManager.resetAllPieces();
+		slideTray (isTrayDown);
+		borderAnim.gameObject.SetActive(false);
+		confetti.SetActive (false);
 	}
 
 	int currentPosition = 0;

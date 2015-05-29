@@ -91,6 +91,8 @@ public class Table : GameManagerBase {
 //				print ("hitGO.tag: " + hitGO.tag);
 				switch( hitGO.tag ){
 				case "food":
+					if( hitGO.GetComponent<Food>().isSetOnPlate )
+						break;
 					setAnimForAll( "Pant", true, true );
 					isFoodDragging = true;
 					foodTouched = true;
@@ -295,6 +297,7 @@ public class Table : GameManagerBase {
 	
 	void moveFoodToPlate( int plateIndex )
 	{
+		food.GetComponent<Food> ().isSetOnPlate = true;
 		Vector3 pos = tableSpotArr [plateIndex].transform.position;
 		pos.z = food.transform.position.z;
 		pos.y -= 175f;

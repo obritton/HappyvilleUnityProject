@@ -23,13 +23,13 @@ public class ScoreboardManager : MonoBehaviour {
 		resultsAnim.state.SetAnimation (0, "Populate", false);
 		resultsAnim.state.AddAnimation (0, "Idle", true, 0);
 
-		yield return new WaitForSeconds (0.25f);
+		yield return new WaitForSeconds (0.24f);
 		StartCoroutine( countUpScore( leftScore, leftScoreTMP ));
 		leftScoreTMP.GetComponent<Renderer>().enabled = true;
 		yield return new WaitForSeconds (countUpLength);
 		StartCoroutine( countUpScore( rightScore, rightScoreTMP ));
 		rightScoreTMP.GetComponent<Renderer>().enabled = true;
-		yield return new WaitForSeconds (countUpLength + 0.2f);
+		yield return new WaitForSeconds (countUpLength - 0.2f);
 //		StartCoroutine( countUpScore( totalScore, totalScoreTMP ));
 		totalScoreTMP.text = "" + totalScore;
 		totalScoreTMP.GetComponent<Renderer>().enabled = true;
