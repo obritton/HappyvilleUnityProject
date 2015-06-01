@@ -13,7 +13,7 @@ public class Table : GameManagerBase {
 	public ScoreBoard scoreBoard;
 	FlySession flySession;
 	public GameObject crumbsPrefab;
-	public static int level = 0;
+	public static int level = 8;
 	public GameObject starAndSpeakersPrefab;
 
 	public GameObject bgSprite;
@@ -289,6 +289,7 @@ public class Table : GameManagerBase {
 	
 	void snapFoodBack()
 	{
+		food.GetComponent<Food> ().isSetOnPlate = false;
 		EyeFollow.unregisterFollowTransform ();
 		iTween.MoveTo (food.gameObject, iTween.Hash ("position", foodStartPos, "time", 1, "easetype", iTween.EaseType.easeOutElastic, "islocal", true));
 		iTween.ScaleTo( food.gameObject, iTween.Hash( "time", 0.5f, "scale",  foodStartSize, "easetype", iTween.EaseType.easeOutElastic));

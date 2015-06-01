@@ -18,7 +18,7 @@ public class SlingshotGameManager : FrenziableGame {
 	IEnumerator makeBearPoint()
 	{
 		while (isBearWaiting) {
-			yield return new WaitForSeconds(3);
+			yield return new WaitForSeconds(3.667f);
 			bearAnim.state.SetAnimation(0, "Point", false);
 			bearAnim.state.AddAnimation(0, "Idle", true, 0);
 		}
@@ -129,6 +129,10 @@ public class SlingshotGameManager : FrenziableGame {
 			areResultsInitiated = true;
 			fingerFollower.initiateResults ();
 			catchResults.showResults (10, 10, 85);
+
+			iTween.MoveTo( backgroundNode, iTween.Hash("x", 0, "time", 2, "easetype", iTween.EaseType.easeInOutQuad));
+			iTween.MoveTo( boat, iTween.Hash("x", 768, "time", 2, "easetype", iTween.EaseType.easeInOutQuad));
+			iTween.MoveTo( bearAnim.gameObject, iTween.Hash("y", -525, "time", 0.1f, "easetype", iTween.EaseType.easeInOutQuad));
 		}
 	}
 }

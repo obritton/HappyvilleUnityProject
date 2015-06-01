@@ -23,7 +23,7 @@ public class MapUnlockSystem : MonoBehaviour {
 	static string miniGameUnlockedStr = "miniGamePlayed21";
 	static string hasPlayedFirstMiniGameStr = "hasPlayedFirstMiniGameStr21";
 
-	public static bool shouldAutoUnlock = false;
+	public static bool shouldAutoUnlock = true;
 
 	public static int tableGameCompleted(){
 		return PlayerPrefs.GetInt(tableGameUnlockedStr);

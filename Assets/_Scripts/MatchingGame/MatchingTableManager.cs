@@ -95,6 +95,7 @@ public class MatchingTableManager : MonoBehaviour {
 
 //		SkeletonAnimation skelAnim = card.transform.GetChild (0).GetComponent<SkeletonAnimation> ();
 //		TrackEntry te = skelAnim.state.SetAnimation (0, "Tap", false);
+		card.transform.Translate (0, 0, -1);
 		TrackEntry te = playAnimOnAllChildren( card.transform, "Tap" );
 
 		StartCoroutine (delayedGameObjectActivate (te.animation.duration/3.0f, cardFRONTArr [frontIndex].gameObject, frontIndex == 1));

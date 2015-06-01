@@ -223,7 +223,7 @@ public class FoodManager : MonoBehaviour {
 			foreach( Skin skin in foodNameOptions ){
 				if( skin.name != "default" ){
 					string foodKey = skin.name;
-					return ( foodKey == thoughtSkinName);
+					return string.Equals(thoughtSkinName,foodKey, System.StringComparison.OrdinalIgnoreCase);
 		}}}
 			break;
 		case 10://FOOD first 2 letters = THOUGHT first two letters after dash
