@@ -185,7 +185,7 @@ public class PieChartMesh : MonoBehaviour
         mesh.vertices = mVertices;
         mesh.normals = mNormals;
         mesh.uv = mUvs;
-        //mesh.triangles = triangles;
+//        mesh.triangles = triangles;
 
         mesh.subMeshCount = mData.Length;
 

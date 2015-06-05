@@ -13,7 +13,7 @@ public class PieChartMeshController_NN : MonoBehaviour
         {
             mPieChart.Init(mData, 100, 0, 100, null);
 			mData =  new float[]{currentChartAmount, 100-currentChartAmount, 0, 0};
-            mPieChart.Draw(mData);
+            mPieChart.Draw(mData);//64 bit crash here
 			chartDelta = 0.05f * 10.0f * (currentChartAmount/100.0f) * 3;
         }
     }

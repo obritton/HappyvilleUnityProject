@@ -14,7 +14,7 @@ public class ExitButtonManager : MonoBehaviour {
 
 	GameObject mousePick(){
 		RaycastHit hit;
-		if(Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 100))
+		if(Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 300))
 			if( hit.collider )
 				return hit.collider.gameObject;
 		return null;

@@ -8,7 +8,8 @@ public class TimerAndMeter : MonoBehaviour {
 	public Renderer[] MeterDotsArr;
 
 	public FrenziableGame frenziableGame;
-	public PieChartMeshController_NN pieChart;
+//	public PieChartMeshController_NN pieChart;
+	public PGGPieChart pieChart;
 
 	int score = 0;
 	int totalDots = 0;
@@ -22,7 +23,7 @@ public class TimerAndMeter : MonoBehaviour {
 	public IEnumerator delayedPieChartStart( float delay )
 	{
 		yield return new WaitForSeconds (delay);
-		pieChart.isActive = true;
+		pieChart.isActive = true;//64 bit crash was here
 	}
 
 	public void pausePieChart(){

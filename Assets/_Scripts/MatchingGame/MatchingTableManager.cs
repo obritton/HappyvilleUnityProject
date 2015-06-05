@@ -76,6 +76,8 @@ public class MatchingTableManager : MonoBehaviour {
 	
 	public void flipCard( GameObject card ){
 		card.GetComponent<MatchingCard> ().isInUse = true;
+		card.transform.Translate (0, 0, -1);
+		StartCoroutine(delayedCardSettleDown(card, 1));
 
 		currentTurn++;
 		int frontIndex = currentTurn % 2;
@@ -103,6 +105,11 @@ public class MatchingTableManager : MonoBehaviour {
 			canTap = false;
 			StartCoroutine(endTurn(te.animation.duration));
 		}
+	}
+
+	IEnumerator delayedCardSettleDown( GameObject card, float delay ){
+		yield return new WaitForSeconds (delay);
+		card.transform.Translate (0, 0, 1);
 	}
 
 	TrackEntry playAnimOnAllChildren( Transform parent, string animStr ){
@@ -178,7 +185,7 @@ public class MatchingTableManager : MonoBehaviour {
 		}
 
 		foreach (GameObject card in cardsInPlayArr) {
-			card.transform.Translate( 0, 0, -1 );
+			card.transform.Translate( 0, 0, -5 );
 			iTween.ScaleBy( card, iTween.Hash( "amount", 1.1f * Vector3.one, "time", 0.5f, "easetype", iTween.EaseType.easeInOutBounce ));
 		}
 

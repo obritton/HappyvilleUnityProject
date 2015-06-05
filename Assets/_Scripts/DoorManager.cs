@@ -49,10 +49,10 @@ public class DoorManager : MonoBehaviour {
 		int randomI = Random.Range (1, 10);
 		string animName = "Close" + (randomI == 1 ? "" : "" + randomI);
 
-		doorAnim.state.SetAnimation (0, animName, false);
+		TrackEntry te = doorAnim.state.SetAnimation (0, animName, false);
 		doorAnim.GetComponent<Renderer>().enabled = true;
 
-		yield return new WaitForSeconds (0.1f);
+		yield return new WaitForSeconds (te.animation.duration);
 	}
 
 	public IEnumerator animateOpenDoors( bool immediate = false )

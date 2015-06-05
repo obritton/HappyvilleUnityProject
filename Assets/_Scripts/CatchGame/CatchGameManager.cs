@@ -135,8 +135,8 @@ public class CatchGameManager : FrenziableGame {
 		music = SoundManager.PlaySFX("OLDFastMusic", true);
 		timerAndMeter.dropDown ();
 		foodDropper.startFruitDrops ();
-		StartCoroutine (timerAndMeter.delayedPieChartStart (1));
-//		StartCoroutine (delayedInitiateResults (60));
+//		StartCoroutine (timerAndMeter.delayedPieChartStart (1));
+		StartCoroutine (delayedInitiateResults (60));
 	}
 
 	bool isLionTouched = false;

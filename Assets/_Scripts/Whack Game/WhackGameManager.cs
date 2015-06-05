@@ -53,7 +53,9 @@ public class WhackGameManager : FrenziableGame {
 	}
 
 	IEnumerator stopFrenzy(){
+		print ("stopFrenzy before WaitForSeconds (12)");
 		yield return new WaitForSeconds (12);
+		print ("stopFrenzy after Wait");
 		timerAndMeter.unpausePieChart ();
 		this.isFrenzy = false;
 		timerAndMeter.zerototalDots ();

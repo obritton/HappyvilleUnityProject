@@ -4,7 +4,6 @@ using System.Collections;
 public class ForParentsBtnManager : MonoBehaviour {
 
 	void Update(){
-		print ("ForParentsBtnManager Update");
 		if (Input.GetMouseButtonDown (0) && mousePick() == gameObject) {
 			print ("mousePick()");
 

@@ -171,8 +171,8 @@ public class MapManager : MonoBehaviour {
 		case MapUnlockSystem.GameType.MatchGame:{		lastGameIndex = 5;		}	break;
 		}
 
-		print ("lastGameIndex: " + lastGameIndex);
-		print ("MapUnlockSystem.miniGamePlayed(): " + MapUnlockSystem.miniGamePlayed());
+//		print ("lastGameIndex: " + lastGameIndex);
+//		print ("MapUnlockSystem.miniGamePlayed(): " + MapUnlockSystem.miniGamePlayed());
 		if (lastGameIndex >= MapUnlockSystem.miniGamePlayed()) {
 			MapUnlockSystem.setMiniGamePlayed(lastGameIndex);
 			MapUnlockSystem.shouldNewButtonUnlock = true;
@@ -495,7 +495,7 @@ public class MapManager : MonoBehaviour {
 		SoundManager.Stop ();
 		DoorManager.closeDoors ();
 
-		yield return new WaitForSeconds (2.5f);
+		yield return new WaitForSeconds (2);
 		iTween.Stop ();
 		Application.LoadLevel (gameName);
 	}

@@ -389,7 +389,7 @@ public class Table : GameManagerBase {
 	}
 
 	float playVoiceOver( string voStr ){
-		print ("playVoiceOver: " + voStr);
+//		print ("playVoiceOver: " + voStr);
 		SoundManager.PlaySFX (voStr);
 		return 1;
 	}
@@ -399,7 +399,7 @@ public class Table : GameManagerBase {
 		animalName = animalName.Split (" "[0])[0];
 
 		string soundStr = "Table" + animalName + "_" + soundName;
-		print ("soundStr: " + soundStr);
+//		print ("soundStr: " + soundStr);
 		SoundManager.PlaySFX (soundStr);
 	}
 
@@ -452,7 +452,7 @@ public class Table : GameManagerBase {
 		SoundManager.Stop ();
 		DoorManager.closeDoors ();
 
-		yield return new WaitForSeconds (2.5f);
+		yield return new WaitForSeconds (2);
 		iTween.Stop ();
 		Application.LoadLevel("MainMenu Map");
 	}
@@ -593,7 +593,7 @@ public class Table : GameManagerBase {
 		float delay = 0;
 		foreach( TableSpot spot in tableSpotArr ){
 			TrackEntry te = ((SkeletonAnimation)spot.thoughtBubble.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "PopUp-thought", false);
-			SoundManager.PlaySFX("Thought_Popup");
+			SoundManager.PlaySFX("Thought_PopUp");
 			((SkeletonAnimation)spot.thoughtBubble.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "IdleOne-thought", false, 0);
 
 			delay = te.animation.duration;

@@ -44,8 +44,9 @@ public class TableSpot : MonoBehaviour {
 
 	IEnumerator configAndAnimateNewThoughtBubbleForTypeWithDelay( ThoughtBubble.ThoughtShape thoughtShapeIn, float delay = 0 ){
 		yield return new WaitForSeconds( delay );
+		SoundManager.PlaySFX("Thought_PopUp");
+//		SoundManager.PlaySFX("Character_Popup");
 		((SkeletonAnimation)thoughtBubble.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "PopUp-thought", false );
-		SoundManager.PlaySFX("Thought_Popup");
 		((SkeletonAnimation)thoughtBubble.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "IdleOne-thought", true, 0);
 		yield return new WaitForSeconds( 0.01f );
 		thoughtBubble.GetComponent<Renderer>().enabled = true;
