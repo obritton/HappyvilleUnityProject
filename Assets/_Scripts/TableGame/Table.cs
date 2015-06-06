@@ -13,7 +13,7 @@ public class Table : GameManagerBase {
 	public ScoreBoard scoreBoard;
 	FlySession flySession;
 	public GameObject crumbsPrefab;
-	public static int level = 8;
+	public static int level = 0;//0-Based
 	public GameObject starAndSpeakersPrefab;
 
 	public GameObject bgSprite;
