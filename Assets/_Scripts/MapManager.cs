@@ -89,7 +89,8 @@ public class MapManager : MonoBehaviour {
 	//
 
 	void Start(){
-		MapUnlockSystem.setTableGameComplete (7);
+//		MapUnlockSystem.setTableGameComplete (7);
+//		PlayerPrefs.DeleteAll ();
 		if (firstTime) {
 			DoorManager.immediateOpen();
 			firstTime = false;
@@ -182,6 +183,7 @@ public class MapManager : MonoBehaviour {
 	IEnumerator unlockNextLevel()
 	{
 		print ("unlockNextLevel with lastGamePlayed: " + MapUnlockSystem.lastGamePlayed);
+		yield return new WaitForSeconds (1);
 		switch (MapUnlockSystem.lastGamePlayed) {
 		case MapUnlockSystem.GameType.TableGame:
 		{
@@ -231,11 +233,10 @@ public class MapManager : MonoBehaviour {
 		}
 			break;
 		}
-
-		yield return new WaitForSeconds (0);
 	}
 
 	IEnumerator unlockTableButton( int l ){
+		print ("unlockTableButton: " + l);
 		if (l % 3 == 0) {
 			StartCoroutine (navigateToPage (l / 3 + 1, false, false, true));
 		}
