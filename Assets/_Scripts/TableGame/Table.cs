@@ -105,13 +105,16 @@ public class Table : GameManagerBase {
 					((SkeletonAnimation)food.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Drag", true, 0);
 					break;
 				case "Character1":
-					playTouchForCharacter(0);
+					if( tableSpotArr [0].canTouch )
+						playTouchForCharacter(0);
 					break;
 				case "Character2":
-					playTouchForCharacter(1);
+					if( tableSpotArr [1].canTouch )
+						playTouchForCharacter(1);
 					break;
 				case "Character3":
-					playTouchForCharacter(2);
+					if( tableSpotArr [2].canTouch )
+						playTouchForCharacter(2);
 					break;
 				case "Plate1Btn":
 					playTouchForPlate(0);
@@ -294,6 +297,9 @@ public class Table : GameManagerBase {
 		iTween.MoveTo (food.gameObject, iTween.Hash ("position", foodStartPos, "time", 1, "easetype", iTween.EaseType.easeOutElastic, "islocal", true));
 		iTween.ScaleTo( food.gameObject, iTween.Hash( "time", 0.5f, "scale",  foodStartSize, "easetype", iTween.EaseType.easeOutElastic));
 		((SkeletonAnimation)food.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "NoBurst", false);
+
+		foreach (TableSpot spot in tableSpotArr)
+						spot.canTouch = true;
 	}
 	
 	void moveFoodToPlate( int plateIndex )
@@ -310,6 +316,7 @@ public class Table : GameManagerBase {
 	}
 
 	IEnumerator performResponseForPosition( int plateIndex, float delay = 0 ){
+		tableSpotArr [plateIndex].canTouch = false;
 		yield return new WaitForSeconds (delay);
 //		if (food.shape == tableSpotArr [plateIndex].thoughtShape) {
 		List<Skin> skins = new List<Skin> ();
@@ -338,7 +345,11 @@ public class Table : GameManagerBase {
 
 		//Add VO here
 		string skinName = ((SkeletonAnimation)tableSpotArr[plateIndex].thoughtBubble.thoughtShape.GetComponent<SkeletonAnimation> ()).skeleton.Skin.name;
-		skinName = skinName.Split ("-" [0]) [0];
+		if (skinName == "Half-Circle-shape") {
+			skinName = "Half-Circle";
+		} else {
+			skinName = skinName.Split ("-" [0]) [0];
+		}
 //		print ("animateFoodMatch: " + skinName);
 		float voDuration = playVoiceOver (skinName);
 		yield return new WaitForSeconds (voDuration);
@@ -389,7 +400,7 @@ public class Table : GameManagerBase {
 	}
 
 	float playVoiceOver( string voStr ){
-//		print ("playVoiceOver: " + voStr);
+		print ("playVoiceOver: " + voStr);
 		SoundManager.PlaySFX (voStr);
 		return 1;
 	}
@@ -503,6 +514,8 @@ public class Table : GameManagerBase {
 			createMatchingFood ();
 			StartCoroutine (animateFoodOn ());
 			canTouchAnim = true;
+			foreach (TableSpot spot in tableSpotArr)
+				spot.canTouch = true;
 		}
 	}
 
@@ -699,12 +712,13 @@ public class Table : GameManagerBase {
 		AnimationStateData data = thoughtAnim.state.Data;
 		List<Skin> skins = data.SkeletonData.Skins;
 
-		Skin randomSkin = skins [Random.Range(1, skins.Count)];
+		Skin randomSkin = skins [Random.Range(0, skins.Count)];
 
 		while(( randomSkin.name == getThoughtShapeSkinNameAtSpot(0) ) ||
 		      ( randomSkin.name == getThoughtShapeSkinNameAtSpot(1) ) ||
 		      ( randomSkin.name == getThoughtShapeSkinNameAtSpot(2) ) ||
-		      ( randomSkin.name == "Hexagon-shape" )){
+		      ( randomSkin.name == "Hexagon-shape" )||
+		      ( randomSkin.name == "default" )){
 			randomSkin = skins [Random.Range(0, skins.Count)];
 		}
 

@@ -57,7 +57,7 @@ public class MapManager : MonoBehaviour {
 					StartCoroutine (navigateToPage (currentPage - 1, false, false));
 			} else if (gesture.Direction == FingerGestures.SwipeDirection.Left) {
 				if (gesture.StartPosition.x > 2 * Screen.width / 3)
-					StartCoroutine (navigateToPage (currentPage + 1, true, false));
+					StartCoroutine (navigateToPage (currentPage + 1, false, false));
 			}
 		}
 

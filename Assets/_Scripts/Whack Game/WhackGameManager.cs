@@ -99,6 +99,7 @@ public class WhackGameManager : FrenziableGame {
 		}
 	}
 
+	bool wasStartBtnPressed = false;
 	public SkeletonAnimation startBtn;
 	void Update()
 	{
@@ -107,15 +108,19 @@ public class WhackGameManager : FrenziableGame {
 	
 			if( touchedGO ){
 
-				if ( touchedGO.tag == "CatchBtn") {
-					TrackEntry te = startBtn.state.SetAnimation (0, "Tap", false);
-					print ("te.animation.duration: " + te.animation.duration);
-					StartCoroutine (delayedButtonMove (te.animation.duration));
-					te = startBunny.state.SetAnimation (0, "Start_Duck", true);
-					SoundManager.PlaySFX("Bunny_StartDuck");
-					StartCoroutine(delayedGameStart(te.animation.duration));
-					isGameStarted = true;
-					base.startTimer ();
+				if ( touchedGO.tag == "CatchBtn" ) {
+					if( !wasStartBtnPressed )
+					{
+						wasStartBtnPressed = true;
+						TrackEntry te = startBtn.state.SetAnimation (0, "Tap", false);
+						print ("te.animation.duration: " + te.animation.duration);
+						StartCoroutine (delayedButtonMove (te.animation.duration));
+						te = startBunny.state.SetAnimation (0, "Start_Duck", true);
+						SoundManager.PlaySFX("Bunny_StartDuck");
+						StartCoroutine(delayedGameStart(te.animation.duration));
+						isGameStarted = true;
+						base.startTimer ();
+					}
 				}
 				else if( isGameStarted ){
 					handleMashIndex(int.Parse( touchedGO.name ));

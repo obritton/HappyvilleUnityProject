@@ -10,6 +10,8 @@ public class TableSpot : MonoBehaviour {
 	public CharacterNode.CharacterType characterType = CharacterNode.CharacterType.None;
 	public ThoughtBubble.ThoughtShape thoughtShape = ThoughtBubble.ThoughtShape.None;
 
+	public bool canTouch = true;
+
 	public float addNewCharacterOfType(CharacterNode.CharacterType characterTypeIn, ThoughtBubble.ThoughtShape thoughtShapeIn, GameObject newCharacter, string skinName = "blank"){
 		characterType = characterTypeIn;
 		thoughtShape = thoughtShapeIn;
