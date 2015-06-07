@@ -41,7 +41,8 @@ public class FruitKiller : CrumbColorer {
 
 		if (collisionTag == "CatchBasket") {
 			SoundManager.PlaySFX("Lion_Catch", false, 0, 100, currentPitch);
-			currentPitch += 0.1f;
+			if( currentPitch < 2 )
+				currentPitch += 0.1f;
 			catchGame.playCatch();
 			Vector3 numbersPos = lionAnimation.transform.position + new Vector3( 100, 350, 0 );
 			if( catchGame.gameMode == CatchGameManager.CatchGameMode.Frenzy )

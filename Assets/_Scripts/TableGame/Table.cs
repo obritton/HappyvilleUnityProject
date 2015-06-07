@@ -67,7 +67,7 @@ public class Table : GameManagerBase {
 		while (playing) {
 			if( !touchedRecently && !isFoodDragging && !isFlyOut && canTouchAnim )
 			{
-				playTouchForCharacter(Random.Range(0,3));
+				playTouchForCharacter(Random.Range(0,3), true);
 			}
 			touchedRecently = false;
 			yield return new WaitForSeconds(Random.Range (5,10));
@@ -249,7 +249,7 @@ public class Table : GameManagerBase {
 		return te.animation.duration;
 	}
 
-	void playTouchForCharacter( int characterIndex ){
+	void playTouchForCharacter( int characterIndex, bool wait = false ){
 		if (!canTouchAnim || isFlyOut)
 						return;
 
@@ -260,7 +260,13 @@ public class Table : GameManagerBase {
 		if( Random.value < 0.3f )
 			touchAnimStr = "TouchThree";
 
-		((SkeletonAnimation)tableSpotArr[characterIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, touchAnimStr, false);
+		if (wait) {
+			//Need to use th StartEndDelegate
+//			TrackEntry te = ((SkeletonAnimation)tableSpotArr [characterIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ()).state.AddAnimation( 0, touchAnimStr, false, 0 );
+			((SkeletonAnimation)tableSpotArr [characterIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, touchAnimStr, false);
+		} else {
+			((SkeletonAnimation)tableSpotArr [characterIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, touchAnimStr, false);
+		}
 		((SkeletonAnimation)tableSpotArr[characterIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle", true, 0);
 		string animalName = tableSpotArr [characterIndex].characterNode.transform.GetChild (0).name;
 		StartCoroutine(playSoundForAnimal (touchAnimStr, animalName));
@@ -383,7 +389,7 @@ public class Table : GameManagerBase {
 		StartCoroutine (playSoundForAnimal ("ThankYou", animalName, eatTe.animation.duration));
 		SoundManager.PlaySFX ("OLDTableRight" + Random.Range (0, 5),false,2,1,1+Random.Range (0.0f,0.5f));
 		scoreBoard.addStar ();
-		if (totalCorrects < 10) {
+		if (totalCorrects < 2) {
 			duration += te.animation.duration;
 			yield return new WaitForSeconds (duration);
 			SoundManager.PlaySFX("Character_Leave");
@@ -393,7 +399,10 @@ public class Table : GameManagerBase {
 			StartCoroutine (resetTurnWithEmptyIndex (plateIndex));
 		} else {
 			duration += te.animation.duration;
+			StartCoroutine (collapseThoughts (plateIndex));
 			yield return new WaitForSeconds(duration);
+			duration = makeAllTap();
+			jumpAllPlates();
 			EyeFollow.unregisterFollowTransform();
 			StartCoroutine(doGameWin(te.animation.duration));
 		}
@@ -446,7 +455,7 @@ public class Table : GameManagerBase {
 		SoundManager.PlaySFX ("Dance_Music_01");
 		SoundManager.PlaySFX ("TableGame_EndDance");
 		iTween.MoveBy (scoreBoard.gameObject, iTween.Hash ("y", 300, "time", 0.5f, "easetype", iTween.EaseType.easeInBounce));
-		StartCoroutine (delayedGameExit (delay));
+		StartCoroutine (delayedGameExit (delay + 0.5f));
 	}
 
 	void incrementMapUnlock(){
@@ -564,16 +573,30 @@ public class Table : GameManagerBase {
 		iTween.MoveTo( flySession.gameObject, iTween.Hash( "position", position, "time", 10, "islocal", true, "easetype", iTween.EaseType.linear, "name", "flypass", "oncomplete", "turnFlyAround", "oncompletetarget", gameObject));
 	}
 
-	IEnumerator collapseThoughts()
+	IEnumerator collapseThoughts( int excludeIndex = -1 )
 	{
 		yield return new WaitForSeconds (1);
-		foreach( SkeletonAnimation anim in thoughtShapeArr ){
-			anim.state.SetAnimation(0, "Leave-shape", false);
+//		foreach( SkeletonAnimation anim in thoughtShapeArr )
+		for( int i = 0; i < thoughtShapeArr.Length; i++ )
+		{
+			if( i != excludeIndex )
+			{
+				SkeletonAnimation anim = thoughtShapeArr[i];
+				anim.state.SetAnimation(0, "Leave-shape", false);
+
+
+				TableSpot spot = tableSpotArr[i];
+				((SkeletonAnimation)spot.thoughtBubble.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Leave-thought", false);
+				SoundManager.PlaySFX("Thought_Leave");
+			}
 		}
-		foreach( TableSpot spot in tableSpotArr ){
-			((SkeletonAnimation)spot.thoughtBubble.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Leave-thought", false);
-			SoundManager.PlaySFX("Thought_Leave");
-		}
+
+//		foreach( TableSpot spot in tableSpotArr )
+//		for( 
+//		{
+//			((SkeletonAnimation)spot.thoughtBubble.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Leave-thought", false);
+//			SoundManager.PlaySFX("Thought_Leave");
+//		}
 	}
 
 	bool touchedFly = false;
@@ -599,8 +622,10 @@ public class Table : GameManagerBase {
 	IEnumerator reopenThoughts()
 	{
 		yield return new WaitForSeconds (1);
+		float delay1 = 0;
 		foreach( SkeletonAnimation anim in thoughtShapeArr ){
-			anim.state.SetAnimation(0, "Popup-shape", false);
+			TrackEntry te = anim.state.SetAnimation(0, "Popup-shape", false);
+			delay1 = te.animation.duration;
 		}
 
 		float delay = 0;
@@ -613,9 +638,14 @@ public class Table : GameManagerBase {
 		}
 
 		yield return new WaitForSeconds (delay + 0.5f);
-		isFlyOut = false;
+		StartCoroutine (setFlyInWithDelay ( delay1 ));
 		createMatchingFood ();
 		StartCoroutine (animateFoodOn ());
+	}
+
+	IEnumerator setFlyInWithDelay( float delay ){
+		yield return new WaitForSeconds (delay);
+		isFlyOut = false;
 	}
 
 	IEnumerator animateFoodMisMatch( int plateIndex ){
