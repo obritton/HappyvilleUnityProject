@@ -435,7 +435,7 @@ public class Table : GameManagerBase {
 		SoundManager.PlaySFX ("Dance_Music_01");
 		SoundManager.PlaySFX ("TableGame_EndDance");
 		iTween.MoveBy (scoreBoard.gameObject, iTween.Hash ("y", 300, "time", 0.5f, "easetype", iTween.EaseType.easeInBounce));
-		StartCoroutine (delayedGameExit (8));
+		StartCoroutine (delayedGameExit (delay));
 	}
 
 	void incrementMapUnlock(){
@@ -713,10 +713,14 @@ public class Table : GameManagerBase {
 
 	string getThoughtShapeSkinNameAtSpot( int spotI ){
 		SkeletonAnimation thoughtAnim = tableSpotArr [spotI].transform.FindChild ("ThoughtShapeLoc").GetChild (0).GetComponent<SkeletonAnimation> ();
-		if (thoughtAnim != null)
+		if (thoughtAnim == null)
 			return "";
-		else
+		else{
+			if( thoughtAnim.skeleton.Skin == null )
+				return "";
+			else
 			return thoughtAnim.skeleton.Skin.name;
+		}
 	}
 
 	public T RandomEnum<T>( int cap )

@@ -307,7 +307,7 @@ public class MapManager : MonoBehaviour {
 		((SkeletonAnimation)monkey.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle-monk", true, 0);
 		yield return new WaitForSeconds (trackEntry.animation.duration);
 		((SkeletonAnimation)goSign.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Sway", true);
-		StartCoroutine (fireRandomTouchRoutines ());
+//		StartCoroutine (fireRandomTouchRoutines ());
 	}
 
 	void startMusic()
