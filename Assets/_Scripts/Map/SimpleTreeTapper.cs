@@ -16,6 +16,8 @@ public class SimpleTreeTapper : SingleSoundBase {
 		if (Input.GetMouseButtonDown (0)) {
 			if( mousePick() == gameObject ){
 				int randomTapIndex = Random.Range (1,6);
+				if( treeType == "" && randomTapIndex == 5)
+					randomTapIndex = 4;
 				string tapName = "Tap_" + randomTapIndex;
 				SkeletonAnimation skelAnim = GetComponent<SkeletonAnimation>();
 				if( skelAnim != null ){

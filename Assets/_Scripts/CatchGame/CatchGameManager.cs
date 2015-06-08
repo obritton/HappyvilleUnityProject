@@ -296,7 +296,6 @@ public class CatchGameManager : FrenziableGame {
 			Vector3 pos = lion.transform.localPosition;
 			pos.x += delta;
 			lion.transform.localPosition = pos;
-			bookendLionPosition();
 			return (delta < 0 ? -1 : 1);
 		} else {
 			GameObject touchedGO = mousePick ();
@@ -310,16 +309,25 @@ public class CatchGameManager : FrenziableGame {
 
 	void frenzyAndGamePlay_mouseButtonUp(){
 		isLionTouched = false;
+		bookendLionPosition ();
 	}
 
 	void bookendLionPosition(){
-		Vector3 pos = lion.transform.localPosition;
-		if( pos.x < -Screen.width/2 )
-			pos.x = -Screen.width/2;
-		if( pos.x > Screen.width/2 )
-			pos.x = Screen.width/2;
+		Vector3 pos = lion.transform.position;
+		if (Camera.main.WorldToScreenPoint (pos).x <= -10) {
+			Vector3 target = Vector3.zero;
+			target.x = 0.15f;
+			target = Camera.main.ViewportToWorldPoint( target );
+			iTween.MoveTo (lion.gameObject, iTween.Hash ("time", 0.25f, "x", target.x, "islocal", true));
+		}
+		else if (Camera.main.WorldToScreenPoint (pos).x >= Screen.width+10) {
+			Vector3 target = Vector3.zero;
+			target.x = 0.85f;
+			target = Camera.main.ViewportToWorldPoint( target );
+			iTween.MoveTo (lion.gameObject, iTween.Hash ("time", 0.25f, "x", target.x, "islocal", true));
+		}
 		
-		lion.transform.localPosition = pos;
+		lion.transform.position = pos;
 	}
 
 	// Update is called once per frame
