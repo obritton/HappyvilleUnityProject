@@ -8,6 +8,7 @@ public class ScoreBoard : MonoBehaviour {
 	double starGapX = 0.372;//1.64(current/bad) vs 1.72
 	int totalStars = 0;
 	ArrayList stars;
+	public Transform exitButton;
 
 	public int getTotalStars(){
 		return totalStars;
@@ -15,6 +16,10 @@ public class ScoreBoard : MonoBehaviour {
 
 	void Start(){
 		stars = new ArrayList ();
+
+		Vector3 pos = transform.position;
+		pos.y = exitButton.position.y;
+		transform.position = pos;
 	}
 
 	public bool addStar(){

@@ -389,7 +389,7 @@ public class Table : GameManagerBase {
 		StartCoroutine (playSoundForAnimal ("ThankYou", animalName, eatTe.animation.duration));
 		SoundManager.PlaySFX ("OLDTableRight" + Random.Range (0, 5),false,2,1,1+Random.Range (0.0f,0.5f));
 		scoreBoard.addStar ();
-		if (totalCorrects < 2) {
+		if (totalCorrects < 10) {
 			duration += te.animation.duration;
 			yield return new WaitForSeconds (duration);
 			SoundManager.PlaySFX("Character_Leave");
