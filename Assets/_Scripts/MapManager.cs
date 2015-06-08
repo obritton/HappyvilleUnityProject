@@ -18,6 +18,8 @@ public class MapManager : MonoBehaviour {
 	static bool firstTime = true;
 	public SkeletonAnimation[] mapDenizenArr;
 
+	public static bool canSoundsPlay = true;
+
 	bool isPlaying = false;
 	IEnumerator loopRandomAnims(){
 		while (isPlaying) {
@@ -77,7 +79,7 @@ public class MapManager : MonoBehaviour {
 	}
 	
 	void randomLighpostAnimOnAll(){
-		if( currentPage >=1 && currentPage <= 3 )
+		if( currentPage >=1 && currentPage <= 3 && canSoundsPlay )
 			SoundManager.PlaySFX("Lightpole_Touch4");
 
 		string animStr = "TouchOne2";
@@ -91,6 +93,8 @@ public class MapManager : MonoBehaviour {
 	void Start(){
 //		MapUnlockSystem.setTableGameComplete (7);
 //		PlayerPrefs.DeleteAll ();
+
+		canSoundsPlay = true;
 		if (firstTime) {
 			DoorManager.immediateOpen();
 			firstTime = false;
@@ -127,7 +131,8 @@ public class MapManager : MonoBehaviour {
 			}
 
 //			skelAnim.state.SetAnimation(0, animName, true);
-			StartCoroutine(startSkelAnimWithDelayOffset( skelAnim, animName, 2.0f/3.0f * (i % 3)));
+//			StartCoroutine(startSkelAnimWithDelayOffset( skelAnim, animName, 2.0f/3.0f * (i % 3)));
+			StartCoroutine(startSkelAnimWithDelayOffset( skelAnim, animName, 0));
 		}
 
 		//set minigame buttons locked and idle
@@ -137,7 +142,8 @@ public class MapManager : MonoBehaviour {
 				animName = (i < highestMiniGameUnlocked) ? "Active_Float_Idle" : "Locked_Idle";//"Locked_Float_Idle";
 			}
 //			miniGameButtonsArr[i].state.SetAnimation(0, animName, true);
-			StartCoroutine(startSkelAnimWithDelayOffset( miniGameButtonsArr[i], animName, 2.0f/3.0f * (i % 3)));
+//			StartCoroutine(startSkelAnimWithDelayOffset( miniGameButtonsArr[i], animName, 2.0f/3.0f * (i % 3)));
+			StartCoroutine(startSkelAnimWithDelayOffset( miniGameButtonsArr[i], animName, 0));
 		}
 
 		if (MapUnlockSystem.lastGamePlayed != MapUnlockSystem.GameType.TableGame) {
@@ -241,7 +247,8 @@ public class MapManager : MonoBehaviour {
 			StartCoroutine (navigateToPage (l / 3 + 1, false, false, true));
 		}
 		yield return new WaitForSeconds(1);
-		SoundManager.PlaySFX ("Path_Active_Unlock");
+		if( canSoundsPlay )
+			SoundManager.PlaySFX ("Path_Active_Unlock");
 		MapUnlockSystem.setTableGameComplete (MapUnlockSystem.tableGameCompleted () + 1);
 		tableGameButtons [l].GetComponent<SkeletonAnimation> ().state.SetAnimation (0, "Unlock_Button", false);
 		string idleAnimName = (l < 9 ? "Active_Idle" : "Active_Float_Idle");
@@ -249,7 +256,7 @@ public class MapManager : MonoBehaviour {
 		mapDenizenArr [l / 3].state.SetAnimation (0, "Unlock", false);
 		mapDenizenArr [l / 3].state.AddAnimation (0, "Idle", true, 0);
 
-		if (l >= 6 && l <= 8) {
+		if (l >= 6 && l <= 8 && canSoundsPlay) {
 			SoundManager.PlaySFX("MenuBunny_Unlock");
 		}
 	}
@@ -271,7 +278,7 @@ public class MapManager : MonoBehaviour {
 	AudioSource popupAS = null;
 	IEnumerator startPopupAnims(){
 		yield return new WaitForSeconds (3);
-		popupAS = SoundManager.PlaySFX ("Title_CharacterPopup", false, 0, (currentPage == 0) ? 100 : 0);
+		popupAS = SoundManager.PlaySFX ("Title_CharacterPopup", false, 0, (currentPage == 0 && canSoundsPlay) ? 100 : 0 );
 		((SkeletonAnimation)bird.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Popup-brd", false);
 		((SkeletonAnimation)fox.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Popup-fox", false);
 		((SkeletonAnimation)cat.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Popup-cat", false);
@@ -494,6 +501,7 @@ public class MapManager : MonoBehaviour {
 		iTween.Stop ();
 		yield return new WaitForSeconds (1);
 		SoundManager.Stop ();
+		canSoundsPlay = false;
 		DoorManager.closeDoors ();
 
 		yield return new WaitForSeconds (2);
@@ -504,7 +512,8 @@ public class MapManager : MonoBehaviour {
 	IEnumerator fireBirdTouchAnim(){
 		totalBirdClicks= (totalBirdClicks + 1) % 2;
 		string birdAnimName = (totalBirdClicks == 0 ? "TouchOne-brd" : "TouchTwo-brd");
-		SoundManager.PlaySFX (birdAnimName);
+		if( canSoundsPlay )
+			SoundManager.PlaySFX (birdAnimName);
 		TrackEntry te = ((SkeletonAnimation)bird.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, birdAnimName, false);
 		yield return new WaitForSeconds (te.animation.duration);
 		((SkeletonAnimation)bird.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Idle-brd", true);
@@ -579,7 +588,8 @@ public class MapManager : MonoBehaviour {
 
 	IEnumerator clickGoSign()
 	{
-		SoundManager.PlaySFX ("GoSign_Click");
+		if( canSoundsPlay )
+			SoundManager.PlaySFX ("GoSign_Click");
 		isPlaying = true;
 		((SkeletonAnimation)goSign.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Click", false);
 		((SkeletonAnimation)goSign.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Sway", true, 0);

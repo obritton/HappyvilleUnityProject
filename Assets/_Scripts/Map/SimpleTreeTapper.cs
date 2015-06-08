@@ -26,7 +26,8 @@ public class SimpleTreeTapper : SingleSoundBase {
 					string soundName = treeType+"Tree_Tap" + randomTapIndex;
 					print ("soundName: " + soundName);
 //					SoundManager.PlaySFX (soundName);
-					playSingleSound(soundName);
+					if( MapManager.canSoundsPlay )
+						playSingleSound(soundName);
 				}
 			}
 		}

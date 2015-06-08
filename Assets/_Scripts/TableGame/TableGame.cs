@@ -47,7 +47,7 @@ public class TableGame : MonoBehaviour {
 	{
 		yield return new WaitForSeconds(delay);
 		float time = table.makeAllTap ();
-		table.jumpAllPlates ();
+		table.jumpAllPlates (false);
 		table.addIdelForAll ();
 		yield return new WaitForSeconds (time);
 		table.createMatchingFood ();

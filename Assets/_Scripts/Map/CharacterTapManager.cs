@@ -26,7 +26,8 @@ public class CharacterTapManager : SingleSoundBase {
 					string soundName = gameObject.tag + "_" + tapName;
 
 //					SoundManager.PlaySFX (soundName);
-					playSingleSound( soundName );
+					if( MapManager.canSoundsPlay )
+						playSingleSound( soundName );
 				}
 			}
 		}

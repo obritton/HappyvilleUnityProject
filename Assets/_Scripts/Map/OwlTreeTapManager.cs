@@ -50,14 +50,14 @@ public class OwlTreeTapManager : SingleSoundBase {
 			if( isOwlDucked ){
 				skelAnim.state.SetAnimation( 0, "Popout_" + (lastPopoutIndex+1), false );
 				skelAnim.state.AddAnimation(0, "Idle_" + (lastPopoutIndex+1), true, 0 );
-				if( onPage == MapManager.currentPage )
+				if( onPage == MapManager.currentPage && MapManager.canSoundsPlay)
 //					SoundManager.PlaySFX ("RoundTree_Popup");
 					playSingleSound("RoundTree_Popup");
 			}
 			else{
 				skelAnim.state.SetAnimation( 0, "Duck_" + (lastPopoutIndex+1), false );
 				lastPopoutIndex = Random.Range(0,3);
-				if( onPage == MapManager.currentPage )
+				if( onPage == MapManager.currentPage && MapManager.canSoundsPlay)
 //					SoundManager.PlaySFX ("RoundTree_Duck");
 					playSingleSound("RoundTree_Duck");
 			}

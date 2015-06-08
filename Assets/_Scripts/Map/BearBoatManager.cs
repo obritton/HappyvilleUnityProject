@@ -14,7 +14,7 @@ public class BearBoatManager : SingleSoundBase {
 	int currentTapIndex = 0;
 	void Update(){
 		if (Input.GetMouseButtonDown (0)) {
-			if( mousePick() == gameObject ){
+			if( mousePick() == gameObject && MapManager.canSoundsPlay){
 //				SoundManager.PlaySFX("OLDFOGGY", false, 0, 200, Random.Range(0.5f, 1.5f));
 				playSingleSound ("FOGGY");
 			}

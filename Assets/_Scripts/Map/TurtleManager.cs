@@ -13,17 +13,17 @@ public class TurtleManager : SingleSoundBase {
 		Vector3 startPos = new Vector3 (0.6f, -4.5f, -3);
 		transform.localPosition = startPos;
 		playAnimStr ("Popup", true);
-		if (MapManager.currentPage == 6)
+		if (MapManager.currentPage == 6 && MapManager.canSoundsPlay)
 //			SoundManager.PlaySFX ("Turtle_Popup");
 			playSingleSound ("Turtle_Popup");
 		yield return new WaitForSeconds (2);
 		iTween.MoveTo (gameObject, iTween.Hash ("position", new Vector3(-14, -4.5f, -3), "time", swimTime, "islocal", true, "easetype", iTween.EaseType.linear ));
 		yield return new WaitForSeconds (swimTime);
-		if( MapManager.currentPage == 4)
-			playAnimStr ("TouchOne", false);
+		playAnimStr ("TouchOne", false);
 //		SoundManager.PlaySFX ("Turtle_Touch1");
-		playSingleSound ("Turtle_Touch1");
-		yield return new WaitForSeconds (2);
+
+		if( MapManager.currentPage == 4)	playSingleSound ("Turtle_Touch1");
+		yield return new WaitForSeconds (3);
 		StartCoroutine (startTurtle ());
 	}
 
@@ -51,7 +51,7 @@ public class TurtleManager : SingleSoundBase {
 				SkeletonAnimation skelAnim = GetComponent<SkeletonAnimation> ();
 				if (skelAnim != null) {
 					playAnimStr("TouchTwo", true);
-					if( MapManager.currentPage >= 4 && MapManager.currentPage <= 6 )
+					if( MapManager.currentPage >= 4 && MapManager.currentPage <= 6 && MapManager.canSoundsPlay)
 //					SoundManager.PlaySFX ("Turtle_Touch2");
 						playSingleSound ("Turtle_Touch2");
 				}
