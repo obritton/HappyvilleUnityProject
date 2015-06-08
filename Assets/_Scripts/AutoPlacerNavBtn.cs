@@ -4,24 +4,18 @@ using System.Collections;
 public class AutoPlacerNavBtn : MonoBehaviour {
 
 	public Vector2 screenCoords;
-	public bool relativeToParent = false;
-	public bool doesPrint = false;
+
+	public Transform[] analogousSigns;
 
 	// Use this for initialization
 	void Start () {
-		if (doesPrint) {
-			if (relativeToParent)
-				print ("" + gameObject.name + " WorldToScreenPoint: " + Camera.main.WorldToViewportPoint (transform.localPosition));
-			else
-				print ("" + gameObject.name + " WorldToScreenPoint: " + Camera.main.WorldToViewportPoint (transform.position));
-		}
 
 		Vector3 relativeWorldPos = Camera.main.ViewportToWorldPoint (screenCoords);
 		relativeWorldPos.z = transform.position.z;
+		transform.position = relativeWorldPos;
 
-//		if(relativeToParent)
-//			transform.localPosition = relativeWorldPos;
-//		else
-			transform.position = relativeWorldPos;
+		foreach (Transform sign in analogousSigns) {
+			sign.localPosition = transform.localPosition;
+		}
 	}
 }
