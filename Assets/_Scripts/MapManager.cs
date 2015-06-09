@@ -92,7 +92,6 @@ public class MapManager : MonoBehaviour {
 
 	void Start(){
 //		MapUnlockSystem.setTableGameComplete (7);
-//		PlayerPrefs.DeleteAll ();
 
 		canSoundsPlay = true;
 		if (firstTime) {
@@ -385,7 +384,7 @@ public class MapManager : MonoBehaviour {
 					}
 					break;
 				case "ForParentsBtn":
-					
+					PlayerPrefs.DeleteAll ();
 					break;
 				case "StartBtn":
 					StartCoroutine(clickGoSign());
@@ -471,11 +470,11 @@ public class MapManager : MonoBehaviour {
 					break;
 				case "PhotoBooth":
 					if( !canPressTableBtn ) break;
-//					if( MapUnlockSystem.miniGamePlayed() >= 3 || MapUnlockSystem.shouldAutoUnlock )
-//					{
-//					MapUnlockSystem.lastGamePlayed = MapUnlockSystem.GameType.Photobooth;
-//					StartCoroutine(loadTableGame("PhotoBooth", 4));
-//					}
+								if( MapUnlockSystem.miniGamePlayed() >= 3 || MapUnlockSystem.shouldAutoUnlock )
+								{
+								MapUnlockSystem.lastGamePlayed = MapUnlockSystem.GameType.Photobooth;
+								StartCoroutine(loadTableGame("PhotoBooth", 4));
+								}
 					break;
 				default:
 					break;

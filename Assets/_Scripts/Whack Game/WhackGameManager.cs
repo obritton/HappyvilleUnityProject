@@ -122,6 +122,10 @@ public class WhackGameManager : FrenziableGame {
 						base.startTimer ();
 					}
 				}
+				else if( touchedGO.tag == "ExitBtn" )
+				{
+
+				}
 				else if( isGameStarted ){
 					handleMashIndex(int.Parse( touchedGO.name ));
 				}

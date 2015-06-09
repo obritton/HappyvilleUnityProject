@@ -13,7 +13,7 @@ public class Table : GameManagerBase {
 	public ScoreBoard scoreBoard;
 	FlySession flySession;
 	public GameObject crumbsPrefab;
-	public static int level = 12;//0-Based
+	public static int level = 0;//0-Based
 	public GameObject starAndSpeakersPrefab;
 
 	public GameObject bgSprite;
@@ -263,17 +263,6 @@ public class Table : GameManagerBase {
 		if( Random.value < 0.3f )
 			touchAnimStr = "TouchThree";
 
-//		if (wait) {
-//			SkeletonAnimation skelAnim = (SkeletonAnimation)tableSpotArr [characterIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ();
-//			skelAnim.state.Event += delegate(Spine.AnimationState state, int trackIndex, Spine.Event e)
-//			{
-//				print (".Event += delegate");
-//				skelAnim.state.SetAnimation (0, touchAnimStr, false);
-//				skelAnim.state.AddAnimation (0, "Idle", true, 0);
-//				string animalName = tableSpotArr [characterIndex].characterNode.transform.GetChild (0).name;
-//				StartCoroutine(playSoundForAnimal (touchAnimStr, animalName, tableSpotArr [characterIndex].characterNode.transform.GetChild (0).GetComponent<SingleSoundBase>()));
-//			};
-//		} else
 		{
 			((SkeletonAnimation)tableSpotArr [characterIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, touchAnimStr, false);
 			((SkeletonAnimation)tableSpotArr [characterIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle", true, 0);
@@ -399,7 +388,7 @@ public class Table : GameManagerBase {
 		StartCoroutine (playSoundForAnimal ("ThankYou", animalName, tableSpotArr [plateIndex].characterNode.transform.GetChild (0).GetComponent<SingleSoundBase>(), eatTe.animation.duration));
 		SoundManager.PlaySFX ("OLDTableRight" + Random.Range (0, 5),false,2,1,1+Random.Range (0.0f,0.5f));
 		scoreBoard.addStar ();
-		if (totalCorrects < 10) {
+		if (totalCorrects < 2) {
 			duration += te.animation.duration;
 			yield return new WaitForSeconds (duration);
 			SoundManager.PlaySFX("Character_Leave");
