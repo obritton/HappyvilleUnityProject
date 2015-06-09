@@ -601,34 +601,46 @@ public class MapManager : MonoBehaviour {
 	}
 
 	AudioSource snoreAS = null;
-	void toggleSnore( bool toggleOn ){
-		if (snoreAS != null) {
+	void toggleSnore( int pageIndex ){
+		bool toggleOn = pageIndex >= 2;
+		if (snoreAS != null)
+		{
 			snoreAS.Stop ();
-			if( music != null ){
-//				music.volume = 100;
-			}
+		}
+
+		int highestTableGameUnlocked = MapUnlockSystem.tableGameCompleted () + 1;
+		if(pageIndex > (highestTableGameUnlocked/3)+1)
+		{
+			string animalName = "Fox";
+			switch( pageIndex ){
+			case 2:
+				animalName = "Fox";
+				break;
+			case 3:
+				animalName = "Bunny";
+				break;
+			case 4:
+				animalName = "Cat";
+				break;
+			case 5:
+				animalName = "Bear";
+				break;
+			case 6:
+				animalName = "Dog";
+				break;
 			}
 
-		if (toggleOn) {
-			if( music != null )
-			{
-//			music.volume = 0.2f;
-			}
-			snoreAS = SoundManager.PlaySFX("OLDSnoring", true, 0, 200, Random.Range(1.0f, 2.5f));
-
-			                              }
+			string sleepSFXName = "Menu"+ animalName + "_Sleep";
+			print ("sleepSFXName: " + sleepSFXName);
+			snoreAS = SoundManager.PlaySFX(sleepSFXName, true);
+		}
 	}
 
 	IEnumerator navigateToPage(int pageIndex, bool pressedNavButton = false, bool isLeftNav = false, bool isInstantaneous = false){
 
 //		print ("navigateToPage: pageIndex: " + pageIndex);
 
-//		toggleSnore (pageIndex >= 2);
-
-//		if (swaySound != null) {
-//			float volume = (pageIndex == 0) ? 100 : 0;
-//						swaySound.volume = volume;
-//				}
+		toggleSnore (pageIndex );
 
 		if (popupAS != null)
 			popupAS.volume = (currentPage == 0) ? 100 : 0;

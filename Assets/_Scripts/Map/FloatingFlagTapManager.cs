@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FloatingFlagTapManager : MonoBehaviour {
+public class FloatingFlagTapManager : SingleSoundBase {
 
 	void playAnimStr( string animStr, bool idleFollows ){
 		SkeletonAnimation skelAnim = GetComponent<SkeletonAnimation> ();
@@ -28,8 +28,9 @@ public class FloatingFlagTapManager : MonoBehaviour {
 				if (skelAnim != null) {
 					currentTapIndex = (currentTapIndex + 1) % 2;
 					playAnimStr("Touch" + (currentTapIndex == 0 ? "One" : "Two"), true);
+
 					if( MapManager.currentPage >= 4 && MapManager.currentPage <= 6 )
-						SoundManager.PlaySFX ("");
+						playSingleSound("Flag_TouchOne");
 				}
 			}
 		}

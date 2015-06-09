@@ -5,7 +5,7 @@ public class SingleSoundBase : MonoBehaviour {
 
 	AudioSource aSource = null;
 
-	protected void playSingleSound( string sfxName ){
+	public void playSingleSound( string sfxName ){
 		if (aSource != null)
 			aSource.Stop ();
 

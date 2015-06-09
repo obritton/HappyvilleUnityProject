@@ -257,23 +257,29 @@ public class Table : GameManagerBase {
 		if (!canTouchAnim || isFlyOut)
 						return;
 
-		SoundManager.PlaySFX ("OLDTableWrong" + Random.Range (0, 6));
 		string touchAnimStr = "TouchOne";
 		if( Random.value < 0.3f )
 			touchAnimStr = "TouchTwo";
 		if( Random.value < 0.3f )
 			touchAnimStr = "TouchThree";
 
-		if (wait) {
-			//Need to use th StartEndDelegate
-//			TrackEntry te = ((SkeletonAnimation)tableSpotArr [characterIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ()).state.AddAnimation( 0, touchAnimStr, false, 0 );
+//		if (wait) {
+//			SkeletonAnimation skelAnim = (SkeletonAnimation)tableSpotArr [characterIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ();
+//			skelAnim.state.Event += delegate(Spine.AnimationState state, int trackIndex, Spine.Event e)
+//			{
+//				print (".Event += delegate");
+//				skelAnim.state.SetAnimation (0, touchAnimStr, false);
+//				skelAnim.state.AddAnimation (0, "Idle", true, 0);
+//				string animalName = tableSpotArr [characterIndex].characterNode.transform.GetChild (0).name;
+//				StartCoroutine(playSoundForAnimal (touchAnimStr, animalName, tableSpotArr [characterIndex].characterNode.transform.GetChild (0).GetComponent<SingleSoundBase>()));
+//			};
+//		} else
+		{
 			((SkeletonAnimation)tableSpotArr [characterIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, touchAnimStr, false);
-		} else {
-			((SkeletonAnimation)tableSpotArr [characterIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, touchAnimStr, false);
+			((SkeletonAnimation)tableSpotArr [characterIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle", true, 0);
+			string animalName = tableSpotArr [characterIndex].characterNode.transform.GetChild (0).name;
+			StartCoroutine(playSoundForAnimal (touchAnimStr, animalName, tableSpotArr [characterIndex].characterNode.transform.GetChild (0).GetComponent<SingleSoundBase>()));
 		}
-		((SkeletonAnimation)tableSpotArr[characterIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle", true, 0);
-		string animalName = tableSpotArr [characterIndex].characterNode.transform.GetChild (0).name;
-		StartCoroutine(playSoundForAnimal (touchAnimStr, animalName));
 	}
 
 	public SkeletonAnimation[] plateArr;
@@ -379,7 +385,7 @@ public class Table : GameManagerBase {
 		TrackEntry eatTe = ((SkeletonAnimation)tableSpotArr[plateIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Eat", false);
 		//Put per character eat anim here
 		string animalName = tableSpotArr[plateIndex].characterNode.transform.GetChild(0).name;
-		StartCoroutine(playSoundForAnimal ("Eat", animalName));
+		StartCoroutine(playSoundForAnimal ("Eat", animalName, tableSpotArr [plateIndex].characterNode.transform.GetChild (0).GetComponent<SingleSoundBase>()));
 		canTouchAnim = false;
 		StartCoroutine (delayedReactivateTouchAnims (te.animation.duration));
 		((SkeletonAnimation)tableSpotArr[plateIndex].plate.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Bounce", false);
@@ -390,7 +396,7 @@ public class Table : GameManagerBase {
 
 		te = ((SkeletonAnimation)tableSpotArr [plateIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "ThankYou", false, 0);
 		animalName = tableSpotArr [plateIndex].characterNode.transform.GetChild (0).name;
-		StartCoroutine (playSoundForAnimal ("ThankYou", animalName, eatTe.animation.duration));
+		StartCoroutine (playSoundForAnimal ("ThankYou", animalName, tableSpotArr [plateIndex].characterNode.transform.GetChild (0).GetComponent<SingleSoundBase>(), eatTe.animation.duration));
 		SoundManager.PlaySFX ("OLDTableRight" + Random.Range (0, 5),false,2,1,1+Random.Range (0.0f,0.5f));
 		scoreBoard.addStar ();
 		if (totalCorrects < 10) {
@@ -418,13 +424,15 @@ public class Table : GameManagerBase {
 		return 1;
 	}
 
-	IEnumerator playSoundForAnimal( string soundName, string animalName, float delay = 0 ){
+	IEnumerator playSoundForAnimal( string soundName, string animalName, SingleSoundBase singleSoundBase, float delay = 0 ){
 		yield return new WaitForSeconds (delay);
 		animalName = animalName.Split (" "[0])[0];
 
 		string soundStr = "Table" + animalName + "_" + soundName;
 //		print ("soundStr: " + soundStr);
-		SoundManager.PlaySFX (soundStr);
+
+//		SoundManager.PlaySFX (soundStr);
+		singleSoundBase.playSingleSound (soundStr);
 	}
 
 	IEnumerator fireCrumbsForCharacterIndex( int i ){
@@ -655,7 +663,7 @@ public class Table : GameManagerBase {
 	IEnumerator animateFoodMisMatch( int plateIndex ){
 		TrackEntry te = ((SkeletonAnimation)tableSpotArr[plateIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Wrong", false);
 		string animalName = tableSpotArr [plateIndex].characterNode.transform.GetChild (0).name;
-		StartCoroutine(playSoundForAnimal ("Wrong", animalName));
+		StartCoroutine(playSoundForAnimal ("Wrong", animalName, tableSpotArr [plateIndex].characterNode.transform.GetChild (0).GetComponent<SingleSoundBase>()));
 		((SkeletonAnimation)tableSpotArr[plateIndex].characterNode.transform.GetChild(0).GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle", true, 0);
 		yield return new WaitForSeconds (te.animation.duration/2.0f);
 		SoundManager.PlaySFX ("OLDTableWrong" + Random.Range (0, 6),false,1.5f,1,1+Random.Range (0.0f,0.5f));
