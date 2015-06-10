@@ -68,12 +68,24 @@ public class MatchingTableManager : MonoBehaviour {
 	{
 		if (Input.GetMouseButtonDown (0)) {
 			GameObject pickedGO = mousePick ();
-			if (pickedGO != null && canTap && pickedGO.tag == "MatchCard" && !pickedGO.GetComponent<MatchingCard>().isInUse) {
-				flipCard( pickedGO );
+//			if (pickedGO != null && canTap && pickedGO.tag == "MatchCard" && !pickedGO.GetComponent<MatchingCard>().isInUse) {
+			if (pickedGO != null && pickedGO.tag == "MatchCard" && !pickedGO.GetComponent<MatchingCard>().isInUse) {
+				if( canTap )
+				{
+					flipCard( pickedGO );
+				}
+				else
+				{
+					StartCoroutine(flipTwoBack());
+				}
 			}
 		}
 	}
-	
+
+	IEnumerator flipTwoBack(){
+		yield return new WaitForSeconds(0);
+	}
+
 	public void flipCard( GameObject card ){
 		card.GetComponent<MatchingCard> ().isInUse = true;
 		card.transform.Translate (0, 0, -1);
@@ -177,6 +189,9 @@ public class MatchingTableManager : MonoBehaviour {
 		}
 	}
 
+	public SkeletonAnimation[] burstArr;
+	public SkeletonAnimation[] wordArr;
+
 	IEnumerator animateMatchAndExit(){
 		float duration = 0;
 		foreach (SkeletonAnimation anim in characterAnimArr) {
@@ -189,12 +204,40 @@ public class MatchingTableManager : MonoBehaviour {
 			iTween.ScaleBy( card, iTween.Hash( "amount", 1.1f * Vector3.one, "time", 0.5f, "easetype", iTween.EaseType.easeInOutBounce ));
 		}
 
-		yield return new WaitForSeconds (duration/2.0f);
-		foreach (GameObject card in cardsInPlayArr) {
-			iTween.MoveTo( card, iTween.Hash( "position", offscrenNode, "time", 1 ));
+		yield return new WaitForSeconds (0);
+		for (int i = 0; i < 2; i++) {
+
+			int cardIndex = int.Parse( cardsInPlayArr[0].name.Split (" " [0])[1]);
+			int characterIndex = cardFaceIndexArr[cardIndex];
+			string skinName = "";
+			switch( characterIndex ){
+			case 0:	skinName = "Bear";		break;
+			case 1:	skinName = "Bunny";		break;
+			case 2:	skinName = "Monkey";	break;
+			case 3:	skinName = "Lion";		break;
+			case 4:	skinName = "Frog";		break;
+			case 5:	skinName = "Fox";		break;
+			case 6:	skinName = "Dog";		break;
+			case 7:	skinName = "Cat";		break;
+			case 8:	skinName = "Bird";		break;
+			}
+			wordArr[i].skeleton.SetSkin(skinName);
+
+			burstArr[i].state.SetAnimation (0, "Correct" + Random.Range(1,4), false);
+			wordArr[i].state.SetAnimation (0, "Correct", false);
+
+			burstArr[i].transform.position = cardsInPlayArr[i].transform.position;
+			burstArr[i].transform.Translate(0, -10, -1);
+			wordArr[i].transform.position = cardsInPlayArr[i].transform.position;
+			wordArr[i].transform.Translate(0, -10, -2);
+
+			foreach( Transform child in cardsInPlayArr[i].transform ){
+				child.GetComponent<SkeletonAnimation>().state.SetAnimation(0, "Correct", false );
+			}
+			
 		}
 
-		StartCoroutine (deactivateCardFronts (1));
+		StartCoroutine (deactivateCardFronts (2));
 		StartCoroutine (delayedMakeTappable (1));
 	}
 

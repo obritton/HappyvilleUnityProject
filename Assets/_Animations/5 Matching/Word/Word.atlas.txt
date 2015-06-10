@@ -1,0 +1,69 @@
+
+Word.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+_Assets/Correct/Bear
+  rotate: false
+  xy: 539, 852
+  size: 359, 150
+  orig: 364, 154
+  offset: 2, 2
+  index: -1
+_Assets/Correct/Bird
+  rotate: true
+  xy: 2, 2
+  size: 303, 150
+  orig: 308, 154
+  offset: 2, 2
+  index: -1
+_Assets/Correct/Cat
+  rotate: true
+  xy: 326, 414
+  size: 253, 142
+  orig: 258, 150
+  offset: 2, 4
+  index: -1
+_Assets/Correct/Dog
+  rotate: false
+  xy: 2, 307
+  size: 293, 179
+  orig: 300, 184
+  offset: 3, 3
+  index: -1
+_Assets/Correct/Fox
+  rotate: false
+  xy: 539, 700
+  size: 260, 150
+  orig: 264, 154
+  offset: 2, 2
+  index: -1
+_Assets/Correct/Frog
+  rotate: false
+  xy: 2, 488
+  size: 322, 179
+  orig: 328, 184
+  offset: 3, 3
+  index: -1
+_Assets/Correct/Lion
+  rotate: true
+  xy: 154, 25
+  size: 280, 150
+  orig: 284, 154
+  offset: 2, 2
+  index: -1
+_Assets/Correct/Monkey
+  rotate: false
+  xy: 2, 821
+  size: 535, 181
+  orig: 544, 188
+  offset: 5, 4
+  index: -1
+_Assets/Correct/Rabbit
+  rotate: false
+  xy: 2, 669
+  size: 459, 150
+  orig: 462, 154
+  offset: 1, 2
+  index: -1

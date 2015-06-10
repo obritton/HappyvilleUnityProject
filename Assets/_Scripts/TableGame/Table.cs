@@ -266,11 +266,11 @@ public class Table : GameManagerBase {
 
 		float randomVal = Random.value;
 		string touchAnimStr = "TouchOne";
-		if( randomVal < 0.25f )
+		if( randomVal > 0.25f )
 			touchAnimStr = "TouchTwo";
-		if( randomVal < 0.5f )
+		if( randomVal > 0.5f )
 			touchAnimStr = "TouchThree";
-		if( randomVal < 0.75f )
+		if( randomVal > 0.75f )
 			touchAnimStr = "TouchFour";
 
 		{
@@ -386,7 +386,6 @@ public class Table : GameManagerBase {
 		string animalName = tableSpotArr[plateIndex].characterNode.transform.GetChild(0).name;
 		StartCoroutine(playSoundForAnimal ("Eat", animalName, tableSpotArr [plateIndex].characterNode.transform.GetChild (0).GetComponent<SingleSoundBase>()));
 		canTouchAnim = false;
-		StartCoroutine (delayedReactivateTouchAnims (te.animation.duration));
 		((SkeletonAnimation)tableSpotArr[plateIndex].plate.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Bounce", false);
 		float duration = eatTe.animation.duration;
 		StartCoroutine (delayedEyeUnregister (duration));
@@ -405,6 +404,7 @@ public class Table : GameManagerBase {
 			te = ((SkeletonAnimation)tableSpotArr [plateIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Leave", false, 0);
 			duration = te.animation.duration;
 			yield return new WaitForSeconds (duration);
+			canTouchAnim = true;
 			StartCoroutine (resetTurnWithEmptyIndex (plateIndex));
 		} else {
 			duration += te.animation.duration;
@@ -708,7 +708,7 @@ public class Table : GameManagerBase {
 			}
 		}
 
-//		foodColor = crumbColorer.getColorForFood (foodSkinName);
+		foodColor = crumbColorer.getColorForFood (food.skinName);
 
 	}
 	

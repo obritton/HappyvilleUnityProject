@@ -8,7 +8,7 @@ public class SlingshotGameManager : FrenziableGame {
 	public GameObject pointsPrefab;
 	public GameObject[] frenzyGroups;
 	public Transform frenzyGroupParent;
-
+	
 	void Start () {
 		StartCoroutine (openDoors ());
 		StartCoroutine (makeBearPoint ());
@@ -57,6 +57,10 @@ public class SlingshotGameManager : FrenziableGame {
 				StartCoroutine(delayedGameStartSignal(2));
 				fingerFollower.startTargetsMoving();
 				startTimer();
+				break;
+
+			case "ReplayBtn":
+
 				break;
 			}
 		}

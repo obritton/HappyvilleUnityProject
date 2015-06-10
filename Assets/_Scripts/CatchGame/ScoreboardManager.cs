@@ -10,13 +10,23 @@ public class ScoreboardManager : MonoBehaviour {
 	public TextMeshPro leftScoreTMP;
 	public TextMeshPro rightScoreTMP;
 	public TextMeshPro totalScoreTMP;
-	
+
+	float initialY = 0;
+	void Start(){
+		initialY = transform.position.y;
+	}
+
 	public void showResults( int leftScore, int rightScore, int totalScore)
 	{
 		StartCoroutine (animateResults (leftScore, rightScore, totalScore));
 	}
 
+	public void hideResults(){
+		iTween.MoveTo (gameObject, iTween.Hash ("y", initialY, "time", 2, "easetype", iTween.EaseType.easeInBounce));
+	}
+
 	float countUpLength = 1.5f;
+
 	IEnumerator animateResults(int leftScore, int rightScore, int totalScore){
 		iTween.MoveTo (gameObject, iTween.Hash ("y", -175, "time", 2, "easetype", iTween.EaseType.easeOutBounce));
 		yield return new WaitForSeconds (2);

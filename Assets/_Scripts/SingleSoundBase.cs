@@ -9,7 +9,7 @@ public class SingleSoundBase : MonoBehaviour {
 		if (aSource != null)
 			aSource.Stop ();
 
-		print ("playSingleSound: " + sfxName);
+//		print ("playSingleSound: " + sfxName);
 		aSource = SoundManager.PlaySFX (sfxName);
 	}
 }

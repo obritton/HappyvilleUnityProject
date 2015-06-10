@@ -8,10 +8,10 @@ public class AutoPlacerViewPort : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		if( relativeToParent )
-			print ( "" + gameObject.name + " WorldToScreenPoint: " + Camera.main.WorldToViewportPoint( transform.localPosition ));
-		else
-			print ( "" + gameObject.name + " WorldToScreenPoint: " + Camera.main.WorldToViewportPoint( transform.position ));
+//		if( relativeToParent )
+//			print ( "" + gameObject.name + " WorldToScreenPoint: " + Camera.main.WorldToViewportPoint( transform.localPosition ));
+//		else
+//			print ( "" + gameObject.name + " WorldToScreenPoint: " + Camera.main.WorldToViewportPoint( transform.position ));
 
 		Vector3 relativeWorldPos = Camera.main.ViewportToWorldPoint (screenCoords);
 		relativeWorldPos.z = transform.position.z;

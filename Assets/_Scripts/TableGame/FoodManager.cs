@@ -193,6 +193,7 @@ public class FoodManager : MonoBehaviour {
 		int length = foodOptions.Count;
 		foodSkinName = foodOptions[Random.Range(0,length)];
 		skelAnim.skeleton.SetSkin (foodSkinName);
+		foodComp.skinName = foodSkinName;
 	}
 
 	public static bool isMatch( int level, List<Skin> foodNameOptions, string thoughtSkinName ){

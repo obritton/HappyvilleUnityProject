@@ -1,0 +1,27 @@
+
+Correct_Burst.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+_Assets/Correct/Bubble
+  rotate: false
+  xy: 2, 2
+  size: 109, 109
+  orig: 109, 109
+  offset: 0, 0
+  index: -1
+_Assets/Correct/Burst
+  rotate: false
+  xy: 2, 113
+  size: 584, 696
+  orig: 588, 702
+  offset: 2, 3
+  index: -1
+_Assets/Correct/Star
+  rotate: false
+  xy: 588, 733
+  size: 80, 76
+  orig: 82, 80
+  offset: 1, 2
+  index: -1

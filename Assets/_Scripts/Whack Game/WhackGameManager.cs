@@ -22,17 +22,28 @@ public class WhackGameManager : FrenziableGame {
 
 	public SkeletonAnimation startBunny;
 	void Start(){
-		CatchGameManager.totalFruits = 0;
-		CatchGameManager.totalCandies = 0;
-		liveAnimalsIs = new ArrayList ();
+		configNewGame ();
 		StartCoroutine (showStartBunny ());
 		Physics.gravity = Vector3.down * 400;
 
 		DoorManager.openDoors ();
 	}
 
+	void configNewGame(){
+		CatchGameManager.totalFruits = 0;
+		CatchGameManager.totalCandies = 0;
+		totalAnimals = 0;
+		totalFruits = 0;
+		timerAndMeter.pausePieChart ();
+		timerAndMeter.fillPieChart ();
+		timerAndMeter.zerototalDots ();
+		timerAndMeter.zeroOutScore ();
+		liveAnimalsIs = new ArrayList ();
+	}
+
 	public override void timerComplete ()
 	{
+		print ("timerComplete");
 		if (!gameEnded)
 			endGame ();
 	}
@@ -43,6 +54,7 @@ public class WhackGameManager : FrenziableGame {
 		gameEnded = true;
 		timerAndMeter.moveUp ();
 		sbManager.showResults ( totalAnimals, totalFruits, timerAndMeter.getScore());
+		configNewGame ();
 	}
 
 	public override void startFrenzy(){
@@ -107,7 +119,6 @@ public class WhackGameManager : FrenziableGame {
 			GameObject touchedGO = mousePick ();
 	
 			if( touchedGO ){
-
 				if ( touchedGO.tag == "CatchBtn" ) {
 					if( !wasStartBtnPressed )
 					{
@@ -126,11 +137,26 @@ public class WhackGameManager : FrenziableGame {
 				{
 
 				}
+				else if( touchedGO.tag == "ReplayBtn" )
+				{
+					doReplay();
+				}
 				else if( isGameStarted ){
 					handleMashIndex(int.Parse( touchedGO.name ));
 				}
 			}
 		}
+	}
+
+	void getGameGoing(){
+		StartCoroutine(delayedGameStart(1));
+		isGameStarted = true;
+		base.startTimer ();
+	}
+
+	void doReplay(){
+		sbManager.hideResults ();
+		getGameGoing ();
 	}
 
 	void handleMashIndex( int mashIndex ){
@@ -283,8 +309,10 @@ public class WhackGameManager : FrenziableGame {
 	IEnumerator delayedGameStart( float delay ){
 		yield return new WaitForSeconds(delay-0.05f);
 		startBtn.transform.Translate (1000, 0, 0);
+		gameEnded = false;
 		StartCoroutine (loopAnimalPopups());
-		Destroy (startBunny.gameObject);
+		if( startBunny != null )
+			Destroy (startBunny.gameObject);
 		timerAndMeter.dropDown ();
 		StartCoroutine (timerAndMeter.delayedPieChartStart (1));
 	}

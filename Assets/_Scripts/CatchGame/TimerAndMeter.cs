@@ -20,9 +20,14 @@ public class TimerAndMeter : MonoBehaviour {
 		}
 	}
 
+	public void fillPieChart(){
+		pieChart.currentChartAmount = 100;
+	}
+
 	public IEnumerator delayedPieChartStart( float delay )
 	{
 		yield return new WaitForSeconds (delay);
+		pieChart.currentChartAmount = 100;
 		pieChart.isActive = true;//64 bit crash was here
 	}
 
@@ -54,6 +59,11 @@ public class TimerAndMeter : MonoBehaviour {
 				frenziableGame.startFrenzy ();
 			}
 		}
+	}
+
+	public void zeroOutScore(){
+		score = 0;
+		TMPScore.SetText ("{0}", score);
 	}
 
 	public int getScore(){
