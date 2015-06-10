@@ -1,89 +1,89 @@
 
 Food.png
-size: 4096,1024
+size: 2048,2048
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 10_blueberry
   rotate: false
-  xy: 2, 74
+  xy: 2, 1154
   size: 542, 356
   orig: 542, 356
   offset: 0, 0
   index: -1
 1_blueberry
   rotate: false
-  xy: 3265, 647
+  xy: 601, 697
   size: 287, 305
   orig: 287, 305
   offset: 0, 0
   index: -1
 2_blueberry
-  rotate: false
-  xy: 1163, 676
+  rotate: true
+  xy: 2, 566
   size: 586, 276
   orig: 587, 276
   offset: 0, 0
   index: -1
 3_blueberry
   rotate: false
-  xy: 2858, 556
+  xy: 601, 1004
   size: 405, 396
   orig: 405, 396
   offset: 0, 0
   index: -1
 4_blueberry
   rotate: false
-  xy: 599, 650
+  xy: 599, 1730
   size: 562, 302
   orig: 562, 302
   offset: 0, 0
   index: -1
 5_blueberry
-  rotate: false
-  xy: 546, 37
+  rotate: true
+  xy: 295, 220
   size: 428, 318
   orig: 429, 318
   offset: 0, 0
   index: -1
 6_blueberry
   rotate: false
-  xy: 2441, 626
+  xy: 599, 1402
   size: 415, 326
   orig: 415, 326
   offset: 0, 0
   index: -1
 7_blueberry
   rotate: false
-  xy: 1751, 778
+  xy: 1163, 1858
   size: 688, 174
   orig: 688, 174
   offset: 0, 0
   index: -1
 8_blueberry
-  rotate: false
-  xy: 599, 357
+  rotate: true
+  xy: 2, 2
   size: 562, 291
   orig: 562, 291
   offset: 0, 0
   index: -1
 9_blueberry
-  rotate: false
-  xy: 1163, 355
+  rotate: true
+  xy: 280, 650
   size: 502, 319
   orig: 502, 319
   offset: 0, 0
   index: -1
 Ray_Food
   rotate: false
-  xy: 2, 432
+  xy: 2, 1512
   size: 595, 520
   orig: 596, 520
   offset: 0, 0
   index: -1
 Shadow-food
   rotate: false
-  xy: 2, 2
+  xy: 1163, 1786
   size: 358, 70
   orig: 358, 70
   offset: 0, 0

@@ -98,6 +98,7 @@ public class Table : GameManagerBase {
 					if( hitGO.GetComponent<Food>().isSetOnPlate )
 						break;
 					setAnimForAll( "Pant", true, true );
+					makeAllPant();
 					isFoodDragging = true;
 					foodTouched = true;
 					Transform foodBone = food.transform.Find("SkeletonUtility-Root/root/Food");
@@ -200,6 +201,12 @@ public class Table : GameManagerBase {
 				setAnimForAll("Idle", true, true );
 				isFoodDragging = false;
 			}
+		}
+	}
+
+	void makeAllPant(){
+		for( int i = 0; i < 3; i++ ){
+			tableSpotArr [i].characterNode.transform.GetChild (0).GetComponent<SingleSoundBase>().playSingleSound("Pant");
 		}
 	}
 
@@ -388,7 +395,7 @@ public class Table : GameManagerBase {
 		StartCoroutine (playSoundForAnimal ("ThankYou", animalName, tableSpotArr [plateIndex].characterNode.transform.GetChild (0).GetComponent<SingleSoundBase>(), eatTe.animation.duration));
 		SoundManager.PlaySFX ("OLDTableRight" + Random.Range (0, 5),false,2,1,1+Random.Range (0.0f,0.5f));
 		scoreBoard.addStar ();
-		if (totalCorrects < 2) {
+		if (totalCorrects < 10) {
 			duration += te.animation.duration;
 			yield return new WaitForSeconds (duration);
 			SoundManager.PlaySFX("Character_Leave");
