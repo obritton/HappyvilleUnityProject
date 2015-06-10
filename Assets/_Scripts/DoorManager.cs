@@ -44,7 +44,6 @@ public class DoorManager : MonoBehaviour {
 	public IEnumerator animateCloseDoors()
 	{
 		AudioSource aSource = SoundManager.PlaySFX ("Door_Close");
-		print ("aSource: " + aSource.name);
 
 		int randomI = Random.Range (1, 10);
 		string animName = "Close" + (randomI == 1 ? "" : "" + randomI);

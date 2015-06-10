@@ -173,7 +173,8 @@ public class WhackGameManager : FrenziableGame {
 				animal.whacked = true;
 				string animalName = animal.gameObject.name.Split (" " [0]) [0];
 				string soundName = animalName + "_" + "Tap";
-				SoundManager.PlaySFX (soundName);
+//				SoundManager.PlaySFX (soundName);
+				animal.GetComponent<SingleSoundBase> ().playSingleSound (soundName);
 //				SoundManager.PlaySFX ("OLDWhackTap" + (1+Random.Range (0,2)),false,0,1,1+Random.Range(0.0f,1.0f));
 				((SkeletonAnimation)node.GetChild(0).GetComponent<SkeletonAnimation>()).state.SetAnimation(0, "Tap", false);
 
@@ -214,32 +215,55 @@ public class WhackGameManager : FrenziableGame {
 			shower.showScoreAtPosition( numbersPos, amount );
 	}
 
-	void playAnimationOnAllAnimals( string animStr )
+	void duckAllAnimals()
 	{
 		TrackEntry te = null;
 
+		string animStr = "Duck";
+
 		foreach (Transform node in leftNodes) {
 			if( node.childCount > 0 && node.GetChild(0).tag == "WhackAnimal" ){
-				SkeletonAnimation skelAnim = node.GetChild(0).GetComponent<SkeletonAnimation>();
-				te = skelAnim.state.SetAnimation(0,animStr,false);
-				StartCoroutine(delayedDestroy( te.animation.duration, node.GetChild(0).gameObject, true ));
-				node.GetChild(0).GetComponent<WhackAnimal>().whacked = true;
+				if( Time.time - node.GetChild(0).GetComponent<WhackAnimal>().animStartTime > 0.5f )
+				{
+					SkeletonAnimation skelAnim = node.GetChild(0).GetComponent<SkeletonAnimation>();
+					te = skelAnim.state.SetAnimation(0,animStr,false);
+					StartCoroutine(delayedDestroy( te.animation.duration, node.GetChild(0).gameObject, true ));
+					node.GetChild(0).GetComponent<WhackAnimal>().whacked = true;
+				}
+				else
+				{
+					StartCoroutine(delayedDestroy( 0, node.GetChild(0).gameObject, true ));
+				}
 			}
 		}
 		foreach (Transform node in centerNodes) {
 			if( node.childCount > 0 && node.GetChild(0).tag == "WhackAnimal" ){
-				SkeletonAnimation skelAnim = node.GetChild(0).GetComponent<SkeletonAnimation>();
-				te = skelAnim.state.SetAnimation(0,animStr,false);
-				StartCoroutine(delayedDestroy( te.animation.duration, node.GetChild(0).gameObject, true ));
-				node.GetChild(0).GetComponent<WhackAnimal>().whacked = true;
+				if( Time.time - node.GetChild(0).GetComponent<WhackAnimal>().animStartTime > 0.5f )
+				{
+					SkeletonAnimation skelAnim = node.GetChild(0).GetComponent<SkeletonAnimation>();
+					te = skelAnim.state.SetAnimation(0,animStr,false);
+					StartCoroutine(delayedDestroy( te.animation.duration, node.GetChild(0).gameObject, true ));
+					node.GetChild(0).GetComponent<WhackAnimal>().whacked = true;
+				}
+				else
+				{
+					StartCoroutine(delayedDestroy( 0, node.GetChild(0).gameObject, true ));
+				}
 			}
 		}
 		foreach (Transform node in rightNodes) {
 			if( node.childCount > 0 && node.GetChild(0).tag == "WhackAnimal" ){
-				SkeletonAnimation skelAnim = node.GetChild(0).GetComponent<SkeletonAnimation>();
-				te = skelAnim.state.SetAnimation(0,animStr,false);
-				StartCoroutine(delayedDestroy( te.animation.duration, node.GetChild(0).gameObject, true ));
-				node.GetChild(0).GetComponent<WhackAnimal>().whacked = true;
+				if( Time.time - node.GetChild(0).GetComponent<WhackAnimal>().animStartTime > 0.5f )
+				{
+					SkeletonAnimation skelAnim = node.GetChild(0).GetComponent<SkeletonAnimation>();
+					te = skelAnim.state.SetAnimation(0,animStr,false);
+					StartCoroutine(delayedDestroy( te.animation.duration, node.GetChild(0).gameObject, true ));
+					node.GetChild(0).GetComponent<WhackAnimal>().whacked = true;
+				}
+				else
+				{
+					StartCoroutine(delayedDestroy( 0, node.GetChild(0).gameObject, true ));
+				}
 			}
 		}
 	}
@@ -257,7 +281,6 @@ public class WhackGameManager : FrenziableGame {
 	}
 
 	IEnumerator delayedGameStart( float delay ){
-		SoundManager.PlaySFX ("OLDSuperTransform");
 		yield return new WaitForSeconds(delay-0.05f);
 		startBtn.transform.Translate (1000, 0, 0);
 		StartCoroutine (loopAnimalPopups());
@@ -323,7 +346,7 @@ public class WhackGameManager : FrenziableGame {
 
 	void popupRandomAnimalAtNode( Transform node ){
 		if (isBalloonPopping) 
-						return;
+			return;
 		int randomAnimalI = -1;
 		do {
 			randomAnimalI = Random.Range (0, 6);
@@ -338,13 +361,15 @@ public class WhackGameManager : FrenziableGame {
 
 		liveAnimalsIs.Add (index);
 		animal.GetComponent<WhackAnimal> ().index = index;
+		animal.GetComponent<WhackAnimal> ().animStartTime = Time.time;
 		animal.transform.parent = node;
 		animal.transform.localPosition = Vector3.zero;
 
 		TrackEntry te = animal.GetComponent<SkeletonAnimation> ().state.SetAnimation ( 0, "Popup", false);
 		string animalName = animal.name.Split (" " [0]) [0];
 		string soundName = animalName + "_" + "Popup";
-		SoundManager.PlaySFX (soundName);
+//		SoundManager.PlaySFX (soundName);
+		animal.GetComponent<SingleSoundBase> ().playSingleSound (soundName);
 		yield return new WaitForSeconds (te.animation.duration+1);
 		liveAnimalsIs.Remove (index);
 		if (!isBalloonPopping)
@@ -417,7 +442,7 @@ public class WhackGameManager : FrenziableGame {
 		TrackEntry te = skelAnim.state.SetAnimation( 0, "Tap", false );
 		SoundManager.PlaySFX ("Balloon_Tap");
 		StartCoroutine(delayedDestroy(te.animation.duration, skelAnim.gameObject));
-		playAnimationOnAllAnimals ("Duck");
+		duckAllAnimals ();
 		yield return new WaitForSeconds (te.animation.duration+2);
 		isBalloonPopping = false;
 	}

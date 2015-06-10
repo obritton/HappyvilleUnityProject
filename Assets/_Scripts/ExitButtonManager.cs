@@ -32,9 +32,9 @@ public class ExitButtonManager : MonoBehaviour {
 		
 		if (Input.GetMouseButtonUp (0)) {
 			if( touchDownInside ){
-				DoorManager.closeDoors();
 				iTween.Stop ();
 				SoundManager.Stop();
+				DoorManager.closeDoors();
 				StartCoroutine(delayedMenuLoad ());
 				changeTexture(false);
 			}

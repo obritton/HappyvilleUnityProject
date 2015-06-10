@@ -264,11 +264,14 @@ public class Table : GameManagerBase {
 		if (!canTouchAnim || isFlyOut)
 						return;
 
+		float randomVal = Random.value;
 		string touchAnimStr = "TouchOne";
-		if( Random.value < 0.3f )
+		if( randomVal < 0.25f )
 			touchAnimStr = "TouchTwo";
-		if( Random.value < 0.3f )
+		if( randomVal < 0.5f )
 			touchAnimStr = "TouchThree";
+		if( randomVal < 0.75f )
+			touchAnimStr = "TouchFour";
 
 		{
 			((SkeletonAnimation)tableSpotArr [characterIndex].characterNode.transform.GetChild (0).GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, touchAnimStr, false);
