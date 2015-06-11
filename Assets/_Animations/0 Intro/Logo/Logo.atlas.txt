@@ -1,0 +1,160 @@
+
+Logo.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+_Assets/C_01
+  rotate: false
+  xy: 143, 229
+  size: 116, 185
+  orig: 118, 188
+  offset: 1, 2
+  index: -1
+_Assets/C_Orange_01
+  rotate: false
+  xy: 143, 42
+  size: 116, 185
+  orig: 118, 188
+  offset: 1, 2
+  index: -1
+_Assets/O_Orange_01
+  rotate: false
+  xy: 143, 42
+  size: 116, 185
+  orig: 118, 188
+  offset: 1, 2
+  index: -1
+_Assets/K_01
+  rotate: false
+  xy: 310, 199
+  size: 46, 193
+  orig: 50, 200
+  offset: 2, 4
+  index: -1
+_Assets/K_02
+  rotate: false
+  xy: 358, 244
+  size: 47, 148
+  orig: 50, 150
+  offset: 1, 1
+  index: -1
+_Assets/K_03
+  rotate: false
+  xy: 358, 94
+  size: 47, 148
+  orig: 50, 150
+  offset: 1, 1
+  index: -1
+_Assets/K_Orange_01
+  rotate: false
+  xy: 310, 4
+  size: 46, 193
+  orig: 50, 198
+  offset: 2, 3
+  index: -1
+_Assets/K_Orange_02
+  rotate: false
+  xy: 407, 244
+  size: 47, 148
+  orig: 50, 150
+  offset: 1, 1
+  index: -1
+_Assets/K_Orange_03
+  rotate: false
+  xy: 407, 94
+  size: 47, 148
+  orig: 50, 150
+  offset: 1, 1
+  index: -1
+_Assets/K_Orange_dot
+  rotate: false
+  xy: 2, 34
+  size: 16, 16
+  orig: 18, 18
+  offset: 1, 1
+  index: -1
+_Assets/K_dot
+  rotate: false
+  xy: 847, 422
+  size: 16, 16
+  orig: 18, 18
+  offset: 1, 1
+  index: -1
+_Assets/Lab
+  rotate: false
+  xy: 847, 440
+  size: 169, 70
+  orig: 172, 74
+  offset: 2, 2
+  index: -1
+_Assets/Lab_Blue
+  rotate: false
+  xy: 2, 416
+  size: 282, 94
+  orig: 288, 98
+  offset: 3, 2
+  index: -1
+_Assets/N_01
+  rotate: false
+  xy: 261, 198
+  size: 47, 194
+  orig: 50, 198
+  offset: 1, 2
+  index: -1
+_Assets/N_02
+  rotate: false
+  xy: 2, 234
+  size: 139, 180
+  orig: 142, 184
+  offset: 1, 2
+  index: -1
+_Assets/N_Orange_01
+  rotate: false
+  xy: 261, 2
+  size: 47, 194
+  orig: 50, 198
+  offset: 1, 2
+  index: -1
+_Assets/N_Orange_02
+  rotate: false
+  xy: 2, 52
+  size: 139, 180
+  orig: 142, 184
+  offset: 1, 2
+  index: -1
+_Assets/N_Orange_dot
+  rotate: false
+  xy: 261, 398
+  size: 16, 16
+  orig: 18, 18
+  offset: 1, 1
+  index: -1
+_Assets/N_dot
+  rotate: false
+  xy: 358, 76
+  size: 16, 16
+  orig: 18, 18
+  offset: 1, 1
+  index: -1
+_Assets/O_01
+  rotate: true
+  xy: 286, 394
+  size: 116, 185
+  orig: 118, 188
+  offset: 1, 2
+  index: -1
+_Assets/O_02
+  rotate: true
+  xy: 473, 394
+  size: 116, 185
+  orig: 118, 188
+  offset: 1, 2
+  index: -1
+_Assets/O_Orange_02
+  rotate: true
+  xy: 660, 394
+  size: 116, 185
+  orig: 118, 188
+  offset: 1, 2
+  index: -1

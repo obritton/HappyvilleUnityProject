@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using Spine;
 
@@ -21,10 +21,13 @@ public class WhackGameManager : FrenziableGame {
 	public ScoreboardManager sbManager;
 
 	public SkeletonAnimation startBunny;
+	public SingleSoundBase music;
+
 	void Start(){
 		configNewGame ();
 		StartCoroutine (showStartBunny ());
 		Physics.gravity = Vector3.down * 400;
+		music.playSingleSound ("Menu_Ambient_Background_Loop", true);
 
 		DoorManager.openDoors ();
 	}
@@ -54,6 +57,7 @@ public class WhackGameManager : FrenziableGame {
 		gameEnded = true;
 		timerAndMeter.moveUp ();
 		sbManager.showResults ( totalAnimals, totalFruits, timerAndMeter.getScore());
+		music.playSingleSound ("Scoreboard_Music");
 		configNewGame ();
 	}
 
@@ -62,12 +66,13 @@ public class WhackGameManager : FrenziableGame {
 		this.isFrenzy = true;
 		timerAndMeter.pausePieChart ();
 		StartCoroutine (stopFrenzy ());
+		music.playSingleSound ("WackGame_FrenzyMusic", true);
 	}
 
 	IEnumerator stopFrenzy(){
 		print ("stopFrenzy before WaitForSeconds (12)");
 		yield return new WaitForSeconds (12);
-		print ("stopFrenzy after Wait");
+		music.playSingleSound ("WackGame_Music", true);
 		timerAndMeter.unpausePieChart ();
 		this.isFrenzy = false;
 		timerAndMeter.zerototalDots ();
@@ -130,6 +135,7 @@ public class WhackGameManager : FrenziableGame {
 						SoundManager.PlaySFX("Bunny_StartDuck");
 						StartCoroutine(delayedGameStart(te.animation.duration));
 						isGameStarted = true;
+						music.playSingleSound ("WackGame_Music", true);
 						base.startTimer ();
 					}
 				}
@@ -157,6 +163,7 @@ public class WhackGameManager : FrenziableGame {
 	void doReplay(){
 		sbManager.hideResults ();
 		getGameGoing ();
+		music.playSingleSound ("WackGame_Music", true);
 	}
 
 	void handleMashIndex( int mashIndex ){

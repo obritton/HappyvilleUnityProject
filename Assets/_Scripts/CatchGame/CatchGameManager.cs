@@ -19,12 +19,15 @@ public class CatchGameManager : FrenziableGame {
 	public enum CatchGameMode{
 		WaitForStart, NormalGameplay, Frenzy, Results
 	};
-	
+
 	public CatchGameMode gameMode = CatchGameMode.WaitForStart;
 	// Use this for initialization
+
+	public SingleSoundBase music;
 	void Start () {
 		StartCoroutine (delayedLionPoint(10));
 		StartCoroutine (openDoors ());
+		music.playSingleSound ("Menu_Ambient_Background_Loop", true);
 	}
 	
 	IEnumerator openDoors()
@@ -62,8 +65,7 @@ public class CatchGameManager : FrenziableGame {
 		lion.state.AddAnimation (0, "Wait", true, 0);
 		SoundManager.PlaySFX ("Lion_Wait", false, te.animation.duration);
 	}
-
-	AudioSource music = null;
+	
 	void waitForStart_mouseButtonDown(){
 		GameObject touchedGO = mousePick ();
 
@@ -96,6 +98,7 @@ public class CatchGameManager : FrenziableGame {
 			fruitKiller.currentPitch = 1;
 			timerAndMeter.zerototalDots();
 			foodDropper.startFruitDrops ();
+			music.playSingleSound ("CatchGame_Music", true);
 			StartCoroutine (animateReturnToNormal ());
 			gameMode = CatchGameMode.NormalGameplay;
 		}
@@ -131,8 +134,8 @@ public class CatchGameManager : FrenziableGame {
 
 	IEnumerator delayedGameStart( float delay )
 	{
+		music.playSingleSound ("CatchGame_Music", true);
 		yield return new WaitForSeconds (delay);
-		music = SoundManager.PlaySFX("OLDFastMusic", true);
 		timerAndMeter.dropDown ();
 		foodDropper.startFruitDrops ();
 //		StartCoroutine (timerAndMeter.delayedPieChartStart (1));
@@ -158,6 +161,7 @@ public class CatchGameManager : FrenziableGame {
 
 	AudioSource windAS = null;
 	public override void startFrenzy(){
+		music.playSingleSound ("CatchGame_FrenzyMusic", true);
 		gameMode = CatchGameMode.Frenzy;
 		StartCoroutine (animateFrenzyStart ());
 		foodDropper.startFrenzyMode ();
@@ -251,8 +255,7 @@ public class CatchGameManager : FrenziableGame {
 
 	void initiateResults(){
 		gameMode = CatchGameMode.Results;
-		if( music != null )
-			music.Stop ();
+		music.playSingleSound ("Scoreboard_Music");
 		SoundManager.PlaySFX("Scoreboard_Populate", false, 0);
 		foodDropper.dropperMode = FoodDropper.DropperMode.Inactive;
 		fruitKiller.explodeAllLiveFoodAway ();

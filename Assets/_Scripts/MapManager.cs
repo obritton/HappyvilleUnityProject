@@ -20,6 +20,8 @@ public class MapManager : MonoBehaviour {
 
 	public static bool canSoundsPlay = true;
 
+	public SkeletonAnimation logoAnim;
+
 	bool isPlaying = false;
 	IEnumerator loopRandomAnims(){
 		while (isPlaying) {
@@ -54,10 +56,10 @@ public class MapManager : MonoBehaviour {
 		int totalFingers = gesture.Fingers.Count;
 
 		if (totalFingers == 1) {
-			if (gesture.Direction == FingerGestures.SwipeDirection.Right) {
+			if (gesture.Direction == FingerGestures.SwipeDirection.Right && currentPage > 0) {
 				if (gesture.StartPosition.x < Screen.width / 3)
 					StartCoroutine (navigateToPage (currentPage - 1, false, false));
-			} else if (gesture.Direction == FingerGestures.SwipeDirection.Left) {
+			} else if (gesture.Direction == FingerGestures.SwipeDirection.Left  && currentPage < 6) {
 				if (gesture.StartPosition.x > 2 * Screen.width / 3)
 					StartCoroutine (navigateToPage (currentPage + 1, false, false));
 			}
@@ -90,14 +92,29 @@ public class MapManager : MonoBehaviour {
 	}
 	//
 
+	public LittleBirdManager littleBirdMan;
+
+	IEnumerator presentLogoAnimation(){
+		TrackEntry te = logoAnim.state.SetAnimation (0, "Enter", false);
+		logoAnim.GetComponent<Renderer> ().enabled = true;
+		yield return new WaitForSeconds (te.animation.duration);
+		iTween.MoveTo (Camera.main.gameObject, iTween.Hash ( "y", 1, "easetype", iTween.EaseType.easeOutExpo, "time", 3 ));
+		yield return new WaitForSeconds (3);
+		littleBirdMan.startBirdAnim ();
+	}
+
 	void Start(){
 //		MapUnlockSystem.setTableGameComplete (7);
 
 		canSoundsPlay = true;
 		if (firstTime) {
-			DoorManager.immediateOpen();
+			DoorManager.immediateOpen ();
 			firstTime = false;
+		} else {
+			Camera.main.transform.localPosition = new Vector3( 0, 1, -20 );
 		}
+
+		StartCoroutine(presentLogoAnimation ());
 
 		startHappyvilleSignedAnimsHandle ();
 
@@ -107,7 +124,7 @@ public class MapManager : MonoBehaviour {
 			StartCoroutine( navigateToPage(openPageIndex, false, false, true ));
 		}
 		setProperButtonStates ();
-		SoundManager.PlaySFX ("Menu_Ambient_Background_Loop", true, 0, .05f);
+		SoundManager.PlaySFX ("Menu_Ambient_Background_Loop", true);
 	}
 
 	void setProperButtonStates(){

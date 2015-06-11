@@ -8,10 +8,12 @@ public class SlingshotGameManager : FrenziableGame {
 	public GameObject pointsPrefab;
 	public GameObject[] frenzyGroups;
 	public Transform frenzyGroupParent;
-	
+
+	public SingleSoundBase music;
 	void Start () {
 		StartCoroutine (openDoors ());
 		StartCoroutine (makeBearPoint ());
+		music.playSingleSound ("Menu_Ambient_Background_Loop", true);
 	}
 
 	bool isBearWaiting = true;
@@ -57,6 +59,7 @@ public class SlingshotGameManager : FrenziableGame {
 				StartCoroutine(delayedGameStartSignal(2));
 				fingerFollower.startTargetsMoving();
 				startTimer();
+				music.playSingleSound ("SlingGame_Music", true);
 				break;
 
 			case "ReplayBtn":
@@ -72,6 +75,7 @@ public class SlingshotGameManager : FrenziableGame {
 		timerAndMeter.moveUp ();
 		GameObject frenzyGroup = Instantiate (frenzyGroups [Random.Range (0, 2)], frenzyGroupParent.position, Quaternion.identity) as GameObject;
 		frenzyGroup.transform.parent = frenzyGroupParent.transform;
+		music.playSingleSound ("SlingGame_FrenzyMusic", true);
 		yield return new WaitForSeconds(20);
 		panToNormalMode ();
 		yield return new WaitForSeconds (2);
@@ -79,6 +83,7 @@ public class SlingshotGameManager : FrenziableGame {
 	}
 
 	void panToNormalMode(){
+		music.playSingleSound ("SlingGame_Music", true);
 		iTween.MoveTo( backgroundNode, iTween.Hash("x", -768, "time", 2, "easetype", iTween.EaseType.easeInOutQuad));
 		timerAndMeter.zerototalDots ();
 		timerAndMeter.unpausePieChart ();
@@ -133,6 +138,7 @@ public class SlingshotGameManager : FrenziableGame {
 			areResultsInitiated = true;
 			fingerFollower.initiateResults ();
 			catchResults.showResults (10, 10, 85);
+			music.playSingleSound ("Scoreboard_Music");
 
 			iTween.MoveTo( backgroundNode, iTween.Hash("x", 0, "time", 2, "easetype", iTween.EaseType.easeInOutQuad));
 			iTween.MoveTo( boat, iTween.Hash("x", 768, "time", 2, "easetype", iTween.EaseType.easeInOutQuad));

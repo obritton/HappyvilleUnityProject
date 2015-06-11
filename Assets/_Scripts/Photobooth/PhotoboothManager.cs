@@ -17,15 +17,27 @@ public class PhotoboothManager : GameManagerBase {
 	void Start () {
 		DoorManager.openDoors ();
 
-		WebCamDevice[] devices = WebCamTexture.devices;
-
-		string deviceStr = devices.Length > 1 ? devices[1].name : devices[0].name;
-		camTexture = new WebCamTexture (deviceStr);
-		webcamRenderer.material.mainTexture = camTexture;
-		camTexture.Play ();
+		setupCameraAccess ();
 
 		trayStartY = tray.transform.localPosition.y;
 		tray.transform.Translate (Vector3.down*325);
+	}
+
+	void setupCameraAccess(){
+		WebCamDevice[] devices = WebCamTexture.devices;
+	
+		string deviceStr = devices [0].name;
+		foreach (WebCamDevice device in devices) {
+			print ("" + device.name + " isFrontFacing: " + device.isFrontFacing);
+			if( device.isFrontFacing )
+				deviceStr = device.name;
+		}
+		print ("deviceStr " + deviceStr);
+
+//		string deviceStr = devices.Length > 1 ? devices[1].name : devices[0].name;
+		camTexture = new WebCamTexture (deviceStr);
+		webcamRenderer.material.mainTexture = camTexture;
+		camTexture.Play ();
 	}
 
 	public SkeletonAnimation[] skelAnim;

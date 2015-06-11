@@ -7,9 +7,9 @@ public class GetPhotoManager : MonoBehaviour {
 	
 	void Start()
 	{
-		camTexture = new WebCamTexture();
-		GetComponent<Renderer>().material.mainTexture = camTexture;
-		camTexture.Play();
+//		camTexture = new WebCamTexture();
+//		GetComponent<Renderer>().material.mainTexture = camTexture;
+//		camTexture.Play();
 	}
 
 	public SkeletonAnimation[] skelAnim;
