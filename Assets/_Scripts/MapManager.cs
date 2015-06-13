@@ -531,42 +531,70 @@ public class MapManager : MonoBehaviour {
 		Application.LoadLevel (gameName);
 	}
 
+	public SingleSoundBase birdSingleSound;
 	IEnumerator fireBirdTouchAnim(){
 		totalBirdClicks= (totalBirdClicks + 1) % 2;
 		string birdAnimName = (totalBirdClicks == 0 ? "TouchOne-brd" : "TouchTwo-brd");
-		if( canSoundsPlay )
-			SoundManager.PlaySFX (birdAnimName);
-		TrackEntry te = ((SkeletonAnimation)bird.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, birdAnimName, false);
-		yield return new WaitForSeconds (te.animation.duration);
-		((SkeletonAnimation)bird.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Idle-brd", true);
+		if (canSoundsPlay)
+		{
+			string soundName = (totalBirdClicks == 0 ? "Bird_TouchOne" : "Bird_TouchTwo");
+			birdSingleSound.playSingleSound(soundName);
+		}
+		((SkeletonAnimation)bird.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, birdAnimName, false);
+		((SkeletonAnimation)bird.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle-brd", false, 0);
+		yield return new WaitForSeconds (0);
 	}
 
+	public SingleSoundBase frogSingleSound;
 	IEnumerator fireFrogTouchAnim(){
 		string frogAnimName = calcAnimName( "frg", ++totalFrogClicks );
-		TrackEntry te = ((SkeletonAnimation)frog.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, frogAnimName, false);
-		yield return new WaitForSeconds (te.animation.duration);
-		((SkeletonAnimation)frog.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Idle-frg", true);
+		if (canSoundsPlay)
+		{
+			string soundName = calcSoundName( "Frog", totalFrogClicks );
+			frogSingleSound.playSingleSound(soundName);
+		}
+		((SkeletonAnimation)frog.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, frogAnimName, false);
+		yield return new WaitForSeconds (0);
+		((SkeletonAnimation)frog.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle-frg", false, 0);
 	}
 
+	public SingleSoundBase monkeySingleSound;
 	IEnumerator fireMonkeyTouchAnim(){
 		string monkeyAnimName = calcAnimName( "monk", ++totalMonkeyClicks );
-		TrackEntry te = ((SkeletonAnimation)monkey.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, monkeyAnimName, false);
-		yield return new WaitForSeconds (te.animation.duration);
-		((SkeletonAnimation)monkey.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Idle-monk", true);
+		if (canSoundsPlay)
+		{
+			string soundName = calcSoundName( "Monkey", totalFrogClicks );
+			monkeySingleSound.playSingleSound(soundName);
+		}
+		((SkeletonAnimation)monkey.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, monkeyAnimName, false);
+		yield return new WaitForSeconds (0);
+		((SkeletonAnimation)monkey.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle-monk", false, 0);
 	}
 
+	public SingleSoundBase catSingleSound;
 	IEnumerator fireCatTouchAnim(){
 		string catAnimName = calcAnimName( "cat", ++totalCatClicks );
-		TrackEntry te = ((SkeletonAnimation)cat.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, catAnimName, false);
-		yield return new WaitForSeconds (te.animation.duration);
-		((SkeletonAnimation)cat.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Idle-cat", true);
+		if (canSoundsPlay)
+		{
+			string soundName = calcSoundName( "Cat", totalFrogClicks );
+			catSingleSound.playSingleSound(soundName);
+		}
+		((SkeletonAnimation)cat.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, catAnimName, false);
+		yield return new WaitForSeconds (0);
+		((SkeletonAnimation)cat.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle-cat", false, 0);
 	}
 
+	public SingleSoundBase foxSingleSound;
 	IEnumerator fireFoxTouchAnim(){
 		string foxAnimName = calcAnimName( "fox", ++totalFoxClicks );
-		TrackEntry te = ((SkeletonAnimation)fox.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, foxAnimName, false);
-		yield return new WaitForSeconds (te.animation.duration);
-		((SkeletonAnimation)fox.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, "Idle-fox", true);
+		if (canSoundsPlay)
+		{
+			string soundName = calcSoundName( "Fox", totalFrogClicks );
+			foxSingleSound.playSingleSound(soundName);
+		}
+		((SkeletonAnimation)fox.GetComponent<SkeletonAnimation> ()).state.SetAnimation (0, foxAnimName, false);
+		yield return new WaitForSeconds (0);
+		((SkeletonAnimation)fox.GetComponent<SkeletonAnimation> ()).state.AddAnimation (0, "Idle-fox", false, 0);
 	}
 
 	IEnumerator delayedTouchOff(){
@@ -585,6 +613,20 @@ public class MapManager : MonoBehaviour {
 		}
 
 		string animStr = "Touch" + indexStr + "-" + animalStr;
+		return animStr;
+	}
+
+	string calcSoundName( string animalStr, int totalClicks )
+	{
+		string indexStr = "One";
+		if (totalClicks % 3 == 1) {
+			indexStr = "Two";
+		}
+		else if (totalClicks % 3 == 2) {
+			indexStr = "Three";
+		}
+		
+		string animStr = animalStr + "_Touch" + indexStr;
 		return animStr;
 	}
 

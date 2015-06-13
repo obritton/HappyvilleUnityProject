@@ -1,0 +1,34 @@
+
+Hand.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+_Assets/Hand
+  rotate: false
+  xy: 2, 2
+  size: 340, 400
+  orig: 340, 400
+  offset: 0, 0
+  index: -1
+_Assets/Head_01
+  rotate: false
+  xy: 2, 926
+  size: 1118, 1118
+  orig: 1118, 1118
+  offset: 0, 0
+  index: -1
+_Assets/Head_Thumb_01
+  rotate: false
+  xy: 1122, 1555
+  size: 489, 489
+  orig: 708, 567
+  offset: 110, 37
+  index: -1
+_Assets/Ray_Food
+  rotate: false
+  xy: 2, 404
+  size: 595, 520
+  orig: 596, 520
+  offset: 0, 0
+  index: -1

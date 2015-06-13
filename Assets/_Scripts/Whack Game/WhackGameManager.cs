@@ -133,6 +133,7 @@ public class WhackGameManager : FrenziableGame {
 						StartCoroutine (delayedButtonMove (te.animation.duration));
 						te = startBunny.state.SetAnimation (0, "Start_Duck", true);
 						SoundManager.PlaySFX("Bunny_StartDuck");
+						SoundManager.PlaySFX ("StartButton_Tap");
 						StartCoroutine(delayedGameStart(te.animation.duration));
 						isGameStarted = true;
 						music.playSingleSound ("WackGame_Music", true);

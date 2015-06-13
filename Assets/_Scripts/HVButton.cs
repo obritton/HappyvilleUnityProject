@@ -12,6 +12,7 @@ public class HVButton : MonoBehaviour {
 			if( mousePick() == gameObject ){
 				isActive = true;
 				GetComponent<Renderer>().material.SetTexture( "_MainTex", pressedTexture );
+				playSound();
 				StartCoroutine(doDeform());
 			}
 		}
@@ -22,6 +23,15 @@ public class HVButton : MonoBehaviour {
 				isActive = false;
 			}
 		}
+	}
+
+	public bool isThumb = false;
+	void playSound(){
+
+		if( isThumb )
+			SoundManager.PlaySFX ("Thumb_Tap");
+		else
+			SoundManager.PlaySFX ("UI_Button_Tap");
 	}
 
 	IEnumerator doDeform(){

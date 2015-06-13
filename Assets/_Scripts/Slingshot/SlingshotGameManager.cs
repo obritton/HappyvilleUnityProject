@@ -44,6 +44,8 @@ public class SlingshotGameManager : FrenziableGame {
 	public GameObject backgroundNode;
 	public GameObject boat;
 
+	public TutorialManager tutorial;
+
 	void Update () {
 
 		if (Input.GetMouseButtonDown (0)) {
@@ -51,6 +53,8 @@ public class SlingshotGameManager : FrenziableGame {
 			if( pickedGO )
 			switch (pickedGO.tag) {
 			case "StartBtn":
+				SoundManager.PlaySFX ("StartButton_Tap");
+				StartCoroutine (delayedTutorial ());
 				TrackEntry te = pickedGO.GetComponent<SkeletonAnimation> ().state.SetAnimation (0, "Tap", false);
 				StartCoroutine (delayedButtonMove (te.animation.duration, pickedGO));
 				isBearWaiting = false;
@@ -88,6 +92,12 @@ public class SlingshotGameManager : FrenziableGame {
 		timerAndMeter.zerototalDots ();
 		timerAndMeter.unpausePieChart ();
 		timerAndMeter.dropDown ();
+	}
+
+	IEnumerator delayedTutorial(){
+		yield return new WaitForSeconds (2);
+		print ("delayedTutorial");
+		tutorial.doTutorial("Sling_Tutorial");
 	}
 
 	public void hitFish( Vector3 location ){

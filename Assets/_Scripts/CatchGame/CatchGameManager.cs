@@ -16,6 +16,8 @@ public class CatchGameManager : FrenziableGame {
 
 	public ScoreboardManager catchResults;
 
+	public TutorialManager tutorialManager;
+
 	public enum CatchGameMode{
 		WaitForStart, NormalGameplay, Frenzy, Results
 	};
@@ -74,7 +76,7 @@ public class CatchGameManager : FrenziableGame {
 			TrackEntry te = startBtn.state.SetAnimation (0, "Tap", false);
 			StartCoroutine (delayedButtonMove (te.animation.duration));
 			te = lion.state.SetAnimation (0, "Start", false);
-			SoundManager.PlaySFX ("Lion_Start");
+			SoundManager.PlaySFX ("StartButton_Tap");
 			lion.state.AddAnimation (0, "Walk", true, 0);
 			StartCoroutine (delayedGameStart (te.animation.duration));
 		}
@@ -140,6 +142,8 @@ public class CatchGameManager : FrenziableGame {
 		foodDropper.startFruitDrops ();
 //		StartCoroutine (timerAndMeter.delayedPieChartStart (1));
 		StartCoroutine (delayedInitiateResults (60));
+		yield return new WaitForSeconds(1);
+		tutorialManager.doTutorial("Catch_Tutorial");
 	}
 
 	bool isLionTouched = false;

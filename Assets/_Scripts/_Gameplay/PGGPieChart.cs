@@ -30,21 +30,21 @@ public class PGGPieChart : MonoBehaviour {
 		if (isActive)
 		{
 			currentChartAmount -= Time.deltaTime * multiplier;
-			if( currentChartAmount > 180 ){
-				Quaternion rot = leftFillPivot.rotation;
-				rot.z = currentChartAmount/10.0f;
-				print ("LEFT currentChartAmount: " + currentChartAmount +  ", rot.z: " + rot.z);
-				leftFillPivot.rotation = rot;
-			}
-			else
-			{
-				if( leftFillPivot != null )
-					Destroy( leftFillPivot.gameObject );
-				Quaternion rot = rightFillPivot.rotation;
-				rot.z = 180.0f * (100.0f-currentChartAmount)/10000.0f;
-				print ("RIGHT currentChartAmount: " + currentChartAmount +  ", rot.z: " + rot.z);
-				rightFillPivot.rotation = rot;
-			}
+//			if( currentChartAmount > 180 ){
+//				Quaternion rot = leftFillPivot.rotation;
+//				rot.z = currentChartAmount/10.0f;
+//				print ("LEFT currentChartAmount: " + currentChartAmount +  ", rot.z: " + rot.z);
+//				leftFillPivot.rotation = rot;
+//			}
+//			else
+//			{
+//				if( leftFillPivot != null )
+//					Destroy( leftFillPivot.gameObject );
+//				Quaternion rot = rightFillPivot.rotation;
+//				rot.z = 180.0f * (100.0f-currentChartAmount)/10000.0f;
+//				print ("RIGHT currentChartAmount: " + currentChartAmount +  ", rot.z: " + rot.z);
+//				rightFillPivot.rotation = rot;
+//			}
 		}
 	}
 }

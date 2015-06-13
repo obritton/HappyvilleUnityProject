@@ -22,6 +22,8 @@ public class Table : GameManagerBase {
 	public SkeletonAnimation[] thoughtShapeArr;
 	public Transform[] thoughShapeLocArr;
 
+	public TutorialManager tutorial;
+
 	void Start(){
 //		StartCoroutine (doGameWin (6));
 		if (level > -1)
@@ -725,11 +727,15 @@ public class Table : GameManagerBase {
 	bool foodTouched = false;
 	IEnumerator delayedConditionalFoodPunch(){
 		foodTouched = false;
-		yield return new WaitForSeconds (5);
+		yield return new WaitForSeconds (2.5f);
+		tutorial.doTutorial ("Table_Tutorial");
+		yield return new WaitForSeconds (2.5f);
 		if (!foodTouched) {
-				iTween.PunchScale (food.gameObject, iTween.Hash ("time", 2, "amount", 0.5f * foodStartSize, "easetype", iTween.EaseType.easeOutElastic));
+			iTween.PunchScale (food.gameObject, iTween.Hash ("time", 2, "amount", 0.5f * foodStartSize, "easetype", iTween.EaseType.easeOutElastic));
 		}
 	}
+
+
 
 	GameObject createCharacterForType( CharacterNode.CharacterType characterType ){
 		GameObject prefab = characterPrefabArr [(int)characterType];
