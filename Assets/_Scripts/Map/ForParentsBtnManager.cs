@@ -4,11 +4,12 @@ using System.Collections;
 public class ForParentsBtnManager : MonoBehaviour {
 
 	void Update(){
-		if (Input.GetMouseButtonDown (0) && mousePick() == gameObject) {
-			print ("mousePick()");
-
-			initiateParentsGestureListener();
-			skelAnim.state.SetAnimation(0, "Tap", false );
+		if (Input.GetMouseButtonDown (0))
+		{
+			if( mousePick() == gameObject) {
+				initiateParentsGestureListener();
+				skelAnim.state.SetAnimation(0, "Tap", false );
+			}
 		}
 	}
 
@@ -17,9 +18,11 @@ public class ForParentsBtnManager : MonoBehaviour {
 	int targetNumFingers = -1;
 	FingerGestures.SwipeDirection targetDir = FingerGestures.SwipeDirection.None;
 
+	public SwipeRecognizer swipeRecognizer;
 	void initiateParentsGestureListener(){
 		targetNumFingers = Random.value < 0.5f ? 3 : 2;
 		string skinName = (targetNumFingers == 2 ? "Two" : "Three");
+		swipeRecognizer.RequiredFingerCount = targetNumFingers;
 		skinName += "_";
 		targetDir = FingerGestures.SwipeDirection.Right;
 		switch (Random.Range (0, 4)) {
@@ -36,6 +39,7 @@ public class ForParentsBtnManager : MonoBehaviour {
 			skinName += "Down";
 			break;
 		default:
+			targetDir = FingerGestures.SwipeDirection.Right;
 			skinName += "Right";
 			break;
 		}
@@ -56,20 +60,20 @@ public class ForParentsBtnManager : MonoBehaviour {
 		FingerGestures.SwipeDirection dir = gesture.Direction;
 
 		print ("ForParents OnSwipe totalFingers: " + totalFingers + ", dir: " + dir);
-		if (targetDir == gesture.Direction && targetNumFingers == gesture.Fingers.Count) {
+		if (targetDir == gesture.Direction && targetNumFingers == gesture.Fingers.Count)
 			openParentsPage();
-		} else {
-			endParentsGestureListener();
-		}
+
+		endParentsGestureListener();
 	}
 
+	public GameObject forParentsPage;
 	void openParentsPage(){
-
+		forParentsPage.SetActive (true);
 	}
 
 	GameObject mousePick(){
 		RaycastHit hit;
-		if(Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 100))
+		if(Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 1000))
 			if( hit.collider )
 				return hit.collider.gameObject;
 		return null;

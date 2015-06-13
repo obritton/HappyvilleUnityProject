@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PGGPieChart : MonoBehaviour {
 
-	public float currentChartAmount = 100;
+	public float currentChartAmount = 360;
 	public bool isActive = false;
 	public float multiplier = 1;
 
@@ -30,15 +30,20 @@ public class PGGPieChart : MonoBehaviour {
 		if (isActive)
 		{
 			currentChartAmount -= Time.deltaTime * multiplier;
-			if( currentChartAmount > 50 ){
-//				Quaternion rot = leftFillPivot.rotation;
-//				rot.z = 180 * currentChartAmount/50;
-//				
-//				leftFillPivot.rotation = rot;
+			if( currentChartAmount > 180 ){
+				Quaternion rot = leftFillPivot.rotation;
+				rot.z = currentChartAmount/10.0f;
+				print ("LEFT currentChartAmount: " + currentChartAmount +  ", rot.z: " + rot.z);
+				leftFillPivot.rotation = rot;
 			}
 			else
 			{
-
+				if( leftFillPivot != null )
+					Destroy( leftFillPivot.gameObject );
+				Quaternion rot = rightFillPivot.rotation;
+				rot.z = 180.0f * (100.0f-currentChartAmount)/10000.0f;
+				print ("RIGHT currentChartAmount: " + currentChartAmount +  ", rot.z: " + rot.z);
+				rightFillPivot.rotation = rot;
 			}
 		}
 	}

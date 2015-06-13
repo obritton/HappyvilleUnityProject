@@ -12,6 +12,7 @@ public class HVButton : MonoBehaviour {
 			if( mousePick() == gameObject ){
 				isActive = true;
 				GetComponent<Renderer>().material.SetTexture( "_MainTex", pressedTexture );
+				StartCoroutine(doDeform());
 			}
 		}
 
@@ -21,6 +22,12 @@ public class HVButton : MonoBehaviour {
 				isActive = false;
 			}
 		}
+	}
+
+	IEnumerator doDeform(){
+		iTween.PunchScale( gameObject, iTween.Hash( "time", 1, "amount", new Vector3( 30, 0, 0)));
+		yield return new WaitForSeconds (0.15f);
+		iTween.PunchScale( gameObject, iTween.Hash( "time", 1, "amount", new Vector3( 0, 10, 0)));
 	}
 
 	GameObject mousePick(){

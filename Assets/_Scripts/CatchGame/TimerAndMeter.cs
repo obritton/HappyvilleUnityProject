@@ -21,13 +21,13 @@ public class TimerAndMeter : MonoBehaviour {
 	}
 
 	public void fillPieChart(){
-		pieChart.currentChartAmount = 100;
+		pieChart.currentChartAmount = 360;
 	}
 
 	public IEnumerator delayedPieChartStart( float delay )
 	{
 		yield return new WaitForSeconds (delay);
-		pieChart.currentChartAmount = 100;
+		pieChart.currentChartAmount = 360;
 		pieChart.isActive = true;//64 bit crash was here
 	}
 

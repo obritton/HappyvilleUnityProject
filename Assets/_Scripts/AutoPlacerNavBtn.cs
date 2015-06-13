@@ -14,6 +14,8 @@ public class AutoPlacerNavBtn : MonoBehaviour {
 		relativeWorldPos.z = transform.position.z;
 		transform.position = relativeWorldPos;
 
+		transform.Translate (0, -1121, 0);
+
 		foreach (Transform sign in analogousSigns) {
 			sign.localPosition = transform.localPosition;
 		}

@@ -55,18 +55,22 @@ public class MapManager : MonoBehaviour {
 
 		int totalFingers = gesture.Fingers.Count;
 
-		if (totalFingers == 1) {
-			if (gesture.Direction == FingerGestures.SwipeDirection.Right && currentPage > 0) {
-				if (gesture.StartPosition.x < Screen.width / 3)
-					StartCoroutine (navigateToPage (currentPage - 1, false, false));
-			} else if (gesture.Direction == FingerGestures.SwipeDirection.Left  && currentPage < 6) {
-				if (gesture.StartPosition.x > 2 * Screen.width / 3)
-					StartCoroutine (navigateToPage (currentPage + 1, false, false));
-			}
+		if (currentPage == 0) {
+//						parentsBtn.OnSwipe (gesture);
 		}
+		else
+		{
 
-		if( currentPage == 0 )
-			parentsBtn.OnSwipe(gesture);
+						if (totalFingers == 1) {
+								if (gesture.Direction == FingerGestures.SwipeDirection.Right && currentPage > 0) {
+										if (gesture.StartPosition.x < Screen.width / 3)
+												StartCoroutine (navigateToPage (currentPage - 1, false, false));
+								} else if (gesture.Direction == FingerGestures.SwipeDirection.Left && currentPage < 6) {
+										if (gesture.StartPosition.x > 2 * Screen.width / 3)
+												StartCoroutine (navigateToPage (currentPage + 1, false, false));
+								}
+						}
+				}
 	}
 
 	//LIGHTPOSTS
@@ -95,7 +99,9 @@ public class MapManager : MonoBehaviour {
 	public LittleBirdManager littleBirdMan;
 
 	IEnumerator presentLogoAnimation(){
+		yield return new WaitForSeconds (0.45f);
 		TrackEntry te = logoAnim.state.SetAnimation (0, "Enter", false);
+		yield return new WaitForSeconds (0.05f);
 		logoAnim.GetComponent<Renderer> ().enabled = true;
 		yield return new WaitForSeconds (te.animation.duration);
 		iTween.MoveTo (Camera.main.gameObject, iTween.Hash ( "y", 1, "easetype", iTween.EaseType.easeOutExpo, "time", 3 ));
@@ -105,7 +111,7 @@ public class MapManager : MonoBehaviour {
 
 	void Start(){
 //		MapUnlockSystem.setTableGameComplete (7);
-
+		PlayerPrefs.DeleteAll ();
 		canSoundsPlay = true;
 		if (firstTime) {
 			DoorManager.immediateOpen ();
@@ -129,8 +135,8 @@ public class MapManager : MonoBehaviour {
 
 	void setProperButtonStates(){
 		int highestTableGameUnlocked = MapUnlockSystem.tableGameCompleted ();
-		int highestMiniGameUnlocked = MapUnlockSystem.miniGamePlayed ();
-//		print ("highestTableGameUnlocked: " + highestTableGameUnlocked + " highestMiniGameUnlocked: " + highestMiniGameUnlocked);
+//		int highestMiniGameUnlocked = MapUnlockSystem.miniGamePlayed ();
+		int highestMiniGameUnlocked = (MapUnlockSystem.tableGameCompleted ()+1) / 3;
 
 		//set animals asleep and awake
 		for (int i = 1; i < mapDenizenArr.Length; i++) {
@@ -181,7 +187,7 @@ public class MapManager : MonoBehaviour {
 		yield return new WaitForSeconds (delay);
 		skelAnim.state.SetAnimation (0, animStr, true);
 	}
-
+		
 	void determineIfMiniGameWasPlayedForTheFirstTime(){
 		int lastGameIndex = -1;
 		switch (MapUnlockSystem.lastGamePlayed)
@@ -401,7 +407,7 @@ public class MapManager : MonoBehaviour {
 					}
 					break;
 				case "ForParentsBtn":
-					PlayerPrefs.DeleteAll ();
+//					PlayerPrefs.DeleteAll ();
 					break;
 				case "StartBtn":
 					StartCoroutine(clickGoSign());

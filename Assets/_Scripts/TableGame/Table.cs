@@ -26,8 +26,9 @@ public class Table : GameManagerBase {
 //		StartCoroutine (doGameWin (6));
 		if (level > -1)
 			loadTableAndBG ();
-		CharacterNode.totalCharactersUnlocked = 4 + (Table.level / 3);
-		SoundManager.PlaySFX ("OLDWierdMusic", true);
+//		CharacterNode.totalCharactersUnlocked = 4 + (Table.level / 3);
+		int highestMiniGameUnlocked = (MapUnlockSystem.tableGameCompleted ()+1) / 3;
+		CharacterNode.totalCharactersUnlocked = 4 + highestMiniGameUnlocked;
 
 		foodStartPos = food.transform.localPosition;
 		foodStartSize = food.transform.localScale;
