@@ -24,7 +24,7 @@ public class PuzzleGameManager : GameManagerBase {
 			yield return new WaitForSeconds( 10 );
 
 			string newAnim = "Idle";
-			switch( Random.Range( 0, 5 ))
+			switch( Random.Range( 0, 3 ))
 			{
 			case 0:
 				newAnim = "TouchOne";
@@ -33,21 +33,19 @@ public class PuzzleGameManager : GameManagerBase {
 				newAnim = "TouchTwo";
 				break;
 			case 2:
-				newAnim = "TouchOne";
-				break;
-			case 3:
-				newAnim = "TouchTwo";
-				break;
-			case 4:
-				newAnim = "TouchThree";
-				break;
-			case 5:
 				newAnim = "TouchThree";
 				break;
 			}
 			currentPuzzleCharacter.state.SetAnimation( 0, newAnim, false);
 			currentPuzzleCharacter.state.AddAnimation( 0, "Idle", true, 0 );
+
+			playAudio( currentAnimal, newAnim );
 		}
+	}
+
+	void playAudio( string animal, string animationStr ){
+		string soundStr = "Table" + animal + "_" + animationStr;
+		SoundManager.PlaySFX (soundStr);
 	}
 
 	public static bool hasGameStarted = false;
@@ -65,6 +63,7 @@ public class PuzzleGameManager : GameManagerBase {
 					iTween.ScaleTo( pickedGO, iTween.Hash ( "scale", 25000*Vector3.one, "easetype", iTween.EaseType.easeOutBack, "time", 0.5f ));
 					draggingPP.transform.Translate(0, 1, 0 );
 					lastMousePos = Input.mousePosition;
+					SoundManager.PlaySFX("Puzzle_Grab");
 					break;
 				}
 			}
@@ -84,27 +83,33 @@ public class PuzzleGameManager : GameManagerBase {
 			if( draggingPP != null ){
 				if( Input.mousePosition.y < 124 )
 				{
-					movePieceIntoStartNodes(draggingPP);
+					StartCoroutine( movePieceIntoStartNodes(draggingPP));
 				}
 				else
 				{
-					movePieceIntoPuzzle(draggingPP);
+					StartCoroutine( movePieceIntoPuzzle(draggingPP));
 				}
 			}
+
 			lastDraggedPiece = draggingPP;
 			draggingPP = null;
 		}
 	}
 
-	void movePieceIntoPuzzle( GameObject piece ){
+	IEnumerator movePieceIntoPuzzle( GameObject piece ){
 		movePieceIntoNodes (piece, puzzleNodeArr);
 		iTween.ScaleTo (piece, iTween.Hash ("scale", Vector3.one * 18800, "easetype", iTween.EaseType.easeOutBounce ));
+		yield return new WaitForSeconds (0.75f);
+		SoundManager.PlaySFX("Puzzle_Drop");
 	}
 
-	void movePieceIntoStartNodes( GameObject piece, bool isImmediate = false ){
+	IEnumerator movePieceIntoStartNodes( GameObject piece, bool isImmediate = false ){
 		movePieceIntoNodes (piece, startNodeArr, isImmediate);
 		float time = isImmediate ? 0 : 1;
 		iTween.ScaleTo (piece, iTween.Hash ("scale", Vector3.one * 10000, "easetype", iTween.EaseType.easeOutBounce, "time", time ));
+		yield return new WaitForSeconds (time/2.0f);
+		if( time != 0 )
+			SoundManager.PlaySFX("Puzzle_Drop");
 	}
 
 	public void resetAllPieces()
@@ -115,7 +120,7 @@ public class PuzzleGameManager : GameManagerBase {
 
 		foreach (GameObject piece in puzzlePieceArr) {
 			piece.transform.position = Random.onUnitSphere * 1000;
-			movePieceIntoStartNodes( piece, true );
+			StartCoroutine(movePieceIntoStartNodes( piece, true ));
 		}
 	}
 
@@ -161,36 +166,46 @@ public class PuzzleGameManager : GameManagerBase {
 		return openNodes;
 	}
 
+	string currentAnimal = "Cat";
 	public enum PuzzleAnimal{ Cat, Dog, Monkey, Fox, Bear, Bird, Bunny, Frog, Lion };
 	public void loadNewAnimal( PuzzleAnimal puzzleAnimal)
 	{
 		int newAnimalIndex = 0;
 		switch (puzzleAnimal) {
 		case PuzzleAnimal.Cat:
+			currentAnimal = "Cat";
 			newAnimalIndex = 0;
 			break;
 		case PuzzleAnimal.Dog:
+			currentAnimal = "Dog";
 			newAnimalIndex = 1;
 			break;
 		case PuzzleAnimal.Monkey:
+			currentAnimal = "Monkey";
 			newAnimalIndex = 2;
 			break;
 		case PuzzleAnimal.Fox:
+			currentAnimal = "Fox";
 			newAnimalIndex = 3;
 			break;
 		case PuzzleAnimal.Bear:
+			currentAnimal = "Bear";
 			newAnimalIndex = 4;
 			break;
 		case PuzzleAnimal.Bird:
+			currentAnimal = "Bird";
 			newAnimalIndex = 5;
 			break;
 		case PuzzleAnimal.Bunny:
+			currentAnimal = "Bunny";
 			newAnimalIndex = 6;
 			break;
 		case PuzzleAnimal.Frog:
+			currentAnimal = "Frog";
 			newAnimalIndex = 7;
 			break;
 		case PuzzleAnimal.Lion:
+			currentAnimal = "Lion";
 			newAnimalIndex = 8;
 			break;
 		}

@@ -79,6 +79,12 @@ public class PuzzleTrayManager : MonoBehaviour {
 
 		isTrayDown = !isTrayDown;
 		PuzzleGameManager.hasGameStarted = slideUp;
+
+		if (slideUp) {
+			SoundManager.PlaySFX("Tray_SlideOut");
+		} else {
+			SoundManager.PlaySFX("Tray_SlideIn");
+		}
 	}
 	
 	void trayIsDoneAnimating(){
