@@ -135,8 +135,10 @@ public class MapManager : MonoBehaviour {
 
 	void setProperButtonStates(){
 		int highestTableGameUnlocked = MapUnlockSystem.tableGameCompleted ();
+		print ("highestTableGameUnlocked: " + highestTableGameUnlocked);
 //		int highestMiniGameUnlocked = MapUnlockSystem.miniGamePlayed ();
-		int highestMiniGameUnlocked = (MapUnlockSystem.tableGameCompleted ()+1) / 3;
+		int highestMiniGameUnlocked = (MapUnlockSystem.tableGameCompleted ()) / 3;
+		print ("highestMiniGameUnlocked: " + highestMiniGameUnlocked);
 
 		//set animals asleep and awake
 		for (int i = 1; i < mapDenizenArr.Length; i++) {
@@ -152,9 +154,8 @@ public class MapManager : MonoBehaviour {
 				animName = (i <= highestTableGameUnlocked) ? "Active_Float_Idle" : "Locked_Float_Idle";
 			}
 
-//			skelAnim.state.SetAnimation(0, animName, true);
+			skelAnim.state.SetAnimation(0, animName, true);
 //			StartCoroutine(startSkelAnimWithDelayOffset( skelAnim, animName, 2.0f/3.0f * (i % 3)));
-			StartCoroutine(startSkelAnimWithDelayOffset( skelAnim, animName, 0));
 		}
 
 		//set minigame buttons locked and idle

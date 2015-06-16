@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using Spine;
+using Thinksquirrel.Utilities;
 
 public class WhackGameManager : FrenziableGame {
 
@@ -204,6 +205,9 @@ public class WhackGameManager : FrenziableGame {
 		if (node.childCount > 0) {
 			WhackAnimal animal = node.GetChild(0).GetComponent<WhackAnimal>();
 			if( animal && !animal.whacked ){
+
+				CameraShake.ShakeAll();
+
 				animal.whacked = true;
 				string animalName = animal.gameObject.name.Split (" " [0]) [0];
 				string soundName = animalName + "_" + "Tap";
